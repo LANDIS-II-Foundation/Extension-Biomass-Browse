@@ -1,0 +1,52 @@
+LandisData  "Dynamic Input Data"
+
+>> Year Ecoregion Species ProbEst MaxANPP MaxB
+>> -------- -------------
+0 eco1  acerrubr       0.0  	1175	26000	
+0 eco1  acersacc       0.0  	1106	26000	
+0 eco1  acerpenn       0.0  	1000	26000	
+0 eco1  betualle       0.0  	1202	26000	
+0 eco1  betunigr       0.0  	1202	26000	
+0 eco1  fagugran       0.0  	1000	26000
+0 eco1  fraxamer       0.0  	1202	26000	
+0 eco1  lirituli       0.0  	1000	26000	
+0 eco1  magnacum       0.0  	1000	26000	
+0 eco1  prunpenn       0.0  	1000	26000	
+0 eco1  prunsero       0.0  	1000	26000	
+0 eco1  tsugcana       0.0  	1096	26000	
+0 eco2  acerrubr       0.0  	1175	26000	
+0 eco2  acersacc       0.0  	1106	26000	
+0 eco2  acerpenn       0.0  	1000	26000	
+0 eco2  betualle       0.0  	1202	26000	
+0 eco2  betunigr       0.0  	1202	26000	
+0 eco2  fagugran       0.0  	1000	26000
+0 eco2  fraxamer       0.0  	1202	26000	
+0 eco2  lirituli       0.0  	1000	26000	
+0 eco2  magnacum       0.0  	1000	26000	
+0 eco2  prunpenn       0.0  	1000	26000	
+0 eco2  prunsero       0.0  	1000	26000	
+0 eco2  tsugcana       0.0  	1096	26000	
+0 eco3  acerrubr       0.0  	1175	26000	
+0 eco3  acersacc       0.0  	1106	26000	
+0 eco3  acerpenn       0.0  	1000	26000	
+0 eco3  betualle       0.0  	1202	26000	
+0 eco3  betunigr       0.0  	1202	26000	
+0 eco3  fagugran       0.0  	1000	26000
+0 eco3  fraxamer       0.0  	1202	26000	
+0 eco3  lirituli       0.0  	1000	26000	
+0 eco3  magnacum       0.0  	1000	26000	
+0 eco3  prunpenn       0.0  	1000	26000	
+0 eco3  prunsero       0.0  	1000	26000	
+0 eco3  tsugcana       0.0  	1096	26000	
+0 eco4  acerrubr       0.0  	1175	26000	
+0 eco4  acersacc       0.0  	1106	26000	
+0 eco4  acerpenn       0.0  	1000	26000	
+0 eco4  betualle       0.0  	1202	26000	
+0 eco4  betunigr       0.0  	1202	26000	
+0 eco4  fagugran       0.0  	1000	26000
+0 eco4  fraxamer       0.0  	1202	26000	
+0 eco4  lirituli       0.0  	1000	26000	
+0 eco4  magnacum       0.0  	1000	26000	
+0 eco4  prunpenn       0.0  	1000	26000	
+0 eco4  prunsero       0.0  	1000	26000	
+0 eco4  tsugcana       0.0  	1096	26000	

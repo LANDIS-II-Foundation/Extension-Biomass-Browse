@@ -1,0 +1,3 @@
+<?xml version="1.0"?>
+<!--<!DOCTYPE metadata SYSTEM "http://www.esri.com/metadata/esriprof80.dtd">-->
+<metadata xml:lang="en"><Esri><MetaID>{FC689824-E30D-4671-851B-6905CD3EDE9C}</MetaID><CreaDate>20130620</CreaDate><CreaTime>14522900</CreaTime><SyncOnce>TRUE</SyncOnce><DataProperties><lineage><Process Name="CopyRaster_2" ToolSource="C:\Program Files\ArcGIS\ArcToolbox\Toolboxes\Data Management Tools.tbx\CopyRaster" Date="20130620" Time="145229">CopyRaster "Reclass of Calculation2" C:\BRM\LANDIS_II\Code\landis-extensions\trunk\deer-browse\trunk\tests\examples\foursquare.img # # # NONE NONE #</Process></lineage></DataProperties></Esri></metadata>

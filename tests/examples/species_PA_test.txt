@@ -1,0 +1,17 @@
+LandisData  Species
+
+>>                      Sexual    Shade  Fire  Seed Disperal Dist  Vegetative   Sprout Age  Post-Fire
+>> Name      Longevity  Maturity  Tol.   Tol.  Effective  Maximum  Reprod Prob  Min   Max   Regen
+>> ----      ---------  --------  -----  ----  ---------  -------  -----------  ----------  --------
+  acerrubr     150       10        4      1       100       200       0.5        0   100   none
+  acersacc     300       40        5      1       100       200       0.1        0    60   none
+  acerpenn     100       10        5      1       100       200       0.1        0   100   none
+  betualle     300       40        4      2       100       400       0.1        0   180   none
+  betunigr     100       30        2      2       200      5000       0.5        0    70   resprout
+  fagugran     350       30        5      1       70        140       0.1        0   100   none
+  fraxamer     300       30        4      1       70        140       0.1        0    70   none
+  lirituli     300       20        2      1       60        200       0.5        0   200   none
+  magnacum     150       30        3      1       70        140       0.5        0   100   none
+  prunpenn     30        5         1      1       200       500       0.3      	 0    30   resprout
+  prunsero     200       20        3      1       200      3000       0.5        0   150   resprout
+  tsugcana     500       30        5      2        30       100       0          0     0   none
