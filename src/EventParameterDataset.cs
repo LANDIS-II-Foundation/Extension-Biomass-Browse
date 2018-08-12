@@ -1,7 +1,5 @@
-//  Copyright 2005-2010 Portland State University, University of Wisconsin
-//  Authors:    Robert M. Scheller, James B. Domingo
-
-using Edu.Wisc.Forest.Flel.Util;
+//  Authors:  Brian Miranda, Nate De Jager, Patrick Drohan
+//using Edu.Wisc.Forest.Flel.Util;
 
 namespace Landis.Extension.DeerBrowse
 {

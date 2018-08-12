@@ -1,7 +1,6 @@
-//  Copyright 2005-2010 Portland State University, University of Wisconsin
-//  Authors:    Robert M. Scheller, James B. Domingo
+//  Authors:  Brian Miranda, Nate De Jager, Patrick Drohan
 
-using Edu.Wisc.Forest.Flel.Util;
+using Landis.Utilities;
 using Landis.Core;
 using System.Collections.Generic;
 
@@ -27,7 +26,7 @@ namespace Landis.Extension.DeerBrowse
         public InputParameterParser()
         {
             // FIXME: Hack to ensure that Percentage is registered with InputValues
-            Edu.Wisc.Forest.Flel.Util.Percentage p = new Edu.Wisc.Forest.Flel.Util.Percentage();
+            //Edu.Wisc.Forest.Flel.Util.Percentage p = new Edu.Wisc.Forest.Flel.Util.Percentage();
             RegisterForInputValues();
         }
 

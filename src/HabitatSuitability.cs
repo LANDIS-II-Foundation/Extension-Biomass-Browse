@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿//  Authors:  Brian Miranda, Nate De Jager, Patrick Drohan
+
+using System.Collections.Generic;
 using Landis.SpatialModeling;
 
 namespace Landis.Extension.DeerBrowse
