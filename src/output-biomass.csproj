@@ -1,33 +1,29 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <RootNamespace>Landis.Extension.DeerBrowse</RootNamespace>
-    <AssemblyName>Landis.Extension.DeerBrowse-v4</AssemblyName>
-    <AssemblyTitle>Landis.Extension.DeerBrowse-v4</AssemblyTitle>
+    <RootNamespace>Landis.Extension.Output.Biomass</RootNamespace>
+    <AssemblyName>Landis.Extension.Output.Biomass-v3</AssemblyName>
+    <AssemblyTitle>Landis.Extension.Output.Biomass-v3</AssemblyTitle>
     <AssemblyCompany>Landis-II-Foundation</AssemblyCompany>
-    <AssemblyProduct>Landis.Extension.DeerBrowse-v4</AssemblyProduct>
+    <AssemblyProduct>Landis.Extension.Output.Biomass-v3</AssemblyProduct>
     <AssemblyCopyright>Landis-II-Foundation</AssemblyCopyright>
-    <AssemblyVersion>4.0</AssemblyVersion>
+    <AssemblyVersion>3.0</AssemblyVersion>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-    <RepositoryUrl>https://github.com/LANDIS-II-Foundation/Extension-Biomass-Browse</RepositoryUrl>
+    <RepositoryUrl>https://github.com/LANDIS-II-Foundation/Extension-Output-Biomass</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageLicenseUrl>https://github.com/LANDIS-II-Foundation/Extension-Biomass-Browse/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageLicenseUrl>https://github.com/LANDIS-II-Foundation/Extension-Output-Biomass/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>http://www.landis-ii.org</PackageProjectUrl>
     <NeutralLanguage>English</NeutralLanguage>
-    <Authors>Brian Miranda, Nate De Jager, Patrick Drohan</Authors>
-    <Product>Landis.Extension.DeerBrowse-v4</Product>
+    <Authors>Landis-II-Foundation</Authors>
+    <Product>Landis.Extension.Output.Biomass-v3</Product>
     <Copyright>Landis-II-Foundation</Copyright>
-    <Version>4.0</Version>
-    <PackageTags>LANDIS-II;Landis;Extension;Deer Brose</PackageTags>
-    <Description>Dynamic Ungulate Browse Extension</Description>
+    <Version>3.0</Version>
+    <PackageTags>LANDIS-II;Landis;Extension;Output Biomass</PackageTags>
+    <Description>Output Biomass Extension</Description>
     <PackageReleaseNotes>.NET Standard 2.0 update</PackageReleaseNotes>
     <FileVersion>7.0.0.0</FileVersion>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Compile Remove="IInputParameters.cs" />
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Landis.Core" Version="2.0.0" />
@@ -52,4 +48,3 @@
   </ItemGroup>
   
 </Project>
-

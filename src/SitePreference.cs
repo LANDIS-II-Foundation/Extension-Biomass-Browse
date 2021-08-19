@@ -1,4 +1,6 @@
-﻿using Landis.Core;
+﻿//  Authors:  Brian Miranda, Nate De Jager, Patrick Drohan
+
+using Landis.Core;
 using Landis.SpatialModeling;
 using Landis.Library.BiomassCohorts;
 

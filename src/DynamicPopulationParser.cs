@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Edu.Wisc.Forest.Flel.Util;
+using Landis.Utilities;
 
 namespace Landis.Extension.DeerBrowse
 {

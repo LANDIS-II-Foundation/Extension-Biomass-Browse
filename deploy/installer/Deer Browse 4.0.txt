@@ -1,0 +1,9 @@
+LandisData   Extension
+
+Name         "Deer Browse"
+Version      "4.0"
+Type         disturbance:browse
+Assembly     Landis.Extension.DeerBrowse
+Class        Landis.Extension.DeerBrowse.PlugIn
+Description  "Deer Browse Disturbance"
+CoreVersion  7.0

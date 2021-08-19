@@ -1,8 +1,6 @@
-//  Copyright 2005-2010 Portland State University, University of Wisconsin
-//  Authors:  Robert M. Scheller,   James B. Domingo
-//  BDA originally programmed by Wei (Vera) Li at University of Missouri-Columbia in 2004.
+//  Authors:  Brian Miranda, Nate De Jager, Patrick Drohan
 
-using Edu.Wisc.Forest.Flel.Util;
+using Landis.Utilities;
 
 namespace Landis.Extension.DeerBrowse
 {
