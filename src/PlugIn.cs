@@ -15,7 +15,7 @@ namespace Landis.Extension.DeerBrowse
     public class PlugIn
         : ExtensionMain
     {
-        public static readonly ExtensionType Type = new ExtensionType("disturbance:browse");
+        public static readonly ExtensionType ExtType = new ExtensionType("disturbance:browse");
         public static readonly string ExtensionName = "Dynamic Ungulate Browse";
         
         private string sitePrefMapNameTemplate;

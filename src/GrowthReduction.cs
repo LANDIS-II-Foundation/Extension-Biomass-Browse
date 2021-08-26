@@ -23,7 +23,7 @@ namespace Landis.Extension.DeerBrowse
         public static double ReduceCohortGrowth(ICohort cohort, ActiveSite site)
         {
             double reduction = 0;
-            double propBrowse = cohort.Data.LastBrowseProp;
+            double propBrowse = SiteVars.GetLastBrowseProportion(cohort, site); //cohort.Data.LastBrowseProp;
             double threshold = inputParameters.SppParameters[cohort.Species.Index].GrowthReductThresh;
 
             double max = inputParameters.SppParameters[cohort.Species.Index].GrowthReductMax;

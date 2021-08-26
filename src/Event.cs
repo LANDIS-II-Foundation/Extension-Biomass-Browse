@@ -274,12 +274,12 @@ namespace Landis.Extension.DeerBrowse
                         double firstPassRemoval = 0;
                         double firstPassRemovalInt = 0;
                         int cohortLoop = 0;
-                        foreach (Landis.Library.BiomassCohorts.ICohort cohort in siteCohortList)
+                        foreach (ICohort cohort in siteCohortList)
                         {
                             ISppParameters sppParms = parameters.SppParameters[cohort.Species.Index];
                             double browsePref = sppParms.BrowsePref;
 
-                            double availForage = cohort.ForageInReach;
+                            double availForage = SiteVars.GetForageInReach(cohort, site);
                             //totalForage += availForage;
                             firstPassRemoval += availForage * browsePref;
                             firstPassRemovalInt += Math.Round(availForage * browsePref);
@@ -354,7 +354,7 @@ namespace Landis.Extension.DeerBrowse
                                     double finalRemoval = adjFirstPassRemovalList[cohortLoop];
                                     if (forageRemoved < siteTotalToBrowse)
                                     {
-                                        double availForage = cohort.ForageInReach;
+                                        double availForage = SiteVars.GetForageInReach(cohort, site); // cohort.ForageInReach;
                                         //int prefIndex = preferenceList.IndexOf(browsePref);
                                         double prefClassForage = forageByPrefClass[prefLoop];
                                         double secondPassRemoval = 0;
@@ -386,7 +386,8 @@ namespace Landis.Extension.DeerBrowse
                                     if (propBrowse < 0 || propBrowse > 1)
                                         PlugIn.ModelCore.UI.WriteLine("   Browse Proportion not between 0 and 1");
                                     if (propBrowse > 0)
-                                        PartialDisturbance.RecordLastBrowseProp(cohort, propBrowse);
+                                        SiteVars.UpdateLastBrowseProportion(cohort, site, propBrowse);
+                                        //PartialDisturbance.RecordLastBrowseProportion(cohort, propBrowse);
                                     // Growth reduction is called by Biomass Succession and uses LastBrowseProp in its calculation
 
                                     // Add mortality
@@ -515,9 +516,10 @@ namespace Landis.Extension.DeerBrowse
                 int listCount = 0;
                 foreach (ICohort cohort in siteCohortList)
                 {
-                    int newForageinReach = (int)Math.Round(cohort.Forage * propInReachList[listCount]);
-                    if(newForageinReach > 0)
-                        PartialDisturbance.RecordForageInReach(cohort, newForageinReach);
+                    int newForageinReach = (int)Math.Round(SiteVars.GetForage(cohort, site) * propInReachList[listCount]);
+                    if (newForageinReach > 0)
+                        SiteVars.UpdateForageInReach(cohort, site, newForageinReach);
+                        //PartialDisturbance.RecordForageInReach(cohort, newForageinReach);
                     listCount++;
                 }
                 PartialDisturbance.UpdateForageInReach(site);

@@ -1,8 +1,7 @@
-//  Copyright 2005-2010 Portland State University, University of Wisconsin
-//  Authors:  Robert M. Scheller, James B. Domingo
+//  Authors:  Brian Miranda, Robert M. Scheller
 
 using Landis.SpatialModeling;
-//using Landis.Library.AgeOnlyCohorts;
+using Landis.Library.BiomassCohorts;
 using System.Collections.Generic;
 
 namespace Landis.Extension.DeerBrowse
@@ -10,8 +9,8 @@ namespace Landis.Extension.DeerBrowse
     public static class SiteVars
     {
         private static ISiteVar<double> sitePreference;
-        //private static ISiteVar<Landis.Library.AgeOnlyCohorts.ISiteCohorts> ageCohorts;
-        private static ISiteVar<Landis.Library.BiomassCohorts.ISiteCohorts> biomassCohorts;
+        private static ISiteVar<Landis.Library.AgeOnlyCohorts.ISiteCohorts> ageCohorts;
+        private static ISiteVar<ISiteCohorts> biomassCohorts;
         private static ISiteVar<double> neighborhoodForage;
         private static ISiteVar<double> browseIndex;
         private static ISiteVar<double> browseDisturbance;
@@ -29,9 +28,13 @@ namespace Landis.Extension.DeerBrowse
         private static ISiteVar<int> ecoMaxBiomass;
         private static ISiteVar<List<Landis.Library.BiomassCohorts.ICohort>> siteCohortList;
 
+        public static ISiteVar<Dictionary<ushort, Dictionary<int, double>>> Forage;
+        public static ISiteVar<Dictionary<ushort, Dictionary<int, double>>> ForageInReach;
+        public static ISiteVar<Dictionary<ushort, Dictionary<int, double>>> LastBrowseProportion;
+
 
         //private static ISiteVar<int> youngCohortCount;
-        
+
         //---------------------------------------------------------------------
 
         public static string Initialize()
@@ -73,19 +76,41 @@ namespace Landis.Extension.DeerBrowse
         public static void ReInitialize()
         {
             biomassCohorts = PlugIn.ModelCore.GetSiteVar<Landis.Library.BiomassCohorts.ISiteCohorts>("Succession.BiomassCohorts");
-            //ageCohorts = PlugIn.ModelCore.GetSiteVar<Landis.Library.AgeOnlyCohorts.ISiteCohorts>("Succession.AgeCohorts");
         }
         //---------------------------------------------------------------------
-        /*public static ISiteVar<Landis.Library.AgeOnlyCohorts.ISiteCohorts> AgeCohorts
+        public static void UpdateForage(ICohort cohort, ActiveSite site, double forage)
         {
-            get
-            {
-                return ageCohorts;
-            }
+            return;
         }
-         * */
+
+        public static void UpdateForageInReach(ICohort cohort, ActiveSite site, double forageInReach)
+        {
+            return;
+        }
+
+        public static void UpdateLastBrowseProportion(ICohort cohort, ActiveSite site, double lastBrowseProportion)
+        {
+            return;
+        }
+
+        public static double GetForage(ICohort cohort, ActiveSite site)
+        {
+            return 0.0;
+        }
+
+        public static double GetForageInReach(ICohort cohort, ActiveSite site)
+        {
+            return 0.0;
+        }
+
+        public static double GetLastBrowseProportion(ICohort cohort, ActiveSite site)
+        {
+            return 0.0;
+        }
+
+
         //---------------------------------------------------------------------
-        public static ISiteVar<Landis.Library.BiomassCohorts.ISiteCohorts> BiomassCohorts
+        public static ISiteVar<ISiteCohorts> BiomassCohorts
         {
             get
             {
