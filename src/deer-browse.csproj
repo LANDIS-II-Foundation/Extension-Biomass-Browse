@@ -1,28 +1,28 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <Description>Dynamic Ungulate Browse Extension</Description>
     <RootNamespace>Landis.Extension.DeerBrowse</RootNamespace>
     <AssemblyName>Landis.Extension.DeerBrowse-v4</AssemblyName>
     <AssemblyTitle>Landis.Extension.DeerBrowse-v4</AssemblyTitle>
-    <AssemblyCompany>Landis-II-Foundation</AssemblyCompany>
     <AssemblyProduct>Landis.Extension.DeerBrowse-v4</AssemblyProduct>
     <AssemblyCopyright>Landis-II-Foundation</AssemblyCopyright>
-    <AssemblyVersion>4.0</AssemblyVersion>
+    <AssemblyCompany>Landis-II-Foundation</AssemblyCompany>
+    <Authors>Brian Miranda, Nate De Jager, Patrick Drohan</Authors>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <RepositoryUrl>https://github.com/LANDIS-II-Foundation/Extension-Biomass-Browse</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageLicenseUrl>https://github.com/LANDIS-II-Foundation/Extension-Biomass-Browse/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>http://www.landis-ii.org</PackageProjectUrl>
-    <NeutralLanguage>English</NeutralLanguage>
-    <Authors>Brian Miranda, Nate De Jager, Patrick Drohan</Authors>
-    <Product>Landis.Extension.DeerBrowse-v4</Product>
-    <Copyright>Landis-II-Foundation</Copyright>
-    <Version>4.0</Version>
     <PackageTags>LANDIS-II;Landis;Extension;Deer Brose</PackageTags>
-    <Description>Dynamic Ungulate Browse Extension</Description>
     <PackageReleaseNotes>.NET Standard 2.0 update</PackageReleaseNotes>
-    <FileVersion>7.0.0.0</FileVersion>
+    <NeutralLanguage>English</NeutralLanguage>
+    <Copyright>Landis-II-Foundation</Copyright>
+    <FileVersion>4.0.0.0</FileVersion>
+    <AssemblyVersion>4.0</AssemblyVersion>
+    <Product>Landis.Extension.DeerBrowse-v4</Product>
+    <Version>4.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
