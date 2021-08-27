@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Landis.SpatialModeling;
 using Landis.Library.BiomassCohorts;
-using Landis.Library.AgeOnlyCohorts;
+//using Landis.Library.AgeOnlyCohorts;
 
 namespace Landis.Extension.DeerBrowse
 {
@@ -26,13 +26,13 @@ namespace Landis.Extension.DeerBrowse
                 if (propRemove > 0)
                 {
                     int cohortCount = 0;
-                    if (parameters.SuccessionMethod == "AgeOnly")
-                    {
+                    //if (parameters.SuccessionMethod == "AgeOnly")
+                    //{
                         // Sort young cohorts by decreasing preference
-                        List<Landis.Library.AgeOnlyCohorts.ICohort> cohortList = new List<Landis.Library.AgeOnlyCohorts.ICohort>();
-                        foreach (Landis.Library.AgeOnlyCohorts.ISpeciesCohorts speciesCohorts in SiteVars.AgeCohorts[site])
+                        List<ICohort> cohortList = new List<ICohort>();
+                        foreach (ISpeciesCohorts speciesCohorts in SiteVars.BiomassCohorts[site])
                         {
-                            foreach (Landis.Library.AgeOnlyCohorts.ICohort cohort in speciesCohorts)
+                            foreach (ICohort cohort in speciesCohorts)
                             {
                                 if (cohort.Age <= 10)
                                 {
@@ -45,7 +45,7 @@ namespace Landis.Extension.DeerBrowse
                         int cohortsToRemove = (int)Math.Round((double)cohortCount * propRemove);
 
                         int cohortsRemoved = 0;
-                        foreach (Landis.Library.AgeOnlyCohorts.ICohort cohort in cohortList)
+                        foreach (ICohort cohort in cohortList)
                         {
                             if (cohortsRemoved < cohortsToRemove)
                             {
@@ -57,11 +57,11 @@ namespace Landis.Extension.DeerBrowse
                             }
 
                         }
-                    }
-                    else // (parameters.SuccessionMethod == "Biomass")
-                    {
-                        //PartialDisturbance.RecordBiomassReduction(cohort, remainBioRem);
-                    }
+                    //}
+                    //else // (parameters.SuccessionMethod == "Biomass")
+                    //{
+                    //    //PartialDisturbance.RecordBiomassReduction(cohort, remainBioRem);
+                    //}
 
                 }
             }

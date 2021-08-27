@@ -9,7 +9,7 @@ namespace Landis.Extension.DeerBrowse
     public static class SiteVars
     {
         private static ISiteVar<double> sitePreference;
-        private static ISiteVar<Landis.Library.AgeOnlyCohorts.ISiteCohorts> ageCohorts;
+        //private static ISiteVar<Landis.Library.AgeOnlyCohorts.ISiteCohorts> ageCohorts;
         private static ISiteVar<ISiteCohorts> biomassCohorts;
         private static ISiteVar<double> neighborhoodForage;
         private static ISiteVar<double> browseIndex;
@@ -28,16 +28,16 @@ namespace Landis.Extension.DeerBrowse
         private static ISiteVar<int> ecoMaxBiomass;
         private static ISiteVar<List<Landis.Library.BiomassCohorts.ICohort>> siteCohortList;
 
-        public static ISiteVar<Dictionary<ushort, Dictionary<int, double>>> Forage;
-        public static ISiteVar<Dictionary<ushort, Dictionary<int, double>>> ForageInReach;
-        public static ISiteVar<Dictionary<ushort, Dictionary<int, double>>> LastBrowseProportion;
+        public static ISiteVar<Dictionary<int, Dictionary<int, double>>> Forage;
+        public static ISiteVar<Dictionary<int, Dictionary<int, double>>> ForageInReach;
+        public static ISiteVar<Dictionary<int, Dictionary<int, double>>> LastBrowseProportion;
 
 
         //private static ISiteVar<int> youngCohortCount;
 
         //---------------------------------------------------------------------
 
-        public static string Initialize()
+        public static void Initialize()
         {
             sitePreference = PlugIn.ModelCore.Landscape.NewSiteVar<double>();
             neighborhoodForage = PlugIn.ModelCore.Landscape.NewSiteVar<double>();
@@ -60,15 +60,15 @@ namespace Landis.Extension.DeerBrowse
 
             biomassCohorts = PlugIn.ModelCore.GetSiteVar<Landis.Library.BiomassCohorts.ISiteCohorts>("Succession.BiomassCohorts");
 
-            if (biomassCohorts == null)
-            {
-                //ageCohorts = PlugIn.ModelCore.GetSiteVar<Landis.Library.AgeOnlyCohorts.ISiteCohorts>("Succession.AgeCohorts");
-                return "AgeOnly";
-            }
-            else
-            {
-                return "Biomass";
-            }
+            //if (biomassCohorts == null)
+            //{
+            //    //ageCohorts = PlugIn.ModelCore.GetSiteVar<Landis.Library.AgeOnlyCohorts.ISiteCohorts>("Succession.AgeCohorts");
+            //    return "AgeOnly";
+            //}
+            //else
+            //{
+            //    return "Biomass";
+            //}
           
 
         }
@@ -78,34 +78,128 @@ namespace Landis.Extension.DeerBrowse
             biomassCohorts = PlugIn.ModelCore.GetSiteVar<Landis.Library.BiomassCohorts.ISiteCohorts>("Succession.BiomassCohorts");
         }
         //---------------------------------------------------------------------
-        public static void UpdateForage(ICohort cohort, ActiveSite site, double forage)
+        public static void SetForage(ICohort cohort, ActiveSite site, double new_forage)
         {
-            return;
+
+            int cohortAddYear = GetAddYear(cohort);
+            Dictionary<int, double> cohortDict;
+            double oldForage;
+
+
+            // If the dictionary entry exists for the cohort, overwrite it:
+            if (Forage[site].TryGetValue(cohort.Species.Index, out cohortDict))
+                if (cohortDict.TryGetValue(cohortAddYear, out oldForage))
+                {
+                    Forage[site][cohort.Species.Index][cohortAddYear] = new_forage;
+                    return;
+                }
+
+            // If the dictionary does not exist for the cohort, create it:
+            Dictionary<int, double> newEntry = new Dictionary<int, double>();
+            newEntry.Add(cohortAddYear, new_forage);
+
+            if (Forage[site].ContainsKey(cohort.Species.Index))
+            {
+                Forage[site][cohort.Species.Index].Add(cohortAddYear, new_forage);
+            }
+            else
+            {
+                Forage[site].Add(cohort.Species.Index, newEntry);
+            }
         }
 
-        public static void UpdateForageInReach(ICohort cohort, ActiveSite site, double forageInReach)
+        public static void SetForageInReach(ICohort cohort, ActiveSite site, double forageInReach)
         {
-            return;
+            int cohortAddYear = GetAddYear(cohort);
+            Dictionary<int, double> cohortDict;
+            double oldForageInReach;
+
+
+            // If the dictionary entry exists for the cohort, overwrite it:
+            if (Forage[site].TryGetValue(cohort.Species.Index, out cohortDict))
+                if (cohortDict.TryGetValue(cohortAddYear, out oldForageInReach))
+                {
+                    Forage[site][cohort.Species.Index][cohortAddYear] = forageInReach;
+                    return;
+                }
+
+            // If the dictionary does not exist for the cohort, create it:
+            Dictionary<int, double> newEntry = new Dictionary<int, double>();
+            newEntry.Add(cohortAddYear, forageInReach);
+
+            if (Forage[site].ContainsKey(cohort.Species.Index))
+            {
+                Forage[site][cohort.Species.Index].Add(cohortAddYear, forageInReach);
+            }
+            else
+            {
+                Forage[site].Add(cohort.Species.Index, newEntry);
+            }
         }
 
-        public static void UpdateLastBrowseProportion(ICohort cohort, ActiveSite site, double lastBrowseProportion)
+        public static void SetLastBrowseProportion(ICohort cohort, ActiveSite site, double lastBrowseProportion)
         {
-            return;
+            int cohortAddYear = GetAddYear(cohort);
+            Dictionary<int, double> cohortDict;
+            double oldValue;
+
+
+            // If the dictionary entry exists for the cohort, overwrite it:
+            if (Forage[site].TryGetValue(cohort.Species.Index, out cohortDict))
+                if (cohortDict.TryGetValue(cohortAddYear, out oldValue))
+                {
+                    Forage[site][cohort.Species.Index][cohortAddYear] = lastBrowseProportion;
+                    return;
+                }
+
+            // If the dictionary does not exist for the cohort, create it:
+            Dictionary<int, double> newEntry = new Dictionary<int, double>();
+            newEntry.Add(cohortAddYear, lastBrowseProportion);
+
+            if (Forage[site].ContainsKey(cohort.Species.Index))
+            {
+                Forage[site][cohort.Species.Index].Add(cohortAddYear, lastBrowseProportion);
+            }
+            else
+            {
+                Forage[site].Add(cohort.Species.Index, newEntry);
+            }
         }
 
         public static double GetForage(ICohort cohort, ActiveSite site)
         {
-            return 0.0;
+            Dictionary<int, double> cohortDict;
+            int cohortAddYear = GetAddYear(cohort);
+            double forage = 0.0;
+
+            if (Forage[site].TryGetValue(cohort.Species.Index, out cohortDict))
+                cohortDict.TryGetValue(cohortAddYear, out forage); 
+            
+            return forage;
         }
 
         public static double GetForageInReach(ICohort cohort, ActiveSite site)
         {
-            return 0.0;
+            Dictionary<int, double> cohortDict;
+            int cohortAddYear = GetAddYear(cohort);
+            double forageInReach = 0.0;
+
+            if (ForageInReach[site].TryGetValue(cohort.Species.Index, out cohortDict))
+                cohortDict.TryGetValue(cohortAddYear, out forageInReach);
+
+            return forageInReach;
         }
 
         public static double GetLastBrowseProportion(ICohort cohort, ActiveSite site)
         {
-            return 0.0;
+            Dictionary<int, double> cohortDict;
+            int cohortAddYear = GetAddYear(cohort);
+            double lastBrowseProportion = 0.0;
+
+            if (LastBrowseProportion[site].TryGetValue(cohort.Species.Index, out cohortDict))
+                cohortDict.TryGetValue(cohortAddYear, out lastBrowseProportion);
+
+            return lastBrowseProportion;
         }
 
 
@@ -141,13 +235,13 @@ namespace Landis.Extension.DeerBrowse
             }
         }
         //---------------------------------------------------------------------
-        public static ISiteVar<double> BrowseDisturbance
-        {
-            get
-            {
-                return browseDisturbance;
-            }
-        }
+        //public static ISiteVar<double> BrowseDisturbance
+        //{
+        //    get
+        //    {
+        //        return browseDisturbance;
+        //    }
+        //}
         //---------------------------------------------------------------------
         public static ISiteVar<int> PopulationZone
         {
@@ -197,21 +291,21 @@ namespace Landis.Extension.DeerBrowse
             }
         }
         //---------------------------------------------------------------------
-        public static ISiteVar<double> CappedBrowse
-        {
-            get
-            {
-                return cappedBrowse;
-            }
-        }
+        //public static ISiteVar<double> CappedBrowse
+        //{
+        //    get
+        //    {
+        //        return cappedBrowse;
+        //    }
+        //}
         //---------------------------------------------------------------------
-        public static ISiteVar<double> RemainBrowse
-        {
-            get
-            {
-                return remainBrowse;
-            }
-        }
+        //public static ISiteVar<double> RemainBrowse
+        //{
+        //    get
+        //    {
+        //        return remainBrowse;
+        //    }
+        //}
         //---------------------------------------------------------------------
         /// <summary>
         /// Total Browse To Be Removed
@@ -248,12 +342,19 @@ namespace Landis.Extension.DeerBrowse
             }
         }
         //---------------------------------------------------------------------
-        public static ISiteVar<List<Landis.Library.BiomassCohorts.ICohort>> SiteCohortList
+        //public static ISiteVar<List<Landis.Library.BiomassCohorts.ICohort>> SiteCohortList
+        //{
+        //    get
+        //    {
+        //        return siteCohortList;
+        //    }
+        //}
+        //---------------------------------------------------------------------
+        private static int GetAddYear(ICohort cohort)
         {
-            get
-            {
-                return siteCohortList;
-            }
+            int currentYear = PlugIn.ModelCore.CurrentTime;
+            int cohortAddYear = currentYear - cohort.Age;
+            return cohortAddYear;
         }
 
         //---------------------------------------------------------------------
@@ -265,6 +366,6 @@ namespace Landis.Extension.DeerBrowse
             }
         }
         */
-    //---------------------------------------------------------------------
+        //---------------------------------------------------------------------
     }
 }

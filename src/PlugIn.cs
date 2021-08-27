@@ -33,7 +33,7 @@ namespace Landis.Extension.DeerBrowse
         //---------------------------------------------------------------------
 
         public PlugIn()
-            : base(ExtensionName, Type)
+            : base(ExtensionName, ExtType)
         {
         }
 
@@ -79,7 +79,7 @@ namespace Landis.Extension.DeerBrowse
             sitePopMapNamesTemplate = parameters.SitePopMapNamesTemplate;
             biomassRemovedMapNameTemplate = parameters.BiomassRemovedMapNamesTemplate;
 
-            parameters.SuccessionMethod = SiteVars.Initialize();
+            SiteVars.Initialize();
 
             PopulationZones.ReadMap(parameters.ZoneMapFileName);
 

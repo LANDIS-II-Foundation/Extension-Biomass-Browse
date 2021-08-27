@@ -15,7 +15,7 @@ namespace Landis.Extension.DeerBrowse
         /// Forage calculations use forage in reach
         /// </summary>
         /// <param name="parameters"></param>
-        public static void CalcSiteForage(IInputParameters parameters, Site site)
+        public static void CalcSiteForage(IInputParameters parameters, ActiveSite site)
         {
             //PlugIn.ModelCore.UI.WriteLine("   Calculating Site Preference & Forage.");
 
@@ -37,12 +37,12 @@ namespace Landis.Extension.DeerBrowse
                         if ((browsePref > 0) || (parameters.CountNonForage))
                         {
                             sumPref += browsePref;
-                            weightPref += (browsePref * cohort.ForageInReach);
+                            weightPref += (browsePref * SiteVars.GetForageInReach(cohort, site));
                             countCohorts += 1;
-                            sumWeight += cohort.ForageInReach;
+                            sumWeight += SiteVars.GetForageInReach(cohort, site);
                         }
                         if (browsePref > 0)
-                            sumForage += cohort.ForageInReach;
+                            sumForage += SiteVars.GetForageInReach(cohort, site);
                     }
                 }
             }

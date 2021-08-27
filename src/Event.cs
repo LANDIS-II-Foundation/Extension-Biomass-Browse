@@ -327,7 +327,7 @@ namespace Landis.Extension.DeerBrowse
                         int adjIndex = 0;
                         foreach (var i in adjFirstPassRemovalList)
                         {
-                            remainingBrowseList[adjIndex] = siteCohortList[adjIndex].ForageInReach - adjFirstPassRemovalList[adjIndex];
+                            remainingBrowseList[adjIndex] = SiteVars.GetForageInReach(siteCohortList[adjIndex], site) - adjFirstPassRemovalList[adjIndex];
                             adjIndex++;
                         }
                         double unallocatedBrowse = siteTotalToBrowse - adjFirstPassRemovalInt;
@@ -380,13 +380,13 @@ namespace Landis.Extension.DeerBrowse
                                     siteTotalRemoval += finalRemoval;
 
                                     double propBrowse = 0;
-                                    if (siteCohortList[cohortLoop].Forage > 0)
-                                        propBrowse = finalRemoval / siteCohortList[cohortLoop].Forage;
+                                    if (SiteVars.GetForage(siteCohortList[cohortLoop], site) > 0)//siteCohortList[cohortLoop].Forage > 0)
+                                        propBrowse = finalRemoval / SiteVars.GetForage(siteCohortList[cohortLoop], site); // siteCohortList[cohortLoop].Forage;
                                     propBrowseList[cohortLoop] = propBrowse;
                                     if (propBrowse < 0 || propBrowse > 1)
                                         PlugIn.ModelCore.UI.WriteLine("   Browse Proportion not between 0 and 1");
                                     if (propBrowse > 0)
-                                        SiteVars.UpdateLastBrowseProportion(cohort, site, propBrowse);
+                                        SiteVars.SetLastBrowseProportion(cohort, site, propBrowse);
                                         //PartialDisturbance.RecordLastBrowseProportion(cohort, propBrowse);
                                     // Growth reduction is called by Biomass Succession and uses LastBrowseProp in its calculation
 
@@ -432,11 +432,7 @@ namespace Landis.Extension.DeerBrowse
                         this.zoneSitesDamaged[popZone.Index] += 1;
                     }
                     PartialDisturbance.ReduceCohortBiomass(site);
-                    PartialDisturbance.UpdateLastBrowseProp(site);
-                    //bool testSiteRemoval = (Math.Round(siteTotalRemoval) == Math.Round(SiteVars.TotalBrowse[site]));
-                    //string msgSiteRemove = "";
-                    //if (!testSiteRemoval)
-                    //    msgSiteRemove = "Does not match";
+                    //PartialDisturbance.UpdateLastBrowseProp(site); RMS: Necessary??
                 }
                 //bool testPop = (totalPop == popZone.EffectivePop);
                 //bool testForage = (totalForage == PopulationZones.Dataset[popZone.Index].TotalForage);
@@ -480,7 +476,8 @@ namespace Landis.Extension.DeerBrowse
                             int newForage = 0;
                             if ((browsePref > 0) || (parameters.CountNonForage))
                             {
-                                newForage = (int)Math.Round(cohort.ANPP * parameters.ANPPForageProp);
+                                //newForage = (int)Math.Round(cohort.ANPP * parameters.ANPPForageProp);
+                                newForage = (int)Math.Round((cohort.Biomass * 0.1) * parameters.ANPPForageProp);  // RMS:  Using 10% approximation for now; will update from Keeling curve later.
                                 if (cohort.Age == 1)
                                 {
                                     if (parameters.UseInitBiomass)
@@ -489,14 +486,14 @@ namespace Landis.Extension.DeerBrowse
                                         newForage = 0;
                                 }
                             }
-                            cohort.ChangeForage(newForage);
-                            if(newForage > 0)
-                                PartialDisturbance.RecordForage(cohort, newForage);
+                            SiteVars.SetForage(cohort, site, newForage); // cohort.ChangeForage(newForage);
+                            //if(newForage > 0)
+                            //    PartialDisturbance.RecordForage(cohort, newForage);
                         }
                     }
                     
                 }
-                PartialDisturbance.UpdateForage(site);
+                //PartialDisturbance.UpdateForage(site); RMS: Necessary?
 
                 List<ICohort> siteCohortList = new List<ICohort>();
                 foreach (ISpecies species in PlugIn.ModelCore.Species)
@@ -518,11 +515,11 @@ namespace Landis.Extension.DeerBrowse
                 {
                     int newForageinReach = (int)Math.Round(SiteVars.GetForage(cohort, site) * propInReachList[listCount]);
                     if (newForageinReach > 0)
-                        SiteVars.UpdateForageInReach(cohort, site, newForageinReach);
+                        SiteVars.SetForageInReach(cohort, site, newForageinReach);
                         //PartialDisturbance.RecordForageInReach(cohort, newForageinReach);
                     listCount++;
                 }
-                PartialDisturbance.UpdateForageInReach(site);
+                //PartialDisturbance.UpdateForageInReach(site);  RMS: Necessary?
 
                 //  Calculate Site BrowsePreference and ForageQuantity
                 SitePreference.CalcSiteForage(parameters, site);

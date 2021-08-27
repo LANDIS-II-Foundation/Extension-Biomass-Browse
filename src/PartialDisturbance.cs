@@ -20,7 +20,7 @@ namespace Landis.Extension.DeerBrowse
         private static ActiveSite currentSite;
 
         //---------------------------------------------------------------------
-        ActiveSite Landis.Library.BiomassCohorts.IDisturbance.CurrentSite
+        ActiveSite IDisturbance.CurrentSite
         {
             get
             {
@@ -33,7 +33,7 @@ namespace Landis.Extension.DeerBrowse
         {
             get
             {
-                return PlugIn.Type;
+                return PlugIn.ExtType;
             }
         }
 
@@ -163,7 +163,7 @@ namespace Landis.Extension.DeerBrowse
                 foreach (ICohort cohort in species)
                 {
                     {
-                        SiteVars.UpdateForage(cohort, site, 0.0);
+                        SiteVars.SetForage(cohort, site, 0.0);
                     }
                 }
         }
@@ -190,7 +190,7 @@ namespace Landis.Extension.DeerBrowse
                 foreach (ICohort cohort in species)
                 {
                     {
-                        SiteVars.UpdateForageInReach(cohort, site, 0.0);
+                        SiteVars.SetForageInReach(cohort, site, 0.0);
                     }
                 }
         }
@@ -215,7 +215,7 @@ namespace Landis.Extension.DeerBrowse
                 foreach (ICohort cohort in species)
                 {
                     {
-                        SiteVars.UpdateLastBrowseProportion(cohort, site, 0.0);
+                        SiteVars.SetLastBrowseProportion(cohort, site, 0.0);
                     }
                 }
         }
