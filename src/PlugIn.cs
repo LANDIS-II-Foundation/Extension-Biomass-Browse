@@ -16,7 +16,7 @@ namespace Landis.Extension.Browse
         : ExtensionMain
     {
         public static readonly ExtensionType ExtType = new ExtensionType("disturbance:browse");
-        public static readonly string ExtensionName = "Dynamic Ungulate Browse";
+        public static readonly string ExtensionName = "Biomass Browse";
         
         private string sitePrefMapNameTemplate;
         private string siteForageMapNameTemplate;

@@ -1,4 +1,4 @@
-LandisData  "Dynamic Ungulate Browse"
+LandisData  "Biomass Browse"
 
 Timestep 1
 

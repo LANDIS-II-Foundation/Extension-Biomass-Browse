@@ -1,5 +1,4 @@
-//  Copyright 2005-2010 Portland State University, University of Wisconsin
-//  Authors:  Robert M. Scheller, James B. Domingo
+//  Authors:  Brian Miranda, Nate De Jager, Patrick Drohan, Robert Scheller
 
 using System;
 using System.Collections.Generic;
@@ -379,13 +378,13 @@ namespace Landis.Extension.Browse
                                     //totalRemoval += finalRemoval;
                                     siteTotalRemoval += finalRemoval;
 
-                                    double propBrowse = 0;
+                                    double propBrowse = 0.0;
                                     if (SiteVars.GetForage(siteCohortList[cohortLoop], site) > 0)//siteCohortList[cohortLoop].Forage > 0)
                                         propBrowse = finalRemoval / SiteVars.GetForage(siteCohortList[cohortLoop], site); // siteCohortList[cohortLoop].Forage;
                                     propBrowseList[cohortLoop] = propBrowse;
-                                    if (propBrowse < 0 || propBrowse > 1)
-                                        PlugIn.ModelCore.UI.WriteLine("   Browse Proportion not between 0 and 1");
-                                    if (propBrowse > 0)
+                                    if (propBrowse < 0.0 || propBrowse > 1.0)
+                                        PlugIn.ModelCore.UI.WriteLine("   Browse Proportion not between 0 and 1: {0}", propBrowse);
+                                    if (propBrowse > 0.0)
                                         SiteVars.SetLastBrowseProportion(cohort, site, propBrowse);
                                         //PartialDisturbance.RecordLastBrowseProportion(cohort, propBrowse);
                                     // Growth reduction is called by Biomass Succession and uses LastBrowseProp in its calculation

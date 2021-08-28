@@ -1,6 +1,6 @@
 ; LANDIS-II Extension infomation
 #define CoreRelease "LANDIS-II-V7"
-#define ExtensionName "Browse"
+#define ExtensionName "Biomass Browse"
 #define AppVersion "1.0"
 #define AppPublisher "LANDIS-II Foundation"
 #define AppURL "http://www.landis-ii.org/"
@@ -46,6 +46,7 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 ; NB: Do not put an additional version number in the file name of this .dll
 ; (The name of this .dll is defined in the extension's \src\*.csproj file)
 Source: {#BuildDir}\Landis.Extension.Browse-v1.dll; DestDir: {#ExtDir}; Flags: replacesameversion
+Source: {#BuildDir}\Landis.Extension.Browse-v1.pdb; DestDir: {#ExtDir}; Flags: replacesameversion
 
 ; Requisite auxiliary libraries
 ; NB. These libraries are used by other extensions and thus are never uninstalled.
@@ -64,12 +65,12 @@ Source: {#InfoTxt}; DestDir: {#LandisPlugInDir}
 
 
 [Run]
-Filename: {#ExtensionsCmd}; Parameters: "remove ""Browse"" "; WorkingDir: {#LandisPlugInDir}
+Filename: {#ExtensionsCmd}; Parameters: "remove ""Biomass Browse"" "; WorkingDir: {#LandisPlugInDir}
 Filename: {#ExtensionsCmd}; Parameters: "add ""{#InfoTxt}"" "; WorkingDir: {#LandisPlugInDir} 
 
 
 [UninstallRun]
 ; Remove "Age-Only Succession" from "extensions.xml" file.
-Filename: {#ExtensionsCmd}; Parameters: "remove ""Deer Browse"" "; WorkingDir: {#LandisPlugInDir}
+Filename: {#ExtensionsCmd}; Parameters: "remove ""Biomass Browse"" "; WorkingDir: {#LandisPlugInDir}
 
 

@@ -153,20 +153,20 @@ namespace Landis.Extension.Browse
         //    else
         //        return 0;
         //}
-        //---------------------------------------------------------------------
-        public static void UpdateForage(ActiveSite site)
-        {
-            //currentSite = site;
+        ////---------------------------------------------------------------------
+        //public static void UpdateForage(ActiveSite site)
+        //{
+        //    //currentSite = site;
 
-            //PlugIn.ModelCore.Log.WriteLine("ReducingCohortBiomass NOW!");
-            foreach (ISpeciesCohorts species in SiteVars.BiomassCohorts[site])
-                foreach (ICohort cohort in species)
-                {
-                    {
-                        SiteVars.SetForage(cohort, site, 0.0);
-                    }
-                }
-        }
+        //    //PlugIn.ModelCore.Log.WriteLine("ReducingCohortBiomass NOW!");
+        //    foreach (ISpeciesCohorts species in SiteVars.BiomassCohorts[site])
+        //        foreach (ICohort cohort in species)
+        //        {
+        //            {
+        //                SiteVars.SetForage(cohort, site, 0.0);
+        //            }
+        //        }
+        //}
     
     ////---------------------------------------------------------------------
     //int IDisturbance.ChangeForageInReach(ICohort cohort)
@@ -181,19 +181,19 @@ namespace Landis.Extension.Browse
     //    }
         //---------------------------------------------------------------------
 
-        public static void UpdateForageInReach(ActiveSite site)
-        {
-            currentSite = site;
+        //public static void UpdateForageInReach(ActiveSite site)
+        //{
+        //    currentSite = site;
 
-            //PlugIn.ModelCore.Log.WriteLine("ReducingCohortBiomass NOW!");
-            foreach (ISpeciesCohorts species in SiteVars.BiomassCohorts[site])
-                foreach (ICohort cohort in species)
-                {
-                    {
-                        SiteVars.SetForageInReach(cohort, site, 0.0);
-                    }
-                }
-        }
+        //    //PlugIn.ModelCore.Log.WriteLine("ReducingCohortBiomass NOW!");
+        //    foreach (ISpeciesCohorts species in SiteVars.BiomassCohorts[site])
+        //        foreach (ICohort cohort in species)
+        //        {
+        //            {
+        //                SiteVars.SetForageInReach(cohort, site, 0.0);
+        //            }
+        //        }
+        //}
         ////---------------------------------------------------------------------
         //double IDisturbance.ChangeLastBrowseProp(ICohort cohort)
         //{
@@ -206,19 +206,19 @@ namespace Landis.Extension.Browse
         //        return 0;
         //}
         //---------------------------------------------------------------------
-        public static void UpdateLastBrowseProp(ActiveSite site)
-        {
-            currentSite = site;
+        //public static void UpdateLastBrowseProp(ActiveSite site)
+        //{
+        //    currentSite = site;
 
-            //PlugIn.ModelCore.Log.WriteLine("ReducingCohortBiomass NOW!");
-            foreach (ISpeciesCohorts species in SiteVars.BiomassCohorts[site])
-                foreach (ICohort cohort in species)
-                {
-                    {
-                        SiteVars.SetLastBrowseProportion(cohort, site, 0.0);
-                    }
-                }
-        }
+        //    //PlugIn.ModelCore.Log.WriteLine("ReducingCohortBiomass NOW!");
+        //    foreach (ISpeciesCohorts species in SiteVars.BiomassCohorts[site])
+        //        foreach (ICohort cohort in species)
+        //        {
+        //            {
+        //                SiteVars.SetLastBrowseProportion(cohort, site, 0.0);
+        //            }
+        //        }
+        //}
     }
     //---------------------------------------------------------------------
 }

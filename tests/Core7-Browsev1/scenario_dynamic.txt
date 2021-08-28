@@ -16,13 +16,12 @@ CellLength  100 << meters, 100 x 100 m = 1 ha
 
 >> Succession Extension     Initialization File
 >> --------------------     -------------------
-   "Biomass Succession vBrowse"    biomass-succession.txt
+   "Biomass Succession"    biomass-succession.txt
 
 
 >> Disturbance Extensions   Initialization File
 >> ----------------------   -------------------
-  "Biomass Harvest vBrowse" BiomassHarvest-v1.2-Sample-Input.txt
-   "Deer Browse"	    DynamicUngulateBrowse.txt
+   "Browse"	    DynamicUngulateBrowse.txt
 
 >>   DisturbancesRandomOrder  yes  << optional parameter; default = no
 

@@ -14,7 +14,7 @@ MinRelativeBiomass
 >> Site Shade	Percent Max Biomass
 >> Class	by Ecoregions
 >> ----------	--------------------	
-	        eco1   eco2  
+	        101   102  
 
 	1	15%    15%
 	2	25%    25%
@@ -33,38 +33,28 @@ SufficientLight
 	4	1.0	1.0	1.0	1.0	0.0	0.0
 	5	0.0	0.0	1.0	1.0	1.0	1.0
 
-SpeciesParameters
-
->> Species   Leaf	WoodyBiomass	Mortality	Growth	Leaf	
->>	     Longevity	DecayRate	ShapeParam	Shape	Lignin%	
->> --------  ---------	---------	----------	------	----    
-   abiebals   3.0	0.1		10		0.25	0.2	
-   acerrubr   1.0	0.1		10		0.25	0.1	
-   acersacc   1.0	0.1		10		0.25	0.1	
-   betualle   1.0	0.1		10		0.25	0.1	
-   betupapy   1.0	0.1		10		0.25	0.1	
-   fraxamer   1.0	0.1		10		0.25	0.1	
-   piceglau   3.0	0.1		10		0.25	0.2	
-   pinubank   3.0	0.1		10		0.25	0.3	
-   pinuresi   3.0	0.1		10		0.25	0.3	
-   pinustro   3.0	0.1		10		0.25	0.3	
-   poputrem   1.0	0.1		10		0.25	0.1	
-   querelli   1.0	0.1		10		0.25	0.15	
-   querrubr   1.0	0.1		10		0.25	0.15	
-   thujocci   4.0	0.1		10		0.25	0.2	
-   tiliamer   1.0	0.1		10		0.25	0.1	
-   tsugcana   3.0	0.1		10		0.25	0.2	
+SpeciesDataFile		SpeciesData.csv
 
 EcoregionParameters
 >>	AET
 >>	mm
-eco1	600
-eco2	600
+101	600
+102	600
 
-DynamicInputFile	biomass-succession-dynamic-inputs.txt
+SpeciesEcoregionDataFile   SppEcoregionData.csv 
  	 
-AgeOnlyDisturbances:BiomassParameters  age-only-disturbances.txt
- 	 
+FireReductionParameters
+>>	Severity	WoodLitter	Litter	
+>>	Fire		Reduct		Reduct	
+	1		0.0		0.5	
+	2		0.0		0.75	
+	3		0.0		1.0	
+
+HarvestReductionParameters
+>>	Name		WoodLitter	Litter	Cohort		Cohort
+>>			Reduct		Reduct	WoodRemoval	LeafRemoval
+	MaxAgeClearcut	0.5		0.15	0.8		0.0
+	PatchCutting	1.0		1.0	1.0		0.0 	 
 		 	 
 		 	 
 			

@@ -1,4 +1,4 @@
-//  Authors:  Brian Miranda, Nate De Jager, Patrick Drohan
+//  Authors:  Brian Miranda, Nate De Jager, Patrick Drohan, Robert Scheller
 
 using Landis.Utilities;
 using Landis.Core;
