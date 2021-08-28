@@ -1,7 +1,7 @@
 //  Authors:  Brian Miranda, Nate De Jager, Patrick Drohan
 //using Edu.Wisc.Forest.Flel.Util;
 
-namespace Landis.Extension.DeerBrowse
+namespace Landis.Extension.Browse
 {
 	/// <summary>
 	/// Editable parameters (size and frequency) for wind events for a

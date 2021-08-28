@@ -1,7 +1,7 @@
 //  Copyright 2005-2010 Portland State University, University of Wisconsin
 //  Authors:    Robert M. Scheller, James B. Domingo
 
-namespace Landis.Extension.DeerBrowse
+namespace Landis.Extension.Browse
 {
     /// <summary>
     /// Size and frequency parameters for wind events in an ecoregion.

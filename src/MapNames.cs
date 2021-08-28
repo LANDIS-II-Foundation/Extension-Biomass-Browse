@@ -3,7 +3,7 @@
 using Landis.Utilities;
 using System.Collections.Generic;
 
-namespace Landis.Extension.DeerBrowse
+namespace Landis.Extension.Browse
 {
 	/// <summary>
 	/// Methods for working with the template for map filenames.

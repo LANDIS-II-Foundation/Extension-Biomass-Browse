@@ -3,7 +3,7 @@ using Landis.Core;
 using Landis.SpatialModeling;
 using System.Collections.Generic;
 
-namespace Landis.Extension.DeerBrowse
+namespace Landis.Extension.Browse
 {
     class HSI
     {

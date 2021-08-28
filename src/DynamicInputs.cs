@@ -5,7 +5,7 @@ using Landis.Core;
 using System.Collections.Generic;
 using System.IO;
 
-namespace Landis.Extension.DeerBrowse
+namespace Landis.Extension.Browse
 {
 
     public class DynamicInputs

@@ -2,7 +2,7 @@
 //  Authors:  Robert M. Scheller
 
 
-namespace Landis.Extension.DeerBrowse
+namespace Landis.Extension.Browse
 {
     /// <summary>
     /// Values for each ecoregion x species combination.

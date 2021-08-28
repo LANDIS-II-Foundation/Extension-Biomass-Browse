@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Landis.SpatialModeling;
 
-namespace Landis.Extension.DeerBrowse
+namespace Landis.Extension.Browse
 {
     class BrowseIndex
     {

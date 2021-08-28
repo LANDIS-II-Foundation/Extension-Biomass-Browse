@@ -2,7 +2,7 @@
 
 using Landis.Utilities;
 
-namespace Landis.Extension.DeerBrowse
+namespace Landis.Extension.Browse
 {
     public class EventParameters
         : IEventParameters

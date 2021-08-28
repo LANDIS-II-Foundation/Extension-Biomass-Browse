@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System;
 
 
-namespace Landis.Extension.DeerBrowse
+namespace Landis.Extension.Browse
 {
     public class PopulationZones
     {

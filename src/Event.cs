@@ -8,7 +8,7 @@ using Landis.SpatialModeling;
 using Landis.Library.BiomassCohorts;
 
 
-namespace Landis.Extension.DeerBrowse
+namespace Landis.Extension.Browse
 {
     public class Event
     {

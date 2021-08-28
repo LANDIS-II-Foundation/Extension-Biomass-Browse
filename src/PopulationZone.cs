@@ -4,7 +4,7 @@
 using Landis.SpatialModeling;
 using System.Collections.Generic;
 
-namespace Landis.Extension.DeerBrowse
+namespace Landis.Extension.Browse
 {
     /// <summary>
     /// The parameters for an zone.
@@ -22,7 +22,7 @@ namespace Landis.Extension.DeerBrowse
     }
 }
 
-namespace Landis.Extension.DeerBrowse
+namespace Landis.Extension.Browse
 {
     public class PopulationZone
         : IPopulationZone

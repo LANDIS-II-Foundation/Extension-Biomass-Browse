@@ -1,7 +1,7 @@
 ﻿using Landis.Library.BiomassCohorts;
 using Landis.SpatialModeling;
 
-namespace Landis.Extension.DeerBrowse
+namespace Landis.Extension.Browse
 {
     class GrowthReduction
     {

@@ -2,7 +2,7 @@
 
 using Landis.Utilities;
 
-namespace Landis.Extension.DeerBrowse
+namespace Landis.Extension.Browse
 {
     /// <summary>
     /// Extra Spp Paramaters
@@ -18,7 +18,7 @@ namespace Landis.Extension.DeerBrowse
 }
 
 
-namespace Landis.Extension.DeerBrowse
+namespace Landis.Extension.Browse
 {
     public class SppParameters
         : ISppParameters

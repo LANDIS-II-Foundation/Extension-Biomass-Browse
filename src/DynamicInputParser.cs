@@ -4,7 +4,7 @@ using Landis.Core;
 using System.Collections.Generic;
 using Landis.Utilities;
 
-namespace Landis.Extension.DeerBrowse
+namespace Landis.Extension.Browse
 {
     /// <summary>
     /// A parser that reads the tool parameters from text input.

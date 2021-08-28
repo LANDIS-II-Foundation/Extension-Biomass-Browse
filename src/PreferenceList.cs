@@ -2,7 +2,7 @@
 using System.Linq;
 using Landis.Core;
 
-namespace Landis.Extension.DeerBrowse
+namespace Landis.Extension.Browse
 {
     class PreferenceList
     {

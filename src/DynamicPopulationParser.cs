@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Landis.Utilities;
 
-namespace Landis.Extension.DeerBrowse
+namespace Landis.Extension.Browse
 {
     /// <summary>
     /// A parser that reads the plug-in's parameters from text input.

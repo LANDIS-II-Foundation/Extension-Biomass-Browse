@@ -4,7 +4,7 @@ using Landis.SpatialModeling;
 using Landis.Library.BiomassCohorts;
 using System.Collections.Generic;
 
-namespace Landis.Extension.DeerBrowse
+namespace Landis.Extension.Browse
 {
     public static class SiteVars
     {

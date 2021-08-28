@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using Landis.Library.BiomassCohorts;
 
-namespace Landis.Extension.DeerBrowse
+namespace Landis.Extension.Browse
 {
     ///<summary>
     /// A disturbance plug-in that simulates wind disturbance.

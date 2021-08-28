@@ -3,7 +3,7 @@
 using Landis.Utilities;
 using System.Collections.Generic;
 
-namespace Landis.Extension.DeerBrowse
+namespace Landis.Extension.Browse
 {
     public enum NeighborShape { uniform, linear, gaussian };
     public enum NeighborSpeed { none, X2, X3, X4 };
