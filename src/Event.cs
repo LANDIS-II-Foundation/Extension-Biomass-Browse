@@ -29,9 +29,6 @@ namespace Landis.Extension.Browse
         private int[][] zoneBiomassRemovedSpp;
 
 
-
-        //private ActiveSite currentSite; // current site where cohorts are being damaged
-
         //---------------------------------------------------------------------
 
         static Event()
