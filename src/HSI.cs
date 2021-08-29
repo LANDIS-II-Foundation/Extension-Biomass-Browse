@@ -1,4 +1,6 @@
-﻿using System;
+﻿//  Authors:  Brian Miranda, Nate De Jager, Patrick Drohan
+
+using System;
 using Landis.Core;
 using Landis.SpatialModeling;
 using System.Collections.Generic;

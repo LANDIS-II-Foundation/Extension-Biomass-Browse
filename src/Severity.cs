@@ -156,15 +156,5 @@ namespace Landis.Extension.Browse
         }
 
 		//---------------------------------------------------------------------
-/*
-		public Severity(byte   number,
-		                double minAge,
-		                double maxAge,
-		                float  mortalityProbability)
-		{
-			this.number = number;
-			this.ageRange = minAge < new Range<double>() <= maxAge;
-			this.mortalityProbability = mortalityProbability;
-		}*/
 	}
 }

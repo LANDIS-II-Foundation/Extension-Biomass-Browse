@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿//  Authors:  Brian Miranda, Nate De Jager, Patrick Drohan, Robert Scheller
+
+using System.Collections.Generic;
 using Landis.Utilities;
 
 namespace Landis.Extension.Browse

@@ -27,6 +27,7 @@
 
   <ItemGroup>
     <Compile Remove="Damage.cs" />
+    <Compile Remove="EventParameterDataset.cs" />
   </ItemGroup>
 
   <ItemGroup>

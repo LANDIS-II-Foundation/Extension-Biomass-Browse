@@ -1,4 +1,3 @@
-//  Copyright 2006-2010 USFS Portland State University, Northern Research Station, University of Wisconsin
 //  Authors:  Robert M. Scheller, Brian R. Miranda 
 
 using Landis.SpatialModeling;
@@ -138,30 +137,6 @@ namespace Landis.Extension.Browse
             double zoneK = CalculateK(popZoneIndex, parameters);
             Dataset[popZoneIndex].K = zoneK;
 
-            //Troschuetz.Random.ContinuousUniformDistribution popRDist = new Troschuetz.Random.ContinuousUniformDistribution();
-            //popRDist.Alpha = DynamicPopulation.PopRMin;
-            //popRDist.Beta = DynamicPopulation.PopRMax;
-            //double popR = popRDist.NextDouble();
-            //popR = popRDist.NextDouble();
-
-            //Troschuetz.Random.ContinuousUniformDistribution popMortalityDist = new Troschuetz.Random.ContinuousUniformDistribution();
-            //popMortalityDist.Alpha = DynamicPopulation.PopMortalityMin;
-            //popMortalityDist.Beta = DynamicPopulation.PopMortalityMax;
-            //double popMortality = popMortalityDist.NextDouble();
-            //popMortality = popMortalityDist.NextDouble();
-
-            //Troschuetz.Random.ContinuousUniformDistribution popPredationDist = new Troschuetz.Random.ContinuousUniformDistribution();
-            //popPredationDist.Alpha = DynamicPopulation.PopPredationMin;
-            //popPredationDist.Beta = DynamicPopulation.PopPredationMax;
-            //double popPredation = popPredationDist.NextDouble();
-            //popPredation = popPredationDist.NextDouble();
-
-            //Troschuetz.Random.ContinuousUniformDistribution popHarvestDist = new Troschuetz.Random.ContinuousUniformDistribution();
-            //popHarvestDist.Alpha = DynamicPopulation.PopHarvestMin;
-            //popHarvestDist.Beta = DynamicPopulation.PopHarvestMax;
-            //double popHarvest = popHarvestDist.NextDouble();
-            //popHarvest = popHarvestDist.NextDouble();
-            
             PlugIn.ModelCore.ContinuousUniformDistribution.Alpha = DynamicPopulation.PopRMin;
             PlugIn.ModelCore.ContinuousUniformDistribution.Beta = DynamicPopulation.PopRMax;
             double popR = PlugIn.ModelCore.ContinuousUniformDistribution.NextDouble();
@@ -272,11 +247,6 @@ namespace Landis.Extension.Browse
                     zoneSiteCount++;
                     totalSiteCount++;
                
-                    //double HSIweight = SiteVars.HabitatSuitability[site] / cumulativeHSI;
-                    //double popHSI = HSIweight * popZone.Population;
-                    //double forageWeight = SiteVars.ForageQuantity[site] / cumulativeForage;
-                    //double popForage = forageWeight * popZone.Population;
-
                     // Calculate local K
                     // convert forage/m2 to total forage (g)
                     double siteTotalForage = SiteVars.ForageQuantity[site] * PlugIn.ModelCore.CellLength * PlugIn.ModelCore.CellLength;
@@ -289,7 +259,6 @@ namespace Landis.Extension.Browse
                     if (popZone.K > 0)
                         sitePropOptimal = siteK / popZone.K;
                     double sitePopOptimal = popZone.EffectivePop * sitePropOptimal;
-                    //END redistribute optimal population
 
                     //Browse - redistribute HSI population
                     //double sumHSI = siteHSI + (neighborHSI * (landscapeCells - 1));

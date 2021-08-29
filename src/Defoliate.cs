@@ -1,5 +1,4 @@
-//  Copyright 2006-2011 University of Wisconsin, Portland State University
-//  Authors:  Jane Foster, Robert M. Scheller
+//  Authors:  Jane Foster, Robert M. Scheller, Brian Miranda
 
 using System;
 using System.Collections.Generic;
@@ -20,8 +19,6 @@ namespace Landis.Extension.Browse
         public static void Initialize(IInputParameters parameters)
         {
             // Assign the method below to the CohortDefoliation delegate in
-            // Landis.Library.Biomass/Biomass.CohortDefoliation.cs
-            //Landis.Library.Biomass.CohortDefoliation.Compute = Defoliate.DefoliateCohort;
             IInputParameters browseParameters = parameters;
         }
 
@@ -36,7 +33,6 @@ namespace Landis.Extension.Browse
             double defoliation = 0.0;
             double currentForage = ANPP * browseParameters.ANPPForageProp;
 
-            //double propBrowse = finalRemoval / currentForage;
             return defoliation;  // Cohort total defoliation proportion (summed across insects)
 
         }

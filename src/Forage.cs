@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿//  Authors:  Brian Miranda, Nate De Jager, Patrick Drohan, Robert Scheller
+
+using System.Collections.Generic;
 using System.Linq;
 using Landis.Library.BiomassCohorts;
 

@@ -1,5 +1,4 @@
 //  Authors:  Brian Miranda, Nate De Jager, Patrick Drohan
-//using Edu.Wisc.Forest.Flel.Util;
 
 namespace Landis.Extension.Browse
 {

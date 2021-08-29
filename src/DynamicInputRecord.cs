@@ -1,5 +1,4 @@
-//  Copyright 2005-2010 Portland State University, University of Wisconsin
-//  Authors:  Robert M. Scheller
+//  Authors:  Robert M. Scheller, Brian Miranda
 
 
 namespace Landis.Extension.Browse

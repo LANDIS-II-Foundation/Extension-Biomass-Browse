@@ -1,4 +1,4 @@
-//  Authors:  Brian Miranda, Nate De Jager, Patrick Drohan, Robert Scheller
+//  Authors:  Brian Miranda, Nate De Jager, Patrick Drohan
 
 using Landis.Utilities;
 using Landis.Core;
@@ -25,8 +25,6 @@ namespace Landis.Extension.Browse
 
         public InputParameterParser()
         {
-            // FIXME: Hack to ensure that Percentage is registered with InputValues
-            //Edu.Wisc.Forest.Flel.Util.Percentage p = new Edu.Wisc.Forest.Flel.Util.Percentage();
             RegisterForInputValues();
         }
 

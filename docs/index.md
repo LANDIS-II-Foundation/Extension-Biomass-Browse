@@ -6,7 +6,7 @@ The Browse extension is designed to run with any succession extensions that carr
 
 # Citation
 
-DeJager et al. 
+De Jager, N.R., P.J. Drohan, B.M. Miranda, B.R. Sturtevant, S.L. Stout, A.A. Royo, E.J. Gustafson, and M.C. Romanski. 2017. Simulating ungulate herbivory across forest landscapes: A browsing extension for LANDIS-II. Ecological Modelling 350: 11-29.
 
 # Release Notes
 
