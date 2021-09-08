@@ -10,8 +10,9 @@ namespace Landis.Extension.DeerBrowse
     public static class SiteVars
     {
         private static ISiteVar<double> sitePreference;
-        //private static ISiteVar<Landis.Library.AgeOnlyCohorts.ISiteCohorts> ageCohorts;
+        private static ISiteVar<Landis.Library.AgeOnlyCohorts.ISiteCohorts> ageCohorts;
         private static ISiteVar<Landis.Library.BiomassCohorts.ISiteCohorts> biomassCohorts;
+        private static ISiteVar<Landis.Extension.Succession.BiomassPnET.ISiteCohorts> pnetCohorts;
         private static ISiteVar<double> neighborhoodForage;
         private static ISiteVar<double> browseIndex;
         private static ISiteVar<double> browseDisturbance;
@@ -55,16 +56,28 @@ namespace Landis.Extension.DeerBrowse
             ecoMaxBiomass = PlugIn.ModelCore.GetSiteVar<int>("Succession.EcoregionMaxBiomass");
             siteCohortList = PlugIn.ModelCore.Landscape.NewSiteVar<List<Landis.Library.BiomassCohorts.ICohort>>();
 
-            biomassCohorts = PlugIn.ModelCore.GetSiteVar<Landis.Library.BiomassCohorts.ISiteCohorts>("Succession.BiomassCohorts");
+            pnetCohorts = PlugIn.ModelCore.GetSiteVar<Landis.Extension.Succession.BiomassPnET.ISiteCohorts>("Succession.CohortsPnET");
 
-            if (biomassCohorts == null)
+            if (pnetCohorts == null)
             {
-                //ageCohorts = PlugIn.ModelCore.GetSiteVar<Landis.Library.AgeOnlyCohorts.ISiteCohorts>("Succession.AgeCohorts");
-                return "AgeOnly";
+                biomassCohorts = PlugIn.ModelCore.GetSiteVar<Landis.Library.BiomassCohorts.ISiteCohorts>("Succession.BiomassCohorts");
+
+                if (biomassCohorts == null)
+                {
+                    ageCohorts = PlugIn.ModelCore.GetSiteVar<Landis.Library.AgeOnlyCohorts.ISiteCohorts>("Succession.AgeCohorts");
+                    return "AgeOnly";
+                }
+                else
+                {
+                    ageCohorts = PlugIn.ModelCore.GetSiteVar<Landis.Library.AgeOnlyCohorts.ISiteCohorts>("Succession.AgeCohorts");
+                    return "Biomass";
+                }
             }
             else
             {
-                return "Biomass";
+                biomassCohorts = PlugIn.ModelCore.GetSiteVar<Landis.Library.BiomassCohorts.ISiteCohorts>("Succession.BiomassCohorts");
+                ageCohorts = PlugIn.ModelCore.GetSiteVar<Landis.Library.AgeOnlyCohorts.ISiteCohorts>("Succession.AgeCohorts");
+                return "PnET";
             }
           
 
@@ -72,24 +85,33 @@ namespace Landis.Extension.DeerBrowse
         //---------------------------------------------------------------------
         public static void ReInitialize()
         {
+            pnetCohorts = PlugIn.ModelCore.GetSiteVar<Landis.Extension.Succession.BiomassPnET.ISiteCohorts>("Succession.CohortsPnET");
             biomassCohorts = PlugIn.ModelCore.GetSiteVar<Landis.Library.BiomassCohorts.ISiteCohorts>("Succession.BiomassCohorts");
-            //ageCohorts = PlugIn.ModelCore.GetSiteVar<Landis.Library.AgeOnlyCohorts.ISiteCohorts>("Succession.AgeCohorts");
+            ageCohorts = PlugIn.ModelCore.GetSiteVar<Landis.Library.AgeOnlyCohorts.ISiteCohorts>("Succession.AgeCohorts");
         }
         //---------------------------------------------------------------------
-        /*public static ISiteVar<Landis.Library.AgeOnlyCohorts.ISiteCohorts> AgeCohorts
+        public static ISiteVar<Landis.Library.AgeOnlyCohorts.ISiteCohorts> AgeCohorts
         {
             get
             {
                 return ageCohorts;
             }
         }
-         * */
+         
         //---------------------------------------------------------------------
         public static ISiteVar<Landis.Library.BiomassCohorts.ISiteCohorts> BiomassCohorts
         {
             get
             {
                 return biomassCohorts;
+            }
+        }
+        //---------------------------------------------------------------------
+        public static ISiteVar<Landis.Extension.Succession.BiomassPnET.ISiteCohorts> PnETCohorts
+        {
+            get
+            {
+                return pnetCohorts;
             }
         }
         //---------------------------------------------------------------------

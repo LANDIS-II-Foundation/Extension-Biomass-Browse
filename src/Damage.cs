@@ -58,7 +58,7 @@ namespace Landis.Extension.DeerBrowse
 
                         }
                     }
-                    else // (parameters.SuccessionMethod == "Biomass")
+                    else // (parameters.SuccessionMethod == "Biomass" or "PnET")
                     {
                         //PartialDisturbance.RecordBiomassReduction(cohort, remainBioRem);
                     }
