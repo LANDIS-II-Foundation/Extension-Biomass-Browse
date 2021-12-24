@@ -13,7 +13,8 @@ namespace Landis.Extension.Browse
         double GrowthReductThresh { get; set; }
         double GrowthReductMax { get; set; }
         double MortThresh { get; set; }
-        double MortMax { get; set; }        
+        double MortMax { get; set; }   
+        double BiomassMax { get; set; }
     }
 }
 
@@ -28,6 +29,7 @@ namespace Landis.Extension.Browse
         private double growthReductMax;
         private double mortThresh;
         private double mortMax;
+        private double biomassMax;
 
 
         //---------------------------------------------------------------------
@@ -121,6 +123,24 @@ namespace Landis.Extension.Browse
             }
         }
         //---------------------------------------------------------------------
+        public double BiomassMax
+        {
+            get
+            {
+                return biomassMax;
+            }
+            set
+            {
+                if (value < 0)
+                    throw new InputValueException(value.ToString(),
+                        "Value must be = or > 0.");
+                if (value > 100000)
+                    throw new InputValueException(value.ToString(),
+                        "Value must be = or < 100000.");
+                biomassMax = value;
+            }
+        }
+        //---------------------------------------------------------------------
         public SppParameters()
         {
             this.browsePref = 0.0;
@@ -128,6 +148,7 @@ namespace Landis.Extension.Browse
             this.mortMax = 0.0;
             this.growthReductThresh = 0.0;
             this.growthReductMax = 0.0;
+            this.biomassMax = 0.0;
         }
  
     }

@@ -9,7 +9,7 @@ using Landis.Library.BiomassCohorts;
 namespace Landis.Extension.Browse
 {
     ///<summary>
-    /// A disturbance plug-in that simulates wind disturbance.
+    /// A disturbance plug-in that simulates browsing by ungulates.
     /// </summary>
 
     public class PlugIn
