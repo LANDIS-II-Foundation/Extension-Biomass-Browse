@@ -43,6 +43,7 @@ namespace Landis.Extension.Browse
 
             int sortedBioIndex = 0;
             double remainingThreshold = biomassThreshold;
+
             foreach (Landis.Library.BiomassCohorts.ICohort cohort in sortedCohortList)
             {
                 double propInReach = 0;

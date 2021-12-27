@@ -25,7 +25,7 @@ namespace Landis.Extension.Browse
         private static ISiteVar<double> totalBrowse;
         private static ISiteVar<int> biomassRemoved;
         private static ISiteVar<int> cohortsDamaged;
-        private static ISiteVar<int> ecoMaxBiomass;
+        //private static ISiteVar<int> ecoMaxBiomass;
         private static ISiteVar<List<Landis.Library.BiomassCohorts.ICohort>> siteCohortList;
 
         public static ISiteVar<Dictionary<int, Dictionary<int, double>>> Forage;
@@ -55,7 +55,7 @@ namespace Landis.Extension.Browse
             biomassRemoved = PlugIn.ModelCore.Landscape.NewSiteVar<int>();
             cohortsDamaged = PlugIn.ModelCore.Landscape.NewSiteVar<int>();
             //youngCohortCount = PlugIn.ModelCore.Landscape.NewSiteVar<int>();
-            ecoMaxBiomass = PlugIn.ModelCore.GetSiteVar<int>("Succession.MaxBiomass");
+            //ecoMaxBiomass = PlugIn.ModelCore.GetSiteVar<int>("Succession.MaxBiomass");
             siteCohortList = PlugIn.ModelCore.Landscape.NewSiteVar<List<ICohort>>();
 
             Forage = PlugIn.ModelCore.Landscape.NewSiteVar<Dictionary<int, Dictionary<int, double>>>();
@@ -345,13 +345,14 @@ namespace Landis.Extension.Browse
             }
         }
         //---------------------------------------------------------------------
-        public static ISiteVar<int> EcoregionMaxBiomass
-        {
-            get
-            {
-                return ecoMaxBiomass;
-            }
-        }
+        //public static ISiteVar<int> EcoregionMaxBiomass
+        //TODO figure out how to make this species level instead of ecoregion level
+        //{
+        //    get
+        //    {
+        //        return ecoMaxBiomass;
+        //    }
+        //}
         //---------------------------------------------------------------------
         //public static ISiteVar<List<Landis.Library.BiomassCohorts.ICohort>> SiteCohortList
         //{

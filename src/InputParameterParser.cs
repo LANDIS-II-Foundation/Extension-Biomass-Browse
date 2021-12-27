@@ -58,7 +58,8 @@ namespace Landis.Extension.Browse
             InputVar<double> growthReductMax = new InputVar<double>("Growth Reduction Max");
             InputVar<double> mortThresh = new InputVar<double>("Mortality Threshold");
             InputVar<double> mortMax = new InputVar<double>("Mortality Max");
-            
+            InputVar<double> biomassMax = new InputVar<double>("Biomass Max");
+
             while ((!AtEndOfInput) && (CurrentName != "ZoneMap"))
             {
                 StringReader currentLine = new StringReader(CurrentLine);
@@ -93,13 +94,18 @@ namespace Landis.Extension.Browse
 
                 ReadValue(mortMax, currentLine);
                 sppParms.MortMax = mortMax.Value;
-               
+
+                ReadValue(biomassMax, currentLine);
+                sppParms.BiomassMax = biomassMax.Value;
+
                 GetNextLine();
             }
 
             InputVar<string> zoneMapFile = new InputVar<string>("ZoneMap");
             ReadVar(zoneMapFile);
             parameters.ZoneMapFileName = zoneMapFile.Value;
+
+            //TODO add max biomass as a raster for each species?
 
             InputVar<string> populationFile = new InputVar<string>("PopulationFile");
             ReadVar(populationFile);

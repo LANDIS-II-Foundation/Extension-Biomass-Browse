@@ -456,16 +456,28 @@ namespace Landis.Extension.Browse
             PlugIn.ModelCore.UI.WriteLine("   Calculating Site Preference & Forage.");
             foreach (ActiveSite site in PlugIn.ModelCore.Landscape)
             {
-                IEcoregion ecoregion = PlugIn.ModelCore.Ecoregion[site];
-                double maxEcoBiomass = SiteVars.EcoregionMaxBiomass[site];
-                double biomassThreshold = maxEcoBiomass * parameters.BrowseBiomassThresh;
+                // SF: removed ecoregion biomassMax (originally imported from biomass
+                // succession), now using site-level biomass max that depends on which species are present
+                // at the site, and is equal to the highest value of those species' maxBiomass
+
+                //IEcoregion ecoregion = PlugIn.ModelCore.Ecoregion[site];
+                //double maxEcoBiomass = SiteVars.EcoregionMaxBiomass[site];
+
+                double maxSiteBiomass = 0;
+                
                 foreach (ISpecies species in PlugIn.ModelCore.Species)
                 {
                     ISppParameters sppParms = parameters.SppParameters[species.Index];
+
                     double browsePref = sppParms.BrowsePref;
+
                     ISpeciesCohorts cohortList = SiteVars.BiomassCohorts[site][species];
+
                     if (cohortList != null)
                     {
+                        //original calculation of maxBiomass from Biomass Succession:
+                        //largest_B_MAX_Spp = System.Math.Max(SpeciesData.B_MAX_Spp[species][ecoregion]);
+                        maxSiteBiomass = System.Math.Max(maxSiteBiomass, sppParms.BiomassMax);
 
                         foreach (ICohort cohort in cohortList)
                         {
@@ -489,21 +501,32 @@ namespace Landis.Extension.Browse
                     }
                     
                 }
+
+                double biomassThreshold = maxSiteBiomass * parameters.BrowseBiomassThresh;
+                // SF: should we make this vary by species? Right now, maxSiteBiomass is just maxBiomass of the species with the 
+                // highest maxBiomass in the site. But Forage.CalculateCohortPropInReach could be changed to have a different
+                // threshold for each species, probably. Otherwise species with low maxBiomass might be over-foraged (maybe)
+
                 //PartialDisturbance.UpdateForage(site); RMS: Necessary?
 
                 List<ICohort> siteCohortList = new List<ICohort>();
+
                 foreach (ISpecies species in PlugIn.ModelCore.Species)
                 {
                     ISpeciesCohorts cohortList = SiteVars.BiomassCohorts[site][species];
+
                     if (cohortList != null)
                     {
                         foreach (ICohort cohort in cohortList)
                         {
                             siteCohortList.Add(cohort);
+
                         }
                     }
                 }
+
                 List<double> propInReachList = new List<double>(siteCohortList.Count);
+                                
                 propInReachList = Forage.CalculateCohortPropInReach(siteCohortList, parameters, biomassThreshold);
 
                 int listCount = 0;
