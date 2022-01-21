@@ -1,0 +1,57 @@
+LandisData   "Initial Communities"
+
+>>Old jackpine oak 
+MapCode  0
+   SM 30
+   JP 80 90
+   WS 110 140
+   QA 40 120 240
+
+>> young jackpine oak
+MapCode  1
+   JP 30 50
+   QA 10 40 70
+
+>> young aspen   
+MapCode 2
+   QA 10 20
+
+>> old aspen-birch
+MapCode 3
+   SM 10 30
+   YB 10 40
+   PB 80 90
+   BA 10 50
+   NWC 240
+   QA 20 50
+   S 10
+
+>> young northern hardwoods
+MapCode 4
+   BF 10
+   SM 20 40
+   YB 40 70
+   PB 90
+   BA 30 40 60
+   QA 90
+   RO 40 80
+   NWC 30 80
+   S 10 30 50
+   BS 10
+   
+>> old maple hardwoods
+MapCode 5
+   BF 10 60 120
+   SM 90 120
+   YB 40 140 200
+   BA 10 100 130 180
+   WS 180
+   QA 100 160 180
+   S 20 80 110 150
+   BS 30 80 120
+   
+>> old pine - spruce - fir
+MapCode 6
+   BF 10 50 80
+   WS 100 140 180
+   NWC 200
