@@ -297,13 +297,14 @@ namespace Landis.Extension.Browse
                     totalForage += popZone.TotalForage;
                 }
             }
-            
 
-            for (int i = -1; i <= (PopulationZones.Dataset.Count-1); i++)
+
+            foreach (IPopulationZone popZone in PopulationZones.Dataset)
+             //   for (int i = -1; i <= (PopulationZones.Dataset.Count-1); i++)
             {
                 eventLog.Write("{0},",
                              currentTime);
-                if (i < 0)
+                if (popZone.Index < 0)
                 {
                     eventLog.Write("{0},{1},{2},{3},{4},{5},{6},{7},{8}",
                                    "-1",
@@ -329,36 +330,36 @@ namespace Landis.Extension.Browse
                     if (parameters.DynamicPopulationFileName == null)
                     {
                         eventLog.Write("{0},{1},{2},{3},{4},{5},{6},{7},{8}",
-                                       PopulationZones.Dataset[i].MapCode,
-                                       (double)PopulationZones.Dataset[i].Population / (double)PopulationZones.Dataset[i].PopulationZoneSites.Count,
-                                       PopulationZones.Dataset[i].TotalForage,
-                                       PopulationZones.Dataset[i].K,
-                                       PopulationZones.Dataset[i].EffectivePop,
-                                       browseEvent.ZoneSitesDamaged[i],
-                                       browseEvent.ZoneBiomassRemoved[i],
-                                       browseEvent.ZoneBiomassKilled[i],
-                                       browseEvent.ZoneCohortsKilled[i]);
+                                       PopulationZones.Dataset[popZone.Index].MapCode,
+                                       (double)PopulationZones.Dataset[popZone.Index].Population / (double)PopulationZones.Dataset[popZone.Index].PopulationZoneSites.Count,
+                                       PopulationZones.Dataset[popZone.Index].TotalForage,
+                                       PopulationZones.Dataset[popZone.Index].K,
+                                       PopulationZones.Dataset[popZone.Index].EffectivePop,
+                                       browseEvent.ZoneSitesDamaged[popZone.Index],
+                                       browseEvent.ZoneBiomassRemoved[popZone.Index],
+                                       browseEvent.ZoneBiomassKilled[popZone.Index],
+                                       browseEvent.ZoneCohortsKilled[popZone.Index]);
                     }
                     else
                     {
                         eventLog.Write("{0},{1},{2},{3},{4},{5},{6},{7},{8}",
-                                       PopulationZones.Dataset[i].MapCode,
-                                       PopulationZones.Dataset[i].Population,
-                                       PopulationZones.Dataset[i].TotalForage,
-                                       PopulationZones.Dataset[i].K,
-                                       PopulationZones.Dataset[i].EffectivePop,
-                                       browseEvent.ZoneSitesDamaged[i],
-                                       browseEvent.ZoneBiomassRemoved[i],
-                                       browseEvent.ZoneBiomassKilled[i],
-                                       browseEvent.ZoneCohortsKilled[i]);
+                                       PopulationZones.Dataset[popZone.Index].MapCode,
+                                       PopulationZones.Dataset[popZone.Index].Population,
+                                       PopulationZones.Dataset[popZone.Index].TotalForage,
+                                       PopulationZones.Dataset[popZone.Index].K,
+                                       PopulationZones.Dataset[popZone.Index].EffectivePop,
+                                       browseEvent.ZoneSitesDamaged[popZone.Index],
+                                       browseEvent.ZoneBiomassRemoved[popZone.Index],
+                                       browseEvent.ZoneBiomassKilled[popZone.Index],
+                                       browseEvent.ZoneCohortsKilled[popZone.Index]);
                     }
                     foreach (ISpecies species in PlugIn.ModelCore.Species)
                     {
-                        eventLog.Write(",{0}", browseEvent.ZoneBiomassRemovedSpp[i][species.Index]);
+                        eventLog.Write(",{0}", browseEvent.ZoneBiomassRemovedSpp[popZone.Index][species.Index]);
                     }
                     foreach (ISpecies species in PlugIn.ModelCore.Species)
                     {
-                        eventLog.Write(",{0}", browseEvent.ZoneCohortsKilledSpp[i][species.Index]);
+                        eventLog.Write(",{0}", browseEvent.ZoneCohortsKilledSpp[popZone.Index][species.Index]);
                     }
                 }
                 eventLog.WriteLine("");

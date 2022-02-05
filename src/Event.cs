@@ -203,19 +203,21 @@ namespace Landis.Extension.Browse
             this.zoneBiomassKilled = new int[PopulationZones.Dataset.Count];
             this.zoneCohortsKilledSpp = new int[PopulationZones.Dataset.Count][];
             this.zoneBiomassRemovedSpp = new int[PopulationZones.Dataset.Count][];
-            for (int i = 0; i < PopulationZones.Dataset.Count; i++)
-            {
-                this.zoneSitesDamaged[i] = 0;
-                this.zonePopulation[i] = 0;
-                this.zoneCohortsKilled[i] = 0;
-                this.zoneBiomassRemoved[i] = 0;
-                this.zoneBiomassKilled[i] = 0;
-                this.zoneCohortsKilledSpp[i] = new int[PlugIn.ModelCore.Species.Count];
-                this.zoneBiomassRemovedSpp[i] = new int[PlugIn.ModelCore.Species.Count];
+            //for (int i = 0; i < PopulationZones.Dataset.Count; i++)
+            foreach (IPopulationZone popZone in PopulationZones.Dataset)
+
+                {
+                    this.zoneSitesDamaged[popZone.Index] = 0;
+                this.zonePopulation[popZone.Index] = 0;
+                this.zoneCohortsKilled[popZone.Index] = 0;
+                this.zoneBiomassRemoved[popZone.Index] = 0;
+                this.zoneBiomassKilled[popZone.Index] = 0;
+                this.zoneCohortsKilledSpp[popZone.Index] = new int[PlugIn.ModelCore.Species.Count];
+                this.zoneBiomassRemovedSpp[popZone.Index] = new int[PlugIn.ModelCore.Species.Count];
                 foreach (ISpecies species in PlugIn.ModelCore.Species)
                 {
-                    this.zoneCohortsKilledSpp[i][species.Index] = 0;
-                    this.zoneBiomassRemovedSpp[i][species.Index] = 0;
+                    this.zoneCohortsKilledSpp[popZone.Index][species.Index] = 0;
+                    this.zoneBiomassRemovedSpp[popZone.Index][species.Index] = 0;
                 }
             }
         }

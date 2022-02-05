@@ -26,11 +26,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Damage.cs" />
-    <Compile Remove="EventParameterDataset.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Landis.Core" Version="2.0.0" />
   </ItemGroup>
 

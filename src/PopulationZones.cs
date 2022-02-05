@@ -16,8 +16,8 @@ namespace Landis.Extension.Browse
 
         public static void ReadMap(string path)
         {
-            List<IPopulationZone> dataset = new List<IPopulationZone>(0);
-            Dataset = dataset;
+            //List<IPopulationZone> dataset = new List<IPopulationZone>(0);
+            Dataset = new List<IPopulationZone>(0); // dataset;
             IInputRaster<ShortPixel> map;
 
             try
@@ -61,6 +61,13 @@ namespace Landis.Extension.Browse
                     }
                 }
             }
+
+            foreach (IPopulationZone popZone in PopulationZones.Dataset)
+            {
+                PlugIn.ModelCore.UI.WriteLine("Population Zone {0} has Map Code {1}.", popZone.Index, popZone.MapCode);
+
+            }
+
         }
         //---------------------------------------------------------------------
         public static IPopulationZone FindZone(int mapCode)
