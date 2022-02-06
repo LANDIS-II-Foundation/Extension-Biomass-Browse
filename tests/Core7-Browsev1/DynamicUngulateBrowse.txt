@@ -1,28 +1,28 @@
-LandisData  "Dynamic Ungulate Browse"
+LandisData  "Biomass Browse"
 
 Timestep 1
 
 << Species Inputs >>
 SpeciesTable
->>				--GrowthReduction--	----Mortality-----
->> Name		Preference	Threshold	Max	Threshold	Max
->> --------	----------	---------	---	---------	---
-   abiebals     0.0		0.5		0.4	0.5		0.1
-   acerrubr     0.3		0.5		0.4	0.5		0.1
-   acersacc     0.5		0.5		0.4	0.5		0.1
-   betualle     0.3		0.5		0.4	0.5		0.1
-   betupapy     0.6		0.5		0.4	0.5		0.1
-   fraxamer     0.6		0.5		0.4	0.5		0.1
-   piceglau     0.0		0.5		0.4	0.5		0.1
-   pinubank     0.0		0.5		0.4	0.5		0.1
-   pinuresi     0.0		0.5		0.4	0.5		0.1
-   pinustro     0.0		0.5		0.4	0.5		0.1
-   poputrem     0.4		0.5		0.4	0.5		0.1
-   querelli     0.0		0.5		0.4	0.5		0.1
-   querrubr     0.0		0.5		0.4	0.5		0.1
-   thujocci     0.5		0.5		0.4	0.5		0.1
-   tiliamer     0.4		0.5		0.4	0.5		0.1
-   tsugcana     0.5		0.5		0.4	0.5		0.1
+>>				--GrowthReduction--	----Mortality-----	-----Biomass-----
+>> Name		Preference	Threshold	Max	Threshold	Max	    Max
+>> --------	----------	---------	---	---------	---	    -----
+   abiebals     0.0		0.5		0.4	0.5		0.1		25000
+   acerrubr     0.3		0.5		0.4	0.5		0.1		25000
+   acersacc     0.5		0.5		0.4	0.5		0.1		25000
+   betualle     0.3		0.5		0.4	0.5		0.1		25000
+   betupapy     0.6		0.5		0.4	0.5		0.1		25000
+   fraxamer     0.6		0.5		0.4	0.5		0.1		25000
+   piceglau     0.0		0.5		0.4	0.5		0.1		25000
+   pinubank     0.0		0.5		0.4	0.5		0.1		25000
+   pinuresi     0.0		0.5		0.4	0.5		0.1		25000
+   pinustro     0.0		0.5		0.4	0.5		0.1		25000
+   poputrem     0.4		0.5		0.4	0.5		0.1		25000
+   querelli     0.0		0.5		0.4	0.5		0.1		25000
+   querrubr     0.0		0.5		0.4	0.5		0.1		25000
+   thujocci     0.5		0.5		0.4	0.5		0.1		25000
+   tiliamer     0.4		0.5		0.4	0.5		0.1		25000
+   tsugcana     0.5		0.5		0.4	0.5		0.1		25000
 
 << Browser population Inputs >>
 ZoneMap  ecoregions.gis
