@@ -1,0 +1,1 @@
+This test file uses Biomass Succession v6 and two population zones. Just for testing; parameters are not calibrated nor intended for research. 
