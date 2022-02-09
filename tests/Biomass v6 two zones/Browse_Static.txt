@@ -1,4 +1,4 @@
-LandisData  "Dynamic Ungulate Browse"
+LandisData  "Biomass Browse"
 
 Timestep 1
 
@@ -26,7 +26,7 @@ SpeciesTable
 
 << Browser population Inputs >>
 ZoneMap  ecoregions.gis
-PopulationFile	DefinedUngulateDensity.txt  << User-defined population
+PopulationFile	DefinedUngulatePopulation.txt  << User-defined population
 <<DynamicPopulationFile  DynamicUngulatePopulation.txt  << Dynamic population - Optional
 ConsumptionRate  2738  << kg/yr/individual
 

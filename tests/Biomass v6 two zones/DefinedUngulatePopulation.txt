@@ -5,3 +5,5 @@ LandisData "Defined Ungulate Population"
 >>----	----	---------------------
    0	  1	   500
    0	  2	   500
+   1	  1	   600
+   1	  2	   600
