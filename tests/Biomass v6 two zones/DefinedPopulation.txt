@@ -1,9 +1,9 @@
-LandisData "Defined Ungulate Population"
+LandisData "Defined Population"
 
 >>		BrowserDensityIndex/
 >>Year	Zone	InitialPopulation
 >>----	----	---------------------
    0	  1	   500
    0	  2	   500
-   1	  1	   600
-   1	  2	   600
+   10	  1	   600
+   10	  2	   600

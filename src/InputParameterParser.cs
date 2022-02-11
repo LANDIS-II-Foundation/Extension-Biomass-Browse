@@ -104,7 +104,7 @@ namespace Landis.Extension.Browse
             InputVar<string> zoneMapFile = new InputVar<string>("ZoneMap");
             ReadVar(zoneMapFile);
             parameters.ZoneMapFileName = zoneMapFile.Value;
-
+            PopulationZones.ReadMap(parameters.ZoneMapFileName);
             //---------------------------------------------------------------------
             //Read in INITIAL population data:
             InputVar<int> zoneCode = new InputVar<int>("Zone code");
@@ -115,6 +115,7 @@ namespace Landis.Extension.Browse
             DynamicInputs.TemporalData.Add(0, inputTable);
             //PlugIn.ModelCore.UI.WriteLine("  Dynamic Input Parser:  Add new year = {0}.", yr);
 
+            ReadName("InitialalZonePopulations");
             while (!AtEndOfInput && (CurrentName != "DefinedPopulationFile"))
             {
                 StringReader currentLine = new StringReader(CurrentLine);
@@ -147,8 +148,9 @@ namespace Landis.Extension.Browse
 
             if (PlugIn.DynamicPopulation)  // at this point, only an option still
             {
-                if(ReadOptionalName("DynamicPopulation"))
-                {
+                //if(ReadOptionalName("DynamicPopulation"))
+                //{
+                ReadName("DynamicPopulation");
                     InputVar<double> rmin = new InputVar<double>("RMin");
                     ReadVar(rmin);
                     PlugIn.PopRMin = rmin.Value;
@@ -180,7 +182,7 @@ namespace Landis.Extension.Browse
                     InputVar<double> hmax = new InputVar<double>("HarvestMax");
                     ReadVar(hmax);
                     PlugIn.PopHarvestMax = hmax.Value;
-                }
+                //}
                 //InputVar<string> dynamicPopulationFile = new InputVar<string>("DynamicPopulationFile");
                 //if (ReadOptionalVar(dynamicPopulationFile))
                 //    parameters.DynamicPopulationFileName = dynamicPopulationFile.Value;

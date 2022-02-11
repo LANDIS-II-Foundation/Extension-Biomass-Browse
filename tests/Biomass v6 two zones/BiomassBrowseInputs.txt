@@ -26,8 +26,22 @@ SpeciesTable
 
 << Browser population Inputs >>
 ZoneMap  ecoregions.gis
-PopulationFile	DefinedUngulatePopulation.txt  << User-defined population
-DynamicPopulationFile  DynamicUngulatePopulation.txt  << Dynamic population - Optional
+
+InitialZonePopulations
+1	   500
+2	   500
+
+>>DefinedPopulationFile	DefinedPopulation.txt  << User-defined population
+DefinedPopulation
+RMin 0.15
+RMax 0.25		
+MortalityMin 0.0
+MortalityMax 0.1
+PredationMin 0.0
+PredationMax 0.0
+HarvestMin 0.0
+HarvestMax 0.0
+
 ConsumptionRate  2738  << kg/yr/individual
 
 << Forage Inputs >>

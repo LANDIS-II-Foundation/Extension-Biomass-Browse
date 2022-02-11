@@ -92,7 +92,7 @@ namespace Landis.Extension.Browse
 
             SiteVars.Initialize();
 
-            PopulationZones.ReadMap(parameters.ZoneMapFileName);
+            //PopulationZones.ReadMap(parameters.ZoneMapFileName);
 
             DynamicInputs.Initialize(parameters.PopulationFileName, false, parameters);
 
