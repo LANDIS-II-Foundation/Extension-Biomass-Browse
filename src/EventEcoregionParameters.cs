@@ -4,8 +4,8 @@ using Landis.Utilities;
 
 namespace Landis.Extension.Browse
 {
-    public class EventParameters
-        : IEventParameters
+    public class EventEcoregionParameters
+        : IEventEcoregionParameters
     {
         private double maxSize;
         private double meanSize;
@@ -94,7 +94,7 @@ namespace Landis.Extension.Browse
 
         //---------------------------------------------------------------------
 
-        public EventParameters()
+        public EventEcoregionParameters()
         {
         }
     }

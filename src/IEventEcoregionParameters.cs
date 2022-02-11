@@ -5,7 +5,7 @@ namespace Landis.Extension.Browse
     /// <summary>
     /// Size and frequency parameters for wind events in an ecoregion.
     /// </summary>
-    public interface IEventParameters
+    public interface IEventEcoregionParameters
     {
         /// <summary>
         /// Maximum event size (hectares).

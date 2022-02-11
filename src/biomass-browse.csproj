@@ -2,15 +2,15 @@
 
   <PropertyGroup>
     <RootNamespace>Landis.Extension.Browse</RootNamespace>
-    <AssemblyName>Landis.Extension.Browse-v1</AssemblyName>
-    <AssemblyTitle>Landis.Extension.Browse-v1</AssemblyTitle>
+    <AssemblyName>Landis.Extension.Browse-v2</AssemblyName>
+    <AssemblyTitle>Landis.Extension.Browse-v2</AssemblyTitle>
     <AssemblyCompany>Landis-II-Foundation</AssemblyCompany>
-    <AssemblyProduct>Landis.Extension.Browse-v1</AssemblyProduct>
+    <AssemblyProduct>Landis.Extension.Browse-v2</AssemblyProduct>
     <AssemblyCopyright>Landis-II-Foundation</AssemblyCopyright>
-    <AssemblyVersion>1.0</AssemblyVersion>
-    <Version>1.0</Version>
-    <FileVersion>1.0.0.0</FileVersion>
-    <Product>Landis.Extension.Browse-v4</Product>
+    <AssemblyVersion>2.0</AssemblyVersion>
+    <Version>2.0</Version>
+    <FileVersion>2.0.0.0</FileVersion>
+    <Product>Landis.Extension.BiomassBrowse-v2</Product>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <RepositoryUrl>https://github.com/LANDIS-II-Foundation/Extension-Biomass-Browse</RepositoryUrl>

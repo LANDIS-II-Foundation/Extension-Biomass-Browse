@@ -29,6 +29,17 @@ namespace Landis.Extension.Browse
         private static ICore modelCore;
         private bool running;
 
+        //Dynamic Population Parameters
+        public static double PopRMin;
+        public static double PopRMax;
+        public static double PopMortalityMin;
+        public static double PopMortalityMax;
+        public static double PopHarvestMin;
+        public static double PopHarvestMax;
+        public static double PopPredationMin;
+        public static double PopPredationMax;
+        public static bool DynamicPopulation = true;
+
 
         //---------------------------------------------------------------------
 
@@ -85,12 +96,13 @@ namespace Landis.Extension.Browse
 
             DynamicInputs.Initialize(parameters.PopulationFileName, false, parameters);
 
-            DynamicPopulation.Initialize(parameters.DynamicPopulationFileName, false);
+            //DynamicPopulation.Initialize(parameters.DynamicPopulationFileName, false);
 
             parameters.PreferenceList =  PreferenceList.Initialize(parameters.SppParameters);
 
             PartialDisturbance.Initialize();
             GrowthReduction.Initialize(parameters);
+            PopulationZones.Initialize();
 
             parameters.ForageNeighbors = GetResourceNeighborhood(parameters.ForageQuantityNbrRad);
             parameters.SitePrefNeighbors = GetResourceNeighborhood(parameters.SitePrefNbrRad);

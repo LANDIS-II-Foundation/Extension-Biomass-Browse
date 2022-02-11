@@ -6,9 +6,9 @@ namespace Landis.Extension.Browse
 	/// Editable parameters (size and frequency) for wind events for a
 	/// collection of ecoregions.
 	/// </summary>
-	public class EventParameterDataset
+	public class EventEcoregionParameterDataset
 	{
-		private IEventParameters[] parameters;
+		private IEventEcoregionParameters[] parameters;
 
 		//---------------------------------------------------------------------
 
@@ -27,7 +27,7 @@ namespace Landis.Extension.Browse
 		/// <summary>
 		/// The event parameters for an ecoregion.
 		/// </summary>
-		public IEventParameters this[int ecoregionIndex]
+		public IEventEcoregionParameters this[int ecoregionIndex]
 		{
 			get {
 				return parameters[ecoregionIndex];
@@ -40,9 +40,9 @@ namespace Landis.Extension.Browse
 
 		//---------------------------------------------------------------------
 
-		public EventParameterDataset(int ecoregionCount)
+		public EventEcoregionParameterDataset(int ecoregionCount)
 		{
-			parameters = new IEventParameters[ecoregionCount];
+			parameters = new IEventEcoregionParameters[ecoregionCount];
 		}
 
 	}

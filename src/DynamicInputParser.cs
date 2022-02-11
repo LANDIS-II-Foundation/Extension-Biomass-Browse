@@ -10,10 +10,10 @@ namespace Landis.Extension.Browse
     /// A parser that reads the tool parameters from text input.
     /// </summary>
     public class DynamicInputsParser
-        : TextParser<Dictionary<int, IDynamicInputRecord[]>>
+        : TextParser<bool> //Dictionary<int, IDynamicInputRecord[]>>
     {
 
-        private string FileName = "Defined Ungulate Population";
+        private string FileName = "Temporal Population";
         //---------------------------------------------------------------------
         public override string LandisDataValue
         {
@@ -29,7 +29,7 @@ namespace Landis.Extension.Browse
 
         //---------------------------------------------------------------------        
 
-        protected override Dictionary<int, IDynamicInputRecord[]> Parse()
+        protected override bool Parse() // Dictionary<int, IDynamicInputRecord[]> Parse()
         {
 
             InputVar<string> landisData = new InputVar<string>("LandisData");
@@ -37,7 +37,7 @@ namespace Landis.Extension.Browse
             if (landisData.Value.Actual != FileName)
                 throw new InputValueException(landisData.Value.String, "The value is not \"{0}\"", FileName);
             
-            Dictionary<int, IDynamicInputRecord[]> allData = new Dictionary<int, IDynamicInputRecord[]>();
+            //Dictionary<int, IDynamicInputRecord[]> allData = new Dictionary<int, IDynamicInputRecord[]>();
 
             //---------------------------------------------------------------------
             //Read in population data:
@@ -52,10 +52,10 @@ namespace Landis.Extension.Browse
                 ReadValue(year, currentLine);
                 int yr = year.Value.Actual;
 
-                if(!allData.ContainsKey(yr))
+                if(!DynamicInputs.TemporalData.ContainsKey(yr))
                 {
                     IDynamicInputRecord[] inputTable = new IDynamicInputRecord[PopulationZones.Dataset.Count];
-                    allData.Add(yr, inputTable);
+                    DynamicInputs.TemporalData.Add(yr, inputTable);
                     PlugIn.ModelCore.UI.WriteLine("  Dynamic Input Parser:  Add new year = {0}.", yr);
                 }
 
@@ -68,7 +68,7 @@ namespace Landis.Extension.Browse
                 ReadValue(population, currentLine);
                 dynamicInputRecord.Population = population.Value;
 
-                allData[yr][popZone.Index] = dynamicInputRecord;
+                DynamicInputs.TemporalData[yr][popZone.Index] = dynamicInputRecord;
 
                 CheckNoDataAfter("the " + population.Name + " column",
                                  currentLine);
@@ -77,7 +77,8 @@ namespace Landis.Extension.Browse
 
             }
 
-            return allData;
+            return true;
+            //return allData;
         }
 
         //---------------------------------------------------------------------

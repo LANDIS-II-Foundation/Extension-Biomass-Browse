@@ -105,17 +105,88 @@ namespace Landis.Extension.Browse
             ReadVar(zoneMapFile);
             parameters.ZoneMapFileName = zoneMapFile.Value;
 
-            //TODO add max biomass as a raster for each species?
+            //---------------------------------------------------------------------
+            //Read in INITIAL population data:
+            InputVar<int> zoneCode = new InputVar<int>("Zone code");
+            InputVar<double> population = new InputVar<double>("Population");
+            //Dictionary<int, IDynamicInputRecord[]> allData = new Dictionary<int, IDynamicInputRecord[]>();
+            DynamicInputs.TemporalData = new Dictionary<int, IDynamicInputRecord[]>();
+            IDynamicInputRecord[] inputTable = new IDynamicInputRecord[PopulationZones.Dataset.Count];
+            DynamicInputs.TemporalData.Add(0, inputTable);
+            //PlugIn.ModelCore.UI.WriteLine("  Dynamic Input Parser:  Add new year = {0}.", yr);
 
-            InputVar<string> populationFile = new InputVar<string>("PopulationFile");
-            ReadVar(populationFile);
-            parameters.PopulationFileName = populationFile.Value;
+            while (!AtEndOfInput && (CurrentName != "DefinedPopulationFile"))
+            {
+                StringReader currentLine = new StringReader(CurrentLine);
 
-            InputVar<string> dynamicPopulationFile = new InputVar<string>("DynamicPopulationFile");
-            if (ReadOptionalVar(dynamicPopulationFile))
-                parameters.DynamicPopulationFileName = dynamicPopulationFile.Value;
-            else
-                parameters.DynamicPopulationFileName = null;
+                ReadValue(zoneCode, currentLine);
+
+                IPopulationZone popZone = PopulationZones.FindZone(zoneCode.Value);
+
+                IDynamicInputRecord dynamicInputRecord = new DynamicInputRecord();
+
+                ReadValue(population, currentLine);
+                dynamicInputRecord.Population = population.Value;
+
+                DynamicInputs.TemporalData[0][popZone.Index] = dynamicInputRecord;
+
+                CheckNoDataAfter("the " + population.Name + " column",
+                                 currentLine);
+
+                GetNextLine();
+
+            }
+
+
+            InputVar<string> populationFile = new InputVar<string>("DefinedPopulationFile");
+            if (ReadOptionalVar(populationFile))
+            {
+                PlugIn.DynamicPopulation = false;
+                parameters.PopulationFileName = populationFile.Value;
+            }
+
+            if (PlugIn.DynamicPopulation)  // at this point, only an option still
+            {
+                if(ReadOptionalName("DynamicPopulation"))
+                {
+                    InputVar<double> rmin = new InputVar<double>("RMin");
+                    ReadVar(rmin);
+                    PlugIn.PopRMin = rmin.Value;
+
+                    InputVar<double> rmax = new InputVar<double>("RMax");
+                    ReadVar(rmax);
+                    PlugIn.PopRMax = rmax.Value;
+
+                    InputVar<double> mmin = new InputVar<double>("MortalityMin");
+                    ReadVar(mmin);
+                    PlugIn.PopMortalityMin = mmin.Value;
+
+                    InputVar<double> mmax = new InputVar<double>("MortalityMax");
+                    ReadVar(mmax);
+                    PlugIn.PopMortalityMax = mmax.Value;
+
+                    InputVar<double> pmin = new InputVar<double>("PredationMin");
+                    ReadVar(pmin);
+                    PlugIn.PopPredationMin = pmin.Value;
+
+                    InputVar<double> pmax = new InputVar<double>("PredationMax");
+                    ReadVar(pmax);
+                    PlugIn.PopPredationMax = pmax.Value;
+
+                    InputVar<double> hmin = new InputVar<double>("HarvestMin");
+                    ReadVar(hmin);
+                    PlugIn.PopHarvestMin = hmin.Value;
+
+                    InputVar<double> hmax = new InputVar<double>("HarvestMax");
+                    ReadVar(hmax);
+                    PlugIn.PopHarvestMax = hmax.Value;
+                }
+                //InputVar<string> dynamicPopulationFile = new InputVar<string>("DynamicPopulationFile");
+                //if (ReadOptionalVar(dynamicPopulationFile))
+                //    parameters.DynamicPopulationFileName = dynamicPopulationFile.Value;
+                //else
+                //    parameters.DynamicPopulationFileName = null;
+            }
 
             InputVar<double> consumptionRate = new InputVar<double>("ConsumptionRate");
             ReadVar(consumptionRate);

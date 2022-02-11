@@ -91,43 +91,52 @@ namespace Landis.Extension.Browse
         {
             PlugIn.ModelCore.UI.WriteLine("   Calculating Zone Population.");
             // Read from defined populations
-            if (DynamicInputs.AllData.ContainsKey(PlugIn.ModelCore.CurrentTime))
+            if (!PlugIn.DynamicPopulation)
             {
-                foreach (IPopulationZone popZone in Dataset)
+                if (DynamicInputs.TemporalData.ContainsKey(PlugIn.ModelCore.CurrentTime))
                 {
-                    if (DynamicInputs.AllData[PlugIn.ModelCore.CurrentTime][popZone.Index] != null)
+                    foreach (IPopulationZone popZone in Dataset)
                     {
-                        double newPop = DynamicInputs.AllData[PlugIn.ModelCore.CurrentTime][popZone.Index].Population;
-                        Dataset[popZone.Index].Population = (int)(newPop * Dataset[popZone.Index].PopulationZoneSites.Count);
-                        Dataset[popZone.Index].K = CalculateK (popZone.Index, parameters);
-                        Dataset[popZone.Index].EffectivePop = Math.Min(Dataset[popZone.Index].Population, Dataset[popZone.Index].K);
-                    }
-                    else if(parameters.DynamicPopulationFileName != null)
-                    {
-                        Dataset[popZone.Index].Population = CalculateDynamicPop(popZone.Index, parameters);
-                        Dataset[popZone.Index].EffectivePop = Math.Min(Dataset[popZone.Index].Population, Dataset[popZone.Index].K);
+                        if (DynamicInputs.TemporalData[PlugIn.ModelCore.CurrentTime][popZone.Index] != null)
+                        {
+                            double newPop = DynamicInputs.TemporalData[PlugIn.ModelCore.CurrentTime][popZone.Index].Population;
+                            Dataset[popZone.Index].Population = (int)(newPop * Dataset[popZone.Index].PopulationZoneSites.Count);
+                            Dataset[popZone.Index].K = CalculateK(popZone.Index, parameters);
+                            Dataset[popZone.Index].EffectivePop = Math.Min(Dataset[popZone.Index].Population, Dataset[popZone.Index].K);
+                        }
+                        else
+                        {
+                            Dataset[popZone.Index].K = CalculateK(popZone.Index, parameters);
+                            Dataset[popZone.Index].EffectivePop = Math.Min(Dataset[popZone.Index].Population, Dataset[popZone.Index].K);
+
+                        }
+                        //else if (parameters.DynamicPopulationFileName != null)
+                        //{
+                        //    Dataset[popZone.Index].Population = CalculateDynamicPop(popZone.Index, parameters);
+                        //    Dataset[popZone.Index].EffectivePop = Math.Min(Dataset[popZone.Index].Population, Dataset[popZone.Index].K);
+                        //}
                     }
                 }
             }
             else
             {
-                if (parameters.DynamicPopulationFileName != null)
-                {
+                //if (parameters.DynamicPopulationFileName != null)
+                //{
                     foreach (IPopulationZone popZone in Dataset)
                     {
 
                         Dataset[popZone.Index].Population = CalculateDynamicPop(popZone.Index, parameters);
                         Dataset[popZone.Index].EffectivePop = Math.Min(Dataset[popZone.Index].Population, Dataset[popZone.Index].K);
                     }
-                }
-                else  //Non-dynamic population
-                {
-                    foreach (IPopulationZone popZone in Dataset)
-                    {
-                        Dataset[popZone.Index].K = CalculateK(popZone.Index, parameters);
-                    }
+                //}
+                //else  //Non-dynamic population
+                //{
+                //    foreach (IPopulationZone popZone in Dataset)
+                //    {
+                //        Dataset[popZone.Index].K = CalculateK(popZone.Index, parameters);
+                //    }
 
-                }
+                //}
             }
         }
         //---------------------------------------------------------------------
@@ -144,23 +153,23 @@ namespace Landis.Extension.Browse
             double zoneK = CalculateK(popZoneIndex, parameters);
             Dataset[popZoneIndex].K = zoneK;
 
-            PlugIn.ModelCore.ContinuousUniformDistribution.Alpha = DynamicPopulation.PopRMin;
-            PlugIn.ModelCore.ContinuousUniformDistribution.Beta = DynamicPopulation.PopRMax;
+            PlugIn.ModelCore.ContinuousUniformDistribution.Alpha = PlugIn.PopRMin;
+            PlugIn.ModelCore.ContinuousUniformDistribution.Beta = PlugIn.PopRMax;
             double popR = PlugIn.ModelCore.ContinuousUniformDistribution.NextDouble();
             popR = PlugIn.ModelCore.ContinuousUniformDistribution.NextDouble();
 
-            PlugIn.ModelCore.ContinuousUniformDistribution.Alpha = DynamicPopulation.PopMortalityMin;
-            PlugIn.ModelCore.ContinuousUniformDistribution.Beta = DynamicPopulation.PopMortalityMax;
+            PlugIn.ModelCore.ContinuousUniformDistribution.Alpha = PlugIn.PopMortalityMin;
+            PlugIn.ModelCore.ContinuousUniformDistribution.Beta = PlugIn.PopMortalityMax;
             double popMortality = PlugIn.ModelCore.ContinuousUniformDistribution.NextDouble();
             popMortality = PlugIn.ModelCore.ContinuousUniformDistribution.NextDouble();
 
-            PlugIn.ModelCore.ContinuousUniformDistribution.Alpha = DynamicPopulation.PopPredationMin;
-            PlugIn.ModelCore.ContinuousUniformDistribution.Beta = DynamicPopulation.PopPredationMax;
+            PlugIn.ModelCore.ContinuousUniformDistribution.Alpha = PlugIn.PopPredationMin;
+            PlugIn.ModelCore.ContinuousUniformDistribution.Beta = PlugIn.PopPredationMax;
             double popPredation = PlugIn.ModelCore.ContinuousUniformDistribution.NextDouble();
             popPredation = PlugIn.ModelCore.ContinuousUniformDistribution.NextDouble();
 
-            PlugIn.ModelCore.ContinuousUniformDistribution.Alpha = DynamicPopulation.PopHarvestMin;
-            PlugIn.ModelCore.ContinuousUniformDistribution.Beta = DynamicPopulation.PopHarvestMax;
+            PlugIn.ModelCore.ContinuousUniformDistribution.Alpha = PlugIn.PopHarvestMin;
+            PlugIn.ModelCore.ContinuousUniformDistribution.Beta = PlugIn.PopHarvestMax;
             double popHarvest = PlugIn.ModelCore.ContinuousUniformDistribution.NextDouble();
             popHarvest = PlugIn.ModelCore.ContinuousUniformDistribution.NextDouble();
             
@@ -191,19 +200,20 @@ namespace Landis.Extension.Browse
             return zoneK;
         }
         //---------------------------------------------------------------------
-        public static void Initialize(Dictionary<int, IDynamicInputRecord[]> allData, IInputParameters parameters)
+        public static void Initialize()// Dictionary<int, IDynamicInputRecord[]> allData, IInputParameters parameters)
         {
             foreach (IPopulationZone popZone in Dataset)
             {
-                if (parameters.DynamicPopulationFileName != null)
-                {
-                    Dataset[popZone.Index].Population = (int)(allData[0][popZone.Index].Population);
-                }
-                else
-                {
-                    Dataset[popZone.Index].Population = (int)(allData[0][popZone.Index].Population * Dataset[popZone.Index].PopulationZoneSites.Count);
-                }
-                Dataset[popZone.Index].K = CalculateK (popZone.Index, parameters);
+                Dataset[popZone.Index].Population = (int)(DynamicInputs.TemporalData[0][popZone.Index].Population * Dataset[popZone.Index].PopulationZoneSites.Count);
+                //if (parameters.DynamicPopulationFileName != null)
+                //{
+                //    Dataset[popZone.Index].Population = (int)(allData[0][popZone.Index].Population);
+                //}
+                //else
+                //{
+                //    Dataset[popZone.Index].Population = (int)(allData[0][popZone.Index].Population * Dataset[popZone.Index].PopulationZoneSites.Count);
+                //}
+                //Dataset[popZone.Index].K = CalculateK (popZone.Index, parameters);
                 Dataset[popZone.Index].EffectivePop = Dataset[popZone.Index].Population;
             }
         }
