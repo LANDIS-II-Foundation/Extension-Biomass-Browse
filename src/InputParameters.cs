@@ -42,9 +42,11 @@ namespace Landis.Extension.Browse
         private IEnumerable<RelativeLocationWeighted> forageNeighbors;
         private IEnumerable<RelativeLocationWeighted> sitePrefNeighbors;
         private List<double> preferenceList;
-     
 
- 
+        private Dictionary<int, IDynamicInputRecord[]> temporalData;
+
+
+
 
         //---------------------------------------------------------------------
 
@@ -76,6 +78,18 @@ namespace Landis.Extension.Browse
             set
             {
                 sppParameters = value;
+            }
+        }
+        //---------------------------------------------------------------------
+        public Dictionary<int, IDynamicInputRecord[]> TemporalData
+        {
+            get
+            {
+                return temporalData;
+            }
+            set
+            {
+                temporalData = value;
             }
         }
         //---------------------------------------------------------------------
@@ -466,7 +480,7 @@ namespace Landis.Extension.Browse
     /// </summary>
     public interface IInputParameters
     {
-
+        Dictionary<int, IDynamicInputRecord[]> TemporalData { get; set; }
         int Timestep { get; set; }
         ISppParameters[] SppParameters { get; set; }
         string ZoneMapFileName { get; set; }

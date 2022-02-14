@@ -27,16 +27,12 @@ SpeciesTable
 << Browser population Inputs >>
 ZoneMap  ecoregions.gis
 
-InitialZonePopulations
-1	   500
-2	   500
-
->>DefinedPopulationFile	DefinedPopulation.txt  << User-defined population
-DefinedPopulation
+DefinedPopulationFile	DefinedPopulation.txt  << User-defined population, MUST include year 0
+DynamicPopulation  << Optional.  If exists, then the next 8 parameters must be input
 RMin 0.15
 RMax 0.25		
-MortalityMin 0.0
-MortalityMax 0.1
+MortalityMin 0.15
+MortalityMax 0.25
 PredationMin 0.0
 PredationMax 0.0
 HarvestMin 0.0

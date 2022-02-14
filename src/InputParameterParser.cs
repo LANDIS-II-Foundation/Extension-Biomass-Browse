@@ -104,56 +104,54 @@ namespace Landis.Extension.Browse
             InputVar<string> zoneMapFile = new InputVar<string>("ZoneMap");
             ReadVar(zoneMapFile);
             parameters.ZoneMapFileName = zoneMapFile.Value;
-            PopulationZones.ReadMap(parameters.ZoneMapFileName);
-            //---------------------------------------------------------------------
-            //Read in INITIAL population data:
-            InputVar<int> zoneCode = new InputVar<int>("Zone code");
-            InputVar<double> population = new InputVar<double>("Population");
+            //PopulationZones.ReadMap(parameters.ZoneMapFileName);
+            ////---------------------------------------------------------------------
+            ////Read in INITIAL population data:
+            //InputVar<int> zoneCode = new InputVar<int>("Zone code");
+            //InputVar<double> population = new InputVar<double>("Population");
             //Dictionary<int, IDynamicInputRecord[]> allData = new Dictionary<int, IDynamicInputRecord[]>();
-            DynamicInputs.TemporalData = new Dictionary<int, IDynamicInputRecord[]>();
-            IDynamicInputRecord[] inputTable = new IDynamicInputRecord[PopulationZones.Dataset.Count];
-            DynamicInputs.TemporalData.Add(0, inputTable);
-            //PlugIn.ModelCore.UI.WriteLine("  Dynamic Input Parser:  Add new year = {0}.", yr);
+            ////DynamicInputs.TemporalData = new Dictionary<int, IDynamicInputRecord[]>();
+            //IDynamicInputRecord[] inputTable = new IDynamicInputRecord[PopulationZones.Dataset.Count];
+            //parameters.TemporalData.Add(0, inputTable);
+            ////DynamicInputs.TemporalData.Add(0, inputTable);
+            ////PlugIn.ModelCore.UI.WriteLine("  Dynamic Input Parser:  Add new year = {0}.", yr);
 
-            ReadName("InitialalZonePopulations");
-            while (!AtEndOfInput && (CurrentName != "DefinedPopulationFile"))
-            {
-                StringReader currentLine = new StringReader(CurrentLine);
+            //ReadName("InitialalZonePopulations");
+            //while (!AtEndOfInput && (CurrentName != "DefinedPopulationFile"))
+            //{
+            //    StringReader currentLine = new StringReader(CurrentLine);
 
-                ReadValue(zoneCode, currentLine);
+            //    ReadValue(zoneCode, currentLine);
 
-                IPopulationZone popZone = PopulationZones.FindZone(zoneCode.Value);
+            //    IPopulationZone popZone = PopulationZones.FindZone(zoneCode.Value);
 
-                IDynamicInputRecord dynamicInputRecord = new DynamicInputRecord();
+            //    IDynamicInputRecord dynamicInputRecord = new DynamicInputRecord();
 
-                ReadValue(population, currentLine);
-                dynamicInputRecord.Population = population.Value;
+            //    ReadValue(population, currentLine);
+            //    dynamicInputRecord.Population = population.Value;
 
-                DynamicInputs.TemporalData[0][popZone.Index] = dynamicInputRecord;
+            //    parameters.TemporalData[0][popZone.Index] = dynamicInputRecord;
 
-                CheckNoDataAfter("the " + population.Name + " column",
-                                 currentLine);
+            //    CheckNoDataAfter("the " + population.Name + " column",
+            //                     currentLine);
 
-                GetNextLine();
+            //    GetNextLine();
 
-            }
+            //}
 
 
             InputVar<string> populationFile = new InputVar<string>("DefinedPopulationFile");
-            if (ReadOptionalVar(populationFile))
-            {
-                PlugIn.DynamicPopulation = false;
-                parameters.PopulationFileName = populationFile.Value;
-            }
+            ReadVar(populationFile);
+            parameters.PopulationFileName = populationFile.Value;
 
-            if (PlugIn.DynamicPopulation)  // at this point, only an option still
+            if (ReadOptionalName("DynamicPopulation"))
             {
-                //if(ReadOptionalName("DynamicPopulation"))
-                //{
-                ReadName("DynamicPopulation");
+                PlugIn.DynamicPopulation = true;
+
+                //ReadName("DynamicPopulation");
                     InputVar<double> rmin = new InputVar<double>("RMin");
                     ReadVar(rmin);
-                    PlugIn.PopRMin = rmin.Value;
+                    PlugIn.PopRMin = (double) rmin.Value;
 
                     InputVar<double> rmax = new InputVar<double>("RMax");
                     ReadVar(rmax);

@@ -92,7 +92,7 @@ namespace Landis.Extension.Browse
 
             SiteVars.Initialize();
 
-            //PopulationZones.ReadMap(parameters.ZoneMapFileName);
+            PopulationZones.ReadMap(parameters.ZoneMapFileName);
 
             DynamicInputs.Initialize(parameters.PopulationFileName, false, parameters);
 
@@ -103,6 +103,7 @@ namespace Landis.Extension.Browse
             PartialDisturbance.Initialize();
             GrowthReduction.Initialize(parameters);
             PopulationZones.Initialize();
+            
 
             parameters.ForageNeighbors = GetResourceNeighborhood(parameters.ForageQuantityNbrRad);
             parameters.SitePrefNeighbors = GetResourceNeighborhood(parameters.SitePrefNbrRad);

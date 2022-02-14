@@ -153,6 +153,7 @@ namespace Landis.Extension.Browse
             double zoneK = CalculateK(popZoneIndex, parameters);
             Dataset[popZoneIndex].K = zoneK;
 
+            PlugIn.ModelCore.ContinuousUniformDistribution.Alpha = (double) 0.0; 
             PlugIn.ModelCore.ContinuousUniformDistribution.Alpha = PlugIn.PopRMin;
             PlugIn.ModelCore.ContinuousUniformDistribution.Beta = PlugIn.PopRMax;
             double popR = PlugIn.ModelCore.ContinuousUniformDistribution.NextDouble();

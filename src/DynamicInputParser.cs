@@ -13,7 +13,7 @@ namespace Landis.Extension.Browse
         : TextParser<bool> //Dictionary<int, IDynamicInputRecord[]>>
     {
 
-        private string FileName = "Temporal Population";
+        private string FileName = "Defined Population";
         //---------------------------------------------------------------------
         public override string LandisDataValue
         {
@@ -37,7 +37,8 @@ namespace Landis.Extension.Browse
             if (landisData.Value.Actual != FileName)
                 throw new InputValueException(landisData.Value.String, "The value is not \"{0}\"", FileName);
             
-            //Dictionary<int, IDynamicInputRecord[]> allData = new Dictionary<int, IDynamicInputRecord[]>();
+            //Dictionary<int, IDynamicInputRecord[]> 
+            DynamicInputs.TemporalData = new Dictionary<int, IDynamicInputRecord[]>();
 
             //---------------------------------------------------------------------
             //Read in population data:
