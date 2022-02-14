@@ -153,22 +153,29 @@ namespace Landis.Extension.Browse
             double zoneK = CalculateK(popZoneIndex, parameters);
             Dataset[popZoneIndex].K = zoneK;
 
-            PlugIn.ModelCore.ContinuousUniformDistribution.Alpha = (double) 0.0; 
+            PlugIn.ModelCore.ContinuousUniformDistribution.Alpha = 0.0;
+            PlugIn.ModelCore.ContinuousUniformDistribution.Beta = 1.0;
             PlugIn.ModelCore.ContinuousUniformDistribution.Alpha = PlugIn.PopRMin;
             PlugIn.ModelCore.ContinuousUniformDistribution.Beta = PlugIn.PopRMax;
             double popR = PlugIn.ModelCore.ContinuousUniformDistribution.NextDouble();
             popR = PlugIn.ModelCore.ContinuousUniformDistribution.NextDouble();
 
+            PlugIn.ModelCore.ContinuousUniformDistribution.Alpha = 0.0;
+            PlugIn.ModelCore.ContinuousUniformDistribution.Beta = 1.0;
             PlugIn.ModelCore.ContinuousUniformDistribution.Alpha = PlugIn.PopMortalityMin;
             PlugIn.ModelCore.ContinuousUniformDistribution.Beta = PlugIn.PopMortalityMax;
             double popMortality = PlugIn.ModelCore.ContinuousUniformDistribution.NextDouble();
             popMortality = PlugIn.ModelCore.ContinuousUniformDistribution.NextDouble();
 
+            PlugIn.ModelCore.ContinuousUniformDistribution.Alpha = 0.0;
+            PlugIn.ModelCore.ContinuousUniformDistribution.Beta = 1.0;
             PlugIn.ModelCore.ContinuousUniformDistribution.Alpha = PlugIn.PopPredationMin;
             PlugIn.ModelCore.ContinuousUniformDistribution.Beta = PlugIn.PopPredationMax;
             double popPredation = PlugIn.ModelCore.ContinuousUniformDistribution.NextDouble();
             popPredation = PlugIn.ModelCore.ContinuousUniformDistribution.NextDouble();
 
+            PlugIn.ModelCore.ContinuousUniformDistribution.Alpha = 0.0;
+            PlugIn.ModelCore.ContinuousUniformDistribution.Beta = 1.0;
             PlugIn.ModelCore.ContinuousUniformDistribution.Alpha = PlugIn.PopHarvestMin;
             PlugIn.ModelCore.ContinuousUniformDistribution.Beta = PlugIn.PopHarvestMax;
             double popHarvest = PlugIn.ModelCore.ContinuousUniformDistribution.NextDouble();
