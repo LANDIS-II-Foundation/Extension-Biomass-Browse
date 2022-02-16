@@ -7,25 +7,23 @@ SpeciesTable
 >>				--GrowthReduction--	----Mortality-----	-----Biomass-----
 >> Name		Preference	Threshold	Max	Threshold	Max	    Max
 >> --------	----------	---------	---	---------	---	    -----
-   abiebals     0.0		0.5		0.4	0.5		0.1		25000
-   acerrubr     0.3		0.5		0.4	0.5		0.1		25000
-   acersacc     0.5		0.5		0.4	0.5		0.1		25000
-   betualle     0.3		0.5		0.4	0.5		0.1		25000
-   betupapy     0.6		0.5		0.4	0.5		0.1		25000
-   fraxamer     0.6		0.5		0.4	0.5		0.1		25000
-   piceglau     0.0		0.5		0.4	0.5		0.1		25000
-   pinubank     0.0		0.5		0.4	0.5		0.1		25000
-   pinuresi     0.0		0.5		0.4	0.5		0.1		25000
-   pinustro     0.0		0.5		0.4	0.5		0.1		25000
-   poputrem     0.4		0.5		0.4	0.5		0.1		25000
-   querelli     0.0		0.5		0.4	0.5		0.1		25000
-   querrubr     0.0		0.5		0.4	0.5		0.1		25000
-   thujocci     0.5		0.5		0.4	0.5		0.1		25000
-   tiliamer     0.4		0.5		0.4	0.5		0.1		25000
-   tsugcana     0.5		0.5		0.4	0.5		0.1		25000
+   ABBA     	0.0		0.5		0.4	0.5		0.1		25000
+   ACSA3    	 0.5		0.5		0.4	0.5		0.1		25000
+   BEAL2    	 0.3		0.5		0.4	0.5		0.1		25000
+   BEPA     	0.6		0.5		0.4	0.5		0.1		25000
+   FRNI     	0.6		0.5		0.4	0.5		0.1		25000
+   PIGL    	 0.0		0.5		0.4	0.5		0.1		25000
+   PIMA    	 0.0		0.5		0.4	0.5		0.1		25000
+   PIBA2    	 0.0		0.5		0.4	0.5		0.1		25000
+   PIST     	0.0		0.5		0.4	0.5		0.1		25000
+   POTR5    	 0.4		0.5		0.4	0.5		0.1		25000
+   QURU     	0.0		0.5		0.4	0.5		0.1		25000
+   THOC2    	 0.5		0.5		0.4	0.5		0.1		25000
+   HRDWD    	 0.4		0.5		0.4	0.5		0.1		25000
+   SFTWD     	0.5		0.5		0.4	0.5		0.1		25000
 
 << Browser population Inputs >>
-ZoneMap  ecoregions.gis
+ZoneMap  ecoregions_subset.tif
 
 DefinedPopulationFile	DefinedPopulation.txt  << User-defined population, MUST include year 0
 DynamicPopulation  << Optional.  If exists, then the next 8 parameters must be input
