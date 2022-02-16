@@ -1,0 +1,29 @@
+2022-02-16 11:26:01,183 - LANDIS-II 7.0 (7)
+2022-02-16 11:26:01,193 - 
+2022-02-16 11:26:01,260 - Loading scenario from file "scenario_dynamic.txt" ...
+2022-02-16 11:26:01,319 - Initialized random number generator with seed = 3,356,250,046
+2022-02-16 11:26:01,320 - Loading species data from file "species.txt" ...
+2022-02-16 11:26:01,341 - Loading ecoregions from file "./ecoregions.txt" ...
+2022-02-16 11:26:01,357 - Initializing landscape from ecoregions map "./ecoregions.gis" ...
+2022-02-16 11:26:01,371 - Cell length = 100 m, cell area = 1 ha
+2022-02-16 11:26:01,373 - Map dimensions: 99 rows by 99 columns = 9,801 cells
+2022-02-16 11:26:01,381 - Sites: 9,801 active (100.0%), 0 inactive (0.0%)
+2022-02-16 11:26:01,392 - Loading Biomass Succession extension ...
+2022-02-16 11:26:01,409 -    Registering Data:  Succession.BiomassCohorts.
+2022-02-16 11:26:01,410 -    Registering Data:  Succession.AgeCohorts.
+2022-02-16 11:26:01,410 -    Registering Data:  Succession.WoodyDebris.
+2022-02-16 11:26:01,410 -    Registering Data:  Succession.Litter.
+2022-02-16 11:26:01,410 -    Registering Data:  Succession.MaxBiomass.
+2022-02-16 11:26:01,452 -    Begin reading FIRE REDUCTION parameters.
+2022-02-16 11:26:01,453 -    Begin reading HARVEST REDUCTION parameters.
+2022-02-16 11:26:01,476 -    Generating summary table...
+2022-02-16 11:26:01,492 -    Registering Data:  TimeOfLastSuccession.
+2022-02-16 11:26:01,492 -    Registering Data:  Shade.
+2022-02-16 11:26:01,494 -    Creating Dispersal Neighborhood List.
+2022-02-16 11:26:01,494 -    Dispersal:  NeighborRadius=5050, CellLength=100, numCellRadius=50
+2022-02-16 11:26:01,505 -    Loading initial communities from file "./initial-communities.txt" ...
+2022-02-16 11:26:01,516 -    Reading initial communities map "./initial-communities.gis" ...
+2022-02-16 11:26:01,638 - Loading Biomass Browse extension ...
+2022-02-16 11:26:01,711 -    Begin parsing SPECIES table.
+2022-02-16 11:26:01,719 - Error at line 27 of file "DynamicUngulateBrowse.txt":
+  Found the name "PopulationFile" but expected "DefinedPopulationFile"

@@ -38,7 +38,8 @@ namespace Landis.Extension.Browse
         public static double PopHarvestMax;
         public static double PopPredationMin;
         public static double PopPredationMax;
-        public static bool DynamicPopulation = true;
+        public static bool DynamicPopulation = false; //SF changed this so that static population can happen -- otherwise
+                                                      //dynamic is always used
 
 
         //---------------------------------------------------------------------
@@ -287,6 +288,8 @@ namespace Landis.Extension.Browse
             double totalK = 0;
             double totalEffPop = 0;
             double totalForage = 0;
+
+            //TODO what's going on here? If static population, then totalPoulation gets divided by number of cells (converted to density)
             if (parameters.DynamicPopulationFileName == null)
             {
                 int landscapeCells = PlugIn.ModelCore.Landscape.ActiveSiteCount;
@@ -311,12 +314,15 @@ namespace Landis.Extension.Browse
                 }
             }
 
-
+            //TODO zone -1 is not being written to log
             foreach (IPopulationZone popZone in PopulationZones.Dataset)
              //   for (int i = -1; i <= (PopulationZones.Dataset.Count-1); i++)
             {
                 eventLog.Write("{0},",
                              currentTime);
+
+                //problem happens here, because of change to the index in the loop
+                //totals calculated above (Lines 293-315) should be written to zone -1
                 if (popZone.Index < 0)
                 {
                     eventLog.Write("{0},{1},{2},{3},{4},{5},{6},{7},{8}",
@@ -340,11 +346,15 @@ namespace Landis.Extension.Browse
                 }
                 else
                 {
+                    //TODO make sure this is right
+                    //why is static population converted to density?
                     if (parameters.DynamicPopulationFileName == null)
                     {
                         eventLog.Write("{0},{1},{2},{3},{4},{5},{6},{7},{8}",
                                        PopulationZones.Dataset[popZone.Index].MapCode,
+                                       //why is this scaled to per-cell density?
                                        (double)PopulationZones.Dataset[popZone.Index].Population / (double)PopulationZones.Dataset[popZone.Index].PopulationZoneSites.Count,
+                                       //check units for forage
                                        PopulationZones.Dataset[popZone.Index].TotalForage,
                                        PopulationZones.Dataset[popZone.Index].K,
                                        PopulationZones.Dataset[popZone.Index].EffectivePop,

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Landis.SpatialModeling;
 
+//TODO SF remove this file; never referenced
 namespace Landis.Extension.Browse
 {
     class BrowseIndex

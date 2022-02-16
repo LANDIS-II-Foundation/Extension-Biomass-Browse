@@ -28,15 +28,15 @@ SpeciesTable
 ZoneMap  ecoregions.gis
 
 DefinedPopulationFile	DefinedPopulation.txt  << User-defined population, MUST include year 0
-DynamicPopulation  << Optional.  If exists, then the next 8 parameters must be input
-RMin 0.15
-RMax 0.25		
-MortalityMin 0.15
-MortalityMax 0.25
-PredationMin 0.0
-PredationMax 0.0
-HarvestMin 0.0
-HarvestMax 0.0
+<<DynamicPopulation  << Optional.  If exists, then the next 8 parameters must be input
+<<RMin 0.15
+<<RMax 0.25		
+<<MortalityMin 0.15
+<<MortalityMax 0.25
+<<PredationMin 0.0
+<<PredationMax 0.0
+<<HarvestMin 0.0
+<<HarvestMax 0.0
 
 ConsumptionRate  2738  << kg/yr/individual
 

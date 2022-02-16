@@ -144,6 +144,8 @@ namespace Landis.Extension.Browse
             ReadVar(populationFile);
             parameters.PopulationFileName = populationFile.Value;
 
+            //PlugIn.ModelCore.UI.WriteLine("DynamicPopulation is read as {0}", ReadOptionalName("DynamicPopulation"));
+
             if (ReadOptionalName("DynamicPopulation"))
             {
                 PlugIn.DynamicPopulation = true;
