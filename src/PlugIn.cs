@@ -290,11 +290,12 @@ namespace Landis.Extension.Browse
             double totalForage = 0;
 
             //TODO what's going on here? If static population, then totalPoulation gets divided by number of cells (converted to density)
-            if (parameters.DynamicPopulationFileName == null)
+            if (!PlugIn.DynamicPopulation)
             {
                 int landscapeCells = PlugIn.ModelCore.Landscape.ActiveSiteCount;
                 foreach (PopulationZone popZone in PopulationZones.Dataset)
                 {
+                    PlugIn.ModelCore.UI.WriteLine("PopZone {0}, Population {1}", popZone.Index, popZone.Population);
                     totalPopulation += popZone.Population;
                     totalK += popZone.K;
                     totalEffPop += popZone.EffectivePop;

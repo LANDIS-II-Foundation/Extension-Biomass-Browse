@@ -96,14 +96,15 @@ namespace Landis.Extension.Browse
             // Read from defined populations            
             if (!PlugIn.DynamicPopulation)
             {
-                PlugIn.ModelCore.UI.WriteLine("Using static population");
+                PlugIn.ModelCore.UI.WriteLine("    Using static population");
 
-                PlugIn.ModelCore.UI.WriteLine("Static population being loaded? {0}", 
+                PlugIn.ModelCore.UI.WriteLine("    Static population being loaded for this timestep? {0}", 
                     DynamicInputs.TemporalData.ContainsKey(PlugIn.ModelCore.CurrentTime));
 
                 //if there is defined population data for the timestep
                 if (DynamicInputs.TemporalData.ContainsKey(PlugIn.ModelCore.CurrentTime))
                 {
+                    PlugIn.ModelCore.UI.WriteLine("test1");
                     foreach (IPopulationZone popZone in Dataset)
                     {
                         if (DynamicInputs.TemporalData[PlugIn.ModelCore.CurrentTime][popZone.Index] != null)
@@ -114,21 +115,29 @@ namespace Landis.Extension.Browse
                             //TODO a problem happens here. newPop is the population for the whole zone (like, 500), but
                             // gets multiplied by the number of sites in the zone as if it were a per-site population?
                             double newPop = DynamicInputs.TemporalData[PlugIn.ModelCore.CurrentTime][popZone.Index].Population;
-                            Dataset[popZone.Index].Population = (int)(newPop * Dataset[popZone.Index].PopulationZoneSites.Count);
+                            Dataset[popZone.Index].Population = (int)(newPop);
+                            //Dataset[popZone.Index].Population = (int)(newPop * Dataset[popZone.Index].PopulationZoneSites.Count);
                             Dataset[popZone.Index].K = CalculateK(popZone.Index, parameters);
                             Dataset[popZone.Index].EffectivePop = Math.Min(Dataset[popZone.Index].Population, Dataset[popZone.Index].K);
 
-                            PlugIn.ModelCore.UI.WriteLine("Using defined population size. PopZone Index {0}.  Population = {1}. K = {2}. EffectivePop = {3}.",
-                            popZone.Index, Dataset[popZone.Index].Population, Dataset[popZone.Index].K, Dataset[popZone.Index].EffectivePop);
+                            PlugIn.ModelCore.UI.WriteLine("    Using defined population size. PopZone Index {0}.  Population = {1}. K = {2}. EffectivePop = {3}.",
+                                popZone.Index, Dataset[popZone.Index].Population, Dataset[popZone.Index].K, Dataset[popZone.Index].EffectivePop);
                         }
-                        else
-                        {
-                            Dataset[popZone.Index].K = CalculateK(popZone.Index, parameters);
-                            Dataset[popZone.Index].EffectivePop = Math.Min(Dataset[popZone.Index].Population, Dataset[popZone.Index].K);
+                    }
+                }
+                else
+                {
+                    PlugIn.ModelCore.UI.WriteLine("test2");
+                    foreach (IPopulationZone popZone in Dataset)
+                    {
+                        Dataset[popZone.Index].K = CalculateK(popZone.Index, parameters);
+                        Dataset[popZone.Index].EffectivePop = Math.Min(Dataset[popZone.Index].Population, Dataset[popZone.Index].K);
 
-                            PlugIn.ModelCore.UI.WriteLine("Using previous population size. PopZone Index {0}.  Population = {1}. K = {2}. EffectivePop = {3}.",
+                        PlugIn.ModelCore.UI.WriteLine("    Using previous population size. PopZone Index {0}.  Population = {1}. K = {2}. EffectivePop = {3}.",
                             popZone.Index, Dataset[popZone.Index].Population, Dataset[popZone.Index].K, Dataset[popZone.Index].EffectivePop);
-                        }
+                    }
+
+                }
 
                         
 
@@ -137,11 +146,11 @@ namespace Landis.Extension.Browse
                         //    Dataset[popZone.Index].Population = CalculateDynamicPop(popZone.Index, parameters);
                         //    Dataset[popZone.Index].EffectivePop = Math.Min(Dataset[popZone.Index].Population, Dataset[popZone.Index].K);
                         //}
-                    }
-                }
+                    
             }
-            else
+            else //use Dynamic Pop
             {
+                PlugIn.ModelCore.UI.WriteLine("test2");
                 //if (parameters.DynamicPopulationFileName != null)
                 //{
                 foreach (IPopulationZone popZone in Dataset)
