@@ -3,9 +3,4 @@ LandisData "Defined Population"
 >>		BrowserDensityIndex/
 >>Year	Zone	InitialPopulation
 >>----	----	---------------------
-   0	  1	   500
-   0	  2	   500
-   2	  1	   200
-   2	  2	   100
-   10	  1	   600
-   10	  2	   600
+   0	  3	   500

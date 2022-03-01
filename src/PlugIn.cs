@@ -91,6 +91,7 @@ namespace Landis.Extension.Browse
             sitePopMapNamesTemplate = parameters.SitePopMapNamesTemplate;
             biomassRemovedMapNameTemplate = parameters.BiomassRemovedMapNamesTemplate;
 
+            //Set up empty siteVars and dictionaries for Forage, ForageInReach, and LastBrowseProportion
             SiteVars.Initialize();
 
             PopulationZones.ReadMap(parameters.ZoneMapFileName);
@@ -101,18 +102,19 @@ namespace Landis.Extension.Browse
 
             parameters.PreferenceList =  PreferenceList.Initialize(parameters.SppParameters);
 
-            PartialDisturbance.Initialize();
-            GrowthReduction.Initialize(parameters);
+            PartialDisturbance.Initialize();//what is this doing?
+            //GrowthReduction.Initialize(parameters); //TODO SF I don't think that the growth reduction is doing anything?
             PopulationZones.Initialize();
             
-
+            //TODO SF I don't think this does anything
             parameters.ForageNeighbors = GetResourceNeighborhood(parameters.ForageQuantityNbrRad);
             parameters.SitePrefNeighbors = GetResourceNeighborhood(parameters.SitePrefNbrRad);
             
             ModelCore.UI.WriteLine("   Opening browse log files \"{0}\" ...", parameters.LogFileName);
             eventLog = Landis.Data.CreateTextFile(parameters.LogFileName);
             eventLog.AutoFlush = true;
-            eventLog.Write("Time, Zone, Population, TotalForage(kg), K, EffectivePop, DamagedSites, BiomassRemoved(g/m2), BiomassMortality(g/m2), CohortsKilled");
+            
+            eventLog.Write("Time, Zone, Population, PopulationDensity(ha-1), TotalForage(kg), K, EffectivePop, DamagedSites, BiomassRemoved(g/m2), BiomassMortality(g/m2), CohortsKilled");
             foreach (ISpecies species in PlugIn.ModelCore.Species)
             {
                 eventLog.Write(", BiomassRemoved_{0}", species.Name);
@@ -134,6 +136,7 @@ namespace Landis.Extension.Browse
             running = true;
             ModelCore.UI.WriteLine("Processing landscape for ungulate browse events ...");
 
+            //This does everything -- calculates forage and disturbs sites
             Event browseEvent = Event.Initiate(parameters);
 
             if (browseEvent != null)
@@ -234,6 +237,9 @@ namespace Landis.Extension.Browse
                         //pixel.MapCode.Value = (short)(SiteVars.LocalPopulation[site]  * 100);
                         //totalPop += SiteVars.LocalPopulation[site];
                         // Convert to density (#/km2)
+
+                        //TODO SF check on this -- is density being calculated right?
+                        //LocalPopulation is #of deer not density already -- yes
                         double popDens = SiteVars.LocalPopulation[site] / (ModelCore.CellLength * ModelCore.CellLength) * 1000 * 1000;
                         // Mult by 100 and round to integer for mapping
                         pixel.MapCode.Value = (short)(popDens * 100);
@@ -282,100 +288,91 @@ namespace Landis.Extension.Browse
         private void LogEvent(int   currentTime,
                               Event browseEvent)
         {
-            //("Time, Zone, Population, DamagedSites,BiomassRemoved,CohortsKilled,BiomassRemoved_spp,CohortsKilled_spp)
-
+            //calculate totals for entire landscape
+            //Time, Zone, Population, PopulationDensity(ha - 1), TotalForage(kg), K, EffectivePop, DamagedSites, BiomassRemovedTotal(kg), (BiomassRemoved(g / m2), BiomassMortality(g / m2), CohortsKilled"
             double totalPopulation = 0;
             double totalK = 0;
             double totalEffPop = 0;
             double totalForage = 0;
+            double totalSitesDamaged = 0;
+            double totalBiomassRemoved = 0;
+            double totalBiomassKilled = 0;
+            double totalCohortsKilled = 0;
+            double totalSites = 0;
 
-            //TODO what's going on here? If static population, then totalPoulation gets divided by number of cells (converted to density)
-            if (parameters.DynamicPopulationFileName == null)
+            foreach (PopulationZone popZone in PopulationZones.Dataset)
             {
-                int landscapeCells = PlugIn.ModelCore.Landscape.ActiveSiteCount;
-                foreach (PopulationZone popZone in PopulationZones.Dataset)
-                {
                     totalPopulation += popZone.Population;
                     totalK += popZone.K;
                     totalEffPop += popZone.EffectivePop;
                     totalForage += popZone.TotalForage;
-                }
-                totalPopulation = totalPopulation / landscapeCells;
-                totalEffPop = totalEffPop / landscapeCells;
-            }
-            else
-            {
-                foreach (PopulationZone popZone in PopulationZones.Dataset)
-                {
-                    totalPopulation += popZone.Population;
-                    totalK += popZone.K;
-                    totalEffPop += popZone.EffectivePop;
-                    totalForage += popZone.TotalForage;
-                }
+                    totalSitesDamaged += browseEvent.ZoneSitesDamaged[popZone.Index];
+                    totalBiomassRemoved += browseEvent.ZoneBiomassRemoved[popZone.Index];
+                    totalBiomassKilled += browseEvent.ZoneBiomassKilled[popZone.Index];
+                    totalCohortsKilled += browseEvent.ZoneCohortsKilled[popZone.Index];
+                    totalSites += PopulationZones.Dataset[popZone.Index].PopulationZoneSites.Count;
             }
 
-            //TODO zone -1 is not being written to log
+
+            //Write totals
+
+            float CellLength = PlugIn.ModelCore.CellLength;
+            //Time, Zone, Population, PopulationDensity(ha - 1), TotalForage(kg), K, EffectivePop,
+            //DamagedSites, (BiomassRemoved(g / m2), BiomassMortality(g / m2), CohortsKilled"
+            eventLog.Write("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10}",
+                           currentTime,
+                           "-1", //following convention from previous version that the total landscape (all zones) is zone -1
+                           totalPopulation,
+                           totalPopulation / totalSites / 
+                                System.Math.Pow(CellLength, 2) * 10000, //population density (ha-1)
+                           totalForage, //kg
+                           totalK,
+                           totalEffPop,
+                           totalSitesDamaged,
+                           totalBiomassRemoved / totalSites, //site mean biomass in g/m2
+                           totalBiomassKilled / totalSites, //site mean biomass in g/m2
+                           totalCohortsKilled);
+                           
+                    //foreach (ISpecies species in PlugIn.ModelCore.Species)
+                    //{
+                        //TODO Figure out how to calculate total species biomass removed/killed 
+                        //eventLog.Write(",{0}", browseEvent.ZoneBiomassRemovedSpp[popZone.Index][species.Index]);
+                    //}
+                    //foreach (ISpecies species in PlugIn.ModelCore.Species)
+                    //{
+                    //    eventLog.Write(",{0}", browseEvent.ZoneCohortsKilledSpp[popZone.Index][species.Index]);
+                    //}
+
+            eventLog.WriteLine("");
+            //END write totals
+
+
+            //START write data for each zone
             foreach (IPopulationZone popZone in PopulationZones.Dataset)
-             //   for (int i = -1; i <= (PopulationZones.Dataset.Count-1); i++)
             {
-                eventLog.Write("{0},",
-                             currentTime);
+            
+            //Time, Zone, Population, PopulationDensity(ha - 1), TotalForage(kg), K, EffectivePop,
+            //DamagedSites, (BiomassRemoved(g / m2), BiomassMortality(g / m2), CohortsKilled"
+                    
+                //float CellLength = PlugIn.ModelCore.CellLength;
 
-                //problem happens here, because of change to the index in the loop
-                //totals calculated above (Lines 293-315) should be written to zone -1
-                if (popZone.Index < 0)
-                {
-                    eventLog.Write("{0},{1},{2},{3},{4},{5},{6},{7},{8}",
-                                   "-1",
-                                   totalPopulation,
-                                   totalForage,
-                                   totalK,
-                                   totalEffPop,
-                                   browseEvent.SitesDamaged,
-                                   browseEvent.BiomassRemoved,
-                                   browseEvent.BiomassKilled,
-                                   browseEvent.CohortsKilled);
-                    foreach (ISpecies species in PlugIn.ModelCore.Species)
-                    {
-                        eventLog.Write(",{0}", browseEvent.BiomassRemovedSpp[species.Index]);
-                    }
-                    foreach (ISpecies species in PlugIn.ModelCore.Species)
-                    {
-                        eventLog.Write(",{0}", browseEvent.CohortsKilledSpp[species.Index]);
-                    }
-                }
-                else
-                {
-                    //TODO make sure this is right
-                    //why is static population converted to density?
-                    if (parameters.DynamicPopulationFileName == null)
-                    {
-                        eventLog.Write("{0},{1},{2},{3},{4},{5},{6},{7},{8}",
-                                       PopulationZones.Dataset[popZone.Index].MapCode,
-                                       //why is this scaled to per-cell density?
-                                       (double)PopulationZones.Dataset[popZone.Index].Population / (double)PopulationZones.Dataset[popZone.Index].PopulationZoneSites.Count,
-                                       //check units for forage
-                                       PopulationZones.Dataset[popZone.Index].TotalForage,
-                                       PopulationZones.Dataset[popZone.Index].K,
-                                       PopulationZones.Dataset[popZone.Index].EffectivePop,
-                                       browseEvent.ZoneSitesDamaged[popZone.Index],
-                                       browseEvent.ZoneBiomassRemoved[popZone.Index],
-                                       browseEvent.ZoneBiomassKilled[popZone.Index],
-                                       browseEvent.ZoneCohortsKilled[popZone.Index]);
-                    }
-                    else
-                    {
-                        eventLog.Write("{0},{1},{2},{3},{4},{5},{6},{7},{8}",
-                                       PopulationZones.Dataset[popZone.Index].MapCode,
-                                       PopulationZones.Dataset[popZone.Index].Population,
-                                       PopulationZones.Dataset[popZone.Index].TotalForage,
-                                       PopulationZones.Dataset[popZone.Index].K,
-                                       PopulationZones.Dataset[popZone.Index].EffectivePop,
-                                       browseEvent.ZoneSitesDamaged[popZone.Index],
-                                       browseEvent.ZoneBiomassRemoved[popZone.Index],
-                                       browseEvent.ZoneBiomassKilled[popZone.Index],
-                                       browseEvent.ZoneCohortsKilled[popZone.Index]);
-                    }
+                eventLog.Write("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10}",
+                                currentTime, //Time
+                                PopulationZones.Dataset[popZone.Index].MapCode, //Zone
+                                (double)PopulationZones.Dataset[popZone.Index].Population, //Population
+                                (double)PopulationZones.Dataset[popZone.Index].Population / 
+                                    (double)PopulationZones.Dataset[popZone.Index].PopulationZoneSites.Count /
+                                    System.Math.Pow(CellLength, 2) * 10000, //Population density (ha -1)
+                                PopulationZones.Dataset[popZone.Index].TotalForage, //Total forage, kg
+                                PopulationZones.Dataset[popZone.Index].K, //K, unitless
+                                PopulationZones.Dataset[popZone.Index].EffectivePop, //Effective pop, unitless
+                                browseEvent.ZoneSitesDamaged[popZone.Index], //Number of sites damaged, unitless
+                                browseEvent.ZoneBiomassRemoved[popZone.Index] /
+                                    (double)PopulationZones.Dataset[popZone.Index].PopulationZoneSites.Count, //average biomass removed, g/m2 in average cell
+                                browseEvent.ZoneBiomassKilled[popZone.Index] /
+                                    (double)PopulationZones.Dataset[popZone.Index].PopulationZoneSites.Count, //average biomass mortality, g/m2 in average cell
+                                browseEvent.ZoneCohortsKilled[popZone.Index]); //number of cohorts killed in the zone, unitless
+                                        
                     foreach (ISpecies species in PlugIn.ModelCore.Species)
                     {
                         eventLog.Write(",{0}", browseEvent.ZoneBiomassRemovedSpp[popZone.Index][species.Index]);
@@ -384,10 +381,12 @@ namespace Landis.Extension.Browse
                     {
                         eventLog.Write(",{0}", browseEvent.ZoneCohortsKilledSpp[popZone.Index][species.Index]);
                     }
-                }
                 eventLog.WriteLine("");
             }
+            
+        //END write data for each zone
         }
+        
         
 
         //---------------------------------------------------------------------
@@ -397,6 +396,7 @@ namespace Landis.Extension.Browse
         //will need to be later checked to ensure that they are within the landscape
         // and active.
 
+    //SF I don't think this does anything?
         private static IEnumerable<RelativeLocationWeighted> GetResourceNeighborhood(double neighborRadius)
         {
             float CellLength = PlugIn.ModelCore.CellLength;
