@@ -246,7 +246,7 @@ namespace Landis.Extension.Browse
                     ActiveSite site = (ActiveSite)PlugIn.ModelCore.Landscape.GetSite(siteLocation);
 
                     //totalPop += SiteVars.LocalPopulation[site];
-                    double siteTotalToBrowse = Math.Round(SiteVars.TotalBrowse[site]);
+                    double siteTotalToBrowse = SiteVars.TotalBrowse[site]; // Math.Round(SiteVars.TotalBrowse[site]);
                     //totalBrowse += siteTotalToBrowse;
 
                     //Browse - allocate browse to cohorts
@@ -285,7 +285,7 @@ namespace Landis.Extension.Browse
                             double availForage = SiteVars.GetForageInReach(cohort, site);
                             //totalForage += availForage;
                             firstPassRemoval += availForage * browsePref;
-                            firstPassRemovalInt += Math.Round(availForage * browsePref);
+                            firstPassRemovalInt += (availForage * browsePref);//Math.Round(availForage * browsePref);
                             firstPassRemovalList[cohortLoop] = availForage * browsePref;
 
                             int prefIndex = 0;
@@ -319,7 +319,7 @@ namespace Landis.Extension.Browse
                                 double adjFirstRemoval = firstRemoval * siteTotalToBrowse / firstPassRemoval;
                                 adjFirstPassRemovalList[removalIndex] = adjFirstRemoval;
                                 adjFirstPassRemoval += adjFirstRemoval;
-                                adjFirstPassRemovalInt += Math.Round(adjFirstRemoval);
+                                adjFirstPassRemovalInt += adjFirstRemoval; // Math.Round(adjFirstRemoval);
                                 removalIndex++;
                             }
                         }
@@ -368,12 +368,12 @@ namespace Landis.Extension.Browse
                                         }
                                         secondPassRemovalList[cohortLoop] = secondPassRemoval;
                                         finalRemoval += secondPassRemoval;
-                                        forageRemoved -= Math.Round(adjFirstPassRemovalList[cohortLoop]);
-                                        forageRemoved += Math.Round(finalRemoval);
+                                        forageRemoved -= adjFirstPassRemovalList[cohortLoop];//Math.Round(adjFirstPassRemovalList[cohortLoop]);
+                                        forageRemoved += finalRemoval;// Math.Round(finalRemoval);
                                         //totalSecondPass += secondPassRemoval;
-                                        prefClassRemoved += (Math.Round(finalRemoval) - Math.Round(adjFirstPassRemovalList[cohortLoop]));
+                                        prefClassRemoved += (finalRemoval - adjFirstPassRemovalList[cohortLoop]); // (Math.Round(finalRemoval) - Math.Round(adjFirstPassRemovalList[cohortLoop]));
                                     }
-                                    finalRemoval = Math.Round(finalRemoval);
+                                    //finalRemoval = finalRemoval; // Math.Round(finalRemoval);
                                     finalRemovalList[cohortLoop] = finalRemoval;
 
 
@@ -490,15 +490,18 @@ namespace Landis.Extension.Browse
                             //for each cohort, get the new forage (Biomass*0.1*proportion of ANPP that is forage)
                             //and assign newForage to cohort in SiteVars
                         {
-                            int newForage = 0;
+                            //int newForage = 0;
+                            double newForage = 0;
                             if ((browsePref > 0) || (parameters.CountNonForage))
                             {
                                 //newForage = (int)Math.Round(cohort.ANPP * parameters.ANPPForageProp);
-                                newForage = (int)Math.Round((cohort.Biomass * 0.1) * parameters.ANPPForageProp);  // RMS:  Using 10% approximation for now; will update from Keeling curve later.
+                                //newForage = (int)Math.Round((cohort.Biomass * 0.1) * parameters.ANPPForageProp);  // RMS:  Using 10% approximation for now; will update from Keeling curve later.
+                                newForage = (cohort.Biomass * 0.1) * parameters.ANPPForageProp;  // RMS:  Using 10% approximation for now; will update from Keeling curve later.
+
                                 if (cohort.Age == 1)
                                 {
                                     if (parameters.UseInitBiomass)
-                                        newForage = (int)Math.Round(cohort.Biomass * parameters.ANPPForageProp);
+                                        newForage = cohort.Biomass * parameters.ANPPForageProp; //(int)Math.Round(cohort.Biomass * parameters.ANPPForageProp);
                                     else
                                         newForage = 0;
                                 }
@@ -541,7 +544,8 @@ namespace Landis.Extension.Browse
                 int listCount = 0;
                 foreach (ICohort cohort in siteCohortList)
                 {
-                    int newForageinReach = (int)Math.Round(SiteVars.GetForage(cohort, site) * propInReachList[listCount]);
+                    //int newForageinReach = (int)Math.Round(SiteVars.GetForage(cohort, site) * propInReachList[listCount]);
+                    double newForageinReach = SiteVars.GetForage(cohort, site) * propInReachList[listCount];
                     if (newForageinReach > 0)
                         SiteVars.SetForageInReach(cohort, site, newForageinReach);
                         //PartialDisturbance.RecordForageInReach(cohort, newForageinReach);
