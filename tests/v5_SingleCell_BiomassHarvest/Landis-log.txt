@@ -1,0 +1,559 @@
+2022-02-28 16:30:46,087 - LANDIS-II 7.0 (7)
+2022-02-28 16:30:46,098 - 
+2022-02-28 16:30:46,186 - Loading scenario from file "scenario-single-cell.txt" ...
+2022-02-28 16:30:46,262 - Initialized random number generator with seed = 530,139,204
+2022-02-28 16:30:46,262 - Loading species data from file "species_LTB.txt" ...
+2022-02-28 16:30:46,292 - Loading ecoregions from file "./ecoregions.txt" ...
+2022-02-28 16:30:46,313 - Initializing landscape from ecoregions map "./single3.tif" ...
+2022-02-28 16:30:46,331 - Cell length = 1000 m, cell area = 100 ha
+2022-02-28 16:30:46,333 - Map dimensions: 1 row by 1 column = 1 cell
+2022-02-28 16:30:46,341 - Sites: 1 active (100.0%), 0 inactive (0.0%)
+2022-02-28 16:30:46,351 - Loading Biomass Succession extension ...
+2022-02-28 16:30:46,367 -    Registering Data:  Succession.BiomassCohorts.
+2022-02-28 16:30:46,368 -    Registering Data:  Succession.AgeCohorts.
+2022-02-28 16:30:46,368 -    Registering Data:  Succession.WoodyDebris.
+2022-02-28 16:30:46,368 -    Registering Data:  Succession.Litter.
+2022-02-28 16:30:46,369 -    Registering Data:  Succession.MaxBiomass.
+2022-02-28 16:30:46,420 -    Begin reading FIRE REDUCTION parameters.
+2022-02-28 16:30:46,421 -    Begin reading HARVEST REDUCTION parameters.
+2022-02-28 16:30:46,447 -    Generating summary table...
+2022-02-28 16:30:46,470 -    Registering Data:  TimeOfLastSuccession.
+2022-02-28 16:30:46,470 -    Registering Data:  Shade.
+2022-02-28 16:30:46,474 -    Creating Dispersal Neighborhood List.
+2022-02-28 16:30:46,475 -    Dispersal:  NeighborRadius=800, CellLength=1000, numCellRadius=0
+2022-02-28 16:30:46,483 -    Loading initial communities from file "./initial-communities_LTBselect.txt" ...
+2022-02-28 16:30:46,496 -    Reading initial communities map "./single3.tif" ...
+2022-02-28 16:30:46,530 - Loading Biomass Browse extension ...
+2022-02-28 16:30:46,540 -    Begin parsing SPECIES table.
+2022-02-28 16:30:46,558 - Population Zone 0 has Map Code 3.
+2022-02-28 16:30:46,559 -    Loading dynamic input data from file "DefinedPopulation.txt" ...
+2022-02-28 16:30:46,563 -   Dynamic Input Parser:  Add new year = 0.
+2022-02-28 16:30:46,573 -    Opening browse log files "browse/browse_log.csv" ...
+2022-02-28 16:30:46,577 - Using the following extensions ...
+   Extension Name            Extension Filename       
+   --------------            ------------------       
+   Biomass Succession        biomass-succession.txt   
+   Biomass Browse            BiomassBrowseInputs_defined.txt
+
+2022-02-28 16:30:46,578 - Current time: 1
+2022-02-28 16:30:46,578 - Running Biomass Browse ...
+2022-02-28 16:30:46,581 - Processing landscape for ungulate browse events ...
+2022-02-28 16:30:46,586 -    Calculating Site Preference & Forage.
+2022-02-28 16:30:46,590 -  cohort Landis.Species.Species 10, biomass = 6721. newForage = 444
+2022-02-28 16:30:46,597 -  propInReach 0. newForageinReach 0
+2022-02-28 16:30:46,601 -    Calculating Zone Population.
+2022-02-28 16:30:46,602 - Dynamic Population is False
+2022-02-28 16:30:46,603 -     Using static population
+2022-02-28 16:30:46,603 -     Static population being loaded for this timestep? False
+2022-02-28 16:30:46,604 - test2
+2022-02-28 16:30:46,606 -     Using previous population size. PopZone Index 0.  Population = 500. K = 0. EffectivePop = 0.
+2022-02-28 16:30:46,607 -    Calculating HSI.
+2022-02-28 16:30:46,612 -    Calculating Local Population.
+2022-02-28 16:30:46,613 -    siteTotalForage = 0 g/m2 or 0 g. SiteK = 0 (siteTotalForage / ConsumptionRate)
+2022-02-28 16:30:46,613 - Local Population = NaN. Cumulative zone population = NaN. Total zone population = 0
+2022-02-28 16:30:46,615 - siteBrowseToBeRemoved = NaN
+2022-02-28 16:30:46,619 -    Disturbing Sites
+2022-02-28 16:30:46,625 - PopZone 0, Population 500
+2022-02-28 16:30:46,687 - Running Biomass Succession ...
+2022-02-28 16:30:46,738 - Current time: 2
+2022-02-28 16:30:46,739 - Running Biomass Browse ...
+2022-02-28 16:30:46,740 - Processing landscape for ungulate browse events ...
+2022-02-28 16:30:46,741 -    Calculating Site Preference & Forage.
+2022-02-28 16:30:46,741 -  cohort Landis.Species.Species 10, biomass = 6721. newForage = 444
+2022-02-28 16:30:46,741 -  propInReach 0. newForageinReach 0
+2022-02-28 16:30:46,742 -    Calculating Zone Population.
+2022-02-28 16:30:46,742 - Dynamic Population is False
+2022-02-28 16:30:46,743 -     Using static population
+2022-02-28 16:30:46,745 -     Static population being loaded for this timestep? False
+2022-02-28 16:30:46,745 - test2
+2022-02-28 16:30:46,746 -     Using previous population size. PopZone Index 0.  Population = 500. K = 0. EffectivePop = 0.
+2022-02-28 16:30:46,746 -    Calculating HSI.
+2022-02-28 16:30:46,746 -    Calculating Local Population.
+2022-02-28 16:30:46,747 -    siteTotalForage = 0 g/m2 or 0 g. SiteK = 0 (siteTotalForage / ConsumptionRate)
+2022-02-28 16:30:46,747 - Local Population = NaN. Cumulative zone population = NaN. Total zone population = 0
+2022-02-28 16:30:46,748 - siteBrowseToBeRemoved = NaN
+2022-02-28 16:30:46,748 -    Disturbing Sites
+2022-02-28 16:30:46,748 - PopZone 0, Population 500
+2022-02-28 16:30:46,796 - Running Biomass Succession ...
+2022-02-28 16:30:46,825 - Current time: 3
+2022-02-28 16:30:46,826 - Running Biomass Browse ...
+2022-02-28 16:30:46,826 - Processing landscape for ungulate browse events ...
+2022-02-28 16:30:46,827 -    Calculating Site Preference & Forage.
+2022-02-28 16:30:46,827 -  cohort Landis.Species.Species 10, biomass = 6721. newForage = 444
+2022-02-28 16:30:46,828 -  propInReach 0. newForageinReach 0
+2022-02-28 16:30:46,828 -    Calculating Zone Population.
+2022-02-28 16:30:46,828 - Dynamic Population is False
+2022-02-28 16:30:46,829 -     Using static population
+2022-02-28 16:30:46,829 -     Static population being loaded for this timestep? False
+2022-02-28 16:30:46,830 - test2
+2022-02-28 16:30:46,830 -     Using previous population size. PopZone Index 0.  Population = 500. K = 0. EffectivePop = 0.
+2022-02-28 16:30:46,830 -    Calculating HSI.
+2022-02-28 16:30:46,831 -    Calculating Local Population.
+2022-02-28 16:30:46,831 -    siteTotalForage = 0 g/m2 or 0 g. SiteK = 0 (siteTotalForage / ConsumptionRate)
+2022-02-28 16:30:46,832 - Local Population = NaN. Cumulative zone population = NaN. Total zone population = 0
+2022-02-28 16:30:46,832 - siteBrowseToBeRemoved = NaN
+2022-02-28 16:30:46,832 -    Disturbing Sites
+2022-02-28 16:30:46,833 - PopZone 0, Population 500
+2022-02-28 16:30:46,882 - Running Biomass Succession ...
+2022-02-28 16:30:46,919 - Current time: 4
+2022-02-28 16:30:46,919 - Running Biomass Browse ...
+2022-02-28 16:30:46,920 - Processing landscape for ungulate browse events ...
+2022-02-28 16:30:46,920 -    Calculating Site Preference & Forage.
+2022-02-28 16:30:46,922 -  cohort Landis.Species.Species 10, biomass = 6721. newForage = 444
+2022-02-28 16:30:46,923 -  propInReach 0. newForageinReach 0
+2022-02-28 16:30:46,923 -    Calculating Zone Population.
+2022-02-28 16:30:46,924 - Dynamic Population is False
+2022-02-28 16:30:46,924 -     Using static population
+2022-02-28 16:30:46,925 -     Static population being loaded for this timestep? False
+2022-02-28 16:30:46,925 - test2
+2022-02-28 16:30:46,926 -     Using previous population size. PopZone Index 0.  Population = 500. K = 0. EffectivePop = 0.
+2022-02-28 16:30:46,926 -    Calculating HSI.
+2022-02-28 16:30:46,927 -    Calculating Local Population.
+2022-02-28 16:30:46,927 -    siteTotalForage = 0 g/m2 or 0 g. SiteK = 0 (siteTotalForage / ConsumptionRate)
+2022-02-28 16:30:46,928 - Local Population = NaN. Cumulative zone population = NaN. Total zone population = 0
+2022-02-28 16:30:46,928 - siteBrowseToBeRemoved = NaN
+2022-02-28 16:30:46,929 -    Disturbing Sites
+2022-02-28 16:30:46,929 - PopZone 0, Population 500
+2022-02-28 16:30:46,977 - Running Biomass Succession ...
+2022-02-28 16:30:47,013 - Current time: 5
+2022-02-28 16:30:47,013 - Running Biomass Browse ...
+2022-02-28 16:30:47,014 - Processing landscape for ungulate browse events ...
+2022-02-28 16:30:47,015 -    Calculating Site Preference & Forage.
+2022-02-28 16:30:47,015 -  cohort Landis.Species.Species 10, biomass = 6721. newForage = 444
+2022-02-28 16:30:47,015 -  propInReach 0. newForageinReach 0
+2022-02-28 16:30:47,016 -    Calculating Zone Population.
+2022-02-28 16:30:47,016 - Dynamic Population is False
+2022-02-28 16:30:47,017 -     Using static population
+2022-02-28 16:30:47,017 -     Static population being loaded for this timestep? False
+2022-02-28 16:30:47,018 - test2
+2022-02-28 16:30:47,018 -     Using previous population size. PopZone Index 0.  Population = 500. K = 0. EffectivePop = 0.
+2022-02-28 16:30:47,019 -    Calculating HSI.
+2022-02-28 16:30:47,019 -    Calculating Local Population.
+2022-02-28 16:30:47,020 -    siteTotalForage = 0 g/m2 or 0 g. SiteK = 0 (siteTotalForage / ConsumptionRate)
+2022-02-28 16:30:47,020 - Local Population = NaN. Cumulative zone population = NaN. Total zone population = 0
+2022-02-28 16:30:47,021 - siteBrowseToBeRemoved = NaN
+2022-02-28 16:30:47,021 -    Disturbing Sites
+2022-02-28 16:30:47,022 - PopZone 0, Population 500
+2022-02-28 16:30:47,081 - Running Biomass Succession ...
+2022-02-28 16:30:47,134 - Current time: 6
+2022-02-28 16:30:47,137 - Running Biomass Browse ...
+2022-02-28 16:30:47,145 - Processing landscape for ungulate browse events ...
+2022-02-28 16:30:47,150 -    Calculating Site Preference & Forage.
+2022-02-28 16:30:47,153 -  cohort Landis.Species.Species 10, biomass = 6721. newForage = 444
+2022-02-28 16:30:47,160 -  propInReach 0. newForageinReach 0
+2022-02-28 16:30:47,176 -    Calculating Zone Population.
+2022-02-28 16:30:47,183 - Dynamic Population is False
+2022-02-28 16:30:47,185 -     Using static population
+2022-02-28 16:30:47,186 -     Static population being loaded for this timestep? False
+2022-02-28 16:30:47,190 - test2
+2022-02-28 16:30:47,191 -     Using previous population size. PopZone Index 0.  Population = 500. K = 0. EffectivePop = 0.
+2022-02-28 16:30:47,193 -    Calculating HSI.
+2022-02-28 16:30:47,193 -    Calculating Local Population.
+2022-02-28 16:30:47,194 -    siteTotalForage = 0 g/m2 or 0 g. SiteK = 0 (siteTotalForage / ConsumptionRate)
+2022-02-28 16:30:47,196 - Local Population = NaN. Cumulative zone population = NaN. Total zone population = 0
+2022-02-28 16:30:47,197 - siteBrowseToBeRemoved = NaN
+2022-02-28 16:30:47,197 -    Disturbing Sites
+2022-02-28 16:30:47,199 - PopZone 0, Population 500
+2022-02-28 16:30:47,283 - Running Biomass Succession ...
+2022-02-28 16:30:47,325 - Current time: 7
+2022-02-28 16:30:47,326 - Running Biomass Browse ...
+2022-02-28 16:30:47,326 - Processing landscape for ungulate browse events ...
+2022-02-28 16:30:47,327 -    Calculating Site Preference & Forage.
+2022-02-28 16:30:47,327 -  cohort Landis.Species.Species 10, biomass = 6721. newForage = 444
+2022-02-28 16:30:47,328 -  propInReach 0. newForageinReach 0
+2022-02-28 16:30:47,328 -    Calculating Zone Population.
+2022-02-28 16:30:47,329 - Dynamic Population is False
+2022-02-28 16:30:47,329 -     Using static population
+2022-02-28 16:30:47,329 -     Static population being loaded for this timestep? False
+2022-02-28 16:30:47,330 - test2
+2022-02-28 16:30:47,331 -     Using previous population size. PopZone Index 0.  Population = 500. K = 0. EffectivePop = 0.
+2022-02-28 16:30:47,331 -    Calculating HSI.
+2022-02-28 16:30:47,332 -    Calculating Local Population.
+2022-02-28 16:30:47,333 -    siteTotalForage = 0 g/m2 or 0 g. SiteK = 0 (siteTotalForage / ConsumptionRate)
+2022-02-28 16:30:47,333 - Local Population = NaN. Cumulative zone population = NaN. Total zone population = 0
+2022-02-28 16:30:47,334 - siteBrowseToBeRemoved = NaN
+2022-02-28 16:30:47,335 -    Disturbing Sites
+2022-02-28 16:30:47,335 - PopZone 0, Population 500
+2022-02-28 16:30:47,389 - Running Biomass Succession ...
+2022-02-28 16:30:47,419 - Current time: 8
+2022-02-28 16:30:47,419 - Running Biomass Browse ...
+2022-02-28 16:30:47,420 - Processing landscape for ungulate browse events ...
+2022-02-28 16:30:47,420 -    Calculating Site Preference & Forage.
+2022-02-28 16:30:47,421 -  cohort Landis.Species.Species 10, biomass = 6721. newForage = 444
+2022-02-28 16:30:47,421 -  propInReach 0. newForageinReach 0
+2022-02-28 16:30:47,421 -    Calculating Zone Population.
+2022-02-28 16:30:47,422 - Dynamic Population is False
+2022-02-28 16:30:47,422 -     Using static population
+2022-02-28 16:30:47,423 -     Static population being loaded for this timestep? False
+2022-02-28 16:30:47,423 - test2
+2022-02-28 16:30:47,423 -     Using previous population size. PopZone Index 0.  Population = 500. K = 0. EffectivePop = 0.
+2022-02-28 16:30:47,424 -    Calculating HSI.
+2022-02-28 16:30:47,424 -    Calculating Local Population.
+2022-02-28 16:30:47,425 -    siteTotalForage = 0 g/m2 or 0 g. SiteK = 0 (siteTotalForage / ConsumptionRate)
+2022-02-28 16:30:47,425 - Local Population = NaN. Cumulative zone population = NaN. Total zone population = 0
+2022-02-28 16:30:47,425 - siteBrowseToBeRemoved = NaN
+2022-02-28 16:30:47,426 -    Disturbing Sites
+2022-02-28 16:30:47,426 - PopZone 0, Population 500
+2022-02-28 16:30:47,468 - Running Biomass Succession ...
+2022-02-28 16:30:47,498 - Current time: 9
+2022-02-28 16:30:47,498 - Running Biomass Browse ...
+2022-02-28 16:30:47,499 - Processing landscape for ungulate browse events ...
+2022-02-28 16:30:47,499 -    Calculating Site Preference & Forage.
+2022-02-28 16:30:47,499 -  cohort Landis.Species.Species 10, biomass = 6721. newForage = 444
+2022-02-28 16:30:47,500 -  propInReach 0. newForageinReach 0
+2022-02-28 16:30:47,500 -    Calculating Zone Population.
+2022-02-28 16:30:47,501 - Dynamic Population is False
+2022-02-28 16:30:47,501 -     Using static population
+2022-02-28 16:30:47,501 -     Static population being loaded for this timestep? False
+2022-02-28 16:30:47,502 - test2
+2022-02-28 16:30:47,502 -     Using previous population size. PopZone Index 0.  Population = 500. K = 0. EffectivePop = 0.
+2022-02-28 16:30:47,503 -    Calculating HSI.
+2022-02-28 16:30:47,503 -    Calculating Local Population.
+2022-02-28 16:30:47,503 -    siteTotalForage = 0 g/m2 or 0 g. SiteK = 0 (siteTotalForage / ConsumptionRate)
+2022-02-28 16:30:47,504 - Local Population = NaN. Cumulative zone population = NaN. Total zone population = 0
+2022-02-28 16:30:47,504 - siteBrowseToBeRemoved = NaN
+2022-02-28 16:30:47,505 -    Disturbing Sites
+2022-02-28 16:30:47,505 - PopZone 0, Population 500
+2022-02-28 16:30:47,557 - Running Biomass Succession ...
+2022-02-28 16:30:47,595 - Current time: 10
+2022-02-28 16:30:47,596 - Running Biomass Browse ...
+2022-02-28 16:30:47,596 - Processing landscape for ungulate browse events ...
+2022-02-28 16:30:47,597 -    Calculating Site Preference & Forage.
+2022-02-28 16:30:47,598 -  cohort Landis.Species.Species 10, biomass = 6721. newForage = 444
+2022-02-28 16:30:47,598 -  propInReach 0. newForageinReach 0
+2022-02-28 16:30:47,599 -    Calculating Zone Population.
+2022-02-28 16:30:47,599 - Dynamic Population is False
+2022-02-28 16:30:47,600 -     Using static population
+2022-02-28 16:30:47,602 -     Static population being loaded for this timestep? False
+2022-02-28 16:30:47,602 - test2
+2022-02-28 16:30:47,603 -     Using previous population size. PopZone Index 0.  Population = 500. K = 0. EffectivePop = 0.
+2022-02-28 16:30:47,603 -    Calculating HSI.
+2022-02-28 16:30:47,604 -    Calculating Local Population.
+2022-02-28 16:30:47,604 -    siteTotalForage = 0 g/m2 or 0 g. SiteK = 0 (siteTotalForage / ConsumptionRate)
+2022-02-28 16:30:47,605 - Local Population = NaN. Cumulative zone population = NaN. Total zone population = 0
+2022-02-28 16:30:47,606 - siteBrowseToBeRemoved = NaN
+2022-02-28 16:30:47,606 -    Disturbing Sites
+2022-02-28 16:30:47,607 - PopZone 0, Population 500
+2022-02-28 16:30:47,675 - Running Biomass Succession ...
+2022-02-28 16:30:47,678 - Yr=10. Calculate ANPPactual...
+2022-02-28 16:30:47,679 - Yr=10.     Spp=PinuJeff, Age=11.
+2022-02-28 16:30:47,680 - Yr=10.     MaxANPP=886, MaxB=26000, Bsite=6721, Bcohort=6721.0.
+2022-02-28 16:30:47,681 - Yr=10.     B_PM=1.0, B_AP=0.3, actualANPP=841.7, capacityReduction=1.0.
+2022-02-28 16:30:47,683 - Yr=10. Calculate Delta Biomass...
+2022-02-28 16:30:47,683 - Yr=10.    Spp=PinuJeff, Age=11.
+2022-02-28 16:30:47,683 - Yr=10.    ANPPact=841.4, Mtotal=6721.0, litter=6721.00.
+2022-02-28 16:30:47,684 - Yr=10.    DeltaB=-5879.0, CohortB=6721, Bsite=6721
+2022-02-28 16:30:47,684 - Yr=11. Calculate ANPPactual...
+2022-02-28 16:30:47,685 - Yr=11.     Spp=PinuJeff, Age=12.
+2022-02-28 16:30:47,685 - Yr=11.     MaxANPP=886, MaxB=26000, Bsite=842, Bcohort=842.0.
+2022-02-28 16:30:47,686 - Yr=11.     B_PM=1.0, B_AP=0.0, actualANPP=668.5, capacityReduction=1.0.
+2022-02-28 16:30:47,686 - Yr=11. Calculate Delta Biomass...
+2022-02-28 16:30:47,686 - Yr=11.    Spp=PinuJeff, Age=12.
+2022-02-28 16:30:47,687 - Yr=11.    ANPPact=668.4, Mtotal=842.0, litter=842.00.
+2022-02-28 16:30:47,687 - Yr=11.    DeltaB=-173.0, CohortB=842, Bsite=842
+2022-02-28 16:30:47,687 - Yr=12. Calculate ANPPactual...
+2022-02-28 16:30:47,688 - Yr=12.     Spp=PinuJeff, Age=13.
+2022-02-28 16:30:47,688 - Yr=12.     MaxANPP=886, MaxB=26000, Bsite=669, Bcohort=669.0.
+2022-02-28 16:30:47,688 - Yr=12.     B_PM=1.0, B_AP=0.0, actualANPP=646.3, capacityReduction=1.0.
+2022-02-28 16:30:47,689 - Yr=12. Calculate Delta Biomass...
+2022-02-28 16:30:47,689 - Yr=12.    Spp=PinuJeff, Age=13.
+2022-02-28 16:30:47,690 - Yr=12.    ANPPact=646.2, Mtotal=669.0, litter=669.00.
+2022-02-28 16:30:47,690 - Yr=12.    DeltaB=-22.0, CohortB=669, Bsite=669
+2022-02-28 16:30:47,691 - Yr=13. Calculate ANPPactual...
+2022-02-28 16:30:47,691 - Yr=13.     Spp=PinuJeff, Age=14.
+2022-02-28 16:30:47,691 - Yr=13.     MaxANPP=886, MaxB=26000, Bsite=647, Bcohort=647.0.
+2022-02-28 16:30:47,692 - Yr=13.     B_PM=1.0, B_AP=0.0, actualANPP=643.0, capacityReduction=1.0.
+2022-02-28 16:30:47,692 - Yr=13. Calculate Delta Biomass...
+2022-02-28 16:30:47,693 - Yr=13.    Spp=PinuJeff, Age=14.
+2022-02-28 16:30:47,693 - Yr=13.    ANPPact=643.0, Mtotal=647.0, litter=647.00.
+2022-02-28 16:30:47,693 - Yr=13.    DeltaB=-4.0, CohortB=647, Bsite=647
+2022-02-28 16:30:47,694 - Yr=14. Calculate ANPPactual...
+2022-02-28 16:30:47,694 - Yr=14.     Spp=PinuJeff, Age=15.
+2022-02-28 16:30:47,694 - Yr=14.     MaxANPP=886, MaxB=26000, Bsite=643, Bcohort=643.0.
+2022-02-28 16:30:47,695 - Yr=14.     B_PM=1.0, B_AP=0.0, actualANPP=642.4, capacityReduction=1.0.
+2022-02-28 16:30:47,695 - Yr=14. Calculate Delta Biomass...
+2022-02-28 16:30:47,695 - Yr=14.    Spp=PinuJeff, Age=15.
+2022-02-28 16:30:47,696 - Yr=14.    ANPPact=642.4, Mtotal=643.0, litter=643.00.
+2022-02-28 16:30:47,700 - Yr=14.    DeltaB=0.0, CohortB=643, Bsite=643
+2022-02-28 16:30:47,700 - Yr=15. Calculate ANPPactual...
+2022-02-28 16:30:47,701 - Yr=15.     Spp=PinuJeff, Age=16.
+2022-02-28 16:30:47,702 - Yr=15.     MaxANPP=886, MaxB=26000, Bsite=643, Bcohort=643.0.
+2022-02-28 16:30:47,703 - Yr=15.     B_PM=1.0, B_AP=0.0, actualANPP=642.4, capacityReduction=1.0.
+2022-02-28 16:30:47,704 - Yr=15. Calculate Delta Biomass...
+2022-02-28 16:30:47,704 - Yr=15.    Spp=PinuJeff, Age=16.
+2022-02-28 16:30:47,705 - Yr=15.    ANPPact=642.4, Mtotal=643.0, litter=643.00.
+2022-02-28 16:30:47,706 - Yr=15.    DeltaB=0.0, CohortB=643, Bsite=643
+2022-02-28 16:30:47,707 - Yr=16. Calculate ANPPactual...
+2022-02-28 16:30:47,708 - Yr=16.     Spp=PinuJeff, Age=17.
+2022-02-28 16:30:47,709 - Yr=16.     MaxANPP=886, MaxB=26000, Bsite=643, Bcohort=643.0.
+2022-02-28 16:30:47,710 - Yr=16.     B_PM=1.0, B_AP=0.0, actualANPP=642.4, capacityReduction=1.0.
+2022-02-28 16:30:47,710 - Yr=16. Calculate Delta Biomass...
+2022-02-28 16:30:47,711 - Yr=16.    Spp=PinuJeff, Age=17.
+2022-02-28 16:30:47,712 - Yr=16.    ANPPact=642.4, Mtotal=643.0, litter=643.00.
+2022-02-28 16:30:47,714 - Yr=16.    DeltaB=0.0, CohortB=643, Bsite=643
+2022-02-28 16:30:47,714 - Yr=17. Calculate ANPPactual...
+2022-02-28 16:30:47,715 - Yr=17.     Spp=PinuJeff, Age=18.
+2022-02-28 16:30:47,715 - Yr=17.     MaxANPP=886, MaxB=26000, Bsite=643, Bcohort=643.0.
+2022-02-28 16:30:47,716 - Yr=17.     B_PM=1.0, B_AP=0.0, actualANPP=642.4, capacityReduction=1.0.
+2022-02-28 16:30:47,716 - Yr=17. Calculate Delta Biomass...
+2022-02-28 16:30:47,717 - Yr=17.    Spp=PinuJeff, Age=18.
+2022-02-28 16:30:47,717 - Yr=17.    ANPPact=642.4, Mtotal=643.0, litter=643.00.
+2022-02-28 16:30:47,718 - Yr=17.    DeltaB=0.0, CohortB=643, Bsite=643
+2022-02-28 16:30:47,718 - Yr=18. Calculate ANPPactual...
+2022-02-28 16:30:47,719 - Yr=18.     Spp=PinuJeff, Age=19.
+2022-02-28 16:30:47,719 - Yr=18.     MaxANPP=886, MaxB=26000, Bsite=643, Bcohort=643.0.
+2022-02-28 16:30:47,720 - Yr=18.     B_PM=1.0, B_AP=0.0, actualANPP=642.4, capacityReduction=1.0.
+2022-02-28 16:30:47,721 - Yr=18. Calculate Delta Biomass...
+2022-02-28 16:30:47,721 - Yr=18.    Spp=PinuJeff, Age=19.
+2022-02-28 16:30:47,722 - Yr=18.    ANPPact=642.4, Mtotal=643.0, litter=643.00.
+2022-02-28 16:30:47,723 - Yr=18.    DeltaB=0.0, CohortB=643, Bsite=643
+2022-02-28 16:30:47,724 - Yr=19. Calculate ANPPactual...
+2022-02-28 16:30:47,724 - Yr=19.     Spp=PinuJeff, Age=20.
+2022-02-28 16:30:47,725 - Yr=19.     MaxANPP=886, MaxB=26000, Bsite=643, Bcohort=643.0.
+2022-02-28 16:30:47,726 - Yr=19.     B_PM=1.0, B_AP=0.0, actualANPP=642.4, capacityReduction=1.0.
+2022-02-28 16:30:47,727 - Yr=19. Calculate Delta Biomass...
+2022-02-28 16:30:47,727 - Yr=19.    Spp=PinuJeff, Age=20.
+2022-02-28 16:30:47,728 - Yr=19.    ANPPact=642.4, Mtotal=643.0, litter=643.00.
+2022-02-28 16:30:47,730 - Yr=19.    DeltaB=0.0, CohortB=643, Bsite=643
+2022-02-28 16:30:47,782 - Current time: 11
+2022-02-28 16:30:47,782 - Running Biomass Browse ...
+2022-02-28 16:30:47,783 - Processing landscape for ungulate browse events ...
+2022-02-28 16:30:47,783 -    Calculating Site Preference & Forage.
+2022-02-28 16:30:47,783 -  cohort Landis.Species.Species 20, biomass = 643. newForage = 42
+2022-02-28 16:30:47,784 -  propInReach 1. newForageinReach 42
+2022-02-28 16:30:47,785 -    Calculating Zone Population.
+2022-02-28 16:30:47,785 - Dynamic Population is False
+2022-02-28 16:30:47,786 -     Using static population
+2022-02-28 16:30:47,786 -     Static population being loaded for this timestep? False
+2022-02-28 16:30:47,787 - test2
+2022-02-28 16:30:47,787 -     Using previous population size. PopZone Index 0.  Population = 500. K = 15.3396639883126. EffectivePop = 15.3396639883126.
+2022-02-28 16:30:47,787 -    Calculating HSI.
+2022-02-28 16:30:47,788 -    Calculating Local Population.
+2022-02-28 16:30:47,788 -    siteTotalForage = 42 g/m2 or 42000000 g. SiteK = 15.3396639883126 (siteTotalForage / ConsumptionRate)
+2022-02-28 16:30:47,788 - Local Population = 1. Cumulative zone population = 1. Total zone population = 15.3396639883126
+2022-02-28 16:30:47,789 - siteBrowseToBeRemoved = 42
+2022-02-28 16:30:47,789 -    Disturbing Sites
+2022-02-28 16:30:47,796 -    BIOMASS SUCCESSION PARTIAL MORTALITY I: species=PinuJeff, age=20, disturbance=disturbance:browse.
+2022-02-28 16:30:47,796 -    BIOMASS SUCCESSION PARTIAL MORTALITY I: eventReduction=42.0, new_cohort_biomass=643.
+2022-02-28 16:30:47,797 - Yr=20. Calculate ANPPactual...
+2022-02-28 16:30:47,797 - Yr=20.     Spp=PinuJeff, Age=20.
+2022-02-28 16:30:47,798 - Yr=20.     MaxANPP=886, MaxB=26000, Bsite=643, Bcohort=643.0.
+2022-02-28 16:30:47,798 - Yr=20.     B_PM=0.5, B_AP=0.0, actualANPP=321.2, capacityReduction=1.0.
+2022-02-28 16:30:47,799 -    BIOMASS SUCCESSION PARTIAL MORTALITY II: species=PinuJeff, age=20, woodInput=27.30327, foliarInputs=14.69673.
+2022-02-28 16:30:47,799 -    BIOMASS SUCCESSION PARTIAL MORTALITY III: ForestFloorInputs: Foliar=14.70, Wood=27.3.
+2022-02-28 16:30:47,800 - PopZone 0, Population 500
+2022-02-28 16:30:47,844 - Running Biomass Succession ...
+2022-02-28 16:30:47,845 - Yr=11. Calculate ANPPactual...
+2022-02-28 16:30:47,845 - Yr=11.     Spp=PinuJeff, Age=21.
+2022-02-28 16:30:47,846 - Yr=11.     MaxANPP=886, MaxB=26000, Bsite=601, Bcohort=601.0.
+2022-02-28 16:30:47,846 - Yr=11.     B_PM=1.0, B_AP=0.0, actualANPP=635.9, capacityReduction=1.0.
+2022-02-28 16:30:47,846 - Yr=11. Calculate Delta Biomass...
+2022-02-28 16:30:47,847 - Yr=11.    Spp=PinuJeff, Age=21.
+2022-02-28 16:30:47,847 - Yr=11.    ANPPact=635.8, Mtotal=601.0, litter=601.00.
+2022-02-28 16:30:47,847 - Yr=11.    DeltaB=34.0, CohortB=601, Bsite=601
+2022-02-28 16:30:47,878 - Current time: 12
+2022-02-28 16:30:47,878 - Running Biomass Browse ...
+2022-02-28 16:30:47,879 - Processing landscape for ungulate browse events ...
+2022-02-28 16:30:47,879 -    Calculating Site Preference & Forage.
+2022-02-28 16:30:47,880 -  cohort Landis.Species.Species 21, biomass = 635. newForage = 42
+2022-02-28 16:30:47,880 -  propInReach 1. newForageinReach 42
+2022-02-28 16:30:47,881 -    Calculating Zone Population.
+2022-02-28 16:30:47,881 - Dynamic Population is False
+2022-02-28 16:30:47,881 -     Using static population
+2022-02-28 16:30:47,882 -     Static population being loaded for this timestep? False
+2022-02-28 16:30:47,882 - test2
+2022-02-28 16:30:47,882 -     Using previous population size. PopZone Index 0.  Population = 500. K = 15.3396639883126. EffectivePop = 15.3396639883126.
+2022-02-28 16:30:47,883 -    Calculating HSI.
+2022-02-28 16:30:47,883 -    Calculating Local Population.
+2022-02-28 16:30:47,884 -    siteTotalForage = 42 g/m2 or 42000000 g. SiteK = 15.3396639883126 (siteTotalForage / ConsumptionRate)
+2022-02-28 16:30:47,884 - Local Population = 1. Cumulative zone population = 1. Total zone population = 15.3396639883126
+2022-02-28 16:30:47,884 - siteBrowseToBeRemoved = 42
+2022-02-28 16:30:47,885 -    Disturbing Sites
+2022-02-28 16:30:47,885 -    BIOMASS SUCCESSION PARTIAL MORTALITY I: species=PinuJeff, age=21, disturbance=disturbance:browse.
+2022-02-28 16:30:47,885 -    BIOMASS SUCCESSION PARTIAL MORTALITY I: eventReduction=42.0, new_cohort_biomass=635.
+2022-02-28 16:30:47,886 - Yr=12. Calculate ANPPactual...
+2022-02-28 16:30:47,888 - Yr=12.     Spp=PinuJeff, Age=21.
+2022-02-28 16:30:47,889 - Yr=12.     MaxANPP=886, MaxB=26000, Bsite=601, Bcohort=635.0.
+2022-02-28 16:30:47,889 - Yr=12.     B_PM=0.5, B_AP=0.0, actualANPP=320.5, capacityReduction=1.0.
+2022-02-28 16:30:47,890 -    BIOMASS SUCCESSION PARTIAL MORTALITY II: species=PinuJeff, age=21, woodInput=27.31654, foliarInputs=14.68347.
+2022-02-28 16:30:47,890 -    BIOMASS SUCCESSION PARTIAL MORTALITY III: ForestFloorInputs: Foliar=14.68, Wood=27.3.
+2022-02-28 16:30:47,891 - PopZone 0, Population 500
+2022-02-28 16:30:47,932 - Running Biomass Succession ...
+2022-02-28 16:30:47,934 - Yr=12. Calculate ANPPactual...
+2022-02-28 16:30:47,935 - Yr=12.     Spp=PinuJeff, Age=22.
+2022-02-28 16:30:47,935 - Yr=12.     MaxANPP=886, MaxB=26000, Bsite=593, Bcohort=593.0.
+2022-02-28 16:30:47,936 - Yr=12.     B_PM=1.0, B_AP=0.0, actualANPP=634.6, capacityReduction=1.0.
+2022-02-28 16:30:47,936 - Yr=12. Calculate Delta Biomass...
+2022-02-28 16:30:47,937 - Yr=12.    Spp=PinuJeff, Age=22.
+2022-02-28 16:30:47,937 - Yr=12.    ANPPact=634.5, Mtotal=593.0, litter=593.00.
+2022-02-28 16:30:47,937 - Yr=12.    DeltaB=41.0, CohortB=593, Bsite=593
+2022-02-28 16:30:47,969 - Current time: 13
+2022-02-28 16:30:47,970 - Running Biomass Browse ...
+2022-02-28 16:30:47,970 - Processing landscape for ungulate browse events ...
+2022-02-28 16:30:47,970 -    Calculating Site Preference & Forage.
+2022-02-28 16:30:47,971 -  cohort Landis.Species.Species 22, biomass = 634. newForage = 42
+2022-02-28 16:30:47,972 -  propInReach 1. newForageinReach 42
+2022-02-28 16:30:47,972 -    Calculating Zone Population.
+2022-02-28 16:30:47,973 - Dynamic Population is False
+2022-02-28 16:30:47,973 -     Using static population
+2022-02-28 16:30:47,973 -     Static population being loaded for this timestep? False
+2022-02-28 16:30:47,974 - test2
+2022-02-28 16:30:47,974 -     Using previous population size. PopZone Index 0.  Population = 500. K = 15.3396639883126. EffectivePop = 15.3396639883126.
+2022-02-28 16:30:47,975 -    Calculating HSI.
+2022-02-28 16:30:47,975 -    Calculating Local Population.
+2022-02-28 16:30:47,975 -    siteTotalForage = 42 g/m2 or 42000000 g. SiteK = 15.3396639883126 (siteTotalForage / ConsumptionRate)
+2022-02-28 16:30:47,976 - Local Population = 1. Cumulative zone population = 1. Total zone population = 15.3396639883126
+2022-02-28 16:30:47,976 - siteBrowseToBeRemoved = 42
+2022-02-28 16:30:47,977 -    Disturbing Sites
+2022-02-28 16:30:47,977 -    BIOMASS SUCCESSION PARTIAL MORTALITY I: species=PinuJeff, age=22, disturbance=disturbance:browse.
+2022-02-28 16:30:47,977 -    BIOMASS SUCCESSION PARTIAL MORTALITY I: eventReduction=42.0, new_cohort_biomass=634.
+2022-02-28 16:30:47,978 - Yr=13. Calculate ANPPactual...
+2022-02-28 16:30:47,978 - Yr=13.     Spp=PinuJeff, Age=22.
+2022-02-28 16:30:47,978 - Yr=13.     MaxANPP=886, MaxB=26000, Bsite=593, Bcohort=634.0.
+2022-02-28 16:30:47,979 - Yr=13.     B_PM=0.5, B_AP=0.0, actualANPP=320.4, capacityReduction=1.0.
+2022-02-28 16:30:47,979 -    BIOMASS SUCCESSION PARTIAL MORTALITY II: species=PinuJeff, age=22, woodInput=27.35962, foliarInputs=14.64038.
+2022-02-28 16:30:47,979 -    BIOMASS SUCCESSION PARTIAL MORTALITY III: ForestFloorInputs: Foliar=14.64, Wood=27.4.
+2022-02-28 16:30:47,980 - PopZone 0, Population 500
+2022-02-28 16:30:48,023 - Running Biomass Succession ...
+2022-02-28 16:30:48,023 - Yr=13. Calculate ANPPactual...
+2022-02-28 16:30:48,024 - Yr=13.     Spp=PinuJeff, Age=23.
+2022-02-28 16:30:48,024 - Yr=13.     MaxANPP=886, MaxB=26000, Bsite=592, Bcohort=592.0.
+2022-02-28 16:30:48,024 - Yr=13.     B_PM=1.0, B_AP=0.0, actualANPP=634.4, capacityReduction=1.0.
+2022-02-28 16:30:48,025 - Yr=13. Calculate Delta Biomass...
+2022-02-28 16:30:48,025 - Yr=13.    Spp=PinuJeff, Age=23.
+2022-02-28 16:30:48,026 - Yr=13.    ANPPact=634.4, Mtotal=592.0, litter=592.00.
+2022-02-28 16:30:48,026 - Yr=13.    DeltaB=42.0, CohortB=592, Bsite=592
+2022-02-28 16:30:48,054 - Current time: 14
+2022-02-28 16:30:48,055 - Running Biomass Browse ...
+2022-02-28 16:30:48,055 - Processing landscape for ungulate browse events ...
+2022-02-28 16:30:48,056 -    Calculating Site Preference & Forage.
+2022-02-28 16:30:48,056 -  cohort Landis.Species.Species 23, biomass = 634. newForage = 42
+2022-02-28 16:30:48,057 -  propInReach 1. newForageinReach 42
+2022-02-28 16:30:48,057 -    Calculating Zone Population.
+2022-02-28 16:30:48,057 - Dynamic Population is False
+2022-02-28 16:30:48,058 -     Using static population
+2022-02-28 16:30:48,058 -     Static population being loaded for this timestep? False
+2022-02-28 16:30:48,058 - test2
+2022-02-28 16:30:48,059 -     Using previous population size. PopZone Index 0.  Population = 500. K = 15.3396639883126. EffectivePop = 15.3396639883126.
+2022-02-28 16:30:48,059 -    Calculating HSI.
+2022-02-28 16:30:48,060 -    Calculating Local Population.
+2022-02-28 16:30:48,060 -    siteTotalForage = 42 g/m2 or 42000000 g. SiteK = 15.3396639883126 (siteTotalForage / ConsumptionRate)
+2022-02-28 16:30:48,060 - Local Population = 1. Cumulative zone population = 1. Total zone population = 15.3396639883126
+2022-02-28 16:30:48,061 - siteBrowseToBeRemoved = 42
+2022-02-28 16:30:48,062 -    Disturbing Sites
+2022-02-28 16:30:48,065 - Yr=14. Calculate ANPPactual...
+2022-02-28 16:30:48,065 - Yr=14.     Spp=PinuJeff, Age=23.
+2022-02-28 16:30:48,066 - Yr=14.     MaxANPP=886, MaxB=26000, Bsite=592, Bcohort=634.0.
+2022-02-28 16:30:48,066 - Yr=14.     B_PM=1.0, B_AP=0.0, actualANPP=640.9, capacityReduction=1.0.
+2022-02-28 16:30:48,066 -    BIOMASS SUCCESSION TOTAL MORTALITY: species=PinuJeff, age=23, woodInput=413, foliarInputs=221.
+2022-02-28 16:30:48,067 - PopZone 0, Population 500
+2022-02-28 16:30:48,112 - Running Biomass Succession ...
+2022-02-28 16:30:48,142 - Current time: 15
+2022-02-28 16:30:48,142 - Running Biomass Browse ...
+2022-02-28 16:30:48,143 - Processing landscape for ungulate browse events ...
+2022-02-28 16:30:48,143 -    Calculating Site Preference & Forage.
+2022-02-28 16:30:48,144 -    Calculating Zone Population.
+2022-02-28 16:30:48,144 - Dynamic Population is False
+2022-02-28 16:30:48,144 -     Using static population
+2022-02-28 16:30:48,145 -     Static population being loaded for this timestep? False
+2022-02-28 16:30:48,145 - test2
+2022-02-28 16:30:48,146 -     Using previous population size. PopZone Index 0.  Population = 500. K = 0. EffectivePop = 0.
+2022-02-28 16:30:48,146 -    Calculating HSI.
+2022-02-28 16:30:48,146 -    Calculating Local Population.
+2022-02-28 16:30:48,147 -    siteTotalForage = 0 g/m2 or 0 g. SiteK = 0 (siteTotalForage / ConsumptionRate)
+2022-02-28 16:30:48,147 - Local Population = NaN. Cumulative zone population = NaN. Total zone population = 0
+2022-02-28 16:30:48,147 - siteBrowseToBeRemoved = NaN
+2022-02-28 16:30:48,148 -    Disturbing Sites
+2022-02-28 16:30:48,148 - PopZone 0, Population 500
+2022-02-28 16:30:48,196 - Running Biomass Succession ...
+2022-02-28 16:30:48,229 - Current time: 16
+2022-02-28 16:30:48,229 - Running Biomass Browse ...
+2022-02-28 16:30:48,230 - Processing landscape for ungulate browse events ...
+2022-02-28 16:30:48,231 -    Calculating Site Preference & Forage.
+2022-02-28 16:30:48,231 -    Calculating Zone Population.
+2022-02-28 16:30:48,232 - Dynamic Population is False
+2022-02-28 16:30:48,232 -     Using static population
+2022-02-28 16:30:48,233 -     Static population being loaded for this timestep? False
+2022-02-28 16:30:48,233 - test2
+2022-02-28 16:30:48,233 -     Using previous population size. PopZone Index 0.  Population = 500. K = 0. EffectivePop = 0.
+2022-02-28 16:30:48,234 -    Calculating HSI.
+2022-02-28 16:30:48,234 -    Calculating Local Population.
+2022-02-28 16:30:48,235 -    siteTotalForage = 0 g/m2 or 0 g. SiteK = 0 (siteTotalForage / ConsumptionRate)
+2022-02-28 16:30:48,236 - Local Population = NaN. Cumulative zone population = NaN. Total zone population = 0
+2022-02-28 16:30:48,236 - siteBrowseToBeRemoved = NaN
+2022-02-28 16:30:48,236 -    Disturbing Sites
+2022-02-28 16:30:48,237 - PopZone 0, Population 500
+2022-02-28 16:30:48,286 - Running Biomass Succession ...
+2022-02-28 16:30:48,321 - Current time: 17
+2022-02-28 16:30:48,322 - Running Biomass Browse ...
+2022-02-28 16:30:48,323 - Processing landscape for ungulate browse events ...
+2022-02-28 16:30:48,323 -    Calculating Site Preference & Forage.
+2022-02-28 16:30:48,324 -    Calculating Zone Population.
+2022-02-28 16:30:48,324 - Dynamic Population is False
+2022-02-28 16:30:48,325 -     Using static population
+2022-02-28 16:30:48,326 -     Static population being loaded for this timestep? False
+2022-02-28 16:30:48,326 - test2
+2022-02-28 16:30:48,327 -     Using previous population size. PopZone Index 0.  Population = 500. K = 0. EffectivePop = 0.
+2022-02-28 16:30:48,327 -    Calculating HSI.
+2022-02-28 16:30:48,328 -    Calculating Local Population.
+2022-02-28 16:30:48,329 -    siteTotalForage = 0 g/m2 or 0 g. SiteK = 0 (siteTotalForage / ConsumptionRate)
+2022-02-28 16:30:48,329 - Local Population = NaN. Cumulative zone population = NaN. Total zone population = 0
+2022-02-28 16:30:48,329 - siteBrowseToBeRemoved = NaN
+2022-02-28 16:30:48,330 -    Disturbing Sites
+2022-02-28 16:30:48,330 - PopZone 0, Population 500
+2022-02-28 16:30:48,377 - Running Biomass Succession ...
+2022-02-28 16:30:48,448 - Current time: 18
+2022-02-28 16:30:48,450 - Running Biomass Browse ...
+2022-02-28 16:30:48,463 - Processing landscape for ungulate browse events ...
+2022-02-28 16:30:48,465 -    Calculating Site Preference & Forage.
+2022-02-28 16:30:48,467 -    Calculating Zone Population.
+2022-02-28 16:30:48,470 - Dynamic Population is False
+2022-02-28 16:30:48,471 -     Using static population
+2022-02-28 16:30:48,474 -     Static population being loaded for this timestep? False
+2022-02-28 16:30:48,475 - test2
+2022-02-28 16:30:48,475 -     Using previous population size. PopZone Index 0.  Population = 500. K = 0. EffectivePop = 0.
+2022-02-28 16:30:48,476 -    Calculating HSI.
+2022-02-28 16:30:48,476 -    Calculating Local Population.
+2022-02-28 16:30:48,477 -    siteTotalForage = 0 g/m2 or 0 g. SiteK = 0 (siteTotalForage / ConsumptionRate)
+2022-02-28 16:30:48,478 - Local Population = NaN. Cumulative zone population = NaN. Total zone population = 0
+2022-02-28 16:30:48,478 - siteBrowseToBeRemoved = NaN
+2022-02-28 16:30:48,479 -    Disturbing Sites
+2022-02-28 16:30:48,480 - PopZone 0, Population 500
+2022-02-28 16:30:48,566 - Running Biomass Succession ...
+2022-02-28 16:30:48,605 - Current time: 19
+2022-02-28 16:30:48,606 - Running Biomass Browse ...
+2022-02-28 16:30:48,606 - Processing landscape for ungulate browse events ...
+2022-02-28 16:30:48,607 -    Calculating Site Preference & Forage.
+2022-02-28 16:30:48,607 -    Calculating Zone Population.
+2022-02-28 16:30:48,607 - Dynamic Population is False
+2022-02-28 16:30:48,608 -     Using static population
+2022-02-28 16:30:48,608 -     Static population being loaded for this timestep? False
+2022-02-28 16:30:48,609 - test2
+2022-02-28 16:30:48,609 -     Using previous population size. PopZone Index 0.  Population = 500. K = 0. EffectivePop = 0.
+2022-02-28 16:30:48,610 -    Calculating HSI.
+2022-02-28 16:30:48,610 -    Calculating Local Population.
+2022-02-28 16:30:48,611 -    siteTotalForage = 0 g/m2 or 0 g. SiteK = 0 (siteTotalForage / ConsumptionRate)
+2022-02-28 16:30:48,611 - Local Population = NaN. Cumulative zone population = NaN. Total zone population = 0
+2022-02-28 16:30:48,612 - siteBrowseToBeRemoved = NaN
+2022-02-28 16:30:48,612 -    Disturbing Sites
+2022-02-28 16:30:48,612 - PopZone 0, Population 500
+2022-02-28 16:30:48,653 - Running Biomass Succession ...
+2022-02-28 16:30:48,685 - Current time: 20
+2022-02-28 16:30:48,686 - Running Biomass Browse ...
+2022-02-28 16:30:48,686 - Processing landscape for ungulate browse events ...
+2022-02-28 16:30:48,687 -    Calculating Site Preference & Forage.
+2022-02-28 16:30:48,687 -    Calculating Zone Population.
+2022-02-28 16:30:48,688 - Dynamic Population is False
+2022-02-28 16:30:48,688 -     Using static population
+2022-02-28 16:30:48,689 -     Static population being loaded for this timestep? False
+2022-02-28 16:30:48,690 - test2
+2022-02-28 16:30:48,691 -     Using previous population size. PopZone Index 0.  Population = 500. K = 0. EffectivePop = 0.
+2022-02-28 16:30:48,692 -    Calculating HSI.
+2022-02-28 16:30:48,692 -    Calculating Local Population.
+2022-02-28 16:30:48,693 -    siteTotalForage = 0 g/m2 or 0 g. SiteK = 0 (siteTotalForage / ConsumptionRate)
+2022-02-28 16:30:48,693 - Local Population = NaN. Cumulative zone population = NaN. Total zone population = 0
+2022-02-28 16:30:48,694 - siteBrowseToBeRemoved = NaN
+2022-02-28 16:30:48,694 -    Disturbing Sites
+2022-02-28 16:30:48,695 - PopZone 0, Population 500
+2022-02-28 16:30:48,749 - Running Biomass Succession ...
+2022-02-28 16:30:48,796 - Model run is complete.

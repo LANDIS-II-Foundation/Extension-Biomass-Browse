@@ -109,15 +109,16 @@ namespace Landis.Extension.Browse
                     {
                         if (DynamicInputs.TemporalData[PlugIn.ModelCore.CurrentTime][popZone.Index] != null)
                         {
-                            //TODO timestep 0 K and Effective population size are not being calculated for first timesteps,
-                            //until the model encounters the next defined pop size (timestep 0 not being used for K and Eff. Pop.)
+                            //TODO timestep 0, K and Effective population size are not being calculated for first timesteps,
+                            //until the model encounters the next defined pop size (timestep 0 data not being used for K and Eff. Pop.)
 
-                            //TODO a problem happens here. newPop is the population for the whole zone (like, 500), but
-                            // gets multiplied by the number of sites in the zone as if it were a per-site population?
                             double newPop = DynamicInputs.TemporalData[PlugIn.ModelCore.CurrentTime][popZone.Index].Population;
+                            //SF changed so that defined and dynamic pops are treated similarly -- both at zone scale
                             Dataset[popZone.Index].Population = (int)(newPop);
                             //Dataset[popZone.Index].Population = (int)(newPop * Dataset[popZone.Index].PopulationZoneSites.Count);
                             Dataset[popZone.Index].K = CalculateK(popZone.Index, parameters);
+
+                            //TODO SF do we want this behavior? Or should the browsers be allowed to eat their fill?
                             Dataset[popZone.Index].EffectivePop = Math.Min(Dataset[popZone.Index].Population, Dataset[popZone.Index].K);
 
                             PlugIn.ModelCore.UI.WriteLine("    Using defined population size. PopZone Index {0}.  Population = {1}. K = {2}. EffectivePop = {3}.",
@@ -150,7 +151,7 @@ namespace Landis.Extension.Browse
             }
             else //use Dynamic Pop
             {
-                PlugIn.ModelCore.UI.WriteLine("test2");
+                PlugIn.ModelCore.UI.WriteLine("test3");
                 //if (parameters.DynamicPopulationFileName != null)
                 //{
                 foreach (IPopulationZone popZone in Dataset)
@@ -235,11 +236,13 @@ namespace Landis.Extension.Browse
             foreach (Location siteLocation in Dataset[popZoneIndex].PopulationZoneSites)
             {
                 Site site = PlugIn.ModelCore.Landscape.GetSite(siteLocation);
+                //totalForage is in g/m2
                 totalForage += SiteVars.ForageQuantity[site];
             }
 
             //TODO check on the units here -- things seem wonky in the output for forage
             double totalForage_g = totalForage * PlugIn.ModelCore.CellLength * PlugIn.ModelCore.CellLength;  // Convert g/m2 to g
+            //Dataset.TotalForage is in kg
             Dataset[popZoneIndex].TotalForage = (totalForage_g / 1000.0);  //Convert to kg 
             double zoneK = totalForage_g / (parameters.ConsumptionRate * 1000);  // Convert consumption kg to g
             return zoneK;
@@ -251,7 +254,13 @@ namespace Landis.Extension.Browse
             {
                 //Load in initial populations for each zone
 
-                Dataset[popZone.Index].Population = (int)(DynamicInputs.TemporalData[0][popZone.Index].Population * Dataset[popZone.Index].PopulationZoneSites.Count);
+                //SF changed; input should be Zone population, not density
+                Dataset[popZone.Index].Population = (int)(DynamicInputs.TemporalData[0][popZone.Index].Population);
+
+
+                //Dataset[popZone.Index].Population = (int)(DynamicInputs.TemporalData[0][popZone.Index].Population * Dataset[popZone.Index].PopulationZoneSites.Count);
+                
+                
                 //if (parameters.DynamicPopulationFileName != null)
                 //{
                 //    Dataset[popZone.Index].Population = (int)(allData[0][popZone.Index].Population);
@@ -274,11 +283,12 @@ namespace Landis.Extension.Browse
             PlugIn.ModelCore.UI.WriteLine("   Calculating Local Population.");
             int totalSiteCount = 0;
             //Debugging
-            StreamWriter localPopCellLog;
-            localPopCellLog = Landis.Data.CreateTextFile("C:/Users/Sam/Documents/Research/Extension-Biomass-Browse/tests/Biomass v6 two zones/localPopCellLog.csv");
-            localPopCellLog.AutoFlush = true;
-            localPopCellLog.Write("Cell, Zone, Population");
-            localPopCellLog.WriteLine("");
+            // TODO SF get this working; it would be really useful to have
+            //StreamWriter localPopCellLog;
+            //localPopCellLog = Landis.Data.CreateTextFile("C:/Users/Sam/Documents/Research/Extension-Biomass-Browse/tests/v5_SingleCell_BiomassHarvest/localPopCellLog.csv");
+            //localPopCellLog.AutoFlush = true;
+            //localPopCellLog.Write("Cell, Zone, Population");
+            //localPopCellLog.WriteLine("");
             
 
             foreach (IPopulationZone popZone in Dataset)
@@ -287,9 +297,15 @@ namespace Landis.Extension.Browse
                 double cumulativeHSI = 0;
                 double cumulativeForage = 0;
                 // Calculate weights from proportion of K
+                // weightForage is a Zone-level variable
+                // If EffectivePop is greater than K, then weightForage = 1.
+                // In that case, HSI entirely drives local site population
                 double weightForage = Math.Min(1,popZone.EffectivePop/popZone.K);
-                if (parameters.DynamicPopulationFileName == null)
-                    weightForage = ((double)Dataset[popZone.Index].EffectivePop)/((double)popZone.PopulationZoneSites.Count);
+
+                //SF no need to scale pop to density
+                //if (parameters.DynamicPopulationFileName == null)
+                    //weightForage = ((double)Dataset[popZone.Index].EffectivePop)/((double)popZone.PopulationZoneSites.Count);
+
                 double weightHSI = 1 - weightForage;
                 // END calculate weights from proportion of K
 
@@ -302,9 +318,11 @@ namespace Landis.Extension.Browse
                     cumulativeHSI += SiteVars.HabitatSuitability[site];
                     cumulativeForage += SiteVars.ForageQuantity[site];
                 }
+
                 double finalPopSum = 0;
                 double sumSiteK = 0;
                 double sumScaledHSI = 0;
+
                 foreach (Location siteLocation in Dataset[popZone.Index].PopulationZoneSites)
                 {
                     Site site = PlugIn.ModelCore.Landscape.GetSite(siteLocation);
@@ -312,16 +330,25 @@ namespace Landis.Extension.Browse
                     totalSiteCount++;
                
                     // Calculate local K
-                    // convert forage/m2 to total forage (g)
+                    // convert forage/m2 to total forage (g) for the site
                     double siteTotalForage = SiteVars.ForageQuantity[site] * PlugIn.ModelCore.CellLength * PlugIn.ModelCore.CellLength;
                     double siteK = siteTotalForage / (parameters.ConsumptionRate * 1000); // Convert consumption kg to g
-                    //Check that siteK sums to popZone.K
+                    //siteK represents # of individuals at the site, not density
+
+                    //SF ForageQuantity per site is in g/m2; siteTotalForage is in g
+
+                    PlugIn.ModelCore.UI.WriteLine("   siteTotalForage = {0} g/m2 or {1} g. SiteK = {2} (siteTotalForage / ConsumptionRate)",
+                        SiteVars.ForageQuantity[site], siteTotalForage, siteK);
+
+                    //Add site to zone-level tracker to check that siteK sums to popZone.K
                     sumSiteK += siteK;
 
                     //Redistribute optimal population
                     double sitePropOptimal = 0;
                     if (popZone.K > 0)
+                        //proportion of popZone total K within the site
                         sitePropOptimal = siteK / popZone.K;
+                    //population that would be at a site if it were assigned only by K (forage)
                     double sitePopOptimal = popZone.EffectivePop * sitePropOptimal;
 
                     //Browse - redistribute HSI population
@@ -329,20 +356,28 @@ namespace Landis.Extension.Browse
                     double scaledHSI = 0;
                     if (cumulativeHSI > 0)
                         scaledHSI = SiteVars.HabitatSuitability[site] / cumulativeHSI;
+                    //This is the population that would be at a site if only HSI controlled population
                     double sitePopHSI = popZone.EffectivePop * scaledHSI;
                     //Check that scaledHSI sums to 1
                     sumScaledHSI += scaledHSI;
+
                     //Browse - END redistribute HSI population
 
                     //Browse - calculate weighted average population
+                    // weightForage + weightHSI = 1 (see Line 305)
+                   
                     double avgSitePop = (sitePopOptimal * weightForage) + (sitePopHSI * weightHSI);
 
+                    //TODO SF understand what's happening with the capped population
                     //Browse - re-assign excess population on local sites
                     double cappedSitePop = avgSitePop;
 
                     double remainSitePopCapacity = 0;
-                    if (parameters.DynamicPopulationFileName != null)
+                    if (PlugIn.DynamicPopulation)
+                    //for dynamic population
                     {
+                        //if the sitePop is too high, then set the cap to siteK,
+                        //otherwise save the "excess capacity" to remainSitePopCapacity
                         if (avgSitePop > siteK)
                         {
                             remainSitePopCapacity = 0;
@@ -354,6 +389,8 @@ namespace Landis.Extension.Browse
                         }
                     }
                     else
+                    //for static population
+                    //TODO SF What's going on here? I think a problem from using # of individuals instead of density
                     {
                         if (avgSitePop > 1.0)
                         {
@@ -368,12 +405,15 @@ namespace Landis.Extension.Browse
                     cumulativeCappedSitePop += cappedSitePop;
                     cumulativeCapacity += remainSitePopCapacity;
 
+                    //"excess space" for browsers -- difference between K and avg site pop
                     SiteVars.SiteCapacity[site] = remainSitePopCapacity;
                     SiteVars.LocalPopulation[site] = cappedSitePop;
                     
                 }
                 //bool checkK = (sumSiteK == popZone.K);
                 if (Math.Round(cumulativeCappedSitePop) < popZone.EffectivePop)
+                    //if the capped site pop doesn't contain the total pop,
+                    //reassign to sites that have excess sitecapacity
                 {
                     foreach (Location siteLocation in Dataset[popZone.Index].PopulationZoneSites)
                     {
@@ -396,11 +436,15 @@ namespace Landis.Extension.Browse
                 {
                     Site site = PlugIn.ModelCore.Landscape.GetSite(siteLocation);
                     finalPopSum += SiteVars.LocalPopulation[site];
-                    localPopCellLog.Write("{0},{1},{2}",
-                                   site.Location.ToString(),
-                                   popZone.Index,
-                                   SiteVars.LocalPopulation[site]);
-                    localPopCellLog.WriteLine("");
+
+                    PlugIn.ModelCore.UI.WriteLine("Local Population = {0}. Cumulative zone population = {1}. Total zone population = {2}",
+                        SiteVars.LocalPopulation[site], finalPopSum, Dataset[popZone.Index].EffectivePop);
+
+                    //localPopCellLog.Write("{0},{1},{2}",
+                    //             site.Location.ToString(),
+                    //           popZone.Index,
+                    //         SiteVars.LocalPopulation[site]);
+                    //localPopCellLog.WriteLine("");
                 }
                 bool testPop = (finalPopSum == popZone.EffectivePop);
                 bool testSites = (zoneSiteCount == Dataset[popZone.Index].PopulationZoneSites.Count);
@@ -412,6 +456,7 @@ namespace Landis.Extension.Browse
         //---------------------------------------------------------------------
         public static void CalcNeighborhoodForage(IInputParameters parameters)
         {
+            //TODO SF see what it would take to get this implemented
             PlugIn.ModelCore.UI.WriteLine("   Calculating Neighborhood Forage.");
             foreach (IPopulationZone popZone in Dataset)
             {
@@ -533,9 +578,14 @@ namespace Landis.Extension.Browse
                     // convert to g/m2
                     double siteBrowseToBeRemoved = (SiteVars.LocalPopulation[site] * (parameters.ConsumptionRate * 1000)) / (PlugIn.ModelCore.CellLength * PlugIn.ModelCore.CellLength);
                     //totalPop += SiteVars.LocalPopulation[site];
-                    if (parameters.DynamicPopulationFileName == null)
+                    //if (parameters.DynamicPopulationFileName == null)
+                    if (!PlugIn.DynamicPopulation)
                         // If non-dynamic pop, then population value = rate of removal
-                        siteBrowseToBeRemoved = SiteVars.ForageQuantity[site] * SiteVars.LocalPopulation[site];
+                        //ForageQuantity is in g/m2
+                        siteBrowseToBeRemoved = SiteVars.ForageQuantity[site] * SiteVars.LocalPopulation[site]; //TODO SF this seems wrong
+
+                    PlugIn.ModelCore.UI.WriteLine("siteBrowseToBeRemoved = {0}",
+                        siteBrowseToBeRemoved);
                     SiteVars.TotalBrowse[site] = siteBrowseToBeRemoved;
                     //totalToRemove += siteBrowseToBeRemoved;
                     //Browse - END calculate local browse to remove

@@ -157,6 +157,7 @@ namespace Landis.Extension.Browse
         {
                 Event browseEvent = new Event();
 
+                //Calculate forage for each site
                 browseEvent.CalculateForage(parameters);
 
                 // Calculate population
@@ -265,6 +266,7 @@ namespace Landis.Extension.Browse
                         //Browse - compile browse by preference class
                         double[] forageByPrefClass = new double[parameters.PreferenceList.Count];
                         double[] propBrowseList = new double[siteCohortList.Count];
+
                         //Browse - calculate first pass removal
                         // first pass removes forage at rate equal to preference
 
@@ -482,6 +484,8 @@ namespace Landis.Extension.Browse
                         maxSiteBiomass = System.Math.Max(maxSiteBiomass, sppParms.BiomassMax);
 
                         foreach (ICohort cohort in cohortList)
+                            //for each cohort, get the new forage (Biomass*0.1*proportion of ANPP that is forage)
+                            //and assign newForage to cohort in SiteVars
                         {
                             int newForage = 0;
                             if ((browsePref > 0) || (parameters.CountNonForage))
