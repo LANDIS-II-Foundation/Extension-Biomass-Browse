@@ -225,6 +225,9 @@ namespace Landis.Extension.Browse
          //---------------------------------------------------------------------
         //Go through all active sites and damage them according to the
         // site's browse to be removed.
+
+        //TODO SF figure out how this works and if it's working right
+        // Sometimes biomass mortality total does not equal the sum of biomass mortality for species; why?
         private void DisturbSites(IInputParameters parameters)
         {
             PlugIn.ModelCore.UI.WriteLine("   Disturbing Sites");
