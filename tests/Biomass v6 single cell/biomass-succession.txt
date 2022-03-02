@@ -12,7 +12,7 @@ SeedingAlgorithm  		WardSeedDispersal
 InitialCommunities      	./initial-communities_LTBselect.txt
 InitialCommunitiesMap   	./single3.tif
 
-CalibrateMode yes
+CalibrateMode no
 
 MinRelativeBiomass
 

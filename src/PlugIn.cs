@@ -375,7 +375,9 @@ namespace Landis.Extension.Browse
                                         
                     foreach (ISpecies species in PlugIn.ModelCore.Species)
                     {
-                        eventLog.Write(",{0}", browseEvent.ZoneBiomassRemovedSpp[popZone.Index][species.Index]);
+                    //average biomass removed per species (g m-2)
+                        eventLog.Write(",{0}", browseEvent.ZoneBiomassRemovedSpp[popZone.Index][species.Index] / 
+                        (double)PopulationZones.Dataset[popZone.Index].PopulationZoneSites.Count);
                     }
                     foreach (ISpecies species in PlugIn.ModelCore.Species)
                     {
