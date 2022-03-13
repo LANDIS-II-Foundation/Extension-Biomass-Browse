@@ -1,4 +1,4 @@
-//  Authors:  Robert M. Scheller, James B. Domingo
+//  Authors:  Robert M. Scheller
 
 using Landis.Core;
 using System.Collections.Generic;

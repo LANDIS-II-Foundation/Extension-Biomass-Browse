@@ -296,7 +296,7 @@ namespace Landis.Extension.Browse
                     cumulativeHSI += SiteVars.HabitatSuitability[site];
                     cumulativeForage += SiteVars.ForageQuantity[site];
                 }
-                double finalPopSum = 0;
+                //double finalPopSum = 0;
                 double sumSiteK = 0;
                 double sumScaledHSI = 0;
                 foreach (Location siteLocation in Dataset[popZone.Index].PopulationZoneSites)
