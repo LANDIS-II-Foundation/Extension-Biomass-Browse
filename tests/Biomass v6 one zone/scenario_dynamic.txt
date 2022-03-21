@@ -16,7 +16,7 @@ CellLength  100 << meters, 100 x 100 m = 1 ha
 
 >> Disturbance Extensions   Initialization File
 >> ----------------------   -------------------
-   "Biomass Browse"	    DynamicUngulateBrowse.txt
+   "Biomass Browse"	    BiomassBrowseInputs_dynamic.txt
 
 >>   DisturbancesRandomOrder  yes  << optional parameter; default = no
 

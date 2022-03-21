@@ -20,6 +20,7 @@ namespace Landis.Extension.Browse
     {
         public static readonly ExtensionType ExtType = new ExtensionType("disturbance:browse");
         public static readonly string ExtensionName = "Biomass Browse";
+
         public static MetadataTable<EventsLog> eventLog;
         public static MetadataTable<SummaryLog> summaryLog;
         public static MetadataTable<EventsSpeciesLog> eventSpeciesLog;
@@ -115,11 +116,13 @@ namespace Landis.Extension.Browse
             //TODO SF I don't think this does anything
             parameters.ForageNeighbors = GetResourceNeighborhood(parameters.ForageQuantityNbrRad);
             parameters.SitePrefNeighbors = GetResourceNeighborhood(parameters.SitePrefNbrRad);
-            
+                     
             ModelCore.UI.WriteLine("   Opening browse log files \"{0}\" ...", parameters.LogFileName);
+            MetadataHandler.InitializeMetadata(Timestep);
+
             //eventLog = Landis.Data.CreateTextFile(parameters.LogFileName);
             //eventLog.AutoFlush = true;
-            
+
             //eventLog.Write("Time, Zone, Population, PopulationDensity(ha-1), TotalForage(kg), K, EffectivePop, DamagedSites, BiomassRemoved(g/m2), BiomassMortality(g/m2), CohortsKilled");
             //foreach (ISpecies species in PlugIn.ModelCore.Species)
             //{
@@ -245,7 +248,7 @@ namespace Landis.Extension.Browse
                         // Convert to density (#/km2)
 
                         //TODO SF check on this -- is density being calculated right?
-                        //LocalPopulation is #of deer not density already -- yes
+                        //LocalPopulation is #of deer not density; need to convert to density to map
                         double popDens = SiteVars.LocalPopulation[site] / (ModelCore.CellLength * ModelCore.CellLength) * 1000 * 1000;
                         // Mult by 100 and round to integer for mapping
                         pixel.MapCode.Value = (short)(popDens * 100);
@@ -316,7 +319,7 @@ namespace Landis.Extension.Browse
                 totalSites += PopulationZones.Dataset[popZone.Index].PopulationZoneSites.Count;
             }
 
-            summaryLog.Clear();
+            PlugIn.summaryLog.Clear();
             SummaryLog sl = new SummaryLog();
             sl.Time = ModelCore.CurrentTime;
             sl.TotalPopulation = totalPopulation;
@@ -335,7 +338,7 @@ namespace Landis.Extension.Browse
 
             foreach (IPopulationZone popZone in PopulationZones.Dataset)
             {
-                eventLog.Clear();
+                PlugIn.eventLog.Clear();
                 EventsLog el = new EventsLog();
 
                 el.Time = ModelCore.CurrentTime;
@@ -360,7 +363,7 @@ namespace Landis.Extension.Browse
             {
                 foreach (ISpecies species in PlugIn.ModelCore.Species)
                 {
-                    eventSpeciesLog.Clear();
+                    PlugIn.eventSpeciesLog.Clear();
                     EventsSpeciesLog el = new EventsSpeciesLog();
 
                     el.Time = ModelCore.CurrentTime;

@@ -2,7 +2,7 @@ LandisData  Scenario
 
 Duration  20
 
-Species   species_LTB.txt
+Species   species.txt
 
 Ecoregions      ./ecoregions.txt
 EcoregionsMap   ./single3.tif

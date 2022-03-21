@@ -13,7 +13,7 @@ namespace Landis.Extension.Browse
         
         public static ExtensionMetadata Extension {get; set;}
 
-        public static void InitializeMetadata(int Timestep, string MapFileName)
+        public static void InitializeMetadata(int Timestep)
         {
             ScenarioReplicationMetadata scenRep = new ScenarioReplicationMetadata() {
                 RasterOutCellArea = PlugIn.ModelCore.CellArea,
@@ -65,8 +65,8 @@ namespace Landis.Extension.Browse
                 FilePath = PlugIn.eventSpeciesLog.FilePath,
                 Visualize = true,
             };
-            tblOut_summary.RetriveFields(typeof(EventsSpeciesLog));
-            Extension.OutputMetadatas.Add(tblOut_summary);
+            tblOut_species.RetriveFields(typeof(EventsSpeciesLog));
+            Extension.OutputMetadatas.Add(tblOut_species);
 
             //---------------------------------------            
             //          map outputs:         

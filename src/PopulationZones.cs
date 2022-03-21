@@ -196,22 +196,23 @@ namespace Landis.Extension.Browse
             popHarvest = PlugIn.ModelCore.ContinuousUniformDistribution.NextDouble();
 
             double popGrowth = 0;
-
-            if (zoneK > 0.0001)
-            {
-                popGrowth = popR * oldPop * (1 - (oldPop / zoneK)) - (popMortality * oldPop) - (popPredation * oldPop) - (popHarvest * oldPop);
-            } else
-            {
-                popGrowth = 0;
-                PlugIn.ModelCore.UI.WriteLine("Carrying capacity = 0; check parameters.");
-            } 
-
+            popGrowth = popR * oldPop * (1 - (oldPop / zoneK)) - (popMortality * oldPop) - (popPredation * oldPop) - (popHarvest * oldPop);
+           
             int newPop = (int)(oldPop + popGrowth);
 
-            PlugIn.ModelCore.UI.WriteLine("oldPop = {0}.  popR = {1}. popMortality = {2}. popPredation = {3}. popHarvest = {4}. popGrowth = {5}. newPop = {6}.",
-                            oldPop, popR, popMortality, popPredation, popHarvest, popGrowth, newPop);
+            if (newPop < 0)
+            {
+                newPop = 0;
+                PlugIn.ModelCore.UI.WriteLine("New population was negative, probably because oldPop was much greater than zoneK. Check initial population.");
+            } else if (zoneK < 0.0001)
+            {
+                newPop = 0;
+                PlugIn.ModelCore.UI.WriteLine("Carrying capacity = 0; check parameters.");
+            }
 
-           
+            PlugIn.ModelCore.UI.WriteLine("oldPop = {0}.  popR = {1}. popMortality = {2}. popPredation = {3}. popHarvest = {4}. popGrowth = {5}. newPop = {6}.",
+                                          oldPop, popR, popMortality, popPredation, popHarvest, popGrowth, newPop);
+                     
 
             return newPop;
         }

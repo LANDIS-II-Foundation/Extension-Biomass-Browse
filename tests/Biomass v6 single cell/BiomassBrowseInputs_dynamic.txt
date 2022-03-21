@@ -7,7 +7,22 @@ SpeciesTable
 >>				--GrowthReduction--	----Mortality-----	-----Biomass-----
 >> Name		Preference	Threshold	Max	Threshold	Max	    Max
 >> --------	----------	---------	---	---------	---	    -----
-   PinuJeff     0.2		0.5		0.4	0.5		0.1		25000
+   abiebals     0.0		0.5		0.4	0.5		0.1		25000
+   acerrubr     0.3		0.5		0.4	0.5		0.1		25000
+   acersacc     0.5		0.5		0.4	0.5		0.1		25000
+   betualle     0.3		0.5		0.4	0.5		0.1		25000
+   betupapy     0.6		0.5		0.4	0.5		0.1		25000
+   fraxamer     0.6		0.5		0.4	0.5		0.1		25000
+   piceglau     0.0		0.5		0.4	0.5		0.1		25000
+   pinubank     0.0		0.5		0.4	0.5		0.1		25000
+   pinuresi     0.0		0.5		0.4	0.5		0.1		25000
+   pinustro     0.0		0.5		0.4	0.5		0.1		25000
+   poputrem     0.4		0.5		0.4	0.5		0.1		25000
+   querelli     0.0		0.5		0.4	0.5		0.1		25000
+   querrubr     0.0		0.5		0.4	0.5		0.1		25000
+   thujocci     0.5		0.5		0.4	0.5		0.1		25000
+   tiliamer     0.4		0.5		0.4	0.5		0.1		25000
+   tsugcana     0.5		0.5		0.4	0.5		0.1		25000
 
 
 << Browser population Inputs >>
@@ -15,10 +30,10 @@ ZoneMap  ./single3.tif
 
 DefinedPopulationFile	DefinedPopulation.txt  << User-defined population, MUST include year 0
 DynamicPopulation  << Optional.  If exists, then the next 8 parameters must be input
-RMin 0.15
-RMax 0.25		
-MortalityMin 0.15
-MortalityMax 0.25
+RMin 0.2
+RMax 0.3		
+MortalityMin 0.1
+MortalityMax 0.2
 PredationMin 0.0
 PredationMax 0.0
 HarvestMin 0.0
