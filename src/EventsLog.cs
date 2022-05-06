@@ -22,7 +22,7 @@ namespace Landis.Extension.Browse
         public int TotalPopulation { get; set; }
 
         [DataFieldAttribute(Desc = "Population Density (animals per ha)")]
-        public int PopulationDensity { get; set; }
+        public double PopulationDensity { get; set; }
 
         [DataFieldAttribute(Desc = "Total Forage (kg)")]
         public int TotalForage { get; set; }

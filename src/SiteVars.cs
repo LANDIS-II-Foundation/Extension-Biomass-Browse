@@ -23,7 +23,7 @@ namespace Landis.Extension.Browse
         private static ISiteVar<double> cappedBrowse;  
         private static ISiteVar<double> remainBrowse;
         private static ISiteVar<double> totalBrowse;
-        private static ISiteVar<int> biomassRemoved;
+        private static ISiteVar<double> biomassRemoved;
         private static ISiteVar<int> cohortsDamaged;
         //private static ISiteVar<int> ecoMaxBiomass;
         private static ISiteVar<List<Landis.Library.BiomassCohorts.ICohort>> siteCohortList;
@@ -52,7 +52,7 @@ namespace Landis.Extension.Browse
             cappedBrowse = PlugIn.ModelCore.Landscape.NewSiteVar<double>();
             remainBrowse = PlugIn.ModelCore.Landscape.NewSiteVar<double>();
             totalBrowse = PlugIn.ModelCore.Landscape.NewSiteVar<double>();
-            biomassRemoved = PlugIn.ModelCore.Landscape.NewSiteVar<int>();
+            biomassRemoved = PlugIn.ModelCore.Landscape.NewSiteVar<double>();
             cohortsDamaged = PlugIn.ModelCore.Landscape.NewSiteVar<int>();
             //youngCohortCount = PlugIn.ModelCore.Landscape.NewSiteVar<int>();
             //ecoMaxBiomass = PlugIn.ModelCore.GetSiteVar<int>("Succession.MaxBiomass");
@@ -71,6 +71,10 @@ namespace Landis.Extension.Browse
 
             biomassCohorts = PlugIn.ModelCore.GetSiteVar<Landis.Library.BiomassCohorts.ISiteCohorts>("Succession.BiomassCohorts");
 
+            if (biomassCohorts == null)
+            {
+                PlugIn.ModelCore.UI.WriteLine("Problem getting biomassCohorts");
+            }
             //if (biomassCohorts == null)
             //{
             //    //ageCohorts = PlugIn.ModelCore.GetSiteVar<Landis.Library.AgeOnlyCohorts.ISiteCohorts>("Succession.AgeCohorts");
@@ -80,7 +84,6 @@ namespace Landis.Extension.Browse
             //{
             //    return "Biomass";
             //}
-          
 
         }
         ////---------------------------------------------------------------------
@@ -329,7 +332,7 @@ namespace Landis.Extension.Browse
             }
         }
         //---------------------------------------------------------------------
-        public static ISiteVar<int> BiomassRemoved
+        public static ISiteVar<double> BiomassRemoved
         {
             get
             {

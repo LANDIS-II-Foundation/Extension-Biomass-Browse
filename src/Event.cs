@@ -14,19 +14,19 @@ namespace Landis.Extension.Browse
         
         private int sitesDamaged;
         private int cohortsKilled;
-        private int biomassRemoved;
-        private int biomassKilled;
+        private double biomassRemoved;
+        private double biomassKilled;
         private int population;
         private int[] cohortsKilledSpp;
-        private int[] biomassRemovedSpp;
+        private double[] biomassRemovedSpp;
 
         private int[] zoneSitesDamaged;
         private int[] zoneCohortsKilled;
-        private int[] zoneBiomassKilled;
-        private int[] zoneBiomassRemoved;
+        private double[] zoneBiomassKilled;
+        private double[] zoneBiomassRemoved;
         private int[] zonePopulation;
         private int[][] zoneCohortsKilledSpp;
-        private int[][] zoneBiomassRemovedSpp;
+        private double[][] zoneBiomassRemovedSpp;
 
 
         //---------------------------------------------------------------------
@@ -67,14 +67,14 @@ namespace Landis.Extension.Browse
             }
         }
         //---------------------------------------------------------------------
-        public int BiomassKilled
+        public double BiomassKilled
         {
             get {
                 return biomassKilled;
             }
         }
         //---------------------------------------------------------------------
-        public int BiomassRemoved
+        public double BiomassRemoved
         {
             get
             {
@@ -82,7 +82,7 @@ namespace Landis.Extension.Browse
             }
         }
         //---------------------------------------------------------------------
-        public int[] ZoneBiomassKilled
+        public double[] ZoneBiomassKilled
         {
             get
             {
@@ -90,7 +90,7 @@ namespace Landis.Extension.Browse
             }
         }
         //---------------------------------------------------------------------
-        public int[] ZoneBiomassRemoved
+        public double[] ZoneBiomassRemoved
         {
             get
             {
@@ -130,7 +130,7 @@ namespace Landis.Extension.Browse
             }
         }
         //---------------------------------------------------------------------
-        public int[] BiomassRemovedSpp
+        public double[] BiomassRemovedSpp
         {
             get
             {
@@ -138,7 +138,7 @@ namespace Landis.Extension.Browse
             }
         }
         //---------------------------------------------------------------------
-        public int[][] ZoneBiomassRemovedSpp
+        public double[][] ZoneBiomassRemovedSpp
         {
             get
             {
@@ -192,7 +192,8 @@ namespace Landis.Extension.Browse
             {
                 this.cohortsKilledSpp[species.Index] = 0;
             }
-            this.biomassRemovedSpp = new int[PlugIn.ModelCore.Species.Count];
+            //this.biomassRemovedSpp = new int[PlugIn.ModelCore.Species.Count];
+            this.biomassRemovedSpp = new double[PlugIn.ModelCore.Species.Count];
             foreach (ISpecies species in PlugIn.ModelCore.Species)
             {
                 this.biomassRemovedSpp[species.Index] = 0;
@@ -200,11 +201,14 @@ namespace Landis.Extension.Browse
             this.zoneSitesDamaged = new int[PopulationZones.Dataset.Count];
             this.zonePopulation = new int[PopulationZones.Dataset.Count];
             this.zoneCohortsKilled = new int[PopulationZones.Dataset.Count];
-            this.zoneBiomassRemoved = new int[PopulationZones.Dataset.Count];
-            this.zoneBiomassKilled = new int[PopulationZones.Dataset.Count];
+            //this.zoneBiomassRemoved = new int[PopulationZones.Dataset.Count];
+            this.zoneBiomassRemoved = new double[PopulationZones.Dataset.Count];
+            //this.zoneBiomassKilled = new int[PopulationZones.Dataset.Count];
+            this.zoneBiomassKilled = new double[PopulationZones.Dataset.Count];
             this.zoneCohortsKilledSpp = new int[PopulationZones.Dataset.Count][];
-            this.zoneBiomassRemovedSpp = new int[PopulationZones.Dataset.Count][];
-            //for (int i = 0; i < PopulationZones.Dataset.Count; i++)
+            //this.zoneBiomassRemovedSpp = new int[PopulationZones.Dataset.Count][];
+            this.zoneBiomassRemovedSpp = new double[PopulationZones.Dataset.Count][];
+            
             foreach (IPopulationZone popZone in PopulationZones.Dataset)
 
                 {
@@ -214,7 +218,7 @@ namespace Landis.Extension.Browse
                 this.zoneBiomassRemoved[popZone.Index] = 0;
                 this.zoneBiomassKilled[popZone.Index] = 0;
                 this.zoneCohortsKilledSpp[popZone.Index] = new int[PlugIn.ModelCore.Species.Count];
-                this.zoneBiomassRemovedSpp[popZone.Index] = new int[PlugIn.ModelCore.Species.Count];
+                this.zoneBiomassRemovedSpp[popZone.Index] = new double[PlugIn.ModelCore.Species.Count];
                 foreach (ISpecies species in PlugIn.ModelCore.Species)
                 {
                     this.zoneCohortsKilledSpp[popZone.Index][species.Index] = 0;
@@ -244,10 +248,8 @@ namespace Landis.Extension.Browse
                 {
                     double siteTotalRemoval = 0;
                     ActiveSite site = (ActiveSite)PlugIn.ModelCore.Landscape.GetSite(siteLocation);
-
-                    //totalPop += SiteVars.LocalPopulation[site];
-                    double siteTotalToBrowse = SiteVars.TotalBrowse[site]; // Math.Round(SiteVars.TotalBrowse[site]);
-                    //totalBrowse += siteTotalToBrowse;
+                    
+                    double siteTotalToBrowse = SiteVars.TotalBrowse[site]; 
 
                     //Browse - allocate browse to cohorts
                     if (siteTotalToBrowse > 0)
@@ -265,17 +267,16 @@ namespace Landis.Extension.Browse
                             }
                         }
                         double forageRemoved = 0.0;
-                        //int prefIndex = 0;
+                        
                         //Browse - compile browse by preference class
                         double[] forageByPrefClass = new double[parameters.PreferenceList.Count];
                         double[] propBrowseList = new double[siteCohortList.Count];
 
                         //Browse - calculate first pass removal
                         // first pass removes forage at rate equal to preference
-
                         double[] firstPassRemovalList = new double[siteCohortList.Count];
                         double firstPassRemoval = 0;
-                        double firstPassRemovalInt = 0;
+                        //double firstPassRemovalInt = 0;
                         int cohortLoop = 0;
                         foreach (ICohort cohort in siteCohortList)
                         {
@@ -283,9 +284,8 @@ namespace Landis.Extension.Browse
                             double browsePref = sppParms.BrowsePref;
 
                             double availForage = SiteVars.GetForageInReach(cohort, site);
-                            //totalForage += availForage;
                             firstPassRemoval += availForage * browsePref;
-                            firstPassRemovalInt += (availForage * browsePref);//Math.Round(availForage * browsePref);
+                            //firstPassRemovalInt += (availForage * browsePref);
                             firstPassRemovalList[cohortLoop] = availForage * browsePref;
 
                             int prefIndex = 0;
@@ -307,11 +307,11 @@ namespace Landis.Extension.Browse
                         double[] adjFirstPassRemovalList = new double[siteCohortList.Count];
                         double[] remainingBrowseList = new double[siteCohortList.Count];
                         double adjFirstPassRemoval = firstPassRemoval;
-                        double adjFirstPassRemovalInt = firstPassRemovalInt;
+                        //double adjFirstPassRemovalInt = firstPassRemovalInt;
                         if (firstPassRemoval > siteTotalToBrowse)
                         {
                             adjFirstPassRemoval = 0;
-                            adjFirstPassRemovalInt = 0;
+                            //adjFirstPassRemovalInt = 0;
                             int removalIndex = 0;
                             foreach (var i in firstPassRemovalList)
                             {
@@ -319,7 +319,7 @@ namespace Landis.Extension.Browse
                                 double adjFirstRemoval = firstRemoval * siteTotalToBrowse / firstPassRemoval;
                                 adjFirstPassRemovalList[removalIndex] = adjFirstRemoval;
                                 adjFirstPassRemoval += adjFirstRemoval;
-                                adjFirstPassRemovalInt += adjFirstRemoval; // Math.Round(adjFirstRemoval);
+                                //adjFirstPassRemovalInt += adjFirstRemoval; // Math.Round(adjFirstRemoval);
                                 removalIndex++;
                             }
                         }
@@ -333,15 +333,14 @@ namespace Landis.Extension.Browse
                             remainingBrowseList[adjIndex] = SiteVars.GetForageInReach(siteCohortList[adjIndex], site) - adjFirstPassRemovalList[adjIndex];
                             adjIndex++;
                         }
-                        double unallocatedBrowse = siteTotalToBrowse - adjFirstPassRemovalInt;
-                        //double totalUnallocatedBrowse = unallocatedBrowse;
-                        //totalFirstPass += adjFirstPassRemoval;
+                        double unallocatedBrowse = siteTotalToBrowse - adjFirstPassRemoval;
+                        
 
                         //Browse - allocate second pass of browse removal to cohorts
-                        // second pass removes all of most preferred before moving down in preference
+                        //second pass removes all of most preferred before moving down in preference
                         double[] secondPassRemovalList = new double[siteCohortList.Count];
                         double[] finalRemovalList = adjFirstPassRemovalList;
-                        forageRemoved = adjFirstPassRemovalInt;
+                        forageRemoved = adjFirstPassRemoval;
                         int prefLoop = 0;
                         foreach (double prefValue in parameters.PreferenceList)
                         {
@@ -357,8 +356,7 @@ namespace Landis.Extension.Browse
                                     double finalRemoval = adjFirstPassRemovalList[cohortLoop];
                                     if (forageRemoved < siteTotalToBrowse)
                                     {
-                                        double availForage = SiteVars.GetForageInReach(cohort, site); // cohort.ForageInReach;
-                                        //int prefIndex = preferenceList.IndexOf(browsePref);
+                                        double availForage = SiteVars.GetForageInReach(cohort, site); 
                                         double prefClassForage = forageByPrefClass[prefLoop];
                                         double secondPassRemoval = 0;
                                         if (prefClassForage > 0)
@@ -368,31 +366,30 @@ namespace Landis.Extension.Browse
                                         }
                                         secondPassRemovalList[cohortLoop] = secondPassRemoval;
                                         finalRemoval += secondPassRemoval;
-                                        forageRemoved -= adjFirstPassRemovalList[cohortLoop];//Math.Round(adjFirstPassRemovalList[cohortLoop]);
-                                        forageRemoved += finalRemoval;// Math.Round(finalRemoval);
-                                        //totalSecondPass += secondPassRemoval;
-                                        prefClassRemoved += (finalRemoval - adjFirstPassRemovalList[cohortLoop]); // (Math.Round(finalRemoval) - Math.Round(adjFirstPassRemovalList[cohortLoop]));
+                                        forageRemoved -= adjFirstPassRemovalList[cohortLoop];
+                                        forageRemoved += finalRemoval;
+                                        prefClassRemoved += (finalRemoval - adjFirstPassRemovalList[cohortLoop]);
                                     }
-                                    //finalRemoval = finalRemoval; // Math.Round(finalRemoval);
+                                    
                                     finalRemovalList[cohortLoop] = finalRemoval;
 
-
-                                    this.biomassRemoved += (int)finalRemoval;
-                                    this.zoneBiomassRemoved[popZone.Index] += (int)finalRemoval;
-                                    //totalRemoval += finalRemoval;
+                                    //this.biomassRemoved += (int)finalRemoval;
+                                    //this.zoneBiomassRemoved[popZone.Index] += (int)finalRemoval;
+                                    this.biomassRemoved += (double)finalRemoval;
+                                    this.zoneBiomassRemoved[popZone.Index] += (double)finalRemoval;
                                     siteTotalRemoval += finalRemoval;
 
                                     double propBrowse = 0.0;
                                     if (SiteVars.GetForage(siteCohortList[cohortLoop], site) > 0)//siteCohortList[cohortLoop].Forage > 0)
                                         propBrowse = finalRemoval / SiteVars.GetForage(siteCohortList[cohortLoop], site); // siteCohortList[cohortLoop].Forage;
+                                    //PlugIn.ModelCore.UI.WriteLine("propBrowse = {0}", propBrowse);//debug
                                     propBrowseList[cohortLoop] = propBrowse;
-                                    if (propBrowse < 0.0 || propBrowse > 1.0)
+                                    if (propBrowse < 0.0 || propBrowse > 1.0001)
+                                        //SF This error was primarily caused by problems with integers and rounding
                                         PlugIn.ModelCore.UI.WriteLine("   Browse Proportion not between 0 and 1: {0}", propBrowse);
                                     if (propBrowse > 0.0)
                                         SiteVars.SetLastBrowseProportion(cohort, site, propBrowse);
-                                        //PartialDisturbance.RecordLastBrowseProportion(cohort, propBrowse);
-                                    // Growth reduction is called by Biomass Succession and uses LastBrowseProp in its calculation
-
+                                        
                                     // Add mortality
                                     // Browse - Mortality caused by browsing
                                     if (parameters.Mortality)
@@ -403,11 +400,12 @@ namespace Landis.Extension.Browse
                                         PlugIn.ModelCore.ContinuousUniformDistribution.Alpha = 0.0;
                                         PlugIn.ModelCore.ContinuousUniformDistribution.Beta = 1.0;
                                         double myRand = PlugIn.ModelCore.ContinuousUniformDistribution.NextDouble();
-                                        myRand = PlugIn.ModelCore.ContinuousUniformDistribution.NextDouble();
+                                        
                                         if (myRand < mortProb)
                                         {
-                                            int biomassKilled = cohort.Biomass - (int)finalRemoval;
-                                            finalRemoval = cohort.Biomass;
+                                            //int biomassKilled = cohort.Biomass - (int)finalRemoval;
+                                            double biomassKilled = (double)cohort.Biomass - (double)finalRemoval;
+                                            finalRemoval = (double)cohort.Biomass;
                                             this.biomassKilled += biomassKilled;
                                             this.zoneBiomassKilled[popZone.Index] += biomassKilled;
                                             this.cohortsKilled += 1;
@@ -418,11 +416,18 @@ namespace Landis.Extension.Browse
                                     }
                                     if (finalRemoval > 0)
                                     {
-                                        int finalRemovalInt = (int)finalRemoval;
-                                        PartialDisturbance.RecordBiomassReduction(cohort, finalRemovalInt);
-                                        this.biomassRemovedSpp[cohort.Species.Index] += finalRemovalInt;
-                                        this.zoneBiomassKilled[popZone.Index] += finalRemovalInt;
-                                        this.zoneBiomassRemovedSpp[popZone.Index][cohort.Species.Index] += finalRemovalInt;
+                                        //PlugIn.ModelCore.UI.WriteLine("finalRemoval = {0}", finalRemoval); //debug
+                                        //int finalRemovalInt = (int)finalRemoval;
+                                        //PlugIn.ModelCore.UI.WriteLine("finalRemovalInt = {0}", finalRemovalInt); //debug
+                                        //PartialDisturbance.RecordBiomassReduction(cohort, finalRemovalInt);
+                                        //this.biomassRemovedSpp[cohort.Species.Index] += finalRemovalInt;
+                                        //this.zoneBiomassKilled[popZone.Index] += finalRemovalInt;
+                                        //this.zoneBiomassRemovedSpp[popZone.Index][cohort.Species.Index] += finalRemovalInt;
+
+                                        PartialDisturbance.RecordBiomassReduction(cohort, finalRemoval);
+                                        this.biomassRemovedSpp[cohort.Species.Index] += finalRemoval;
+                                        this.zoneBiomassKilled[popZone.Index] += finalRemoval;
+                                        this.zoneBiomassRemovedSpp[popZone.Index][cohort.Species.Index] += finalRemoval;
                                     }
                                 }
                                 cohortLoop++;
@@ -435,15 +440,11 @@ namespace Landis.Extension.Browse
                         this.zoneSitesDamaged[popZone.Index] += 1;
                     }
                     PartialDisturbance.ReduceCohortBiomass(site);
-                    //PartialDisturbance.UpdateLastBrowseProp(site); RMS: Necessary??
+                    
                 }
-                //bool testPop = (totalPop == popZone.EffectivePop);
-                //bool testForage = (totalForage == PopulationZones.Dataset[popZone.Index].TotalForage);
-                //bool testRemoval = (totalBrowse == totalRemoval) & (totalRemoval == (totalFirstPass + totalSecondPass));
-                //bool testZoneRemoval = (this.zoneBiomassRemoved[popZone.Index] == PopulationZones.Dataset[popZone.Index].TotalForage);
-
             }
         }
+
         //---------------------------------------------------------------------
         public static double CalculateReduction(double threshold, double max, double propBrowse)
         {
@@ -455,6 +456,7 @@ namespace Landis.Extension.Browse
             return reduction;
 
         }
+
         //---------------------------------------------------------------------
         private void CalculateForage(IInputParameters parameters)
         {
@@ -463,67 +465,77 @@ namespace Landis.Extension.Browse
             PlugIn.ModelCore.UI.WriteLine("   Calculating Site Preference & Forage.");
             foreach (ActiveSite site in PlugIn.ModelCore.Landscape)
             {
-                // SF: removed ecoregion biomassMax (originally imported from biomass
-                // succession), now using site-level biomass max that depends on which species are present
-                // at the site, and is equal to the highest value of those species' maxBiomass
+                // SF: removed ecoregion biomassMax, which was originally imported from Biomass Succession.
+                // Now using the BiomassMax for each species as given in the Browse input files. 
+                // This value is used in two ways: it sets a minBiomassThreshold below which species
+                // may be entirely foraged, and it is also used to calculate the maximum forage per site before the 
+                // species escapes browse. This is meant to represent the maximum potential biomass at the site,
+                // but the current way it's calculated is unsatisfying as it depends on which species are present
+                // at the site. For example, if a shrub cohort is at a site, a tree with a higher max biomass arriving
+                // at the site would increase the minBiomassThreshold and increase the amount of foraging the shrub
+                // is subject to. 
+                //TODO: consider replacing with a map?
 
-                //IEcoregion ecoregion = PlugIn.ModelCore.Ecoregion[site];
-                //double maxEcoBiomass = SiteVars.EcoregionMaxBiomass[site];
+                double siteBiomassMax = 0;
 
-                double maxSiteBiomass = 0;
-                
                 foreach (ISpecies species in PlugIn.ModelCore.Species)
                 {
                     ISppParameters sppParms = parameters.SppParameters[species.Index];
-
                     double browsePref = sppParms.BrowsePref;
-
+                                       
                     ISpeciesCohorts cohortList = SiteVars.BiomassCohorts[site][species];
 
                     if (cohortList != null)
                     {
-                        //original calculation of maxBiomass from Biomass Succession:
-                        //largest_B_MAX_Spp = System.Math.Max(SpeciesData.B_MAX_Spp[species][ecoregion]);
-                        maxSiteBiomass = System.Math.Max(maxSiteBiomass, sppParms.BiomassMax);
-
                         foreach (ICohort cohort in cohortList)
                             //for each cohort, get the new forage (Biomass*0.1*proportion of ANPP that is forage)
                             //and assign newForage to cohort in SiteVars
+                            //total forage will later be reduced to represent forage in reach of browsers
                         {
                             //int newForage = 0;
                             double newForage = 0;
+                            //PlugIn.ModelCore.UI.WriteLine("     browsePref = {0}", browsePref); //debug
                             if ((browsePref > 0) || (parameters.CountNonForage))
                             {
                                 //newForage = (int)Math.Round(cohort.ANPP * parameters.ANPPForageProp);
                                 //newForage = (int)Math.Round((cohort.Biomass * 0.1) * parameters.ANPPForageProp);  // RMS:  Using 10% approximation for now; will update from Keeling curve later.
-                                newForage = (cohort.Biomass * 0.1) * parameters.ANPPForageProp;  // RMS:  Using 10% approximation for now; will update from Keeling curve later.
+                                //newForage = (cohort.Biomass * 0.1) * parameters.ANPPForageProp;  // RMS:  Using 10% approximation for now; will update from Keeling curve later.
+                                
+                                // SF: using smaller value of 4%, from Hubbard Brook:  https://hubbardbrook.org/online-book/forest-biomass-and-primary-productivity
+                                // This value also matches more closely what Biomass Succession was generating for the previous version of the model
+                                newForage = (cohort.Biomass * 0.04) * parameters.ANPPForageProp;    
+
+                                //PlugIn.ModelCore.UI.WriteLine("     Calculating original newForage = {0}", newForage); //debug
 
                                 if (cohort.Age == 1)
                                 {
                                     if (parameters.UseInitBiomass)
+                                    {
                                         newForage = cohort.Biomass * parameters.ANPPForageProp; //(int)Math.Round(cohort.Biomass * parameters.ANPPForageProp);
+                                    }
                                     else
+                                    {
                                         newForage = 0;
+                                        //PlugIn.ModelCore.UI.WriteLine("     Baby cohort = no forage"); //debug
+                                    }
                                 }
                             }
-                            SiteVars.SetForage(cohort, site, newForage); // cohort.ChangeForage(newForage);
-                            //if(newForage > 0)
-                            //    PartialDisturbance.RecordForage(cohort, newForage);
+
+                            //we also need to update the site max biomass if a species with a high value is present
+                            siteBiomassMax = Math.Max(siteBiomassMax, sppParms.BiomassMax);
+                            //PlugIn.ModelCore.UI.WriteLine("     adjusting siteBiomassMax = {0} g m-2", siteBiomassMax); //debug  
+
+                            //record original forage
+                            SiteVars.SetForage(cohort, site, newForage);
                         }
                     }
-                    
                 }
-
-                double biomassThreshold = maxSiteBiomass * parameters.BrowseBiomassThresh;
-                // SF: should we make this vary by species? Right now, maxSiteBiomass is just maxBiomass of the species with the 
-                // highest maxBiomass in the site. But Forage.CalculateCohortPropInReach could be changed to have a different
-                // threshold for each species, probably. Otherwise species with low maxBiomass might be over-foraged (maybe)
-
-                //PartialDisturbance.UpdateForage(site); RMS: Necessary?
 
                 List<ICohort> siteCohortList = new List<ICohort>();
 
+
                 foreach (ISpecies species in PlugIn.ModelCore.Species)
+                    //Build a list of cohorts at the site
                 {
                     ISpeciesCohorts cohortList = SiteVars.BiomassCohorts[site][species];
 
@@ -535,23 +547,27 @@ namespace Landis.Extension.Browse
 
                         }
                     }
+                       
                 }
 
+
+                // This next chunk calculates how much of the forage is "in reach" or available to be 
+                // foraged. It's highly dependent upon the biomassThreshold.
                 List<double> propInReachList = new List<double>(siteCohortList.Count);
-                                
-                propInReachList = Forage.CalculateCohortPropInReach(siteCohortList, parameters, biomassThreshold);
+                propInReachList = Forage.CalculateCohortPropInReach(siteCohortList, parameters, siteBiomassMax);
 
                 int listCount = 0;
                 foreach (ICohort cohort in siteCohortList)
                 {
                     //int newForageinReach = (int)Math.Round(SiteVars.GetForage(cohort, site) * propInReachList[listCount]);
                     double newForageinReach = SiteVars.GetForage(cohort, site) * propInReachList[listCount];
+                    //PlugIn.ModelCore.UI.WriteLine("forage in reach = {0} g m-2", newForageinReach); //debug
+
                     if (newForageinReach > 0)
                         SiteVars.SetForageInReach(cohort, site, newForageinReach);
-                        //PartialDisturbance.RecordForageInReach(cohort, newForageinReach);
+
                     listCount++;
                 }
-                //PartialDisturbance.UpdateForageInReach(site);  RMS: Necessary?
 
                 //  Calculate Site BrowsePreference and ForageQuantity
                 SitePreference.CalcSiteForage(parameters, site);

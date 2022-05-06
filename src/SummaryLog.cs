@@ -18,8 +18,8 @@ namespace Landis.Extension.Browse
         [DataFieldAttribute(Unit = FieldUnits.Count, Desc = "Total Population of Browsers")]
         public int TotalPopulation { get; set; }
 
-        [DataFieldAttribute(Desc = "Population Density (animals per ha)")]
-        public int PopulationDensity { get; set; }
+        [DataFieldAttribute(Desc = "Population Density (animals per km^2)")]
+        public double PopulationDensity { get; set; }
 
         [DataFieldAttribute(Desc = "Total Forage (kg)")]
         public int TotalForage { get; set; }

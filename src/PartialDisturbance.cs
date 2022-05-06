@@ -15,7 +15,8 @@ namespace Landis.Extension.Browse
         : IDisturbance
     {
         private static PartialDisturbance singleton;
-        private static IDictionary<ushort, int>[] reductions;
+        //private static IDictionary<ushort, int>[] reductions;
+        private static IDictionary<ushort, double>[] reductions;
         //private static IDictionary<ushort, int>[] forageDictionary;
         //private static IDictionary<ushort, int>[] forageInReachDictionary;
         //private static IDictionary<ushort, double>[] lastBrowsePropDictionary;
@@ -53,14 +54,15 @@ namespace Landis.Extension.Browse
         //---------------------------------------------------------------------
         int IDisturbance.ReduceOrKillMarkedCohort(ICohort cohort)
         {
-            int reduction;
+            double reduction;
             if (reductions[cohort.Species.Index].TryGetValue(cohort.Age, out reduction))
             {
 
                 SiteVars.BiomassRemoved[currentSite] += reduction;
                 SiteVars.CohortsPartiallyDamaged[currentSite]++;
 
-                return reduction;
+                //TODO SF does using an int here cause problems?
+                return (int)reduction;
             }
             else
             return 0;
@@ -69,9 +71,9 @@ namespace Landis.Extension.Browse
 
         public static void Initialize()
         {
-            reductions = new IDictionary<ushort, int>[PlugIn.ModelCore.Species.Count];
+            reductions = new IDictionary<ushort, double>[PlugIn.ModelCore.Species.Count];
             for (int i = 0; i < reductions.Length; i++)
-                reductions[i] = new Dictionary<ushort, int>();
+                reductions[i] = new Dictionary<ushort, double>();
 
             //forageDictionary = new IDictionary<ushort, int>[PlugIn.ModelCore.Species.Count];
             //for (int i = 0; i < forageDictionary.Length; i++)
@@ -95,7 +97,7 @@ namespace Landis.Extension.Browse
         {
             currentSite = site;
 
-            //PlugIn.ModelCore.Log.WriteLine("ReducingCohortBiomass NOW!");
+            //PlugIn.ModelCore.UI.WriteLine("ReducingCohortBiomass NOW!");
             foreach (ISpecies species in PlugIn.ModelCore.Species)
             {
                 SiteVars.BiomassCohorts[site].ReduceOrKillBiomassCohorts(singleton); // Original
@@ -109,9 +111,10 @@ namespace Landis.Extension.Browse
         /// Records the biomass reduction for a particular cohort.
         /// </summary>
         public static void RecordBiomassReduction(ICohort cohort,
-                                                  int reduction)
+                                                  //int reduction)
+                                                  double reduction)
         {
-            //PlugIn.ModelCore.Log.WriteLine("Recording reduction:  {0:0.0}/{1:0.0}/{2}.", cohort.Species.Name, cohort.Age, reduction);
+            //PlugIn.ModelCore.UI.WriteLine("Recording reduction:  {0:0.0}/{1:0.0}/{2}.", cohort.Species.Name, cohort.Age, reduction);//debug
             reductions[cohort.Species.Index][cohort.Age] = reduction;
         }
         //---------------------------------------------------------------------

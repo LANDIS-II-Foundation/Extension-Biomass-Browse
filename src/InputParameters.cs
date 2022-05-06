@@ -17,11 +17,12 @@ namespace Landis.Extension.Browse
         private ISppParameters[] sppParameters;
         private string zoneMapFileName;
         private string populationFileName;
-        private string dynamicPopulationFileName;
+        //private string dynamicPopulationFileName;
         private double consumptionRate;
         private static double anppForageProp;
         private double minBrowseinReach;
-        private double browseBiomassThresh;
+        private double browseBiomassThreshMin;
+        private double browseBiomassThreshMax;
         private double escapeBrowsePropLong;
         private bool growthReduction;
         private bool mortality;
@@ -124,6 +125,7 @@ namespace Landis.Extension.Browse
             }
         }
         //---------------------------------------------------------------------
+        /*
         public string DynamicPopulationFileName
             //TODO SF do we need to fix this?
         {
@@ -138,6 +140,8 @@ namespace Landis.Extension.Browse
                 dynamicPopulationFileName = value;
             }
         }
+
+        */
         //---------------------------------------------------------------------
         public double ConsumptionRate
         {
@@ -175,15 +179,27 @@ namespace Landis.Extension.Browse
             }
         }
         //---------------------------------------------------------------------
-        public double BrowseBiomassThresh
+        public double BrowseBiomassThreshMin
         {
             get
             {
-                return browseBiomassThresh;
+                return browseBiomassThreshMin;
             }
             set
             {
-                browseBiomassThresh = value;
+                browseBiomassThreshMin = value;
+            }
+        }
+        //---------------------------------------------------------------------
+        public double BrowseBiomassThreshMax
+        {
+            get
+            {
+                return browseBiomassThreshMax;
+            }
+            set
+            {
+                browseBiomassThreshMax = value;
             }
         }
         //---------------------------------------------------------------------
@@ -486,11 +502,12 @@ namespace Landis.Extension.Browse
         ISppParameters[] SppParameters { get; set; }
         string ZoneMapFileName { get; set; }
         string PopulationFileName { get; set; }
-        string DynamicPopulationFileName { get; set; }
+        //string DynamicPopulationFileName { get; set; }
         double ConsumptionRate { get; set; }
         double ANPPForageProp { get; set; }
         double MinBrowsePropinReach { get; set; }
-        double BrowseBiomassThresh { get; set; }
+        double BrowseBiomassThreshMin { get; set; }
+        double BrowseBiomassThreshMax { get; set; }
         double EscapeBrowsePropLong { get; set; }
         bool GrowthReduction { get; set; }
         bool Mortality { get; set; }

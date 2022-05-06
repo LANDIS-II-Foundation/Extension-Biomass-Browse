@@ -1,0 +1,7 @@
+LandisData   "Initial Communities"
+
+>> from old LANDIS, community output file
+MapCode  3
+WS 85 5  
+NWC 55  25  5
+PB 55  25  5  

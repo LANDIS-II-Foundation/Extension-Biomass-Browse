@@ -2,32 +2,29 @@ LandisData  "Biomass Browse"
 
 Timestep 1
 
-
 << Species Inputs >>
 SpeciesTable
->>				--GrowthReduction--	----Mortality-----	-----Biomass-----
->> Name		Preference	Threshold	Max	Threshold	Max	    Max
->> --------	----------	---------	---	---------	---	    -----
-   abiebals     0.0		0.5		0.4	0.5		0.1		5000
-   acerrubr     0.3		0.5		0.4	0.5		0.1		5000
-   acersacc     0.5		0.5		0.4	0.5		0.1		5000
-   betualle     0.3		0.5		0.4	0.5		0.1		5000
-   betupapy     0.6		0.5		0.4	0.5		0.1		5000
-   fraxamer     0.6		0.5		0.4	0.5		0.1		5000
-   piceglau     0.0		0.5		0.4	0.5		0.1		5000
-   pinubank     0.0		0.5		0.4	0.5		0.1		5000
-   pinuresi     0.0		0.5		0.4	0.5		0.1		5000
-   pinustro     0.0		0.5		0.4	0.5		0.1		5000
-   poputrem     0.4		0.5		0.4	0.5		0.1		5000
-   querelli     0.0		0.5		0.4	0.5		0.1		5000
-   querrubr     0.0		0.5		0.4	0.5		0.1		5000
-   thujocci     0.5		0.5		0.4	0.5		0.1		5000
-   tiliamer     0.4		0.5		0.4	0.5		0.1		5000
-   tsugcana     0.5		0.5		0.4	0.5		0.1		5000
+>>				--GrowthReduction--	----Mortality-----     Biomass
+>> Name		Preference	Threshold	Max	Threshold	Max      Max
+>> --------	----------	---------	---	---------	---    -------
+ABBA		0.15		0.3		0.4	0.8		0.01   5000
+ACSA3		0.15		0.3		0.4	0.8		0.01   5000
+BEAL2		0.15		0.3		0.4	0.8		0.01   5000
+BEPA		0.25		0.4		0.3	0.9		0.01   5000
+PIGL		0		0		1	0.8		0.01   5000
+PIBA2		0		0		1	0.8		0.01   5000
+POTR5		0.30		0.4		0.3	0.9		0.01   5000
+THOC2		0.05		0.3		0.4	0.8		0.01   5000
+FRNI		0		0		1	0.8		0.01   5000
+PIMA		0		0		1	0.8		0.01   5000
+PIST             0.05            0.3		0.4	0.8		0.01   5000
+QURU		0.05		0.3		0.4	0.8		0.01   5000
+SFTWD		0.15		0.3		0.4	0.8		0.01   5000
+HRDWD		0.15		0.3		0.4	0.8		0.01   5000
 
 << Browser population Inputs >>
-ZoneMap  "ecoregions.gis" <<same as ecoregions right now; every active cell can be browsed. sf 2021-12-20
-DefinedPopulationFile	"DefinedPopulation.txt"  << User-defined population
+ZoneMap  "./rasters/single3.tif" <<same as ecoregions right now; every active cell can be browsed. sf 2021-12-20
+DefinedPopulationFile	"DefinedUngulatePopulation.txt"  << User-defined population
 DynamicPopulation  << Optional.  If exists, then the next 8 parameters must be input
 RMin 0.15
 RMax 0.25		
@@ -47,18 +44,17 @@ BrowseBiomassThresholdMin	0.05	<<Proportion of ecoregion max biomass when cohort
 BrowseBiomassThresholdMax	0.1	<<Proportion of ecoregion max biomass above which cohorts completely escape browse; also controls maximum forage possible per cell
 EscapeBrowsePropLong	0.57	<<Prop of longevity when browse is escaped
 
-
 << Options >>
-<<GrowthReduction	OFF  << Default is ON
-<<Mortality	OFF  << Default is ON
+<<GrowthReduction	ON  << Default is ON
+<<Mortality	ON  << Default is ON
 <<CountNonForageinSitePref	TRUE	<< Default is FALSE
 <<UseInitBiomassAsForage		TRUE	<< Default is FALSE
 
 << HSI Inputs >>
 << Component		Neighborhood >>
 << ---------		------------
-ForageQuantity		0		<< ForageQuantity and/or SitePreference
-SitePreference		0
+ForageQuantity		500		<< ForageQuantity and/or SitePreference
+SitePreference		500
 
 
 << Output Maps >>

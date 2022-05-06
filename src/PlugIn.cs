@@ -250,6 +250,9 @@ namespace Landis.Extension.Browse
                         //TODO SF check on this -- is density being calculated right?
                         //LocalPopulation is #of deer not density; need to convert to density to map
                         double popDens = SiteVars.LocalPopulation[site] / (ModelCore.CellLength * ModelCore.CellLength) * 1000 * 1000;
+
+                        //PlugIn.ModelCore.UI.WriteLine("popDens is {0} individuals per square km.", popDens);//debug
+
                         // Mult by 100 and round to integer for mapping
                         pixel.MapCode.Value = (short)(popDens * 100);
 
@@ -313,8 +316,8 @@ namespace Landis.Extension.Browse
                 totalEffPop += (int) popZone.EffectivePop;
                 totalForage += (int) popZone.TotalForage;
                 totalSitesDamaged += browseEvent.ZoneSitesDamaged[popZone.Index];
-                totalBiomassRemoved += browseEvent.ZoneBiomassRemoved[popZone.Index];
-                totalBiomassKilled += browseEvent.ZoneBiomassKilled[popZone.Index];
+                totalBiomassRemoved += (int) browseEvent.ZoneBiomassRemoved[popZone.Index];
+                totalBiomassKilled += (int) browseEvent.ZoneBiomassKilled[popZone.Index];
                 totalCohortsKilled += browseEvent.ZoneCohortsKilled[popZone.Index];
                 totalSites += PopulationZones.Dataset[popZone.Index].PopulationZoneSites.Count;
             }
@@ -322,9 +325,10 @@ namespace Landis.Extension.Browse
             PlugIn.summaryLog.Clear();
             SummaryLog sl = new SummaryLog();
             sl.Time = ModelCore.CurrentTime;
+            sl.TotalSites = totalSites;
             sl.TotalPopulation = totalPopulation;
             sl.TotalSitesDamaged = totalSitesDamaged;
-            sl.PopulationDensity = (int) ((double) totalPopulation / (double) totalSites / Math.Pow(PlugIn.ModelCore.CellLength, 2.0) * 10000.0); //population density (ha-1)
+            sl.PopulationDensity = (double) ((double) totalPopulation / (double) totalSites / Math.Pow(PlugIn.ModelCore.CellLength, 2.0) * 1000000.0); //population density (km-2)
             sl.TotalForage = totalForage; //kg
             sl.TotalK = totalK;
             sl.TotalEffectivePopulation = totalEffPop;
@@ -342,10 +346,11 @@ namespace Landis.Extension.Browse
                 EventsLog el = new EventsLog();
 
                 el.Time = ModelCore.CurrentTime;
+                el.TotalSites = PopulationZones.Dataset[popZone.Index].PopulationZoneSites.Count;
                 el.PopulationZone = PopulationZones.Dataset[popZone.Index].MapCode;
                 el.TotalPopulation = PopulationZones.Dataset[popZone.Index].Population;
                 el.TotalSitesDamaged = browseEvent.ZoneSitesDamaged[popZone.Index];
-                el.PopulationDensity = (int)((double)PopulationZones.Dataset[popZone.Index].Population / (double)PopulationZones.Dataset[popZone.Index].PopulationZoneSites.Count / Math.Pow(PlugIn.ModelCore.CellLength, 2.0) * 10000.0); //population density (ha-1)
+                el.PopulationDensity = (double)((double)PopulationZones.Dataset[popZone.Index].Population / (double)PopulationZones.Dataset[popZone.Index].PopulationZoneSites.Count / Math.Pow(PlugIn.ModelCore.CellLength, 2.0) * 1000000.0); //population density (km-2)
                 el.TotalForage = (int) PopulationZones.Dataset[popZone.Index].TotalForage; //kg
                 el.TotalK = (int) PopulationZones.Dataset[popZone.Index].K;
                 el.TotalEffectivePopulation = (int) PopulationZones.Dataset[popZone.Index].EffectivePop;
@@ -365,7 +370,6 @@ namespace Landis.Extension.Browse
                 {
                     PlugIn.eventSpeciesLog.Clear();
                     EventsSpeciesLog el = new EventsSpeciesLog();
-
                     el.Time = ModelCore.CurrentTime;
                     el.PopulationZone = PopulationZones.Dataset[popZone.Index].MapCode;
                     el.TotalSites = PopulationZones.Dataset[popZone.Index].PopulationZoneSites.Count;

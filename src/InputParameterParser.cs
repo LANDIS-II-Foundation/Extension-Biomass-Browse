@@ -202,9 +202,13 @@ namespace Landis.Extension.Browse
             ReadVar(minBrowsePropinReach);
             parameters.MinBrowsePropinReach = minBrowsePropinReach.Value;
 
-            InputVar<double> browseBiomassThresh = new InputVar<double>("BrowseBiomassThreshold");
-            ReadVar(browseBiomassThresh);
-            parameters.BrowseBiomassThresh = browseBiomassThresh.Value;
+            InputVar<double> browseBiomassThreshMin = new InputVar<double>("BrowseBiomassThresholdMin");
+            ReadVar(browseBiomassThreshMin);
+            parameters.BrowseBiomassThreshMin = browseBiomassThreshMin.Value;
+
+            InputVar<double> browseBiomassThreshMax = new InputVar<double>("BrowseBiomassThresholdMax");
+            ReadVar(browseBiomassThreshMax);
+            parameters.BrowseBiomassThreshMax = browseBiomassThreshMax.Value;
 
             InputVar<double> escapeBrowsePropLong = new InputVar<double>("EscapeBrowsePropLong");
             ReadVar(escapeBrowsePropLong);
