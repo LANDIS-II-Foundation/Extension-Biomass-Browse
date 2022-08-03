@@ -229,9 +229,6 @@ namespace Landis.Extension.Browse
          //---------------------------------------------------------------------
         //Go through all active sites and damage them according to the
         // site's browse to be removed.
-
-        //TODO SF figure out how this works and if it's working right
-        // Sometimes biomass mortality total does not equal the sum of biomass mortality for species; why?
         private void DisturbSites(IInputParameters parameters)
         {
             PlugIn.ModelCore.UI.WriteLine("   Disturbing Sites");
@@ -380,15 +377,19 @@ namespace Landis.Extension.Browse
                                     siteTotalRemoval += finalRemoval;
 
                                     double propBrowse = 0.0;
-                                    if (SiteVars.GetForage(siteCohortList[cohortLoop], site) > 0)//siteCohortList[cohortLoop].Forage > 0)
-                                        propBrowse = finalRemoval / SiteVars.GetForage(siteCohortList[cohortLoop], site); // siteCohortList[cohortLoop].Forage;
+                                    if (SiteVars.GetForage(siteCohortList[cohortLoop], site) > 0)
+                                        propBrowse = finalRemoval / SiteVars.GetForage(siteCohortList[cohortLoop], site);
                                     //PlugIn.ModelCore.UI.WriteLine("propBrowse = {0}", propBrowse);//debug
                                     propBrowseList[cohortLoop] = propBrowse;
                                     if (propBrowse < 0.0 || propBrowse > 1.0001)
-                                        //SF This error was primarily caused by problems with integers and rounding
-                                        PlugIn.ModelCore.UI.WriteLine("   Browse Proportion not between 0 and 1: {0}", propBrowse);
-                                    if (propBrowse > 0.0)
-                                        SiteVars.SetLastBrowseProportion(cohort, site, propBrowse);
+                                        //SF TODO this error still comes up frequently -- track this down
+                                        //PlugIn.ModelCore.UI.WriteLine("   Browse Proportion not between 0 and 1: {0}", propBrowse);
+                                    if (propBrowse > 1.0001)
+                                        propBrowse = 1;
+
+                                    //SF TODO the LastBrowseProportion is only used for GrowthReduction, which isn't implemented
+                                    //if (propBrowse > 0.0)
+                                    //    SiteVars.SetLastBrowseProportion(cohort, site, propBrowse);
                                         
                                     // Add mortality
                                     // Browse - Mortality caused by browsing
@@ -451,7 +452,7 @@ namespace Landis.Extension.Browse
             double reduction = 0;
             if (propBrowse > threshold)
             {
-                reduction = (max / (1.0 - threshold)) * propBrowse - threshold * (max / (1 - threshold));
+                reduction = (max / (1.0 - threshold)) * propBrowse - threshold * (max / (1.0 - threshold));
             }
             return reduction;
 
@@ -500,10 +501,14 @@ namespace Landis.Extension.Browse
                                 //newForage = (int)Math.Round(cohort.ANPP * parameters.ANPPForageProp);
                                 //newForage = (int)Math.Round((cohort.Biomass * 0.1) * parameters.ANPPForageProp);  // RMS:  Using 10% approximation for now; will update from Keeling curve later.
                                 //newForage = (cohort.Biomass * 0.1) * parameters.ANPPForageProp;  // RMS:  Using 10% approximation for now; will update from Keeling curve later.
-                                
+
                                 // SF: using smaller value of 4%, from Hubbard Brook:  https://hubbardbrook.org/online-book/forest-biomass-and-primary-productivity
                                 // This value also matches more closely what Biomass Succession was generating for the previous version of the model
-                                newForage = (cohort.Biomass * 0.04) * parameters.ANPPForageProp;    
+                                //newForage = (cohort.Biomass * 0.04) * parameters.ANPPForageProp;    
+
+                                //Use estimates from Keeling quadratic outliers-excluded model, inverted to represent ANPP ~ biomass
+                                newForage = (32.61 - Math.Sqrt(1083 - 3.056 * cohort.Biomass)) / 1.528;
+                                newForage *= parameters.ANPPForageProp;
 
                                 //PlugIn.ModelCore.UI.WriteLine("     Calculating original newForage = {0}", newForage); //debug
 

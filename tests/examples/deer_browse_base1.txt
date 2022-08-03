@@ -1,0 +1,33 @@
+LandisData  "Deer Browse"
+
+Timestep 10
+
+SpeciesTable
+>> Name		Preference
+>> --------	----------
+   acerrubr     1.0
+   acersacc     1.0
+   acerpenn     0.0
+   betualle     0.5
+   betunigr     0.5
+   fagugran	0.0
+   fraxamer     1.0
+   lirituli     1.0
+   magnacum     1.0
+   prunpenn     1.0
+   prunsero     0.0
+   tsugcana     1.0
+
+DeerDensityIndex  1.0		<<0.0 - 1.0
+
+>> Neighborhood Forage Inputs
+NeighborRadius 900
+NeighborShape  uniform		<<uniform, linear, or gaussian
+NeighborSpeedUp  none		<<none, 2x, 3x, or 4x
+
+SitePrefMapNames  		browse/SitePref_{timestep}.gis
+NeighborhoodForageMapNames  	browse/NbrhdFor_{timestep}.gis
+BrowseIndexMapNames  		browse/BrowseIndex_{timestep}.gis
+DisturbanceMapNames  		browse/BrowseDist_{timestep}.gis
+
+LogFile  			browse/browse_log.csv

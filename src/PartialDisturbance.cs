@@ -11,8 +11,7 @@ namespace Landis.Extension.Browse
     /// <summary>
     /// A biomass disturbance that handles partial thinning of cohorts.
     /// </summary>
-    public class PartialDisturbance
-        : IDisturbance
+    public class PartialDisturbance : IDisturbance
     {
         private static PartialDisturbance singleton;
         //private static IDictionary<ushort, int>[] reductions;

@@ -75,15 +75,6 @@ namespace Landis.Extension.Browse
             {
                 PlugIn.ModelCore.UI.WriteLine("Problem getting biomassCohorts");
             }
-            //if (biomassCohorts == null)
-            //{
-            //    //ageCohorts = PlugIn.ModelCore.GetSiteVar<Landis.Library.AgeOnlyCohorts.ISiteCohorts>("Succession.AgeCohorts");
-            //    return "AgeOnly";
-            //}
-            //else
-            //{
-            //    return "Biomass";
-            //}
 
         }
         ////---------------------------------------------------------------------
@@ -156,7 +147,6 @@ namespace Landis.Extension.Browse
             int cohortAddYear = GetAddYear(cohort);
             Dictionary<int, double> cohortDict;
             double oldValue;
-
 
             // If the dictionary entry exists for the cohort, overwrite it:
             if (LastBrowseProportion[site].TryGetValue(cohort.Species.Index, out cohortDict))

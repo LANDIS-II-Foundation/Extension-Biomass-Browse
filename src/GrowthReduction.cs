@@ -22,8 +22,11 @@ namespace Landis.Extension.Browse
         // ACT_ANPP is calculated, for each cohort.  Therefore, this method is operating at
         // an ANNUAL time step and separate from the normal extension time step.
 
+        //SF TODO this code is not implemented yet
+
         public static double ReduceCohortGrowth(ICohort cohort, ActiveSite site)
         {
+            PlugIn.ModelCore.UI.WriteLine("   Reducing cohort growth..."); //debug
             double reduction = 0;
             double propBrowse = SiteVars.GetLastBrowseProportion(cohort, site); //cohort.Data.LastBrowseProp;
             double threshold = inputParameters.SppParameters[cohort.Species.Index].GrowthReductThresh;

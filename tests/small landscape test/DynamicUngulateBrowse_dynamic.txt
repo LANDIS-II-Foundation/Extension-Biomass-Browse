@@ -28,8 +28,8 @@ DefinedPopulationFile	"DefinedUngulatePopulation.txt"  << User-defined populatio
 DynamicPopulation
 RMin 0.15
 RMax 0.25		
-MortalityMin 0.15
-MortalityMax 0.25
+MortalityMin 0.10
+MortalityMax 0.20
 PredationMin 0.0
 PredationMax 0.0
 HarvestMin 0.0

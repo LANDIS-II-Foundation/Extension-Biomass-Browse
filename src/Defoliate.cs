@@ -27,6 +27,7 @@ namespace Landis.Extension.Browse
         // This method replaces the delegate method.  It is called every year when
         // ACT_ANPP is calculated, for each cohort.  Therefore, this method is operating at
         // an ANNUAL time step and separate from the normal extension time step.
+        //SF TODO this is not used
 
         public static double DefoliateCohort(ActiveSite site, ISpecies species, int cohortBiomass, int siteBiomass, int ANPP = 0)
         {

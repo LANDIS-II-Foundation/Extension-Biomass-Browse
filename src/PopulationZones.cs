@@ -215,6 +215,7 @@ namespace Landis.Extension.Browse
 
             return newPop;
         }
+
         //---------------------------------------------------------------------
         /// <summary>
         /// Calculate landscape carrying capacity (K) based on total landscape forage quantity

@@ -129,7 +129,7 @@ namespace Landis.Extension.Browse
                 sortedBioIndex++;
             }
 
-            //TODO this seems like a really inefficient way to do this -- looping over all the cohorts
+            //SF TODO this seems like a really inefficient way to do this -- looping over all the cohorts
             // just to set values for the handful of cohorts within a site
             int cohortIndex = 0;
             foreach (Landis.Library.BiomassCohorts.ICohort cohort in cohortList)
@@ -149,6 +149,6 @@ namespace Landis.Extension.Browse
             return propInReachList;
         }
 
-
     }
+
 }
