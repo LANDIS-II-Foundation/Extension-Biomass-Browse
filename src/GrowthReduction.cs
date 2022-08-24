@@ -13,20 +13,22 @@ namespace Landis.Extension.Browse
         {
             // Assign the method below to the CohortGrowthReduction delegate in
             // biomass-cohorts/Biomass.CohortGrowthReduction.cs
+            //PlugIn.ModelCore.UI.WriteLine("Initializing growth reduction");
             CohortGrowthReduction.Compute = ReduceCohortGrowth;
             inputParameters = parameters;
 
         }
-         //---------------------------------------------------------------------
-        // This method replaces the delegate method.  It is called every year when
-        // ACT_ANPP is calculated, for each cohort.  Therefore, this method is operating at
-        // an ANNUAL time step and separate from the normal extension time step.
 
-        //SF TODO this code is not implemented yet
+        //---------------------------------------------------------------------
+        // This function is delegated to BiomassCohorts to allow the succession extension to 
+        // reduce growth. It might need to be modified to accomodate other succession extensions,
+        // or some extensions might need to be modified to call BiomassCohorts library. 
+        // TODO SF figure out how timesteps work with this
+        // TODO SF add compatibility with other types of cohorts?
 
         public static double ReduceCohortGrowth(ICohort cohort, ActiveSite site)
         {
-            PlugIn.ModelCore.UI.WriteLine("   Reducing cohort growth..."); //debug
+            //PlugIn.ModelCore.UI.WriteLine("   Reducing cohort growth..."); //debug
             double reduction = 0;
             double propBrowse = SiteVars.GetLastBrowseProportion(cohort, site); //cohort.Data.LastBrowseProp;
             double threshold = inputParameters.SppParameters[cohort.Species.Index].GrowthReductThresh;
@@ -35,6 +37,7 @@ namespace Landis.Extension.Browse
             if (propBrowse > threshold)
             {
                 reduction = (max / (1.0 - threshold)) * propBrowse - threshold * (max / (1 - threshold));
+                //PlugIn.ModelCore.UI.WriteLine("Growth reduction from Browse extension is {0}", reduction); //debug
             }
             return reduction;
 

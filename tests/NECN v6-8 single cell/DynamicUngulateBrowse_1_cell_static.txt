@@ -10,7 +10,7 @@ SpeciesTable
 ABBA		0.15		0.3		0.4	0.8		0.01   25000
 ACSA3		0.15		0.3		0.4	0.8		0.01   25000
 BEAL2		0.15		0.3		0.4	0.8		0.01   25000
-BEPA		0.25		0.4		0.3	0.9		0.01   25000
+BEPA		0.4		0.4		0.3	0.9		0.01   25000
 PIGL		0		0		1	0.8		0.01   25000
 PIBA2		0		0		1	0.8		0.01   25000
 POTR5		0.30		0.4		0.3	0.9		0.01   25000
@@ -30,8 +30,9 @@ ConsumptionRate  2738  << kg/yr/individual
 
 << Forage Inputs >>
 ANPPForageProp		0.66	<<Prop of ANPP that counts as forage
-MinBrowsePropinReach	0.50	<<Min prop of browse within reach for a cohort to be browsed
-BrowseBiomassThreshold	0.05	<<Proportion of ecoregion max biomass when cohort begins to escape browse
+MinBrowsePropinReach	0.2	<<Min prop of browse within reach for a cohort to be browsed. Prevents larger cohorts from being browsed
+BrowseBiomassThresholdMin	0.05	<<Proportion of ecoregion max biomass when cohort begins to escape browse; cohorts smaller than this threshold are completely reachable as forage
+BrowseBiomassThresholdMax	0.5	<<Proportion of ecoregion max biomass above which cohorts completely escape browse; also controls maximum forage possible per cell
 EscapeBrowsePropLong	0.57	<<Prop of longevity when browse is escaped
 
 << Options >>

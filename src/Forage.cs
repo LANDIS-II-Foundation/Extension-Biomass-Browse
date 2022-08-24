@@ -34,7 +34,8 @@ namespace Landis.Extension.Browse
             //minBrowseProp is a threshold below which all cohorts are browsed. That browse is subtracted 
             // from the threshold until the threshold has been depleted.
             // 
-            // TODO rename and fix in user guide
+            // SF TODO rename and fix in user guide
+            // SF TODO refactor
             double minBrowseProp = parameters.MinBrowsePropinReach;
             double minBrowseEscape = parameters.BrowseBiomassThreshMin;
             double maxBrowseEscape = parameters.BrowseBiomassThreshMax;
@@ -100,7 +101,7 @@ namespace Landis.Extension.Browse
                             // then it is foraged as a proportion of the maxThreshold. 
                             // The closer to the threshold, the less of the biomass should be available.
                             // E.g., if the maxThreshold was 3,000, and a cohort has a biomass
-                            // of 2,000, then 1/3 of the cohort should be available for browsing. 
+                            // of 2,000, then 1/3 of the cohort's ANPP should be available for browsing. 
                             
                             double tempPropInReach = Math.Min(1, (1 - (cohort.Biomass / maxThreshold)));
                             if (tempPropInReach < minBrowseProp)

@@ -107,8 +107,9 @@ namespace Landis.Extension.Browse
 
             parameters.PreferenceList =  PreferenceList.Initialize(parameters.SppParameters);
 
-            PartialDisturbance.Initialize();//what is this doing?
-            //GrowthReduction.Initialize(parameters); //TODO SF this doesn't appear to be doing anything
+            PartialDisturbance.Initialize();
+            GrowthReduction.Initialize(parameters);
+            //Defoliate.Initialize(parameters); //TODO This isn't the right way to do this -- biomass is already reduced in PartialDisturbance, and this would double-count it
             PopulationZones.Initialize();
             
             //This is used when calculating habitat suitability
@@ -345,7 +346,8 @@ namespace Landis.Extension.Browse
         //will need to be later checked to ensure that they are within the landscape
         // and active.
 
-        //SF TODO This doesn't do anything -- need to implement or no?
+        //TODO SF debug, check that it is working
+
         private static IEnumerable<RelativeLocationWeighted> GetResourceNeighborhood(double neighborRadius)
         {
             float CellLength = PlugIn.ModelCore.CellLength;

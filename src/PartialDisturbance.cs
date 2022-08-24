@@ -64,27 +64,14 @@ namespace Landis.Extension.Browse
                 return (int)reduction;
             }
             else
-            return 0;
+                return 0;
         }
-        //---------------------------------------------------------------------
 
         public static void Initialize()
         {
             reductions = new IDictionary<ushort, double>[PlugIn.ModelCore.Species.Count];
             for (int i = 0; i < reductions.Length; i++)
                 reductions[i] = new Dictionary<ushort, double>();
-
-            //forageDictionary = new IDictionary<ushort, int>[PlugIn.ModelCore.Species.Count];
-            //for (int i = 0; i < forageDictionary.Length; i++)
-            //    forageDictionary[i] = new Dictionary<ushort, int>();
-
-            //forageInReachDictionary = new IDictionary<ushort, int>[PlugIn.ModelCore.Species.Count];
-            //for (int i = 0; i < forageInReachDictionary.Length; i++)
-            //    forageInReachDictionary[i] = new Dictionary<ushort, int>();
-
-            //lastBrowsePropDictionary = new IDictionary<ushort, double>[PlugIn.ModelCore.Species.Count];
-            //for (int i = 0; i < lastBrowsePropDictionary.Length; i++)
-            //    lastBrowsePropDictionary[i] = new Dictionary<ushort, double>();
         }
 
         //---------------------------------------------------------------------
@@ -94,28 +81,35 @@ namespace Landis.Extension.Browse
         /// </summary>
         public static void ReduceCohortBiomass(ActiveSite site)
         {
-            currentSite = site;
+            PlugIn.ModelCore.UI.WriteLine("Reducing CohortBiomass NOW!");
 
-            //PlugIn.ModelCore.UI.WriteLine("ReducingCohortBiomass NOW!");
-            foreach (ISpecies species in PlugIn.ModelCore.Species)
+            currentSite = site;
+                       
+            /*foreach (ISpecies species in PlugIn.ModelCore.Species)
             {
+                PlugIn.ModelCore.UI.WriteLine("ReducingCohortBiomass for site {0} species {1} NOW!", site.Location, species.Name);
                 SiteVars.BiomassCohorts[site].ReduceOrKillBiomassCohorts(singleton); // Original
 
-            }
+            }*/
+            SiteVars.BiomassCohorts[site].ReduceOrKillBiomassCohorts(singleton); // Original
 
         }
 
         //---------------------------------------------------------------------
         /// <summary>
         /// Records the biomass reduction for a particular cohort.
+        /// Reductions are stored here, and then later called by ReduceCohortBiomass to translate to the 
+        /// succession extension. 
         /// </summary>
         public static void RecordBiomassReduction(ICohort cohort,
                                                   //int reduction)
                                                   double reduction)
         {
-            //PlugIn.ModelCore.UI.WriteLine("Recording reduction:  {0:0.0}/{1:0.0}/{2}.", cohort.Species.Name, cohort.Age, reduction);//debug
+            PlugIn.ModelCore.UI.WriteLine("Recording reduction:  {0:0.0}/{1:0.0}/{2}.", cohort.Species.Name, cohort.Age, reduction);//debug
             reductions[cohort.Species.Index][cohort.Age] = reduction;
         }
+
+
         //---------------------------------------------------------------------
         /// <summary>
         /// Records the forage for a particular cohort.
@@ -143,7 +137,7 @@ namespace Landis.Extension.Browse
         //public static void RecordLastBrowseProportion(ICohort cohort,
         //                                          double lastBrowseProp)
         //{
-        //    //PlugIn.ModelCore.Log.WriteLine("Recording reduction:  {0:0.0}/{1:0.0}/{2}.", cohort.Species.Name, cohort.Age, reduction);
+        //   //PlugIn.ModelCore.Log.WriteLine("Recording reduction:  {0:0.0}/{1:0.0}/{2}.", cohort.Species.Name, cohort.Age, reduction);
         //    lastBrowsePropDictionary[cohort.Species.Index][cohort.Age] = lastBrowseProp;
         //}
         //---------------------------------------------------------------------

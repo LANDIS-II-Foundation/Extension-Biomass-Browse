@@ -7,7 +7,7 @@ using Landis.Library.BiomassCohorts;
 //using Landis.Library.AgeOnlyCohorts;
 
 namespace Landis.Extension.Browse
-{
+{//TODO SF this is never used -- remove?
     class Damage
     {
         //---------------------------------------------------------------------
@@ -25,8 +25,6 @@ namespace Landis.Extension.Browse
                 if (propRemove > 0)
                 {
                     int cohortCount = 0;
-                    //if (parameters.SuccessionMethod == "AgeOnly")
-                    //{
                         // Sort young cohorts by decreasing preference
                         List<ICohort> cohortList = new List<ICohort>();
                         foreach (ISpeciesCohorts speciesCohorts in SiteVars.BiomassCohorts[site])
@@ -56,12 +54,7 @@ namespace Landis.Extension.Browse
                             }
 
                         }
-                    //}
-                    //else // (parameters.SuccessionMethod == "Biomass")
-                    //{
-                    //    //PartialDisturbance.RecordBiomassReduction(cohort, remainBioRem);
-                    //}
-
+                    
                 }
             }
 
