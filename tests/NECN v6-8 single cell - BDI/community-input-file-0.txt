@@ -1,0 +1,12 @@
+LandisData "Initial Communities"
+
+MapCode 0
+
+MapCode 1
+
+MapCode 2
+
+MapCode 3
+PIGL 90 (8782) 10 (642) 
+THOC2 60 (407) 30 (334) 10 (284) 
+BEPA 60 (567) 30 (413) 10 (329) 

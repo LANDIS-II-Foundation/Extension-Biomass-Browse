@@ -1,0 +1,6 @@
+LandisData "Defined Population"
+
+>>Year	Zone	Zone total population
+>>----	----	---------------------
+   0	  3	  0.2
+   1      3       0.2

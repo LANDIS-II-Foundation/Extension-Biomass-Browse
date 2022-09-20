@@ -109,7 +109,18 @@ namespace Landis.Extension.Browse
             ReadVar(populationFile);
             parameters.PopulationFileName = populationFile.Value;
 
-            //PlugIn.ModelCore.UI.WriteLine("DynamicPopulation is read as {0}", ReadOptionalName("DynamicPopulation"));
+            InputVar<string> browseDensityIndexFlag = new InputVar<string>("BrowseDensityIndex");
+            if (ReadOptionalVar(browseDensityIndexFlag))
+                if (browseDensityIndexFlag.Value.ToString().ToUpper() == "OFF")
+                {
+                    parameters.BrowseDensityIndexFlag = false;
+                }
+                else
+                    parameters.BrowseDensityIndexFlag = true;
+            else
+                parameters.GrowthReduction = false;
+
+            //PlugIn.ModelCore.UI.WriteLine("DynamicPopulation is read as {0}", ReadOptionalName("DynamicPopulation")); //debug
 
             if (ReadOptionalName("DynamicPopulation"))
             {
@@ -147,13 +158,7 @@ namespace Landis.Extension.Browse
                     InputVar<double> hmax = new InputVar<double>("HarvestMax");
                     ReadVar(hmax);
                     PlugIn.PopHarvestMax = hmax.Value;
-                //}
-                //InputVar<string> dynamicPopulationFile = new InputVar<string>("DynamicPopulationFile");
-                //if (ReadOptionalVar(dynamicPopulationFile))
-                //    parameters.DynamicPopulationFileName = dynamicPopulationFile.Value;
-                //else
-                //    parameters.DynamicPopulationFileName = null;
-            }
+          
 
             InputVar<double> consumptionRate = new InputVar<double>("ConsumptionRate");
             ReadVar(consumptionRate);
