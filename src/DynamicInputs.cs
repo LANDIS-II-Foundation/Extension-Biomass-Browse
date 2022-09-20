@@ -16,39 +16,6 @@ namespace Landis.Extension.Browse
         public DynamicInputs()
         {
         }
-
-        //public static Dictionary<int, IDynamicInputRecord[]> TemporalData
-        //{
-        //    get {
-        //        return allData;
-        //    }
-        //}
-        //---------------------------------------------------------------------
-        //public static IDynamicInputRecord[] TimestepData
-        //{
-        //    get
-        //    {
-        //        return timestepData;
-        //    }
-        //    set
-        //    {
-        //        timestepData = value;
-        //    }
-        //}
-
-        //public static void Write()
-        //{
-        //    foreach(ISpecies species in PlugIn.ModelCore.Species)
-        //    {
-        //        foreach(IPopulationZone popZone in PopulationZones.Dataset)
-        //        {
-        //            PlugIn.ModelCore.UI.WriteLine("Zone={1}, Population={2:0.0}.", popZone.MapCode,
-        //                timestepData[popZone.MapCode].Population);
-
-        //        }
-        //    }
-
-        //}
         //---------------------------------------------------------------------
         public static void Initialize(string filename, bool writeOutput, IInputParameters parameters)
         {
@@ -56,7 +23,6 @@ namespace Landis.Extension.Browse
             DynamicInputsParser parser = new DynamicInputsParser();
             try
             {
-                //DynamicInputs.TemporalData = Landis.Data.Load<Dictionary<int, IDynamicInputRecord[]>>(filename, parser);
                 bool LoadedCorrectly = Landis.Data.Load<bool>(filename, parser);
             }
             catch (FileNotFoundException)
@@ -64,9 +30,6 @@ namespace Landis.Extension.Browse
                 string mesg = string.Format("Error: The file {0} does not exist", filename);
                 throw new System.ApplicationException(mesg);
             }
-            //PopulationZones.Initialize(DynamicInputs.TemporalData, parameters);
-
         }
     }
-
 }
