@@ -487,40 +487,7 @@ namespace Landis.Extension.Browse
 
             }
         }
-        //---------------------------------------------------------------------
-        /*public static void CalculateBrowseToRemove(IInputParameters parameters)
-        {
-            foreach (IPopulationZone popZone in Dataset)
-            {
-                double sumCappedBrowse = 0;
-                double sumRemainBrowse = 0;
-
-                foreach (Location siteLocation in Dataset[popZone.Index].PopulationZoneSites)
-                {
-                    Site site = PlugIn.ModelCore.Landscape.GetSite(siteLocation);
-                    double rescaleBrowse = SiteVars.WeightedBrowse[site] * popZone.Population * (parameters.ConsumptionRate * 1000) / popZone.WeightedBrowse;// Convert consumption kg to g
-                    double cappedBrowse = rescaleBrowse;
-                    if (rescaleBrowse > SiteVars.ForageQuantity[site])
-                    {
-                        cappedBrowse = SiteVars.ForageQuantity[site];
-                    }
-                    sumCappedBrowse += cappedBrowse;
-                    SiteVars.CappedBrowse[site] = cappedBrowse;
-                    double remainBrowse = SiteVars.ForageQuantity[site] - cappedBrowse;
-                    sumRemainBrowse += remainBrowse;
-                    SiteVars.RemainBrowse[site] = remainBrowse;
-                }
-                foreach (Location siteLocation in Dataset[popZone.Index].PopulationZoneSites)
-                {
-                    Site site = PlugIn.ModelCore.Landscape.GetSite(siteLocation);
-                    double reallocBrowse = (popZone.Population * (parameters.ConsumptionRate * 1000) - sumCappedBrowse) * (SiteVars.RemainBrowse[site] / sumRemainBrowse);// Convert consumption kg to g
-                    double totalBrowseRemoved = SiteVars.CappedBrowse[site] + reallocBrowse;
-                    SiteVars.TotalBrowse[site] = totalBrowseRemoved;
-                }
-
-            }
-        }
-        */
+        
         //---------------------------------------------------------------------
         /// <summary>
         /// Calculate browse to be removed at each site based on local population
@@ -530,15 +497,23 @@ namespace Landis.Extension.Browse
         {
             foreach (IPopulationZone popZone in Dataset)
             {
-                //double totalPop = 0;
-                //double totalToRemove = 0;
+                //The output of this function are only used to map the amount of browse removed. 
+                //For population modes, this is driven by the population and consumption rate;
+                //for density mode, this is driven by just the amount of forage available and browse density index.
                 foreach (Location siteLocation in Dataset[popZone.Index].PopulationZoneSites)
                 {
                     Site site = PlugIn.ModelCore.Landscape.GetSite(siteLocation);
-                    
+                    double siteBrowseToBeRemoved;
+
                     //Browse - calculate local browse to remove
                     //convert number of individuals to grams of forage consumed per meter squared
-                    double siteBrowseToBeRemoved = (SiteVars.LocalPopulation[site] * (parameters.ConsumptionRate * 1000)) / (PlugIn.ModelCore.CellLength * PlugIn.ModelCore.CellLength);
+                    if (densityFlag)
+                    {
+                        siteBrowseToBeRemoved = SiteVars.Forage * density;
+                    }
+
+
+                    siteBrowseToBeRemoved = (SiteVars.LocalPopulation[site] * (parameters.ConsumptionRate * 1000)) / (PlugIn.ModelCore.CellLength * PlugIn.ModelCore.CellLength);
 
                     //PlugIn.ModelCore.UI.WriteLine("LocalPopulation = {0}. siteBrowseToBeRemoved = {1}.", SiteVars.LocalPopulation[site], siteBrowseToBeRemoved);//debug
 
