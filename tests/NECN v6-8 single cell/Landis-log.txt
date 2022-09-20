@@ -1,319 +1,1621 @@
-2022-08-24 00:44:56,705 - LANDIS-II 7.0 (7)
-2022-08-24 00:44:56,715 - 
-2022-08-24 00:44:56,806 - Loading scenario from file "Scenario1.txt" ...
-2022-08-24 00:44:56,888 - Initialized random number generator with seed = 2,454,119,496
-2022-08-24 00:44:56,888 - Loading species data from file "species.txt" ...
-2022-08-24 00:44:56,920 - Loading ecoregions from file "ecoregions_one_cell.txt" ...
-2022-08-24 00:44:56,942 - Initializing landscape from ecoregions map "./rasters/single3.tif" ...
-2022-08-24 00:44:56,960 - Cell length = 1000 m, cell area = 100 ha
-2022-08-24 00:44:56,962 - Map dimensions: 1 row by 1 column = 1 cell
-2022-08-24 00:44:56,971 - Sites: 1 active (100.0%), 0 inactive (0.0%)
-2022-08-24 00:44:56,981 - Loading NECN Succession extension ...
-2022-08-24 00:44:57,030 -    Begin parsing NECN SPECIES table.
-2022-08-24 00:44:57,059 -    Begin parsing FUNCTIONAL GROUP table.
-2022-08-24 00:44:57,065 -    Begin reading FIRE REDUCTION parameters.
-2022-08-24 00:44:57,066 -    Begin reading HARVEST REDUCTION parameters.
-2022-08-24 00:44:57,076 - Initializing NECN Succession ...
-2022-08-24 00:44:57,173 -    Registering Data:  Succession.LeafBiomassCohorts.
-2022-08-24 00:44:57,173 -    Registering Data:  Succession.AgeCohorts.
-2022-08-24 00:44:57,174 -    Registering Data:  Succession.BiomassCohorts.
-2022-08-24 00:44:57,174 -    Registering Data:  Succession.FineFuels.
-2022-08-24 00:44:57,174 -    Registering Data:  Succession.SmolderConsumption.
-2022-08-24 00:44:57,174 -    Registering Data:  Succession.FlamingConsumption.
-2022-08-24 00:44:57,174 -    Registering Data:  Succession.CWD.
-2022-08-24 00:44:57,174 -    Registering Data:  Succession.PET.
-2022-08-24 00:44:57,176 -   Read in data from ./rasters/soil_depth.tif
-2022-08-24 00:44:57,188 -   Read in data from ./rasters/soil_drain.tif
-2022-08-24 00:44:57,190 -   Read in data from ./rasters/baseflow.tif
-2022-08-24 00:44:57,192 -   Read in data from ./rasters/stormflow.tif
-2022-08-24 00:44:57,194 -   Read in data from ./rasters/field_capacity.tif
-2022-08-24 00:44:57,199 -   Read in data from ./rasters/wilt_point.tif
-2022-08-24 00:44:57,201 -   Read in data from ./rasters/sand.tif
-2022-08-24 00:44:57,203 -   Read in data from ./rasters/clay.tif
-2022-08-24 00:44:57,209 -   Read in data from ./rasters/SOM1surfC.tif
-2022-08-24 00:44:57,213 -   Read in data from ./rasters/SOM1surfN.tif
-2022-08-24 00:44:57,214 -   Read in data from ./rasters/SOM1soilC.tif
-2022-08-24 00:44:57,215 -   Read in data from ./rasters/SOM1soilN.tif
-2022-08-24 00:44:57,216 -   Read in data from ./rasters/SOM2C.tif
-2022-08-24 00:44:57,217 -   Read in data from ./rasters/SOM2N.tif
-2022-08-24 00:44:57,217 -   Read in data from ./rasters/SOM3C.tif
-2022-08-24 00:44:57,218 -   Read in data from ./rasters/SOM3N.tif
-2022-08-24 00:44:57,221 -   Read in data from ./rasters/dead_wood.tif
-2022-08-24 00:44:57,223 -   Read in data from ./rasters/coarse_roots.tif
-2022-08-24 00:44:57,263 -    Loading weather data ...
-2022-08-24 00:45:00,872 -    Registering Data:  TimeOfLastSuccession.
-2022-08-24 00:45:00,872 -    Registering Data:  Shade.
-2022-08-24 00:45:00,873 -    Creating Dispersal Neighborhood List.
-2022-08-24 00:45:00,874 -    Dispersal:  NeighborRadius=5500, CellLength=1000, numCellRadius=5
-2022-08-24 00:45:00,879 -    Loading initial communities from file "initial_communities_pointer.txt" ...
-2022-08-24 00:45:00,902 -    Reading initial communities map "./rasters/initial_communities.tif" ...
-2022-08-24 00:45:00,950 - Loading Biomass Browse extension ...
-2022-08-24 00:45:00,959 -    Begin parsing SPECIES table.
-2022-08-24 00:45:00,980 -    Loading dynamic input data from file "DefinedUngulatePopulation.txt" ...
-2022-08-24 00:45:00,985 -   Dynamic Input Parser:  Add new year = 0.
-2022-08-24 00:45:00,986 -   Dynamic Input Parser:  Add new year = 1.
-2022-08-24 00:45:00,999 - Creating Neighborhood List.
-2022-08-24 00:45:00,999 - NeighborRadius=500, CellLength=1000, numCellRadius=0
-2022-08-24 00:45:01,000 - Creating Neighborhood List.
-2022-08-24 00:45:01,000 - NeighborRadius=500, CellLength=1000, numCellRadius=0
-2022-08-24 00:45:01,001 -    Opening browse log files "browse/browse_log.csv" ...
-2022-08-24 00:45:01,013 -    Generating summary table...
-2022-08-24 00:45:01,014 -    Generating summary table...
-2022-08-24 00:45:01,024 - Loading Output Biomass Community extension ...
-2022-08-24 00:45:01,039 - Using the following extensions ...
+2022-08-24 00:24:43,462 - LANDIS-II 7.0 (7)
+2022-08-24 00:24:43,472 - 
+2022-08-24 00:24:43,545 - Loading scenario from file "Scenario1.txt" ...
+2022-08-24 00:24:43,611 - Initialized random number generator with seed = 454,459,658
+2022-08-24 00:24:43,612 - Loading species data from file "species.txt" ...
+2022-08-24 00:24:43,633 - Loading ecoregions from file "ecoregions_one_cell.txt" ...
+2022-08-24 00:24:43,651 - Initializing landscape from ecoregions map "./rasters/single3.tif" ...
+2022-08-24 00:24:43,665 - Cell length = 1000 m, cell area = 100 ha
+2022-08-24 00:24:43,666 - Map dimensions: 1 row by 1 column = 1 cell
+2022-08-24 00:24:43,675 - Sites: 1 active (100.0%), 0 inactive (0.0%)
+2022-08-24 00:24:43,683 - Loading NECN Succession extension ...
+2022-08-24 00:24:43,836 -    Begin parsing NECN SPECIES table.
+2022-08-24 00:24:43,861 -    Begin parsing FUNCTIONAL GROUP table.
+2022-08-24 00:24:43,868 -    Begin reading FIRE REDUCTION parameters.
+2022-08-24 00:24:43,869 -    Begin reading HARVEST REDUCTION parameters.
+2022-08-24 00:24:43,878 - Initializing NECN Succession ...
+2022-08-24 00:24:43,950 -    Registering Data:  Succession.LeafBiomassCohorts.
+2022-08-24 00:24:43,950 -    Registering Data:  Succession.AgeCohorts.
+2022-08-24 00:24:43,950 -    Registering Data:  Succession.BiomassCohorts.
+2022-08-24 00:24:43,950 -    Registering Data:  Succession.FineFuels.
+2022-08-24 00:24:43,951 -    Registering Data:  Succession.SmolderConsumption.
+2022-08-24 00:24:43,951 -    Registering Data:  Succession.FlamingConsumption.
+2022-08-24 00:24:43,951 -    Registering Data:  Succession.CWD.
+2022-08-24 00:24:43,951 -    Registering Data:  Succession.PET.
+2022-08-24 00:24:43,953 -   Read in data from ./rasters/soil_depth.tif
+2022-08-24 00:24:43,962 -   Read in data from ./rasters/soil_drain.tif
+2022-08-24 00:24:43,965 -   Read in data from ./rasters/baseflow.tif
+2022-08-24 00:24:43,967 -   Read in data from ./rasters/stormflow.tif
+2022-08-24 00:24:43,968 -   Read in data from ./rasters/field_capacity.tif
+2022-08-24 00:24:43,970 -   Read in data from ./rasters/wilt_point.tif
+2022-08-24 00:24:43,972 -   Read in data from ./rasters/sand.tif
+2022-08-24 00:24:43,976 -   Read in data from ./rasters/clay.tif
+2022-08-24 00:24:43,982 -   Read in data from ./rasters/SOM1surfC.tif
+2022-08-24 00:24:43,983 -   Read in data from ./rasters/SOM1surfN.tif
+2022-08-24 00:24:43,985 -   Read in data from ./rasters/SOM1soilC.tif
+2022-08-24 00:24:43,986 -   Read in data from ./rasters/SOM1soilN.tif
+2022-08-24 00:24:43,987 -   Read in data from ./rasters/SOM2C.tif
+2022-08-24 00:24:43,988 -   Read in data from ./rasters/SOM2N.tif
+2022-08-24 00:24:43,988 -   Read in data from ./rasters/SOM3C.tif
+2022-08-24 00:24:43,992 -   Read in data from ./rasters/SOM3N.tif
+2022-08-24 00:24:43,994 -   Read in data from ./rasters/dead_wood.tif
+2022-08-24 00:24:43,996 -   Read in data from ./rasters/coarse_roots.tif
+2022-08-24 00:24:44,020 -    Loading weather data ...
+2022-08-24 00:24:47,839 -    Registering Data:  TimeOfLastSuccession.
+2022-08-24 00:24:47,841 -    Registering Data:  Shade.
+2022-08-24 00:24:47,842 -    Creating Dispersal Neighborhood List.
+2022-08-24 00:24:47,843 -    Dispersal:  NeighborRadius=5500, CellLength=1000, numCellRadius=5
+2022-08-24 00:24:47,852 -    Loading initial communities from file "initial_communities_pointer.txt" ...
+2022-08-24 00:24:47,874 -    Reading initial communities map "./rasters/initial_communities.tif" ...
+2022-08-24 00:24:47,929 - Loading Biomass Browse extension ...
+2022-08-24 00:24:47,937 -    Begin parsing SPECIES table.
+2022-08-24 00:24:47,955 -    Loading dynamic input data from file "DefinedUngulatePopulation.txt" ...
+2022-08-24 00:24:47,962 -   Dynamic Input Parser:  Add new year = 0.
+2022-08-24 00:24:47,962 -   Dynamic Input Parser:  Add new year = 1.
+2022-08-24 00:24:47,974 - Creating Neighborhood List.
+2022-08-24 00:24:47,974 - NeighborRadius=500, CellLength=1000, numCellRadius=0
+2022-08-24 00:24:47,975 - Creating Neighborhood List.
+2022-08-24 00:24:47,975 - NeighborRadius=500, CellLength=1000, numCellRadius=0
+2022-08-24 00:24:47,976 -    Opening browse log files "browse/browse_log.csv" ...
+2022-08-24 00:24:47,985 -    Generating summary table...
+2022-08-24 00:24:47,986 -    Generating summary table...
+2022-08-24 00:24:47,996 - Loading Output Biomass Community extension ...
+2022-08-24 00:24:48,015 - Using the following extensions ...
    Extension Name            Extension Filename       
    --------------            ------------------       
    NECN Succession           NECN_Succession.txt      
    Biomass Browse            DynamicUngulateBrowse_1_cell_dynamic.txt
    Output Biomass Community  output_Biomass_Community.txt
 
-2022-08-24 00:45:01,039 - Running Output Biomass Community ...
-2022-08-24 00:45:01,044 -    Opening community csv file "community-input-file-0.csv" ...
-2022-08-24 00:45:01,053 -    Opening community log file "community-input-file-0.txt" ...
-2022-08-24 00:45:01,059 -    Writing community biomass map to output-community-0.img ...
-2022-08-24 00:45:01,114 - Current time: 1
-2022-08-24 00:45:01,115 - Running Biomass Browse ...
-2022-08-24 00:45:01,118 - Processing landscape for ungulate browse events ...
-2022-08-24 00:45:01,125 -    Calculating Site Preference & Forage.
-2022-08-24 00:45:01,156 -    Calculating Zone Population.
-2022-08-24 00:45:01,159 - Dynamic Population is True
-2022-08-24 00:45:01,169 - oldPop = 10.  popR = 0.220519046857953. popMortality = 0.196878942940384. popPredation = 0. popHarvest = 0. popGrowth = -6.37177423035035. newPop = 3.
-2022-08-24 00:45:01,170 - Using dynamic population. PopZone Index 0.  Population = 3. K = 3.33706413440468. EffectivePop = 3.
-2022-08-24 00:45:01,171 -    Calculating HSI.
-2022-08-24 00:45:01,177 -    Calculating Local Population.
-2022-08-24 00:45:01,190 -    Disturbing Sites
-2022-08-24 00:45:01,191 - BEPA/60.0. availForage = 0, browsePref = 0.25, firstPassRemoval = 0
-2022-08-24 00:45:01,192 - BEPA/30.0. availForage = 0, browsePref = 0.25, firstPassRemoval = 0
-2022-08-24 00:45:01,194 - BEPA/10.0. availForage = 2.9704752, browsePref = 0.25, firstPassRemoval = 0.7426188
-2022-08-24 00:45:01,195 - PIGL/90.0. availForage = 0, browsePref = 0, firstPassRemoval = 0.7426188
-2022-08-24 00:45:01,196 - PIGL/10.0. availForage = 0, browsePref = 0, firstPassRemoval = 0.7426188
-2022-08-24 00:45:01,197 - THOC2/60.0. availForage = 0, browsePref = 0.05, firstPassRemoval = 0.7426188
-2022-08-24 00:45:01,201 - THOC2/30.0. availForage = 2.9274432, browsePref = 0.05, firstPassRemoval = 0.88899096
-2022-08-24 00:45:01,207 - THOC2/10.0. availForage = 3.2389632, browsePref = 0.05, firstPassRemoval = 1.05093912
-2022-08-24 00:45:01,207 - BEPA/60.0. secondPassRemoval = 0, finalRemoval = 0
-2022-08-24 00:45:01,210 - BEPA/30.0. secondPassRemoval = 0, finalRemoval = 0
-2022-08-24 00:45:01,211 - BEPA/10.0. secondPassRemoval = 2.2278564, finalRemoval = 2.9704752
-2022-08-24 00:45:01,212 - Setting LastBrowseProportion :  BEPA/10.0/0.342.
-2022-08-24 00:45:01,213 - Recording cohort biomass removal :  BEPA/10.0/2.9704752.
-2022-08-24 00:45:01,215 - Recording reduction:  BEPA/10.0/2.9704752.
-2022-08-24 00:45:01,223 - THOC2/60.0. secondPassRemoval = 0, finalRemoval = 0
-2022-08-24 00:45:01,224 - THOC2/30.0. secondPassRemoval = 2.34294171652156, finalRemoval = 2.48931387652156
-2022-08-24 00:45:01,225 - Setting LastBrowseProportion :  THOC2/30.0/0.282311952971507.
-2022-08-24 00:45:01,225 - Recording cohort biomass removal :  THOC2/30.0/2.48931387652156.
-2022-08-24 00:45:01,226 - Recording reduction:  THOC2/30.0/2.48931387652156.
-2022-08-24 00:45:01,227 - THOC2/10.0. secondPassRemoval = 2.59226276347844, finalRemoval = 2.75421092347844
-2022-08-24 00:45:01,228 - Setting LastBrowseProportion :  THOC2/10.0/0.367345673746057.
-2022-08-24 00:45:01,229 - Recording cohort biomass removal :  THOC2/10.0/2.75421092347844.
-2022-08-24 00:45:01,230 - Recording reduction:  THOC2/10.0/2.75421092347844.
-2022-08-24 00:45:01,230 - Reducing CohortBiomass NOW!
-2022-08-24 00:45:01,461 - Running NECN Succession ...
-2022-08-24 00:45:02,123 - Current time: 2
-2022-08-24 00:45:02,124 - Running Biomass Browse ...
-2022-08-24 00:45:02,125 - Processing landscape for ungulate browse events ...
-2022-08-24 00:45:02,125 -    Calculating Site Preference & Forage.
-2022-08-24 00:45:02,127 -    Calculating Zone Population.
-2022-08-24 00:45:02,128 - Dynamic Population is True
-2022-08-24 00:45:02,128 - oldPop = 3.  popR = 0.202870102459565. popMortality = 0.169734099367633. popPredation = 0. popHarvest = 0. popGrowth = -0.443752029244969. newPop = 2.
-2022-08-24 00:45:02,128 - Using dynamic population. PopZone Index 0.  Population = 2. K = 3.36149715120526. EffectivePop = 2.
-2022-08-24 00:45:02,129 -    Calculating HSI.
-2022-08-24 00:45:02,129 -    Calculating Local Population.
-2022-08-24 00:45:02,129 -    Disturbing Sites
-2022-08-24 00:45:02,130 - BEPA/61.0. availForage = 0, browsePref = 0.25, firstPassRemoval = 0
-2022-08-24 00:45:02,130 - BEPA/31.0. availForage = 0, browsePref = 0.25, firstPassRemoval = 0
-2022-08-24 00:45:02,130 - BEPA/11.0. availForage = 3.0338352, browsePref = 0.25, firstPassRemoval = 0.7584588
-2022-08-24 00:45:02,131 - PIGL/91.0. availForage = 0, browsePref = 0, firstPassRemoval = 0.7584588
-2022-08-24 00:45:02,131 - PIGL/11.0. availForage = 0, browsePref = 0, firstPassRemoval = 0.7584588
-2022-08-24 00:45:02,131 - THOC2/61.0. availForage = 0, browsePref = 0.05, firstPassRemoval = 0.7584588
-2022-08-24 00:45:02,132 - THOC2/31.0. availForage = 2.9274432, browsePref = 0.05, firstPassRemoval = 0.90483096
-2022-08-24 00:45:02,132 - THOC2/11.0. availForage = 3.2425008, browsePref = 0.05, firstPassRemoval = 1.066956
-2022-08-24 00:45:02,132 - THOC2/1.0. availForage = 0, browsePref = 0.05, firstPassRemoval = 1.066956
-2022-08-24 00:45:02,133 - BEPA/61.0. secondPassRemoval = 0, finalRemoval = 0
-2022-08-24 00:45:02,133 - BEPA/31.0. secondPassRemoval = 0, finalRemoval = 0
-2022-08-24 00:45:02,134 - BEPA/11.0. secondPassRemoval = 2.2753764, finalRemoval = 3.0338352
-2022-08-24 00:45:02,134 - Setting LastBrowseProportion :  BEPA/11.0/0.358.
-2022-08-24 00:45:02,134 - Recording cohort biomass removal :  BEPA/11.0/3.0338352.
-2022-08-24 00:45:02,134 - Recording reduction:  BEPA/11.0/3.0338352.
-2022-08-24 00:45:02,135 - THOC2/61.0. secondPassRemoval = 0, finalRemoval = 0
-2022-08-24 00:45:02,135 - THOC2/31.0. secondPassRemoval = 1.01235776316289, finalRemoval = 1.15872992316289
-2022-08-24 00:45:02,136 - Setting LastBrowseProportion :  THOC2/31.0/0.131411032839196.
-2022-08-24 00:45:02,137 - Recording cohort biomass removal :  THOC2/31.0/1.15872992316289.
-2022-08-24 00:45:02,139 - Recording reduction:  THOC2/31.0/1.15872992316289.
-2022-08-24 00:45:02,140 - THOC2/11.0. secondPassRemoval = 1.12130983683711, finalRemoval = 1.28343487683711
-2022-08-24 00:45:02,140 - Setting LastBrowseProportion :  THOC2/11.0/0.171784301964491.
-2022-08-24 00:45:02,141 - Recording cohort biomass removal :  THOC2/11.0/1.28343487683711.
-2022-08-24 00:45:02,141 - Recording reduction:  THOC2/11.0/1.28343487683711.
-2022-08-24 00:45:02,142 - Reducing CohortBiomass NOW!
-2022-08-24 00:45:02,294 - Running NECN Succession ...
-2022-08-24 00:45:02,761 - Current time: 3
-2022-08-24 00:45:02,763 - Running Biomass Browse ...
-2022-08-24 00:45:02,763 - Processing landscape for ungulate browse events ...
-2022-08-24 00:45:02,764 -    Calculating Site Preference & Forage.
-2022-08-24 00:45:02,764 -    Calculating Zone Population.
-2022-08-24 00:45:02,765 - Dynamic Population is True
-2022-08-24 00:45:02,765 - oldPop = 2.  popR = 0.22340701976791. popMortality = 0.213049629284069. popPredation = 0. popHarvest = 0. popGrowth = -0.189567115595915. newPop = 1.
-2022-08-24 00:45:02,766 - Using dynamic population. PopZone Index 0.  Population = 1. K = 4.24966720233747. EffectivePop = 1.
-2022-08-24 00:45:02,766 -    Calculating HSI.
-2022-08-24 00:45:02,767 -    Calculating Local Population.
-2022-08-24 00:45:02,767 -    Disturbing Sites
-2022-08-24 00:45:02,767 - BEPA/62.0. availForage = 0, browsePref = 0.25, firstPassRemoval = 0
-2022-08-24 00:45:02,768 - BEPA/32.0. availForage = 2.1434688, browsePref = 0.25, firstPassRemoval = 0.5358672
-2022-08-24 00:45:02,769 - BEPA/12.0. availForage = 3.0970368, browsePref = 0.25, firstPassRemoval = 1.3101264
-2022-08-24 00:45:02,769 - PIGL/92.0. availForage = 0, browsePref = 0, firstPassRemoval = 1.3101264
-2022-08-24 00:45:02,770 - PIGL/12.0. availForage = 0, browsePref = 0, firstPassRemoval = 1.3101264
-2022-08-24 00:45:02,770 - THOC2/62.0. availForage = 0, browsePref = 0.05, firstPassRemoval = 1.3101264
-2022-08-24 00:45:02,771 - THOC2/32.0. availForage = 2.91852, browsePref = 0.05, firstPassRemoval = 1.4560524
-2022-08-24 00:45:02,771 - THOC2/12.0. availForage = 3.2389632, browsePref = 0.05, firstPassRemoval = 1.61800056
-2022-08-24 00:45:02,772 - THOC2/2.0. availForage = 0.2376, browsePref = 0.05, firstPassRemoval = 1.62988056
-2022-08-24 00:45:02,772 - BEPA/62.0. secondPassRemoval = 0, finalRemoval = 0
-2022-08-24 00:45:02,773 - BEPA/32.0. secondPassRemoval = 0.453242421172772, finalRemoval = 0.989109621172772
-2022-08-24 00:45:02,776 - Setting LastBrowseProportion :  BEPA/32.0/0.0941363656514364.
-2022-08-24 00:45:02,777 - Recording cohort biomass removal :  BEPA/32.0/0.989109621172772.
-2022-08-24 00:45:02,778 - Recording reduction:  BEPA/32.0/0.989109621172772.
-2022-08-24 00:45:02,779 - BEPA/12.0. secondPassRemoval = 0.654877018827228, finalRemoval = 1.42913621882723
-2022-08-24 00:45:02,779 - Setting LastBrowseProportion :  BEPA/12.0/0.173506242573236.
-2022-08-24 00:45:02,780 - Recording cohort biomass removal :  BEPA/12.0/1.42913621882723.
-2022-08-24 00:45:02,780 - Recording reduction:  BEPA/12.0/1.42913621882723.
-2022-08-24 00:45:02,781 - Setting LastBrowseProportion :  THOC2/32.0/0.0165.
-2022-08-24 00:45:02,781 - Recording cohort biomass removal :  THOC2/32.0/0.145926.
-2022-08-24 00:45:02,782 - Recording reduction:  THOC2/32.0/0.145926.
-2022-08-24 00:45:02,783 - Setting LastBrowseProportion :  THOC2/12.0/0.0216.
-2022-08-24 00:45:02,783 - Recording cohort biomass removal :  THOC2/12.0/0.16194816.
-2022-08-24 00:45:02,784 - Recording reduction:  THOC2/12.0/0.16194816.
-2022-08-24 00:45:02,784 - Setting LastBrowseProportion :  THOC2/2.0/0.05.
-2022-08-24 00:45:02,785 - Recording cohort biomass removal :  THOC2/2.0/0.01188.
-2022-08-24 00:45:02,785 - Recording reduction:  THOC2/2.0/0.01188.
-2022-08-24 00:45:02,786 - Reducing CohortBiomass NOW!
-2022-08-24 00:45:02,927 - Running NECN Succession ...
-2022-08-24 00:45:03,299 - Current time: 4
-2022-08-24 00:45:03,300 - Running Biomass Browse ...
-2022-08-24 00:45:03,301 - Processing landscape for ungulate browse events ...
-2022-08-24 00:45:03,301 -    Calculating Site Preference & Forage.
-2022-08-24 00:45:03,301 -    Calculating Zone Population.
-2022-08-24 00:45:03,302 - Dynamic Population is True
-2022-08-24 00:45:03,302 - oldPop = 1.  popR = 0.193294863775372. popMortality = 0.223939625266939. popPredation = 0. popHarvest = 0. popGrowth = -0.0755551745082297. newPop = 0.
-2022-08-24 00:45:03,303 - Using dynamic population. PopZone Index 0.  Population = 0. K = 4.30400993425858. EffectivePop = 0.
-2022-08-24 00:45:03,303 -    Calculating HSI.
-2022-08-24 00:45:03,303 -    Calculating Local Population.
-2022-08-24 00:45:03,304 -    Disturbing Sites
-2022-08-24 00:45:03,304 - Reducing CohortBiomass NOW!
-2022-08-24 00:45:03,414 - Running NECN Succession ...
-2022-08-24 00:45:03,774 - Current time: 5
-2022-08-24 00:45:03,776 - Running Biomass Browse ...
-2022-08-24 00:45:03,776 - Processing landscape for ungulate browse events ...
-2022-08-24 00:45:03,778 -    Calculating Site Preference & Forage.
-2022-08-24 00:45:03,779 -    Calculating Zone Population.
-2022-08-24 00:45:03,779 - Dynamic Population is True
-2022-08-24 00:45:03,780 - oldPop = 0.  popR = 0.161147647770122. popMortality = 0.17618760545738. popPredation = 0. popHarvest = 0. popGrowth = 0. newPop = 0.
-2022-08-24 00:45:03,780 - Using dynamic population. PopZone Index 0.  Population = 0. K = 4.44507348429511. EffectivePop = 0.
-2022-08-24 00:45:03,780 -    Calculating HSI.
-2022-08-24 00:45:03,781 -    Calculating Local Population.
-2022-08-24 00:45:03,781 -    Disturbing Sites
-2022-08-24 00:45:03,781 - Reducing CohortBiomass NOW!
-2022-08-24 00:45:03,892 - Running NECN Succession ...
-2022-08-24 00:45:04,409 - Current time: 6
-2022-08-24 00:45:04,413 - Running Biomass Browse ...
-2022-08-24 00:45:04,413 - Processing landscape for ungulate browse events ...
-2022-08-24 00:45:04,414 -    Calculating Site Preference & Forage.
-2022-08-24 00:45:04,414 -    Calculating Zone Population.
-2022-08-24 00:45:04,415 - Dynamic Population is True
-2022-08-24 00:45:04,416 - oldPop = 0.  popR = 0.239100759616122. popMortality = 0.240505139157176. popPredation = 0. popHarvest = 0. popGrowth = 0. newPop = 0.
-2022-08-24 00:45:04,417 - Using dynamic population. PopZone Index 0.  Population = 0. K = 4.50082395909423. EffectivePop = 0.
-2022-08-24 00:45:04,417 -    Calculating HSI.
-2022-08-24 00:45:04,418 -    Calculating Local Population.
-2022-08-24 00:45:04,418 -    Disturbing Sites
-2022-08-24 00:45:04,419 - Reducing CohortBiomass NOW!
-2022-08-24 00:45:04,548 - Running NECN Succession ...
-2022-08-24 00:45:04,893 - Current time: 7
-2022-08-24 00:45:04,895 - Running Biomass Browse ...
-2022-08-24 00:45:04,896 - Processing landscape for ungulate browse events ...
-2022-08-24 00:45:04,897 -    Calculating Site Preference & Forage.
-2022-08-24 00:45:04,898 -    Calculating Zone Population.
-2022-08-24 00:45:04,898 - Dynamic Population is True
-2022-08-24 00:45:04,899 - oldPop = 0.  popR = 0.246251817559823. popMortality = 0.19523015501909. popPredation = 0. popHarvest = 0. popGrowth = 0. newPop = 0.
-2022-08-24 00:45:04,900 - Using dynamic population. PopZone Index 0.  Population = 0. K = 4.56145332359386. EffectivePop = 0.
-2022-08-24 00:45:04,901 -    Calculating HSI.
-2022-08-24 00:45:04,902 -    Calculating Local Population.
-2022-08-24 00:45:04,902 -    Disturbing Sites
-2022-08-24 00:45:04,903 - Reducing CohortBiomass NOW!
-2022-08-24 00:45:05,006 - Running NECN Succession ...
-2022-08-24 00:45:05,414 - Current time: 8
-2022-08-24 00:45:05,417 - Running Biomass Browse ...
-2022-08-24 00:45:05,418 - Processing landscape for ungulate browse events ...
-2022-08-24 00:45:05,418 -    Calculating Site Preference & Forage.
-2022-08-24 00:45:05,419 -    Calculating Zone Population.
-2022-08-24 00:45:05,419 - Dynamic Population is True
-2022-08-24 00:45:05,420 - oldPop = 0.  popR = 0.22243543183431. popMortality = 0.184940033918247. popPredation = 0. popHarvest = 0. popGrowth = 0. newPop = 0.
-2022-08-24 00:45:05,420 - Using dynamic population. PopZone Index 0.  Population = 0. K = 4.60617326515705. EffectivePop = 0.
-2022-08-24 00:45:05,421 -    Calculating HSI.
-2022-08-24 00:45:05,422 -    Calculating Local Population.
-2022-08-24 00:45:05,422 -    Disturbing Sites
-2022-08-24 00:45:05,423 - Reducing CohortBiomass NOW!
-2022-08-24 00:45:05,556 - Running NECN Succession ...
-2022-08-24 00:45:05,947 - Current time: 9
-2022-08-24 00:45:05,949 - Running Biomass Browse ...
-2022-08-24 00:45:05,949 - Processing landscape for ungulate browse events ...
-2022-08-24 00:45:05,950 -    Calculating Site Preference & Forage.
-2022-08-24 00:45:05,950 -    Calculating Zone Population.
-2022-08-24 00:45:05,951 - Dynamic Population is True
-2022-08-24 00:45:05,952 - oldPop = 0.  popR = 0.179987567756325. popMortality = 0.200355969229713. popPredation = 0. popHarvest = 0. popGrowth = 0. newPop = 0.
-2022-08-24 00:45:05,952 - Using dynamic population. PopZone Index 0.  Population = 0. K = 4.65212739225712. EffectivePop = 0.
-2022-08-24 00:45:05,953 -    Calculating HSI.
-2022-08-24 00:45:05,953 -    Calculating Local Population.
-2022-08-24 00:45:05,954 -    Disturbing Sites
-2022-08-24 00:45:05,954 - Reducing CohortBiomass NOW!
-2022-08-24 00:45:06,059 - Running NECN Succession ...
-2022-08-24 00:45:06,413 - Current time: 10
-2022-08-24 00:45:06,414 - Running Biomass Browse ...
-2022-08-24 00:45:06,415 - Processing landscape for ungulate browse events ...
-2022-08-24 00:45:06,415 -    Calculating Site Preference & Forage.
-2022-08-24 00:45:06,416 -    Calculating Zone Population.
-2022-08-24 00:45:06,416 - Dynamic Population is True
-2022-08-24 00:45:06,416 - oldPop = 0.  popR = 0.242115406971425. popMortality = 0.159689929895103. popPredation = 0. popHarvest = 0. popGrowth = 0. newPop = 0.
-2022-08-24 00:45:06,417 - Using dynamic population. PopZone Index 0.  Population = 0. K = 4.79700920379839. EffectivePop = 0.
-2022-08-24 00:45:06,417 -    Calculating HSI.
-2022-08-24 00:45:06,420 -    Calculating Local Population.
-2022-08-24 00:45:06,420 -    Disturbing Sites
-2022-08-24 00:45:06,420 - Reducing CohortBiomass NOW!
-2022-08-24 00:45:06,526 - Running NECN Succession ...
-2022-08-24 00:45:06,899 - Running Output Biomass Community ...
-2022-08-24 00:45:06,901 -    Opening community csv file "community-input-file-10.csv" ...
-2022-08-24 00:45:06,905 -    Opening community log file "community-input-file-10.txt" ...
-2022-08-24 00:45:06,908 -    Writing community biomass map to output-community-10.img ...
-2022-08-24 00:45:06,949 - Current time: 11
-2022-08-24 00:45:06,949 - Running Biomass Browse ...
-2022-08-24 00:45:06,950 - Processing landscape for ungulate browse events ...
-2022-08-24 00:45:06,951 -    Calculating Site Preference & Forage.
-2022-08-24 00:45:06,951 -    Calculating Zone Population.
-2022-08-24 00:45:06,952 - Dynamic Population is True
-2022-08-24 00:45:06,952 - oldPop = 0.  popR = 0.202256715809926. popMortality = 0.198164798785001. popPredation = 0. popHarvest = 0. popGrowth = 0. newPop = 0.
-2022-08-24 00:45:06,953 - Using dynamic population. PopZone Index 0.  Population = 0. K = 4.82103725346969. EffectivePop = 0.
-2022-08-24 00:45:06,953 -    Calculating HSI.
-2022-08-24 00:45:06,954 -    Calculating Local Population.
-2022-08-24 00:45:06,954 -    Disturbing Sites
-2022-08-24 00:45:06,955 - Reducing CohortBiomass NOW!
-2022-08-24 00:45:07,082 - Running NECN Succession ...
-2022-08-24 00:45:07,421 - Current time: 12
-2022-08-24 00:45:07,423 - Running Biomass Browse ...
-2022-08-24 00:45:07,423 - Processing landscape for ungulate browse events ...
-2022-08-24 00:45:07,423 -    Calculating Site Preference & Forage.
-2022-08-24 00:45:07,424 -    Calculating Zone Population.
-2022-08-24 00:45:07,424 - Dynamic Population is True
-2022-08-24 00:45:07,425 - oldPop = 0.  popR = 0.176716840593144. popMortality = 0.164528412604704. popPredation = 0. popHarvest = 0. popGrowth = 0. newPop = 0.
-2022-08-24 00:45:07,425 - Using dynamic population. PopZone Index 0.  Population = 0. K = 4.82103725346969. EffectivePop = 0.
-2022-08-24 00:45:07,425 -    Calculating HSI.
-2022-08-24 00:45:07,426 -    Calculating Local Population.
-2022-08-24 00:45:07,426 -    Disturbing Sites
-2022-08-24 00:45:07,426 - Reducing CohortBiomass NOW!
-2022-08-24 00:45:07,540 - Running NECN Succession ...
-2022-08-24 00:45:07,989 - Current time: 13
-2022-08-24 00:45:07,990 - Running Biomass Browse ...
-2022-08-24 00:45:07,991 - Processing landscape for ungulate browse events ...
-2022-08-24 00:45:07,991 -    Calculating Site Preference & Forage.
-2022-08-24 00:45:07,992 -    Calculating Zone Population.
-2022-08-24 00:45:07,992 - Dynamic Population is True
-2022-08-24 00:45:07,993 - oldPop = 0.  popR = 0.223885258939117. popMortality = 0.209658060781658. popPredation = 0. popHarvest = 0. popGrowth = 0. newPop = 0.
-2022-08-24 00:45:07,993 - Using dynamic population. PopZone Index 0.  Population = 0. K = 4.82103725346969. EffectivePop = 0.
-2022-08-24 00:45:07,994 -    Calculating HSI.
-2022-08-24 00:45:07,994 -    Calculating Local Population.
-2022-08-24 00:45:07,994 -    Disturbing Sites
-2022-08-24 00:45:07,995 - Reducing CohortBiomass NOW!
+2022-08-24 00:24:48,015 - Running Output Biomass Community ...
+2022-08-24 00:24:48,019 -    Opening community csv file "community-input-file-0.csv" ...
+2022-08-24 00:24:48,026 -    Opening community log file "community-input-file-0.txt" ...
+2022-08-24 00:24:48,030 -    Writing community biomass map to output-community-0.img ...
+2022-08-24 00:24:48,078 - Current time: 1
+2022-08-24 00:24:48,078 - Running Biomass Browse ...
+2022-08-24 00:24:48,081 - Processing landscape for ungulate browse events ...
+2022-08-24 00:24:48,086 -    Calculating Site Preference & Forage.
+2022-08-24 00:24:48,101 -    Calculating Zone Population.
+2022-08-24 00:24:48,101 - Dynamic Population is True
+2022-08-24 00:24:48,106 - oldPop = 10.  popR = 0.186197003955022. popMortality = 0.234397038677707. popPredation = 0. popHarvest = 0. popGrowth = -6.06166547968134. newPop = 3.
+2022-08-24 00:24:48,106 - Using dynamic population. PopZone Index 0.  Population = 3. K = 3.33706413440468. EffectivePop = 3.
+2022-08-24 00:24:48,107 -    Calculating HSI.
+2022-08-24 00:24:48,111 -    Calculating Local Population.
+2022-08-24 00:24:48,118 -    Disturbing Sites
+2022-08-24 00:24:48,119 - BEPA/60.0. availForage = 0, browsePref = 0.25, firstPassRemoval = 0
+2022-08-24 00:24:48,120 - BEPA/30.0. availForage = 0, browsePref = 0.25, firstPassRemoval = 0
+2022-08-24 00:24:48,121 - BEPA/10.0. availForage = 2.9704752, browsePref = 0.25, firstPassRemoval = 0.7426188
+2022-08-24 00:24:48,121 - PIGL/90.0. availForage = 0, browsePref = 0, firstPassRemoval = 0.7426188
+2022-08-24 00:24:48,122 - PIGL/10.0. availForage = 0, browsePref = 0, firstPassRemoval = 0.7426188
+2022-08-24 00:24:48,123 - THOC2/60.0. availForage = 0, browsePref = 0.05, firstPassRemoval = 0.7426188
+2022-08-24 00:24:48,123 - THOC2/30.0. availForage = 2.9274432, browsePref = 0.05, firstPassRemoval = 0.88899096
+2022-08-24 00:24:48,124 - THOC2/10.0. availForage = 3.2389632, browsePref = 0.05, firstPassRemoval = 1.05093912
+2022-08-24 00:24:48,124 - BEPA/60.0. secondPassRemoval = 0, finalRemoval = 0
+2022-08-24 00:24:48,125 - BEPA/30.0. secondPassRemoval = 0, finalRemoval = 0
+2022-08-24 00:24:48,126 - BEPA/10.0. secondPassRemoval = 2.2278564, finalRemoval = 2.9704752
+2022-08-24 00:24:48,126 - Setting LastBrowseProportion :  BEPA/10.0/0.342.
+2022-08-24 00:24:48,127 - Recording cohort biomass removal :  BEPA/10.0/2.9704752.
+2022-08-24 00:24:48,127 - Recording reduction:  BEPA/10.0/2.9704752.
+2022-08-24 00:24:48,129 - THOC2/60.0. secondPassRemoval = 0, finalRemoval = 0
+2022-08-24 00:24:48,130 - THOC2/30.0. secondPassRemoval = 2.34294171652156, finalRemoval = 2.48931387652156
+2022-08-24 00:24:48,131 - Setting LastBrowseProportion :  THOC2/30.0/0.282311952971507.
+2022-08-24 00:24:48,133 - Recording cohort biomass removal :  THOC2/30.0/2.48931387652156.
+2022-08-24 00:24:48,134 - Recording reduction:  THOC2/30.0/2.48931387652156.
+2022-08-24 00:24:48,134 - THOC2/10.0. secondPassRemoval = 2.59226276347844, finalRemoval = 2.75421092347844
+2022-08-24 00:24:48,135 - Setting LastBrowseProportion :  THOC2/10.0/0.367345673746057.
+2022-08-24 00:24:48,135 - Recording cohort biomass removal :  THOC2/10.0/2.75421092347844.
+2022-08-24 00:24:48,136 - Recording reduction:  THOC2/10.0/2.75421092347844.
+2022-08-24 00:24:48,136 - Reducing CohortBiomass NOW!
+2022-08-24 00:24:48,144 - Cohort Partial Mortality:  (1, 1)
+2022-08-24 00:24:48,145 - waste input is 2, CN ratio of waste is 50
+2022-08-24 00:24:48,148 - EVENT: Cohort Partial Mortality: species=BEPA, age=10, disturbance=disturbance:browse.
+2022-08-24 00:24:48,149 -        Cohort Reductions:  Foliar=0.00.  Wood=0.00.
+2022-08-24 00:24:48,149 -        InputB/TotalB:  Foliar=2.00/0.00, Wood=0.0/329.0.
+2022-08-24 00:24:48,150 - Cohort Partial Mortality:  (1, 1)
+2022-08-24 00:24:48,151 - waste input is 2, CN ratio of waste is 50
+2022-08-24 00:24:48,151 - EVENT: Cohort Partial Mortality: species=THOC2, age=10, disturbance=disturbance:browse.
+2022-08-24 00:24:48,152 -        Cohort Reductions:  Foliar=0.00.  Wood=0.00.
+2022-08-24 00:24:48,152 -        InputB/TotalB:  Foliar=2.00/0.00, Wood=0.0/284.0.
+2022-08-24 00:24:48,153 - Cohort Partial Mortality:  (1, 1)
+2022-08-24 00:24:48,153 - waste input is 2, CN ratio of waste is 50
+2022-08-24 00:24:48,153 - EVENT: Cohort Partial Mortality: species=THOC2, age=30, disturbance=disturbance:browse.
+2022-08-24 00:24:48,154 -        Cohort Reductions:  Foliar=0.00.  Wood=0.00.
+2022-08-24 00:24:48,154 -        InputB/TotalB:  Foliar=2.00/0.00, Wood=0.0/334.0.
+2022-08-24 00:24:48,288 - Running NECN Succession ...
+2022-08-24 00:24:48,308 -    SoilWater:  month=6, PET=10.6946290146845.
+2022-08-24 00:24:48,309 -    SoilWater:  month=6, Remaining PET=10.6946290146845.
+2022-08-24 00:24:48,309 -    SoilWater:  month=6, addToSoil=83.2648855141262.
+2022-08-24 00:24:48,310 -    SoilWater:  month=6, AET=6.41677740881071.
+2022-08-24 00:24:48,310 -    SoilWater:  month=6, baseflow=0.296219218809697.
+2022-08-24 00:24:48,332 - Mortality wood/non_wood:  PIGL/90.0 wood = 13.7290218581952. leaf = 0.
+2022-08-24 00:24:48,349 - Mortality wood/non_wood:  THOC2/60.0 wood = 1.19876381528084. leaf = 0.
+2022-08-24 00:24:48,352 - Mortality wood/non_wood:  BEPA/60.0 wood = 1.14347560104784. leaf = 0.
+2022-08-24 00:24:48,354 - Mortality wood/non_wood:  BEPA/30.0 wood = 0.863620414647515. leaf = 0.
+2022-08-24 00:24:48,357 - Mortality wood/non_wood:  THOC2/30.0 wood = 0.946608612192272. leaf = 0.
+2022-08-24 00:24:48,360 - Mortality wood/non_wood:  THOC2/10.0 wood = 0.774660827076668. leaf = 0.
+2022-08-24 00:24:48,365 - Mortality wood/non_wood:  PIGL/10.0 wood = 1.26514460281178. leaf = 0.
+2022-08-24 00:24:48,367 - Mortality wood/non_wood:  BEPA/10.0 wood = 0.680386106139463. leaf = 0.
+2022-08-24 00:24:48,378 - currentDeadWoodC:1,6,9.54185751037656, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-08-24 00:24:48,379 - SurfaceDeadWoodC: 1,6,35.2338284431366
+2022-08-24 00:24:48,394 -    SoilWater:  month=7, PET=10.2252994787525.
+2022-08-24 00:24:48,394 -    SoilWater:  month=7, Remaining PET=10.2252994787525.
+2022-08-24 00:24:48,395 -    SoilWater:  month=7, addToSoil=58.669709248499.
+2022-08-24 00:24:48,395 -    SoilWater:  month=7, AET=6.1351796872515.
+2022-08-24 00:24:48,396 -    SoilWater:  month=7, baseflow=3.36685581663615.
+2022-08-24 00:24:48,396 - Mortality wood/non_wood:  PIGL/90.0 wood = 13.7722929518943. leaf = 0.138817266670717.
+2022-08-24 00:24:48,400 - Mortality wood/non_wood:  THOC2/60.0 wood = 1.22168324222474. leaf = 0.0223880943703956.
+2022-08-24 00:24:48,403 - Mortality wood/non_wood:  BEPA/60.0 wood = 1.14567339111647. leaf = 3.57384964068933E-07.
+2022-08-24 00:24:48,405 - Mortality wood/non_wood:  BEPA/30.0 wood = 0.866265056625191. leaf = 3.72302667073799E-08.
+2022-08-24 00:24:48,409 - Mortality wood/non_wood:  THOC2/30.0 wood = 0.964364826166336. leaf = 0.0171562295643881.
+2022-08-24 00:24:48,412 - Mortality wood/non_wood:  THOC2/10.0 wood = 0.788532678349201. leaf = 0.0135215778157352.
+2022-08-24 00:24:48,414 - Mortality wood/non_wood:  PIGL/10.0 wood = 1.28057074306868. leaf = 0.0359389961472936.
+2022-08-24 00:24:48,418 - Mortality wood/non_wood:  BEPA/10.0 wood = 0.682386751937744. leaf = 6.33997459606912E-09.
+2022-08-24 00:24:48,421 - currentDeadWoodC:1,7,19.0371361226134, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-08-24 00:24:48,421 - SurfaceDeadWoodC: 1,7,44.3803102488928
+2022-08-24 00:24:48,422 -    SoilWater:  month=8, PET=7.58614473057039.
+2022-08-24 00:24:48,422 -    SoilWater:  month=8, Remaining PET=7.58614473057039.
+2022-08-24 00:24:48,423 -    SoilWater:  month=8, addToSoil=68.9108405177718.
+2022-08-24 00:24:48,423 -    SoilWater:  month=8, AET=4.55168683834223.
+2022-08-24 00:24:48,424 -    SoilWater:  month=8, baseflow=5.71677772243251.
+2022-08-24 00:24:48,424 - Mortality wood/non_wood:  PIGL/90.0 wood = 13.6281480152222. leaf = 0.278159627408617.
+2022-08-24 00:24:48,427 - Mortality wood/non_wood:  THOC2/60.0 wood = 1.16022579264552. leaf = 0.044888947801969.
+2022-08-24 00:24:48,429 - Mortality wood/non_wood:  BEPA/60.0 wood = 1.13252501029359. leaf = 7.24487861944266E-07.
+2022-08-24 00:24:48,435 - Mortality wood/non_wood:  BEPA/30.0 wood = 0.853819193714242. leaf = 7.54705314886877E-08.
+2022-08-24 00:24:48,438 - Mortality wood/non_wood:  THOC2/30.0 wood = 0.916974286222727. leaf = 0.0343952600478378.
+2022-08-24 00:24:48,442 - Mortality wood/non_wood:  THOC2/10.0 wood = 0.751055932290906. leaf = 0.0271053216891021.
+2022-08-24 00:24:48,445 - Mortality wood/non_wood:  PIGL/10.0 wood = 1.24651199215544. leaf = 0.0720639391994167.
+2022-08-24 00:24:48,448 - Mortality wood/non_wood:  BEPA/10.0 wood = 0.672738165955605. leaf = 1.28487399763498E-08.
+2022-08-24 00:24:48,451 - currentDeadWoodC:1,8,28.3300519903373, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-08-24 00:24:48,452 - SurfaceDeadWoodC: 1,8,53.4001979281372
+2022-08-24 00:24:48,453 -    SoilWater:  month=9, PET=2.97687113610201.
+2022-08-24 00:24:48,453 -    SoilWater:  month=9, Remaining PET=2.97687113610201.
+2022-08-24 00:24:48,454 -    SoilWater:  month=9, addToSoil=100.739166105559.
+2022-08-24 00:24:48,454 -    SoilWater:  month=9, AET=1.7861226816612.
+2022-08-24 00:24:48,456 -    SoilWater:  month=9, baseflow=9.07592291580228.
+2022-08-24 00:24:48,456 - Mortality wood/non_wood:  PIGL/90.0 wood = 12.9647426542901. leaf = 0.399394468949162.
+2022-08-24 00:24:48,459 - Mortality wood/non_wood:  THOC2/60.0 wood = 0.866955830829691. leaf = 0.0644959908610501.
+2022-08-24 00:24:48,462 - Mortality wood/non_wood:  BEPA/60.0 wood = 1.06154766677036. leaf = 0.460379540920258.
+2022-08-24 00:24:48,465 - Mortality wood/non_wood:  BEPA/30.0 wood = 0.784274983487149. leaf = 0.455043733119965.
+2022-08-24 00:24:48,468 - Mortality wood/non_wood:  THOC2/30.0 wood = 0.692021369016722. leaf = 0.0494138135992186.
+2022-08-24 00:24:48,472 - Mortality wood/non_wood:  THOC2/10.0 wood = 0.57364421789037. leaf = 0.0389365157027081.
+2022-08-24 00:24:48,474 - Mortality wood/non_wood:  PIGL/10.0 wood = 1.07725880892907. leaf = 0.103546981390968.
+2022-08-24 00:24:48,476 - Mortality wood/non_wood:  BEPA/10.0 wood = 0.619583002795088. leaf = 0.347117811441422.
+2022-08-24 00:24:48,481 - currentDeadWoodC:1,9,36.8854399399034, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-08-24 00:24:48,481 - SurfaceDeadWoodC: 1,9,61.7961425699397
+2022-08-24 00:24:48,482 -    SoilWater:  month=10, PET=0.
+2022-08-24 00:24:48,483 -    SoilWater:  month=10, AET=0.
+2022-08-24 00:24:48,483 -    SoilWater:  month=10, baseflow=5.13738974151628.
+2022-08-24 00:24:48,484 - Mortality wood/non_wood:  PIGL/90.0 wood = 12.3554265381308. leaf = 0.452674481678222.
+2022-08-24 00:24:48,487 - Mortality wood/non_wood:  THOC2/60.0 wood = 0.600192132862936. leaf = 0.0731391060177347.
+2022-08-24 00:24:48,489 - Mortality wood/non_wood:  BEPA/60.0 wood = 1.0174682355909. leaf = 0.0559993982315063.
+2022-08-24 00:24:48,492 - Mortality wood/non_wood:  BEPA/30.0 wood = 0.741311329044361. leaf = 0.0555745959281921.
+2022-08-24 00:24:48,497 - Mortality wood/non_wood:  THOC2/30.0 wood = 0.487902913847381. leaf = 0.0560326485297047.
+2022-08-24 00:24:48,502 - Mortality wood/non_wood:  THOC2/10.0 wood = 0.412827777493695. leaf = 0.0441492622387119.
+2022-08-24 00:24:48,505 - Mortality wood/non_wood:  PIGL/10.0 wood = 0.922568494691657. leaf = 0.117428109565056.
+2022-08-24 00:24:48,512 - Mortality wood/non_wood:  BEPA/10.0 wood = 0.58680487281585. leaf = 0.0423645675182343.
+2022-08-24 00:24:48,520 - currentDeadWoodC:1,10,44.9287168186694, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-08-24 00:24:48,521 - SurfaceDeadWoodC: 1,10,69.8359844752944
+2022-08-24 00:24:48,522 -    SoilWater:  month=11, PET=0.
+2022-08-24 00:24:48,523 -    SoilWater:  month=11, AET=0.
+2022-08-24 00:24:48,524 -    SoilWater:  month=11, baseflow=2.86639640633449.
+2022-08-24 00:24:48,525 - Mortality wood/non_wood:  PIGL/90.0 wood = 12.3116718104697. leaf = 0.446005522093574.
+2022-08-24 00:24:48,531 - Mortality wood/non_wood:  THOC2/60.0 wood = 0.58737890932628. leaf = 0.0720893394238071.
+2022-08-24 00:24:48,535 - Mortality wood/non_wood:  BEPA/60.0 wood = 1.0141666524722. leaf = 0.00189308449625969.
+2022-08-24 00:24:48,539 - Mortality wood/non_wood:  BEPA/30.0 wood = 0.738256343154781. leaf = 0.00221966952085495.
+2022-08-24 00:24:48,577 - Mortality wood/non_wood:  THOC2/30.0 wood = 0.478382694106568. leaf = 0.0552281865230701.
+2022-08-24 00:24:48,600 - Mortality wood/non_wood:  THOC2/10.0 wood = 0.405295986866827. leaf = 0.0435151740802015.
+2022-08-24 00:24:48,605 - Mortality wood/non_wood:  PIGL/10.0 wood = 0.914685959202994. leaf = 0.115743719491583.
+2022-08-24 00:24:48,611 - Mortality wood/non_wood:  BEPA/10.0 wood = 0.584425083530972. leaf = 0.00170872732996941.
+2022-08-24 00:24:48,618 - currentDeadWoodC:1,11,52.9298696426129, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-08-24 00:24:48,618 - SurfaceDeadWoodC: 1,11,77.8343024522773
+2022-08-24 00:24:48,627 -    SoilWater:  month=0, PET=0.
+2022-08-24 00:24:48,630 -    SoilWater:  month=0, AET=0.
+2022-08-24 00:24:48,630 -    SoilWater:  month=0, baseflow=1.51919009877429.
+2022-08-24 00:24:48,633 - Mortality wood/non_wood:  PIGL/90.0 wood = 12.2617548458155. leaf = 0.436880568800041.
+2022-08-24 00:24:48,660 - Mortality wood/non_wood:  THOC2/60.0 wood = 0.571976546942638. leaf = 0.0706411808807933.
+2022-08-24 00:24:48,672 - Mortality wood/non_wood:  BEPA/60.0 wood = 1.01233883699347. leaf = 0.
+2022-08-24 00:24:48,677 - Mortality wood/non_wood:  BEPA/30.0 wood = 0.736927313283075. leaf = 0.
+2022-08-24 00:24:48,682 - Mortality wood/non_wood:  THOC2/30.0 wood = 0.466241909240919. leaf = 0.0541307274790267.
+2022-08-24 00:24:48,689 - Mortality wood/non_wood:  THOC2/10.0 wood = 0.395693848321496. leaf = 0.0426503593977286.
+2022-08-24 00:24:48,694 - Mortality wood/non_wood:  PIGL/10.0 wood = 0.90472760632546. leaf = 0.113444990037627.
+2022-08-24 00:24:48,698 - Mortality wood/non_wood:  BEPA/10.0 wood = 0.583373111074489. leaf = 0.
+2022-08-24 00:24:48,704 - currentDeadWoodC:1,0,60.8854663976955, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-08-24 00:24:48,706 - SurfaceDeadWoodC: 1,0,85.7884002368087
+2022-08-24 00:24:48,707 -    SoilWater:  month=1, PET=0.
+2022-08-24 00:24:48,709 -    SoilWater:  month=1, AET=0.
+2022-08-24 00:24:48,709 -    SoilWater:  month=1, baseflow=0.805170754161389.
+2022-08-24 00:24:48,710 - Mortality wood/non_wood:  PIGL/90.0 wood = 12.2452177860716. leaf = 0.424761678556746.
+2022-08-24 00:24:48,714 - Mortality wood/non_wood:  THOC2/60.0 wood = 0.571462268074067. leaf = 0.0687085477928287.
+2022-08-24 00:24:48,717 - Mortality wood/non_wood:  BEPA/60.0 wood = 1.01051432161491. leaf = 0.
+2022-08-24 00:24:48,724 - Mortality wood/non_wood:  BEPA/30.0 wood = 0.735600645789297. leaf = 0.
+2022-08-24 00:24:48,729 - Mortality wood/non_wood:  THOC2/30.0 wood = 0.465814944561235. leaf = 0.0526505132807147.
+2022-08-24 00:24:48,736 - Mortality wood/non_wood:  THOC2/10.0 wood = 0.395317912334756. leaf = 0.0414841005133543.
+2022-08-24 00:24:48,740 - Mortality wood/non_wood:  PIGL/10.0 wood = 0.903638269010811. leaf = 0.110342934456877.
+2022-08-24 00:24:48,744 - Mortality wood/non_wood:  BEPA/10.0 wood = 0.582323006349783. leaf = 0.
+2022-08-24 00:24:48,748 - currentDeadWoodC:1,1,68.8297423784882, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-08-24 00:24:48,753 - SurfaceDeadWoodC: 1,1,93.7311081334901
+2022-08-24 00:24:48,755 -    SoilWater:  month=2, PET=0.
+2022-08-24 00:24:48,755 -    SoilWater:  month=2, AET=0.
+2022-08-24 00:24:48,756 -    SoilWater:  month=2, baseflow=1.20575809338727.
+2022-08-24 00:24:48,757 - Mortality wood/non_wood:  PIGL/90.0 wood = 12.2647036171128. leaf = 0.413044662778895.
+2022-08-24 00:24:48,761 - Mortality wood/non_wood:  THOC2/60.0 wood = 0.586794035358455. leaf = 0.0668400494839341.
+2022-08-24 00:24:48,769 - Mortality wood/non_wood:  BEPA/60.0 wood = 1.00869310633651. leaf = 0.
+2022-08-24 00:24:48,777 - Mortality wood/non_wood:  BEPA/30.0 wood = 0.73427639561247. leaf = 0.
+2022-08-24 00:24:48,790 - Mortality wood/non_wood:  THOC2/30.0 wood = 0.477860960824254. leaf = 0.0512196484963908.
+2022-08-24 00:24:48,797 - Mortality wood/non_wood:  THOC2/10.0 wood = 0.404766980341536. leaf = 0.0403567237686298.
+2022-08-24 00:24:48,806 - Mortality wood/non_wood:  PIGL/10.0 wood = 0.912115251228603. leaf = 0.107344359318765.
+2022-08-24 00:24:48,811 - Mortality wood/non_wood:  BEPA/10.0 wood = 0.581274769356853. leaf = 0.
+2022-08-24 00:24:48,820 - currentDeadWoodC:1,2,76.7991671387119, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-08-24 00:24:48,821 - SurfaceDeadWoodC: 1,2,101.69766439485
+2022-08-24 00:24:48,821 -    SoilWater:  month=3, PET=1.27315742917445.
+2022-08-24 00:24:48,822 -    SoilWater:  month=3, AET=0.
+2022-08-24 00:24:48,823 -    SoilWater:  month=3, baseflow=5.69681044322456.
+2022-08-24 00:24:48,824 - Mortality wood/non_wood:  PIGL/90.0 wood = 12.6072699133862. leaf = 0.405307658682419.
+2022-08-24 00:24:48,830 - Mortality wood/non_wood:  THOC2/60.0 wood = 0.744076866827488. leaf = 0.0656121969534937.
+2022-08-24 00:24:48,833 - Mortality wood/non_wood:  BEPA/60.0 wood = 1.02594346387944. leaf = 0.
+2022-08-24 00:24:48,836 - Mortality wood/non_wood:  BEPA/30.0 wood = 0.752016396331936. leaf = 0.
+2022-08-24 00:24:48,839 - Mortality wood/non_wood:  THOC2/30.0 wood = 0.597840047411606. leaf = 0.0502922782029013.
+2022-08-24 00:24:48,843 - Mortality wood/non_wood:  THOC2/10.0 wood = 0.499204455889246. leaf = 0.0396259600806464.
+2022-08-24 00:24:48,849 - Mortality wood/non_wood:  PIGL/10.0 wood = 1.00351886764706. leaf = 0.10540349007076.
+2022-08-24 00:24:48,853 - Mortality wood/non_wood:  BEPA/10.0 wood = 0.594779048647112. leaf = 0.
+2022-08-24 00:24:48,857 - currentDeadWoodC:1,3,84.8761498946006, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-08-24 00:24:48,857 - SurfaceDeadWoodC: 1,3,109.655482261689
+2022-08-24 00:24:48,858 -    SoilWater:  month=4, PET=5.22641119194906.
+2022-08-24 00:24:48,858 -    SoilWater:  month=4, Remaining PET=5.22641119194906.
+2022-08-24 00:24:48,859 -    SoilWater:  month=4, addToSoil=200.268324168138.
+2022-08-24 00:24:48,863 -    SoilWater:  month=4, AET=3.13584671516944.
+2022-08-24 00:24:48,864 -    SoilWater:  month=4, baseflow=15.0641034417261.
+2022-08-24 00:24:48,865 - Mortality wood/non_wood:  PIGL/90.0 wood = 12.9579160305349. leaf = 0.433760603975527.
+2022-08-24 00:24:48,870 - Mortality wood/non_wood:  THOC2/60.0 wood = 0.903881543763327. leaf = 0.0702092910266537.
+2022-08-24 00:24:48,873 - Mortality wood/non_wood:  BEPA/60.0 wood = 1.06010237801233. leaf = 5.76983384962718E-08.
+2022-08-24 00:24:48,883 - Mortality wood/non_wood:  BEPA/30.0 wood = 0.786158175366018. leaf = 6.08139302247262E-09.
+2022-08-24 00:24:48,886 - Mortality wood/non_wood:  THOC2/30.0 wood = 0.72020405963098. leaf = 0.0538126004206319.
+2022-08-24 00:24:48,889 - Mortality wood/non_wood:  THOC2/10.0 wood = 0.595655120087771. leaf = 0.0423988573206949.
+2022-08-24 00:24:48,891 - Mortality wood/non_wood:  PIGL/10.0 wood = 1.09772134172397. leaf = 0.112811709596925.
+2022-08-24 00:24:48,895 - Mortality wood/non_wood:  BEPA/10.0 wood = 0.620825497071435. leaf = 1.03650572517592E-09.
+2022-08-24 00:24:48,898 - currentDeadWoodC:1,4,93.2524542015958, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-08-24 00:24:48,899 - SurfaceDeadWoodC: 1,4,117.872182015349
+2022-08-24 00:24:48,899 -    SoilWater:  month=5, PET=9.27483738177656.
+2022-08-24 00:24:48,900 -    SoilWater:  month=5, Remaining PET=9.27483738177656.
+2022-08-24 00:24:48,900 -    SoilWater:  month=5, addToSoil=96.9635708672894.
+2022-08-24 00:24:48,901 -    SoilWater:  month=5, AET=5.56490242906593.
+2022-08-24 00:24:48,901 -    SoilWater:  month=5, baseflow=13.5684332646471.
+2022-08-24 00:24:48,902 - Mortality wood/non_wood:  PIGL/91.0 wood = 13.4338324667171. leaf = 0.498080908138824.
+2022-08-24 00:24:48,905 - Mortality wood/non_wood:  THOC2/61.0 wood = 1.1180843711492. leaf = 0.0805761552027656.
+2022-08-24 00:24:48,908 - Mortality wood/non_wood:  BEPA/61.0 wood = 1.10963660771819. leaf = 2.41908672335092E-07.
+2022-08-24 00:24:48,912 - Mortality wood/non_wood:  BEPA/31.0 wood = 0.835422050131454. leaf = 2.53247063278725E-08.
+2022-08-24 00:24:48,915 - Mortality wood/non_wood:  THOC2/31.0 wood = 0.884425443874193. leaf = 0.0617521756365672.
+2022-08-24 00:24:48,917 - Mortality wood/non_wood:  THOC2/11.0 wood = 0.738258911205575. leaf = 0.048652773340777.
+2022-08-24 00:24:48,920 - Mortality wood/non_wood:  PIGL/11.0 wood = 1.22475603273306. leaf = 0.12951631749057.
+2022-08-24 00:24:48,923 - Mortality wood/non_wood:  BEPA/11.0 wood = 0.658469831271676. leaf = 4.31474232174782E-09.
+2022-08-24 00:24:48,931 - currentDeadWoodC:1,5,101.994587085113, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-08-24 00:24:48,931 - SurfaceDeadWoodC: 1,5,126.387238913291
+2022-08-24 00:24:48,955 - nurseryLogC:1,0,0,0
+2022-08-24 00:24:48,956 - decayClassAreaRatios:1,0,0,0
+2022-08-24 00:24:48,958 - original_lightProbability:1,ABBA,1
+2022-08-24 00:24:48,959 - siteShade:5
+2022-08-24 00:24:48,959 - siteLAI:8.52179289448737
+2022-08-24 00:24:48,960 - nurseryLogPenalty:1,ABBA,0
+2022-08-24 00:24:48,960 - modified_lightProbability:1,ABBA,1
+2022-08-24 00:24:48,961 - regeneration_type:1,ABBA,surface
+2022-08-24 00:24:48,966 - original_lightProbability:1,ACSA3,1
+2022-08-24 00:24:48,967 - siteShade:5
+2022-08-24 00:24:48,967 - siteLAI:8.52179289448737
+2022-08-24 00:24:48,968 - nurseryLogPenalty:1,ACSA3,0
+2022-08-24 00:24:48,968 - modified_lightProbability:1,ACSA3,1
+2022-08-24 00:24:48,969 - regeneration_type:1,ACSA3,surface
+2022-08-24 00:24:48,970 - original_lightProbability:1,BEAL2,0.1
+2022-08-24 00:24:48,970 - siteShade:5
+2022-08-24 00:24:48,970 - siteLAI:8.52179289448737
+2022-08-24 00:24:48,971 - nurseryLogPenalty:1,BEAL2,0
+2022-08-24 00:24:48,971 - modified_lightProbability:1,BEAL2,0.1
+2022-08-24 00:24:48,972 - regeneration_type:1,BEAL2,failed
+2022-08-24 00:24:48,974 - original_lightProbability:1,BEPA,0
+2022-08-24 00:24:48,978 - siteShade:5
+2022-08-24 00:24:48,979 - siteLAI:8.52179289448737
+2022-08-24 00:24:48,980 - nurseryLogPenalty:1,BEPA,0
+2022-08-24 00:24:48,980 - modified_lightProbability:1,BEPA,0
+2022-08-24 00:24:48,981 - regeneration_type:1,BEPA,failed
+2022-08-24 00:24:48,982 - original_lightProbability:1,FRNI,0.25
+2022-08-24 00:24:48,982 - siteShade:5
+2022-08-24 00:24:48,983 - siteLAI:8.52179289448737
+2022-08-24 00:24:48,983 - nurseryLogPenalty:1,FRNI,0
+2022-08-24 00:24:48,984 - modified_lightProbability:1,FRNI,0.25
+2022-08-24 00:24:48,985 - regeneration_type:1,FRNI,surface
+2022-08-24 00:24:48,987 - original_lightProbability:1,PIGL,0.25
+2022-08-24 00:24:48,994 - siteShade:5
+2022-08-24 00:24:48,995 - siteLAI:8.52179289448737
+2022-08-24 00:24:48,996 - nurseryLogPenalty:1,PIGL,0
+2022-08-24 00:24:48,997 - modified_lightProbability:1,PIGL,0.25
+2022-08-24 00:24:48,997 - regeneration_type:1,PIGL,surface
+2022-08-24 00:24:49,001 - original_lightProbability:1,PIMA,0.1
+2022-08-24 00:24:49,002 - siteShade:5
+2022-08-24 00:24:49,003 - siteLAI:8.52179289448737
+2022-08-24 00:24:49,003 - nurseryLogPenalty:1,PIMA,0
+2022-08-24 00:24:49,006 - modified_lightProbability:1,PIMA,0.1
+2022-08-24 00:24:49,008 - regeneration_type:1,PIMA,failed
+2022-08-24 00:24:49,008 - original_lightProbability:1,PIBA2,0
+2022-08-24 00:24:49,009 - siteShade:5
+2022-08-24 00:24:49,010 - siteLAI:8.52179289448737
+2022-08-24 00:24:49,011 - nurseryLogPenalty:1,PIBA2,0
+2022-08-24 00:24:49,011 - modified_lightProbability:1,PIBA2,0
+2022-08-24 00:24:49,012 - regeneration_type:1,PIBA2,failed
+2022-08-24 00:24:49,012 - original_lightProbability:1,PIST,0.1
+2022-08-24 00:24:49,013 - siteShade:5
+2022-08-24 00:24:49,013 - siteLAI:8.52179289448737
+2022-08-24 00:24:49,014 - nurseryLogPenalty:1,PIST,0
+2022-08-24 00:24:49,015 - modified_lightProbability:1,PIST,0.1
+2022-08-24 00:24:49,015 - regeneration_type:1,PIST,failed
+2022-08-24 00:24:49,016 - original_lightProbability:1,POTR5,0
+2022-08-24 00:24:49,019 - siteShade:5
+2022-08-24 00:24:49,019 - siteLAI:8.52179289448737
+2022-08-24 00:24:49,020 - nurseryLogPenalty:1,POTR5,0
+2022-08-24 00:24:49,024 - modified_lightProbability:1,POTR5,0
+2022-08-24 00:24:49,025 - regeneration_type:1,POTR5,failed
+2022-08-24 00:24:49,026 - original_lightProbability:1,QURU,0
+2022-08-24 00:24:49,028 - siteShade:5
+2022-08-24 00:24:49,029 - siteLAI:8.52179289448737
+2022-08-24 00:24:49,031 - nurseryLogPenalty:1,QURU,0
+2022-08-24 00:24:49,032 - modified_lightProbability:1,QURU,0
+2022-08-24 00:24:49,034 - regeneration_type:1,QURU,failed
+2022-08-24 00:24:49,035 - original_lightProbability:1,THOC2,0.25
+2022-08-24 00:24:49,037 - siteShade:5
+2022-08-24 00:24:49,040 - siteLAI:8.52179289448737
+2022-08-24 00:24:49,042 - nurseryLogPenalty:1,THOC2,0
+2022-08-24 00:24:49,044 - modified_lightProbability:1,THOC2,0.25
+2022-08-24 00:24:49,045 - regeneration_type:1,THOC2,failed
+2022-08-24 00:24:49,047 - original_lightProbability:1,HRDWD,0
+2022-08-24 00:24:49,048 - siteShade:5
+2022-08-24 00:24:49,050 - siteLAI:8.52179289448737
+2022-08-24 00:24:49,052 - nurseryLogPenalty:1,HRDWD,0
+2022-08-24 00:24:49,055 - modified_lightProbability:1,HRDWD,0
+2022-08-24 00:24:49,057 - regeneration_type:1,HRDWD,failed
+2022-08-24 00:24:49,059 - original_lightProbability:1,SFTWD,0.25
+2022-08-24 00:24:49,060 - siteShade:5
+2022-08-24 00:24:49,063 - siteLAI:8.52179289448737
+2022-08-24 00:24:49,065 - nurseryLogPenalty:1,SFTWD,0
+2022-08-24 00:24:49,067 - modified_lightProbability:1,SFTWD,0.25
+2022-08-24 00:24:49,071 - regeneration_type:1,SFTWD,failed
+2022-08-24 00:24:49,515 - Current time: 2
+2022-08-24 00:24:49,516 - Running Biomass Browse ...
+2022-08-24 00:24:49,517 - Processing landscape for ungulate browse events ...
+2022-08-24 00:24:49,517 -    Calculating Site Preference & Forage.
+2022-08-24 00:24:49,518 -    Calculating Zone Population.
+2022-08-24 00:24:49,518 - Dynamic Population is True
+2022-08-24 00:24:49,518 - oldPop = 3.  popR = 0.209796427935362. popMortality = 0.190652133477852. popPredation = 0. popHarvest = 0. popGrowth = -0.504271549648113. newPop = 2.
+2022-08-24 00:24:49,519 - Using dynamic population. PopZone Index 0.  Population = 2. K = 3.36149715120526. EffectivePop = 2.
+2022-08-24 00:24:49,519 -    Calculating HSI.
+2022-08-24 00:24:49,520 -    Calculating Local Population.
+2022-08-24 00:24:49,520 -    Disturbing Sites
+2022-08-24 00:24:49,520 - BEPA/61.0. availForage = 0, browsePref = 0.25, firstPassRemoval = 0
+2022-08-24 00:24:49,521 - BEPA/31.0. availForage = 0, browsePref = 0.25, firstPassRemoval = 0
+2022-08-24 00:24:49,521 - BEPA/11.0. availForage = 3.0338352, browsePref = 0.25, firstPassRemoval = 0.7584588
+2022-08-24 00:24:49,521 - PIGL/91.0. availForage = 0, browsePref = 0, firstPassRemoval = 0.7584588
+2022-08-24 00:24:49,522 - PIGL/11.0. availForage = 0, browsePref = 0, firstPassRemoval = 0.7584588
+2022-08-24 00:24:49,522 - PIGL/1.0. availForage = 0, browsePref = 0, firstPassRemoval = 0.7584588
+2022-08-24 00:24:49,522 - THOC2/61.0. availForage = 0, browsePref = 0.05, firstPassRemoval = 0.7584588
+2022-08-24 00:24:49,523 - THOC2/31.0. availForage = 2.9274432, browsePref = 0.05, firstPassRemoval = 0.90483096
+2022-08-24 00:24:49,523 - THOC2/11.0. availForage = 3.2425008, browsePref = 0.05, firstPassRemoval = 1.066956
+2022-08-24 00:24:49,524 - BEPA/61.0. secondPassRemoval = 0, finalRemoval = 0
+2022-08-24 00:24:49,524 - BEPA/31.0. secondPassRemoval = 0, finalRemoval = 0
+2022-08-24 00:24:49,524 - BEPA/11.0. secondPassRemoval = 2.2753764, finalRemoval = 3.0338352
+2022-08-24 00:24:49,525 - Setting LastBrowseProportion :  BEPA/11.0/0.358.
+2022-08-24 00:24:49,525 - Recording cohort biomass removal :  BEPA/11.0/3.0338352.
+2022-08-24 00:24:49,528 - Recording reduction:  BEPA/11.0/3.0338352.
+2022-08-24 00:24:49,530 - THOC2/61.0. secondPassRemoval = 0, finalRemoval = 0
+2022-08-24 00:24:49,530 - THOC2/31.0. secondPassRemoval = 1.01235776316289, finalRemoval = 1.15872992316289
+2022-08-24 00:24:49,530 - Setting LastBrowseProportion :  THOC2/31.0/0.131411032839196.
+2022-08-24 00:24:49,531 - Recording cohort biomass removal :  THOC2/31.0/1.15872992316289.
+2022-08-24 00:24:49,531 - Recording reduction:  THOC2/31.0/1.15872992316289.
+2022-08-24 00:24:49,531 - THOC2/11.0. secondPassRemoval = 1.12130983683711, finalRemoval = 1.28343487683711
+2022-08-24 00:24:49,532 - Setting LastBrowseProportion :  THOC2/11.0/0.171784301964491.
+2022-08-24 00:24:49,532 - Recording cohort biomass removal :  THOC2/11.0/1.28343487683711.
+2022-08-24 00:24:49,532 - Recording reduction:  THOC2/11.0/1.28343487683711.
+2022-08-24 00:24:49,533 - Reducing CohortBiomass NOW!
+2022-08-24 00:24:49,534 - Cohort Partial Mortality:  (1, 1)
+2022-08-24 00:24:49,534 - waste input is 3.000607, CN ratio of waste is 50
+2022-08-24 00:24:49,535 - EVENT: Cohort Partial Mortality: species=BEPA, age=11, disturbance=disturbance:browse.
+2022-08-24 00:24:49,535 -        Cohort Reductions:  Foliar=0.00.  Wood=0.00.
+2022-08-24 00:24:49,536 -        InputB/TotalB:  Foliar=3.00/0.18, Wood=0.0/320.9.
+2022-08-24 00:24:49,536 - Cohort Partial Mortality:  (1, 1)
+2022-08-24 00:24:49,536 - waste input is 1.001572, CN ratio of waste is 50
+2022-08-24 00:24:49,537 - EVENT: Cohort Partial Mortality: species=THOC2, age=11, disturbance=disturbance:browse.
+2022-08-24 00:24:49,537 -        Cohort Reductions:  Foliar=0.00.  Wood=0.00.
+2022-08-24 00:24:49,538 -        InputB/TotalB:  Foliar=1.00/2.16, Wood=0.0/281.3.
+2022-08-24 00:24:49,538 - Cohort Partial Mortality:  (1, 1)
+2022-08-24 00:24:49,538 - waste input is 1.000628, CN ratio of waste is 50
+2022-08-24 00:24:49,539 - EVENT: Cohort Partial Mortality: species=THOC2, age=31, disturbance=disturbance:browse.
+2022-08-24 00:24:49,539 -        Cohort Reductions:  Foliar=0.00.  Wood=0.00.
+2022-08-24 00:24:49,539 -        InputB/TotalB:  Foliar=1.00/2.72, Wood=0.0/331.5.
+2022-08-24 00:24:49,639 - Running NECN Succession ...
+2022-08-24 00:24:49,642 -    SoilWater:  month=6, PET=10.6946290146845.
+2022-08-24 00:24:49,642 -    SoilWater:  month=6, Remaining PET=10.6946290146845.
+2022-08-24 00:24:49,642 -    SoilWater:  month=6, addToSoil=83.2648855141262.
+2022-08-24 00:24:49,643 -    SoilWater:  month=6, AET=6.41677740881071.
+2022-08-24 00:24:49,643 -    SoilWater:  month=6, baseflow=11.8866888675363.
+2022-08-24 00:24:49,644 - Mortality wood/non_wood:  PIGL/91.0 wood = 13.5760601880441. leaf = 0.609324279453119.
+2022-08-24 00:24:49,646 - Mortality wood/non_wood:  THOC2/61.0 wood = 1.18522359868942. leaf = 0.0985019792352737.
+2022-08-24 00:24:49,648 - Mortality wood/non_wood:  BEPA/61.0 wood = 1.12127069071906. leaf = 5.88254746089399E-07.
+2022-08-24 00:24:49,650 - Mortality wood/non_wood:  BEPA/31.0 wood = 0.847324918613962. leaf = 6.14198229873753E-08.
+2022-08-24 00:24:49,655 - Mortality wood/non_wood:  THOC2/31.0 wood = 0.933087768077473. leaf = 0.0752541465752341.
+2022-08-24 00:24:49,657 - Mortality wood/non_wood:  THOC2/11.0 wood = 0.777688563036822. leaf = 0.0597400676827179.
+2022-08-24 00:24:49,659 - Mortality wood/non_wood:  PIGL/11.0 wood = 1.26552960705438. leaf = 0.158403582338308.
+2022-08-24 00:24:49,662 - Mortality wood/non_wood:  BEPA/11.0 wood = 0.662159664640688. leaf = 1.03643450618962E-08.
+2022-08-24 00:24:49,664 - Mortality wood/non_wood:  PIGL/1.0 wood = 0.061588039836482. leaf = 0.13105590536449.
+2022-08-24 00:24:49,666 - currentDeadWoodC:2,6,101.265309361599, 9.53341219184017, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-08-24 00:24:49,666 - SurfaceDeadWoodC: 2,6,134.933330380263
+2022-08-24 00:24:49,667 -    SoilWater:  month=7, PET=10.2252994787525.
+2022-08-24 00:24:49,668 -    SoilWater:  month=7, Remaining PET=10.2252994787525.
+2022-08-24 00:24:49,668 -    SoilWater:  month=7, addToSoil=58.669709248499.
+2022-08-24 00:24:49,671 -    SoilWater:  month=7, AET=6.1351796872515.
+2022-08-24 00:24:49,672 -    SoilWater:  month=7, baseflow=9.50980474427817.
+2022-08-24 00:24:49,672 - Mortality wood/non_wood:  PIGL/91.0 wood = 13.6203473761241. leaf = 0.731594566905839.
+2022-08-24 00:24:49,675 - Mortality wood/non_wood:  THOC2/61.0 wood = 1.20816222417871. leaf = 0.118226537550366.
+2022-08-24 00:24:49,677 - Mortality wood/non_wood:  BEPA/61.0 wood = 1.12351882449431. leaf = 9.7484500615731E-07.
+2022-08-24 00:24:49,680 - Mortality wood/non_wood:  BEPA/31.0 wood = 0.850050776950322. leaf = 1.01697627532656E-07.
+2022-08-24 00:24:49,682 - Mortality wood/non_wood:  THOC2/31.0 wood = 0.950639214681595. leaf = 0.0903227619454707.
+2022-08-24 00:24:49,684 - Mortality wood/non_wood:  THOC2/11.0 wood = 0.791990721425941. leaf = 0.0721303309631958.
+2022-08-24 00:24:49,688 - Mortality wood/non_wood:  PIGL/11.0 wood = 1.28083855570663. leaf = 0.19020726735738.
+2022-08-24 00:24:49,690 - Mortality wood/non_wood:  BEPA/11.0 wood = 0.664138611152007. leaf = 1.72238052941272E-08.
+2022-08-24 00:24:49,692 - Mortality wood/non_wood:  PIGL/1.0 wood = 0.0635960376983207. leaf = 0.132027779903391.
+2022-08-24 00:24:49,694 - currentDeadWoodC:2,7,100.51875259951, 19.0519552654248, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-08-24 00:24:49,695 - SurfaceDeadWoodC: 2,7,143.434177359886
+2022-08-24 00:24:49,696 -    SoilWater:  month=8, PET=7.58614473057039.
+2022-08-24 00:24:49,696 -    SoilWater:  month=8, Remaining PET=7.58614473057039.
+2022-08-24 00:24:49,697 -    SoilWater:  month=8, addToSoil=68.9108405177718.
+2022-08-24 00:24:49,697 -    SoilWater:  month=8, AET=4.55168683834223.
+2022-08-24 00:24:49,698 -    SoilWater:  month=8, baseflow=8.97254066140575.
+2022-08-24 00:24:49,698 - Mortality wood/non_wood:  PIGL/91.0 wood = 13.4782869796045. leaf = 0.854861106675792.
+2022-08-24 00:24:49,700 - Mortality wood/non_wood:  THOC2/61.0 wood = 1.14802077957425. leaf = 0.138140930583098.
+2022-08-24 00:24:49,704 - Mortality wood/non_wood:  BEPA/61.0 wood = 1.11064590435688. leaf = 1.37194471854755E-06.
+2022-08-24 00:24:49,706 - Mortality wood/non_wood:  BEPA/31.0 wood = 0.837787120141464. leaf = 1.43067705755456E-07.
+2022-08-24 00:24:49,708 - Mortality wood/non_wood:  THOC2/31.0 wood = 0.904405084390204. leaf = 0.105532766387888.
+2022-08-24 00:24:49,710 - Mortality wood/non_wood:  THOC2/11.0 wood = 0.75405624410647. leaf = 0.0846329358803107.
+2022-08-24 00:24:49,712 - Mortality wood/non_wood:  PIGL/11.0 wood = 1.24712450160463. leaf = 0.222320009573942.
+2022-08-24 00:24:49,714 - Mortality wood/non_wood:  BEPA/11.0 wood = 0.654700126266396. leaf = 2.42657103772262E-08.
+2022-08-24 00:24:49,715 - Mortality wood/non_wood:  PIGL/1.0 wood = 0.0593550772174655. leaf = 0.133115088882374.
+2022-08-24 00:24:49,720 - currentDeadWoodC:2,8,99.884139790327, 28.3631100048045, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-08-24 00:24:49,721 - SurfaceDeadWoodC: 2,8,151.874426796971
+2022-08-24 00:24:49,721 -    SoilWater:  month=9, PET=2.97687113610201.
+2022-08-24 00:24:49,721 -    SoilWater:  month=9, Remaining PET=2.97687113610201.
+2022-08-24 00:24:49,722 -    SoilWater:  month=9, addToSoil=100.739166105559.
+2022-08-24 00:24:49,722 -    SoilWater:  month=9, AET=1.7861226816612.
+2022-08-24 00:24:49,722 -    SoilWater:  month=9, baseflow=10.8014772773393.
+2022-08-24 00:24:49,723 - Mortality wood/non_wood:  PIGL/91.0 wood = 12.8254128673279. leaf = 0.960426443828047.
+2022-08-24 00:24:49,725 - Mortality wood/non_wood:  THOC2/61.0 wood = 0.860656314268651. leaf = 0.155226558500156.
+2022-08-24 00:24:49,727 - Mortality wood/non_wood:  BEPA/61.0 wood = 1.0410816582343. leaf = 0.699842035770416.
+2022-08-24 00:24:49,729 - Mortality wood/non_wood:  BEPA/31.0 wood = 0.769664384181683. leaf = 0.692314565181732.
+2022-08-24 00:24:49,731 - Mortality wood/non_wood:  THOC2/31.0 wood = 0.684659420174456. leaf = 0.118578800782212.
+2022-08-24 00:24:49,735 - Mortality wood/non_wood:  THOC2/11.0 wood = 0.574015954610309. leaf = 0.095360678042576.
+2022-08-24 00:24:49,737 - Mortality wood/non_wood:  PIGL/11.0 wood = 1.07989077641277. leaf = 0.249875068755492.
+2022-08-24 00:24:49,739 - Mortality wood/non_wood:  BEPA/11.0 wood = 0.602621316266239. leaf = 0.526590049266815.
+2022-08-24 00:24:49,741 - Mortality wood/non_wood:  PIGL/1.0 wood = 0.0382028747063638. leaf = 0.133697201650325.
+2022-08-24 00:24:49,744 - currentDeadWoodC:2,9,99.4961678457901, 36.9030282183171, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-08-24 00:24:49,745 - SurfaceDeadWoodC: 2,9,159.87862531845
+2022-08-24 00:24:49,745 -    SoilWater:  month=10, PET=0.
+2022-08-24 00:24:49,746 -    SoilWater:  month=10, AET=0.
+2022-08-24 00:24:49,746 -    SoilWater:  month=10, baseflow=5.87995574508454.
+2022-08-24 00:24:49,747 - Mortality wood/non_wood:  PIGL/91.0 wood = 12.2256485010867. leaf = 0.998292615697135.
+2022-08-24 00:24:49,750 - Mortality wood/non_wood:  THOC2/61.0 wood = 0.599403575100119. leaf = 0.161384146650496.
+2022-08-24 00:24:49,753 - Mortality wood/non_wood:  BEPA/61.0 wood = 0.997900029755006. leaf = 0.0561838150024414.
+2022-08-24 00:24:49,755 - Mortality wood/non_wood:  BEPA/31.0 wood = 0.727575368926549. leaf = 0.0557767748832703.
+2022-08-24 00:24:49,757 - Mortality wood/non_wood:  THOC2/31.0 wood = 0.485365462605104. leaf = 0.123278356580218.
+2022-08-24 00:24:49,759 - Mortality wood/non_wood:  THOC2/11.0 wood = 0.410875334550519. leaf = 0.0992541306809136.
+2022-08-24 00:24:49,761 - Mortality wood/non_wood:  PIGL/11.0 wood = 0.92692383004117. leaf = 0.259814331272533.
+2022-08-24 00:24:49,763 - Mortality wood/non_wood:  BEPA/11.0 wood = 0.570507469901472. leaf = 0.0425206124782562.
+2022-08-24 00:24:49,767 - Mortality wood/non_wood:  PIGL/1.0 wood = 0.018964970556892. leaf = 0.132121385776949.
+2022-08-24 00:24:49,771 - currentDeadWoodC:2,10,99.4876002545436, 44.8718513161563, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-08-24 00:24:49,771 - SurfaceDeadWoodC: 2,10,167.835548686411
+2022-08-24 00:24:49,772 -    SoilWater:  month=11, PET=0.
+2022-08-24 00:24:49,773 -    SoilWater:  month=11, AET=0.
+2022-08-24 00:24:49,773 -    SoilWater:  month=11, baseflow=3.21513605780753.
+2022-08-24 00:24:49,774 - Mortality wood/non_wood:  PIGL/91.0 wood = 12.1824735050885. leaf = 0.97647595102862.
+2022-08-24 00:24:49,776 - Mortality wood/non_wood:  THOC2/61.0 wood = 0.586830465672609. leaf = 0.157886403566007.
+2022-08-24 00:24:49,778 - Mortality wood/non_wood:  BEPA/61.0 wood = 0.994679183650164. leaf = 0.00187928974628448.
+2022-08-24 00:24:49,782 - Mortality wood/non_wood:  BEPA/31.0 wood = 0.724581471374027. leaf = 0.00222618132829666.
+2022-08-24 00:24:49,785 - Mortality wood/non_wood:  THOC2/31.0 wood = 0.476058459281174. leaf = 0.120606143514782.
+2022-08-24 00:24:49,787 - Mortality wood/non_wood:  THOC2/11.0 wood = 0.403245198503992. leaf = 0.0971127188154736.
+2022-08-24 00:24:49,789 - Mortality wood/non_wood:  PIGL/11.0 wood = 0.919119623126241. leaf = 0.254186292815074.
+2022-08-24 00:24:49,791 - Mortality wood/non_wood:  BEPA/11.0 wood = 0.568185109108191. leaf = 0.00171477720141411.
+2022-08-24 00:24:49,793 - Mortality wood/non_wood:  PIGL/1.0 wood = 0.0181328239098496. leaf = 0.128652551050155.
+2022-08-24 00:24:49,798 - currentDeadWoodC:2,11,99.480444950553, 52.7985074363631, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-08-24 00:24:49,798 - SurfaceDeadWoodC: 2,11,175.752204654583
+2022-08-24 00:24:49,799 -    SoilWater:  month=0, PET=0.
+2022-08-24 00:24:49,799 -    SoilWater:  month=0, AET=0.
+2022-08-24 00:24:49,800 -    SoilWater:  month=0, baseflow=1.70402211447073.
+2022-08-24 00:24:49,800 - Mortality wood/non_wood:  PIGL/91.0 wood = 12.1332777922678. leaf = 0.952616762462398.
+2022-08-24 00:24:49,802 - Mortality wood/non_wood:  THOC2/61.0 wood = 0.571740772958174. leaf = 0.154056833845578.
+2022-08-24 00:24:49,804 - Mortality wood/non_wood:  BEPA/61.0 wood = 0.992886281464472. leaf = 0.
+2022-08-24 00:24:49,806 - Mortality wood/non_wood:  BEPA/31.0 wood = 0.723277040535063. leaf = 0.
+2022-08-24 00:24:49,808 - Mortality wood/non_wood:  THOC2/31.0 wood = 0.46420111566972. leaf = 0.117692743169818.
+2022-08-24 00:24:49,810 - Mortality wood/non_wood:  THOC2/11.0 wood = 0.393521142535283. leaf = 0.0947726510676685.
+2022-08-24 00:24:49,814 - Mortality wood/non_wood:  PIGL/11.0 wood = 0.909258277382082. leaf = 0.248048647079673.
+2022-08-24 00:24:49,816 - Mortality wood/non_wood:  BEPA/11.0 wood = 0.567162358772571. leaf = 0.
+2022-08-24 00:24:49,818 - Mortality wood/non_wood:  PIGL/1.0 wood = 0.0170058734452509. leaf = 0.125197518123311.
+2022-08-24 00:24:49,821 - currentDeadWoodC:2,0,99.4766441515915, 60.6791844167906, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-08-24 00:24:49,822 - SurfaceDeadWoodC: 2,0,183.627536939234
+2022-08-24 00:24:49,822 -    SoilWater:  month=1, PET=0.
+2022-08-24 00:24:49,823 -    SoilWater:  month=1, AET=0.
+2022-08-24 00:24:49,823 -    SoilWater:  month=1, baseflow=0.903131722700841.
+2022-08-24 00:24:49,823 - Mortality wood/non_wood:  PIGL/91.0 wood = 12.1169084338873. leaf = 0.92616399031869.
+2022-08-24 00:24:49,825 - Mortality wood/non_wood:  THOC2/61.0 wood = 0.571220174478415. leaf = 0.149807182624318.
+2022-08-24 00:24:49,827 - Mortality wood/non_wood:  BEPA/61.0 wood = 0.991096679706194. leaf = 0.
+2022-08-24 00:24:49,830 - Mortality wood/non_wood:  BEPA/31.0 wood = 0.721974972098747. leaf = 0.
+2022-08-24 00:24:49,832 - Mortality wood/non_wood:  THOC2/31.0 wood = 0.463770586826493. leaf = 0.114446920552663.
+2022-08-24 00:24:49,835 - Mortality wood/non_wood:  THOC2/11.0 wood = 0.393149951990356. leaf = 0.0921592758470853.
+2022-08-24 00:24:49,837 - Mortality wood/non_wood:  PIGL/11.0 wood = 0.908160266228499. leaf = 0.241207956818134.
+2022-08-24 00:24:49,839 - Mortality wood/non_wood:  BEPA/11.0 wood = 0.566141421239672. leaf = 0.
+2022-08-24 00:24:49,841 - Mortality wood/non_wood:  PIGL/1.0 wood = 0.017004665399812. leaf = 0.12172620649.
+2022-08-24 00:24:49,844 - currentDeadWoodC:2,1,99.4726707468627, 68.5486770226936, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-08-24 00:24:49,847 - SurfaceDeadWoodC: 2,1,191.491407899781
+2022-08-24 00:24:49,848 -    SoilWater:  month=2, PET=0.
+2022-08-24 00:24:49,848 -    SoilWater:  month=2, AET=0.
+2022-08-24 00:24:49,848 -    SoilWater:  month=2, baseflow=1.20715777042105.
+2022-08-24 00:24:49,849 - Mortality wood/non_wood:  PIGL/91.0 wood = 12.1359618414024. leaf = 0.900511526386846.
+2022-08-24 00:24:49,851 - Mortality wood/non_wood:  THOC2/61.0 wood = 0.586203888449656. leaf = 0.145686065878356.
+2022-08-24 00:24:49,853 - Mortality wood/non_wood:  BEPA/61.0 wood = 0.989310268361083. leaf = 0.
+2022-08-24 00:24:49,855 - Mortality wood/non_wood:  BEPA/31.0 wood = 0.720675211125482. leaf = 0.
+2022-08-24 00:24:49,857 - Mortality wood/non_wood:  THOC2/31.0 wood = 0.475507246596257. leaf = 0.11129949874278.
+2022-08-24 00:24:49,861 - Mortality wood/non_wood:  THOC2/11.0 wood = 0.402734862467705. leaf = 0.0896252344981802.
+2022-08-24 00:24:49,863 - Mortality wood/non_wood:  PIGL/11.0 wood = 0.916506961910524. leaf = 0.234574717541341.
+2022-08-24 00:24:49,865 - Mortality wood/non_wood:  BEPA/11.0 wood = 0.565122351442911. leaf = 0.
+2022-08-24 00:24:49,867 - Mortality wood/non_wood:  PIGL/1.0 wood = 0.0182202978975579. leaf = 0.118353573752685.
+2022-08-24 00:24:49,870 - currentDeadWoodC:2,2,99.4654349000708, 76.4439301063025, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-08-24 00:24:49,870 - SurfaceDeadWoodC: 2,2,199.376360997081
+2022-08-24 00:24:49,871 -    SoilWater:  month=3, PET=1.27315742917445.
+2022-08-24 00:24:49,871 -    SoilWater:  month=3, AET=0.
+2022-08-24 00:24:49,872 -    SoilWater:  month=3, baseflow=5.40701714802463.
+2022-08-24 00:24:49,872 - Mortality wood/non_wood:  PIGL/91.0 wood = 12.4724103059729. leaf = 0.879236277853715.
+2022-08-24 00:24:49,874 - Mortality wood/non_wood:  THOC2/61.0 wood = 0.73989872297785. leaf = 0.142270140338582.
+2022-08-24 00:24:49,880 - Mortality wood/non_wood:  BEPA/61.0 wood = 1.00615495977113. leaf = 0.
+2022-08-24 00:24:49,883 - Mortality wood/non_wood:  BEPA/31.0 wood = 0.738013468171476. leaf = 0.
+2022-08-24 00:24:49,885 - Mortality wood/non_wood:  THOC2/31.0 wood = 0.592387260027688. leaf = 0.10870336781989.
+2022-08-24 00:24:49,887 - Mortality wood/non_wood:  THOC2/11.0 wood = 0.498400572945652. leaf = 0.0875413014433499.
+2022-08-24 00:24:49,889 - Mortality wood/non_wood:  PIGL/11.0 wood = 1.00672902242975. leaf = 0.229107293988814.
+2022-08-24 00:24:49,893 - Mortality wood/non_wood:  BEPA/11.0 wood = 0.578336096467339. leaf = 0.
+2022-08-24 00:24:49,895 - Mortality wood/non_wood:  PIGL/1.0 wood = 0.0298154536783034. leaf = 0.115201147276569.
+2022-08-24 00:24:49,897 - currentDeadWoodC:2,3,99.1671698423222, 84.4910150688441, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-08-24 00:24:49,898 - SurfaceDeadWoodC: 2,3,206.996171781076
+2022-08-24 00:24:49,898 -    SoilWater:  month=4, PET=5.22641119194906.
+2022-08-24 00:24:49,899 -    SoilWater:  month=4, Remaining PET=5.22641119194906.
+2022-08-24 00:24:49,899 -    SoilWater:  month=4, addToSoil=194.336621674471.
+2022-08-24 00:24:49,900 -    SoilWater:  month=4, AET=3.13584671516944.
+2022-08-24 00:24:49,900 -    SoilWater:  month=4, baseflow=14.5480859867746.
+2022-08-24 00:24:49,900 - Mortality wood/non_wood:  PIGL/91.0 wood = 12.8171052806814. leaf = 0.894626526925843.
+2022-08-24 00:24:49,903 - Mortality wood/non_wood:  THOC2/61.0 wood = 0.896207571744208. leaf = 0.144759369928721.
+2022-08-24 00:24:49,905 - Mortality wood/non_wood:  BEPA/61.0 wood = 1.03954898148436. leaf = 6.23692957519273E-08.
+2022-08-24 00:24:49,910 - Mortality wood/non_wood:  BEPA/31.0 wood = 0.771409633930158. leaf = 6.57864781124651E-09.
+2022-08-24 00:24:49,912 - Mortality wood/non_wood:  THOC2/31.0 wood = 0.711790314574553. leaf = 0.1106024411464.
+2022-08-24 00:24:49,914 - Mortality wood/non_wood:  THOC2/11.0 wood = 0.59612655002683. leaf = 0.0891361049859797.
+2022-08-24 00:24:49,916 - Mortality wood/non_wood:  PIGL/11.0 wood = 1.09973559014523. leaf = 0.233155091590431.
+2022-08-24 00:24:49,918 - Mortality wood/non_wood:  BEPA/11.0 wood = 0.603818605260565. leaf = 1.12133030799131E-09.
+2022-08-24 00:24:49,920 - Mortality wood/non_wood:  PIGL/1.0 wood = 0.0417983890466756. leaf = 0.1133256786966.
+2022-08-24 00:24:49,923 - currentDeadWoodC:2,4,98.7713847475958, 92.8504000795478, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-08-24 00:24:49,926 - SurfaceDeadWoodC: 2,4,214.785056691288
+2022-08-24 00:24:49,927 -    SoilWater:  month=5, PET=9.27483738177656.
+2022-08-24 00:24:49,927 -    SoilWater:  month=5, Remaining PET=9.27483738177656.
+2022-08-24 00:24:49,928 -    SoilWater:  month=5, addToSoil=96.9635708672894.
+2022-08-24 00:24:49,928 -    SoilWater:  month=5, AET=5.56490242906593.
+2022-08-24 00:24:49,929 -    SoilWater:  month=5, baseflow=13.2949440129077.
+2022-08-24 00:24:49,929 - Mortality wood/non_wood:  PIGL/92.0 wood = 13.2849526553531. leaf = 0.94635034056099.
+2022-08-24 00:24:49,931 - Mortality wood/non_wood:  THOC2/62.0 wood = 1.10548812971523. leaf = 0.153096807281159.
+2022-08-24 00:24:49,933 - Mortality wood/non_wood:  BEPA/62.0 wood = 1.08798683706371. leaf = 2.6159542116406E-07.
+2022-08-24 00:24:49,935 - Mortality wood/non_wood:  BEPA/32.0 wood = 0.819524647773484. leaf = 2.73962116708053E-08.
+2022-08-24 00:24:49,937 - Mortality wood/non_wood:  THOC2/32.0 wood = 0.871517793302872. leaf = 0.116967065684615.
+2022-08-24 00:24:49,941 - Mortality wood/non_wood:  THOC2/12.0 wood = 0.72695934683642. leaf = 0.0943853416639955.
+2022-08-24 00:24:49,944 - Mortality wood/non_wood:  PIGL/12.0 wood = 1.22500932631058. leaf = 0.246662260952909.
+2022-08-24 00:24:49,946 - Mortality wood/non_wood:  BEPA/12.0 wood = 0.640620650274972. leaf = 4.66785129300066E-09.
+2022-08-24 00:24:49,948 - Mortality wood/non_wood:  PIGL/2.0 wood = 0.0578737981346399. leaf = 0.11272035216136.
+2022-08-24 00:24:49,950 - currentDeadWoodC:2,5,98.2148569223871, 101.590115179197, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-08-24 00:24:49,951 - SurfaceDeadWoodC: 2,5,222.71739785423
+2022-08-24 00:24:49,960 - nurseryLogC:2,0,0,0
+2022-08-24 00:24:49,960 - decayClassAreaRatios:2,0,0,0
+2022-08-24 00:24:49,961 - original_lightProbability:2,ABBA,1
+2022-08-24 00:24:49,961 - siteShade:5
+2022-08-24 00:24:49,961 - siteLAI:8.59496410850057
+2022-08-24 00:24:49,962 - nurseryLogPenalty:2,ABBA,0
+2022-08-24 00:24:49,962 - modified_lightProbability:2,ABBA,1
+2022-08-24 00:24:49,962 - regeneration_type:2,ABBA,surface
+2022-08-24 00:24:49,963 - original_lightProbability:2,ACSA3,1
+2022-08-24 00:24:49,963 - siteShade:5
+2022-08-24 00:24:49,963 - siteLAI:8.59496410850057
+2022-08-24 00:24:49,964 - nurseryLogPenalty:2,ACSA3,0
+2022-08-24 00:24:49,964 - modified_lightProbability:2,ACSA3,1
+2022-08-24 00:24:49,965 - regeneration_type:2,ACSA3,surface
+2022-08-24 00:24:49,965 - original_lightProbability:2,BEAL2,0.1
+2022-08-24 00:24:49,965 - siteShade:5
+2022-08-24 00:24:49,966 - siteLAI:8.59496410850057
+2022-08-24 00:24:49,966 - nurseryLogPenalty:2,BEAL2,0
+2022-08-24 00:24:49,966 - modified_lightProbability:2,BEAL2,0.1
+2022-08-24 00:24:49,967 - regeneration_type:2,BEAL2,failed
+2022-08-24 00:24:49,967 - original_lightProbability:2,BEPA,0
+2022-08-24 00:24:49,968 - siteShade:5
+2022-08-24 00:24:49,968 - siteLAI:8.59496410850057
+2022-08-24 00:24:49,968 - nurseryLogPenalty:2,BEPA,0
+2022-08-24 00:24:49,969 - modified_lightProbability:2,BEPA,0
+2022-08-24 00:24:49,969 - regeneration_type:2,BEPA,failed
+2022-08-24 00:24:49,970 - original_lightProbability:2,FRNI,0.25
+2022-08-24 00:24:49,970 - siteShade:5
+2022-08-24 00:24:49,970 - siteLAI:8.59496410850057
+2022-08-24 00:24:49,971 - nurseryLogPenalty:2,FRNI,0
+2022-08-24 00:24:49,971 - modified_lightProbability:2,FRNI,0.25
+2022-08-24 00:24:49,976 - regeneration_type:2,FRNI,surface
+2022-08-24 00:24:49,976 - original_lightProbability:2,PIGL,0.25
+2022-08-24 00:24:49,977 - siteShade:5
+2022-08-24 00:24:49,978 - siteLAI:8.59496410850057
+2022-08-24 00:24:49,978 - nurseryLogPenalty:2,PIGL,0
+2022-08-24 00:24:49,979 - modified_lightProbability:2,PIGL,0.25
+2022-08-24 00:24:49,979 - regeneration_type:2,PIGL,failed
+2022-08-24 00:24:49,979 - original_lightProbability:2,PIMA,0.1
+2022-08-24 00:24:49,980 - siteShade:5
+2022-08-24 00:24:49,980 - siteLAI:8.59496410850057
+2022-08-24 00:24:49,980 - nurseryLogPenalty:2,PIMA,0
+2022-08-24 00:24:49,981 - modified_lightProbability:2,PIMA,0.1
+2022-08-24 00:24:49,981 - regeneration_type:2,PIMA,failed
+2022-08-24 00:24:49,981 - original_lightProbability:2,PIBA2,0
+2022-08-24 00:24:49,982 - siteShade:5
+2022-08-24 00:24:49,982 - siteLAI:8.59496410850057
+2022-08-24 00:24:49,983 - nurseryLogPenalty:2,PIBA2,0
+2022-08-24 00:24:49,983 - modified_lightProbability:2,PIBA2,0
+2022-08-24 00:24:49,983 - regeneration_type:2,PIBA2,failed
+2022-08-24 00:24:49,984 - original_lightProbability:2,PIST,0.1
+2022-08-24 00:24:49,984 - siteShade:5
+2022-08-24 00:24:49,984 - siteLAI:8.59496410850057
+2022-08-24 00:24:49,985 - nurseryLogPenalty:2,PIST,0
+2022-08-24 00:24:49,985 - modified_lightProbability:2,PIST,0.1
+2022-08-24 00:24:49,986 - regeneration_type:2,PIST,failed
+2022-08-24 00:24:49,986 - original_lightProbability:2,POTR5,0
+2022-08-24 00:24:49,986 - siteShade:5
+2022-08-24 00:24:49,987 - siteLAI:8.59496410850057
+2022-08-24 00:24:49,988 - nurseryLogPenalty:2,POTR5,0
+2022-08-24 00:24:49,991 - modified_lightProbability:2,POTR5,0
+2022-08-24 00:24:49,991 - regeneration_type:2,POTR5,failed
+2022-08-24 00:24:49,991 - original_lightProbability:2,QURU,0
+2022-08-24 00:24:49,992 - siteShade:5
+2022-08-24 00:24:49,992 - siteLAI:8.59496410850057
+2022-08-24 00:24:49,993 - nurseryLogPenalty:2,QURU,0
+2022-08-24 00:24:49,993 - modified_lightProbability:2,QURU,0
+2022-08-24 00:24:49,993 - regeneration_type:2,QURU,failed
+2022-08-24 00:24:49,994 - original_lightProbability:2,THOC2,0.25
+2022-08-24 00:24:49,994 - siteShade:5
+2022-08-24 00:24:49,994 - siteLAI:8.59496410850057
+2022-08-24 00:24:49,995 - nurseryLogPenalty:2,THOC2,0
+2022-08-24 00:24:49,995 - modified_lightProbability:2,THOC2,0.25
+2022-08-24 00:24:49,995 - regeneration_type:2,THOC2,surface
+2022-08-24 00:24:49,996 - original_lightProbability:2,HRDWD,0
+2022-08-24 00:24:49,996 - siteShade:5
+2022-08-24 00:24:49,996 - siteLAI:8.59496410850057
+2022-08-24 00:24:49,997 - nurseryLogPenalty:2,HRDWD,0
+2022-08-24 00:24:49,997 - modified_lightProbability:2,HRDWD,0
+2022-08-24 00:24:49,998 - regeneration_type:2,HRDWD,failed
+2022-08-24 00:24:49,998 - original_lightProbability:2,SFTWD,0.25
+2022-08-24 00:24:49,998 - siteShade:5
+2022-08-24 00:24:49,999 - siteLAI:8.59496410850057
+2022-08-24 00:24:49,999 - nurseryLogPenalty:2,SFTWD,0
+2022-08-24 00:24:49,999 - modified_lightProbability:2,SFTWD,0.25
+2022-08-24 00:24:50,000 - regeneration_type:2,SFTWD,failed
+2022-08-24 00:24:50,372 - Current time: 3
+2022-08-24 00:24:50,374 - Running Biomass Browse ...
+2022-08-24 00:24:50,374 - Processing landscape for ungulate browse events ...
+2022-08-24 00:24:50,375 -    Calculating Site Preference & Forage.
+2022-08-24 00:24:50,376 -    Calculating Zone Population.
+2022-08-24 00:24:50,376 - Dynamic Population is True
+2022-08-24 00:24:50,377 - oldPop = 2.  popR = 0.248938125697896. popMortality = 0.217669456219301. popPredation = 0. popHarvest = 0. popGrowth = -0.176660154607933. newPop = 1.
+2022-08-24 00:24:50,377 - Using dynamic population. PopZone Index 0.  Population = 1. K = 4.16288853177502. EffectivePop = 1.
+2022-08-24 00:24:50,377 -    Calculating HSI.
+2022-08-24 00:24:50,378 -    Calculating Local Population.
+2022-08-24 00:24:50,378 -    Disturbing Sites
+2022-08-24 00:24:50,379 - BEPA/62.0. availForage = 0, browsePref = 0.25, firstPassRemoval = 0
+2022-08-24 00:24:50,379 - BEPA/32.0. availForage = 2.1434688, browsePref = 0.25, firstPassRemoval = 0.5358672
+2022-08-24 00:24:50,380 - BEPA/12.0. availForage = 3.0970368, browsePref = 0.25, firstPassRemoval = 1.3101264
+2022-08-24 00:24:50,380 - PIGL/92.0. availForage = 0, browsePref = 0, firstPassRemoval = 1.3101264
+2022-08-24 00:24:50,381 - PIGL/12.0. availForage = 0, browsePref = 0, firstPassRemoval = 1.3101264
+2022-08-24 00:24:50,381 - PIGL/2.0. availForage = 0, browsePref = 0, firstPassRemoval = 1.3101264
+2022-08-24 00:24:50,381 - THOC2/62.0. availForage = 0, browsePref = 0.05, firstPassRemoval = 1.3101264
+2022-08-24 00:24:50,382 - THOC2/32.0. availForage = 2.91852, browsePref = 0.05, firstPassRemoval = 1.4560524
+2022-08-24 00:24:50,382 - THOC2/12.0. availForage = 3.2389632, browsePref = 0.05, firstPassRemoval = 1.61800056
+2022-08-24 00:24:50,383 - BEPA/62.0. secondPassRemoval = 0, finalRemoval = 0
+2022-08-24 00:24:50,383 - BEPA/32.0. secondPassRemoval = 0.458101572424132, finalRemoval = 0.993968772424132
+2022-08-24 00:24:50,384 - Setting LastBrowseProportion :  BEPA/32.0/0.0945988248462133.
+2022-08-24 00:24:50,384 - Recording cohort biomass removal :  BEPA/32.0/0.993968772424132.
+2022-08-24 00:24:50,385 - Recording reduction:  BEPA/32.0/0.993968772424132.
+2022-08-24 00:24:50,385 - BEPA/12.0. secondPassRemoval = 0.661897867575867, finalRemoval = 1.43615706757587
+2022-08-24 00:24:50,386 - Setting LastBrowseProportion :  BEPA/12.0/0.174358618344001.
+2022-08-24 00:24:50,388 - Recording cohort biomass removal :  BEPA/12.0/1.43615706757587.
+2022-08-24 00:24:50,390 - Recording reduction:  BEPA/12.0/1.43615706757587.
+2022-08-24 00:24:50,391 - Setting LastBrowseProportion :  THOC2/32.0/0.0165.
+2022-08-24 00:24:50,392 - Recording cohort biomass removal :  THOC2/32.0/0.145926.
+2022-08-24 00:24:50,392 - Recording reduction:  THOC2/32.0/0.145926.
+2022-08-24 00:24:50,393 - Setting LastBrowseProportion :  THOC2/12.0/0.0216.
+2022-08-24 00:24:50,393 - Recording cohort biomass removal :  THOC2/12.0/0.16194816.
+2022-08-24 00:24:50,394 - Recording reduction:  THOC2/12.0/0.16194816.
+2022-08-24 00:24:50,394 - Reducing CohortBiomass NOW!
+2022-08-24 00:24:50,395 - Cohort Partial Mortality:  (1, 1)
+2022-08-24 00:24:50,395 - waste input is 1.000515, CN ratio of waste is 50
+2022-08-24 00:24:50,395 - EVENT: Cohort Partial Mortality: species=BEPA, age=12, disturbance=disturbance:browse.
+2022-08-24 00:24:50,396 -        Cohort Reductions:  Foliar=0.00.  Wood=0.00.
+2022-08-24 00:24:50,396 -        InputB/TotalB:  Foliar=1.00/0.18, Wood=0.0/312.0.
+2022-08-24 00:24:50,521 - Running NECN Succession ...
+2022-08-24 00:24:50,523 -    SoilWater:  month=6, PET=11.7664360785804.
+2022-08-24 00:24:50,524 -    SoilWater:  month=6, Remaining PET=11.7664360785804.
+2022-08-24 00:24:50,524 -    SoilWater:  month=6, addToSoil=81.1771857885679.
+2022-08-24 00:24:50,524 -    SoilWater:  month=6, AET=7.05986164714823.
+2022-08-24 00:24:50,525 -    SoilWater:  month=6, baseflow=11.5748886701376.
+2022-08-24 00:24:50,525 - Mortality wood/non_wood:  PIGL/92.0 wood = 13.5245965049544. leaf = 1.0454787882382.
+2022-08-24 00:24:50,527 - Mortality wood/non_wood:  THOC2/62.0 wood = 1.21485746552841. leaf = 0.169076316376654.
+2022-08-24 00:24:50,531 - Mortality wood/non_wood:  BEPA/62.0 wood = 1.10574905082071. leaf = 6.36223021349451E-07.
+2022-08-24 00:24:50,533 - Mortality wood/non_wood:  BEPA/32.0 wood = 0.837493651566679. leaf = 6.64443962122588E-08.
+2022-08-24 00:24:50,536 - Mortality wood/non_wood:  THOC2/32.0 wood = 0.954894693052898. leaf = 0.129165679964147.
+2022-08-24 00:24:50,538 - Mortality wood/non_wood:  THOC2/12.0 wood = 0.795164937081535. leaf = 0.104408615949056.
+2022-08-24 00:24:50,540 - Mortality wood/non_wood:  PIGL/12.0 wood = 1.29148450329559. leaf = 0.272533422123594.
+2022-08-24 00:24:50,543 - Mortality wood/non_wood:  BEPA/12.0 wood = 0.652459804542234. leaf = 1.12819658524289E-08.
+2022-08-24 00:24:50,547 - Mortality wood/non_wood:  PIGL/2.0 wood = 0.0663735118097369. leaf = 0.113749963839465.
+2022-08-24 00:24:50,550 - currentDeadWoodC:3,6,97.5022064489355, 100.852973712528, 9.53852707347975, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-08-24 00:24:50,550 - SurfaceDeadWoodC: 3,6,230.478341811208
+2022-08-24 00:24:50,551 -    SoilWater:  month=7, PET=11.0256218924706.
+2022-08-24 00:24:50,551 -    SoilWater:  month=7, Remaining PET=11.0256218924706.
+2022-08-24 00:24:50,552 -    SoilWater:  month=7, addToSoil=99.0376157190117.
+2022-08-24 00:24:50,552 -    SoilWater:  month=7, AET=6.61537313548239.
+2022-08-24 00:24:50,552 -    SoilWater:  month=7, baseflow=11.7816898093714.
+2022-08-24 00:24:50,553 - Mortality wood/non_wood:  PIGL/92.0 wood = 13.5431913628345. leaf = 1.16666434558588.
+2022-08-24 00:24:50,555 - Mortality wood/non_wood:  THOC2/62.0 wood = 1.22594737662175. leaf = 0.18863532006891.
+2022-08-24 00:24:50,557 - Mortality wood/non_wood:  BEPA/62.0 wood = 1.10536547951163. leaf = 1.07865723999166E-06.
+2022-08-24 00:24:50,559 - Mortality wood/non_wood:  BEPA/32.0 wood = 0.837615671355342. leaf = 1.1253995311961E-07.
+2022-08-24 00:24:50,563 - Mortality wood/non_wood:  THOC2/32.0 wood = 0.963378392389347. leaf = 0.144093979611259.
+2022-08-24 00:24:50,566 - Mortality wood/non_wood:  THOC2/12.0 wood = 0.802168353433076. leaf = 0.116663457585475.
+2022-08-24 00:24:50,568 - Mortality wood/non_wood:  PIGL/12.0 wood = 1.30017238203818. leaf = 0.304196680958429.
+2022-08-24 00:24:50,570 - Mortality wood/non_wood:  BEPA/12.0 wood = 0.652539219171496. leaf = 1.91290349953635E-08.
+2022-08-24 00:24:50,572 - Mortality wood/non_wood:  PIGL/2.0 wood = 0.0675157836702072. leaf = 0.115570318028102.
+2022-08-24 00:24:50,575 - currentDeadWoodC:3,7,96.7783908859903, 100.104283456163, 19.0302083729931, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-08-24 00:24:50,576 - SurfaceDeadWoodC: 3,7,238.158177138369
+2022-08-24 00:24:50,576 -    SoilWater:  month=8, PET=6.42190113834007.
+2022-08-24 00:24:50,577 -    SoilWater:  month=8, Remaining PET=6.42190113834007.
+2022-08-24 00:24:50,577 -    SoilWater:  month=8, addToSoil=146.668845422364.
+2022-08-24 00:24:50,579 -    SoilWater:  month=8, AET=3.85314068300404.
+2022-08-24 00:24:50,579 -    SoilWater:  month=8, baseflow=14.9703348303849.
+2022-08-24 00:24:50,579 - Mortality wood/non_wood:  PIGL/92.0 wood = 13.2011463369013. leaf = 1.28615623466178.
+2022-08-24 00:24:50,581 - Mortality wood/non_wood:  THOC2/62.0 wood = 1.0775928366227. leaf = 0.207957467453193.
+2022-08-24 00:24:50,583 - Mortality wood/non_wood:  BEPA/62.0 wood = 1.07647479587009. leaf = 1.52331496576385E-06.
+2022-08-24 00:24:50,586 - Mortality wood/non_wood:  BEPA/32.0 wood = 0.809552363371268. leaf = 1.58866595715758E-07.
+2022-08-24 00:24:50,588 - Mortality wood/non_wood:  THOC2/32.0 wood = 0.849855337967112. leaf = 0.158837266131614.
+2022-08-24 00:24:50,590 - Mortality wood/non_wood:  THOC2/12.0 wood = 0.708919497416341. leaf = 0.128763505781514.
+2022-08-24 00:24:50,595 - Mortality wood/non_wood:  PIGL/12.0 wood = 1.21368647839347. leaf = 0.335476694531983.
+2022-08-24 00:24:50,597 - Mortality wood/non_wood:  BEPA/12.0 wood = 0.630935612336484. leaf = 2.70108853502665E-08.
+2022-08-24 00:24:50,600 - Mortality wood/non_wood:  PIGL/2.0 wood = 0.0565933129920374. leaf = 0.117391824574374.
+2022-08-24 00:24:50,603 - currentDeadWoodC:3,8,96.277805115245, 99.5864945217734, 28.1077010870393, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-08-24 00:24:50,603 - SurfaceDeadWoodC: 3,8,245.978417063929
+2022-08-24 00:24:50,604 -    SoilWater:  month=9, PET=2.32566191431238.
+2022-08-24 00:24:50,604 -    SoilWater:  month=9, Remaining PET=2.32566191431238.
+2022-08-24 00:24:50,604 -    SoilWater:  month=9, addToSoil=58.503923339275.
+2022-08-24 00:24:50,605 -    SoilWater:  month=9, AET=1.39539714858743.
+2022-08-24 00:24:50,605 -    SoilWater:  month=9, baseflow=11.4236082913629.
+2022-08-24 00:24:50,606 - Mortality wood/non_wood:  PIGL/92.0 wood = 12.625027845901. leaf = 1.36717709856147.
+2022-08-24 00:24:50,607 - Mortality wood/non_wood:  THOC2/62.0 wood = 0.826025358660753. leaf = 0.221094422697184.
+2022-08-24 00:24:50,611 - Mortality wood/non_wood:  BEPA/62.0 wood = 1.01461860157019. leaf = 0.700626492500305.
+2022-08-24 00:24:50,613 - Mortality wood/non_wood:  BEPA/32.0 wood = 0.749032571891701. leaf = 0.693213939666748.
+2022-08-24 00:24:50,615 - Mortality wood/non_wood:  THOC2/32.0 wood = 0.65763399055292. leaf = 0.16885675744525.
+2022-08-24 00:24:50,617 - Mortality wood/non_wood:  THOC2/12.0 wood = 0.551603992753113. leaf = 0.136995035894486.
+2022-08-24 00:24:50,619 - Mortality wood/non_wood:  PIGL/12.0 wood = 1.06584646205105. leaf = 0.35675150868507.
+2022-08-24 00:24:50,622 - Mortality wood/non_wood:  BEPA/12.0 wood = 0.584729824877385. leaf = 0.528233051300049.
+2022-08-24 00:24:50,624 - Mortality wood/non_wood:  PIGL/2.0 wood = 0.0379986642618343. leaf = 0.117996865314396.
+2022-08-24 00:24:50,629 - currentDeadWoodC:3,9,95.9515423376485, 99.2490193760233, 36.4964856997436, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-08-24 00:24:50,630 - SurfaceDeadWoodC: 3,9,253.545093038494
+2022-08-24 00:24:50,630 -    SoilWater:  month=10, PET=0.
+2022-08-24 00:24:50,631 -    SoilWater:  month=10, AET=0.
+2022-08-24 00:24:50,632 -    SoilWater:  month=10, baseflow=6.11504194025595.
+2022-08-24 00:24:50,632 - Mortality wood/non_wood:  PIGL/92.0 wood = 12.1101170642216. leaf = 1.38768169664506.
+2022-08-24 00:24:50,635 - Mortality wood/non_wood:  THOC2/62.0 wood = 0.603883667427024. leaf = 0.224451114477907.
+2022-08-24 00:24:50,637 - Mortality wood/non_wood:  BEPA/62.0 wood = 0.979427941160752. leaf = 0.0480131506919861.
+2022-08-24 00:24:50,639 - Mortality wood/non_wood:  BEPA/32.0 wood = 0.7147965196747. leaf = 0.0477410554885864.
+2022-08-24 00:24:50,643 - Mortality wood/non_wood:  THOC2/32.0 wood = 0.488311208078903. leaf = 0.171412555905038.
+2022-08-24 00:24:50,645 - Mortality wood/non_wood:  THOC2/12.0 wood = 0.41305590715374. leaf = 0.139118063062968.
+2022-08-24 00:24:50,647 - Mortality wood/non_wood:  PIGL/12.0 wood = 0.934453791510796. leaf = 0.362207356117559.
+2022-08-24 00:24:50,649 - Mortality wood/non_wood:  BEPA/12.0 wood = 0.558637018414043. leaf = 0.0363814532756805.
+2022-08-24 00:24:50,651 - Mortality wood/non_wood:  PIGL/2.0 wood = 0.0215536610591041. leaf = 0.116657931707139.
+2022-08-24 00:24:50,654 - currentDeadWoodC:3,10,95.9434558538005, 99.2406549915375, 44.4001347714308, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-08-24 00:24:50,655 - SurfaceDeadWoodC: 3,10,261.428300968932
+2022-08-24 00:24:50,655 -    SoilWater:  month=11, PET=0.
+2022-08-24 00:24:50,656 -    SoilWater:  month=11, AET=0.
+2022-08-24 00:24:50,656 -    SoilWater:  month=11, baseflow=3.24097223562535.
+2022-08-24 00:24:50,658 - Mortality wood/non_wood:  PIGL/92.0 wood = 12.0323963078135. leaf = 1.35628397784283.
+2022-08-24 00:24:50,661 - Mortality wood/non_wood:  THOC2/62.0 wood = 0.576119604344794. leaf = 0.219403645890537.
+2022-08-24 00:24:50,663 - Mortality wood/non_wood:  BEPA/62.0 wood = 0.975623141609094. leaf = 0.00277996063232422.
+2022-08-24 00:24:50,665 - Mortality wood/non_wood:  BEPA/32.0 wood = 0.711210382352388. leaf = 0.00313560292124748.
+2022-08-24 00:24:50,667 - Mortality wood/non_wood:  THOC2/32.0 wood = 0.467194329565316. leaf = 0.167556910423902.
+2022-08-24 00:24:50,669 - Mortality wood/non_wood:  THOC2/12.0 wood = 0.395760177960438. leaf = 0.135994762841764.
+2022-08-24 00:24:50,672 - Mortality wood/non_wood:  PIGL/12.0 wood = 0.91736661595743. leaf = 0.354067493797233.
+2022-08-24 00:24:50,676 - Mortality wood/non_wood:  BEPA/12.0 wood = 0.555866481104841. leaf = 0.00240776687860489.
+2022-08-24 00:24:50,679 - Mortality wood/non_wood:  PIGL/2.0 wood = 0.0195393528153302. leaf = 0.113659841525161.
+2022-08-24 00:24:50,682 - currentDeadWoodC:3,11,95.9386781779622, 99.2357131257759, 52.223539982382, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-08-24 00:24:50,682 - SurfaceDeadWoodC: 3,11,269.239586635718
+2022-08-24 00:24:50,682 -    SoilWater:  month=0, PET=0.
+2022-08-24 00:24:50,683 -    SoilWater:  month=0, AET=0.
+2022-08-24 00:24:50,684 -    SoilWater:  month=0, baseflow=1.71771528874498.
+2022-08-24 00:24:50,684 - Mortality wood/non_wood:  PIGL/92.0 wood = 12.0131356638921. leaf = 1.31947260344904.
+2022-08-24 00:24:50,687 - Mortality wood/non_wood:  THOC2/62.0 wood = 0.574230156520898. leaf = 0.213478489710324.
+2022-08-24 00:24:50,690 - Mortality wood/non_wood:  BEPA/62.0 wood = 0.973864375919271. leaf = 0.
+2022-08-24 00:24:50,693 - Mortality wood/non_wood:  BEPA/32.0 wood = 0.709930000616103. leaf = 0.
+2022-08-24 00:24:50,695 - Mortality wood/non_wood:  THOC2/32.0 wood = 0.465691698078177. leaf = 0.163035546174815.
+2022-08-24 00:24:50,697 - Mortality wood/non_wood:  THOC2/12.0 wood = 0.394512206724147. leaf = 0.132325973530142.
+2022-08-24 00:24:50,699 - Mortality wood/non_wood:  PIGL/12.0 wood = 0.915444143147407. leaf = 0.344514522195615.
+2022-08-24 00:24:50,701 - Mortality wood/non_wood:  BEPA/12.0 wood = 0.554865866417405. leaf = 0.
+2022-08-24 00:24:50,704 - Mortality wood/non_wood:  PIGL/2.0 wood = 0.0194306123283184. leaf = 0.110538786836298.
+2022-08-24 00:24:50,708 - currentDeadWoodC:3,0,95.9341900925236, 99.2310708024969, 60.0326506973602, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-08-24 00:24:50,709 - SurfaceDeadWoodC: 3,0,277.037272545519
+2022-08-24 00:24:50,709 -    SoilWater:  month=1, PET=0.
+2022-08-24 00:24:50,710 -    SoilWater:  month=1, AET=0.
+2022-08-24 00:24:50,710 -    SoilWater:  month=1, baseflow=0.910389105082514.
+2022-08-24 00:24:50,711 - Mortality wood/non_wood:  PIGL/92.0 wood = 11.9970046651282. leaf = 1.28343197422736.
+2022-08-24 00:24:50,713 - Mortality wood/non_wood:  THOC2/62.0 wood = 0.573709764426342. leaf = 0.207676993662715.
+2022-08-24 00:24:50,715 - Mortality wood/non_wood:  BEPA/62.0 wood = 0.972108800983594. leaf = 0.
+2022-08-24 00:24:50,718 - Mortality wood/non_wood:  BEPA/32.0 wood = 0.708651926368894. leaf = 0.
+2022-08-24 00:24:50,721 - Mortality wood/non_wood:  THOC2/32.0 wood = 0.465262117805597. leaf = 0.158607668656014.
+2022-08-24 00:24:50,725 - Mortality wood/non_wood:  THOC2/12.0 wood = 0.394142694315131. leaf = 0.128732829222414.
+2022-08-24 00:24:50,727 - Mortality wood/non_wood:  PIGL/12.0 wood = 0.91435716596546. leaf = 0.335158882034605.
+2022-08-24 00:24:50,729 - Mortality wood/non_wood:  BEPA/12.0 wood = 0.553867064537252. leaf = 0.
+2022-08-24 00:24:50,731 - Mortality wood/non_wood:  PIGL/2.0 wood = 0.0194287134768207. leaf = 0.107495748083833.
+2022-08-24 00:24:50,733 - currentDeadWoodC:3,1,95.9296389852323, 99.2263632915519, 67.8307431309123, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-08-24 00:24:50,734 - SurfaceDeadWoodC: 3,1,284.823739365845
+2022-08-24 00:24:50,735 -    SoilWater:  month=2, PET=0.
+2022-08-24 00:24:50,735 -    SoilWater:  month=2, AET=0.
+2022-08-24 00:24:50,736 -    SoilWater:  month=2, baseflow=0.836449540033333.
+2022-08-24 00:24:50,736 - Mortality wood/non_wood:  PIGL/92.0 wood = 12.0022705648656. leaf = 1.24846273696087.
+2022-08-24 00:24:50,742 - Mortality wood/non_wood:  THOC2/62.0 wood = 0.582490434431988. leaf = 0.202047835017133.
+2022-08-24 00:24:50,744 - Mortality wood/non_wood:  BEPA/62.0 wood = 0.970356416802061. leaf = 0.
+2022-08-24 00:24:50,747 - Mortality wood/non_wood:  BEPA/32.0 wood = 0.707376159610762. leaf = 0.
+2022-08-24 00:24:50,749 - Mortality wood/non_wood:  THOC2/32.0 wood = 0.47213030763459. leaf = 0.154311570604431.
+2022-08-24 00:24:50,752 - Mortality wood/non_wood:  THOC2/12.0 wood = 0.399741066530859. leaf = 0.125246681997765.
+2022-08-24 00:24:50,756 - Mortality wood/non_wood:  PIGL/12.0 wood = 0.918999480780581. leaf = 0.326081847694627.
+2022-08-24 00:24:50,758 - Mortality wood/non_wood:  BEPA/12.0 wood = 0.552870075464385. leaf = 0.
+2022-08-24 00:24:50,760 - Mortality wood/non_wood:  PIGL/2.0 wood = 0.0201618336146555. leaf = 0.104539665973551.
+2022-08-24 00:24:50,763 - currentDeadWoodC:3,2,95.9234704229212, 99.2199827400212, 75.6402852015426, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-08-24 00:24:50,763 - SurfaceDeadWoodC: 3,2,292.617469274888
+2022-08-24 00:24:50,764 -    SoilWater:  month=3, PET=3.31583032746252.
+2022-08-24 00:24:50,765 -    SoilWater:  month=3, AET=0.
+2022-08-24 00:24:50,765 -    SoilWater:  month=3, baseflow=8.25425985153048.
+2022-08-24 00:24:50,765 - Mortality wood/non_wood:  PIGL/92.0 wood = 12.5724679773957. leaf = 1.21676034438306.
+2022-08-24 00:24:50,767 - Mortality wood/non_wood:  THOC2/62.0 wood = 0.837146009450335. leaf = 0.196945212103267.
+2022-08-24 00:24:50,771 - Mortality wood/non_wood:  BEPA/62.0 wood = 1.00868832481991. leaf = 0.
+2022-08-24 00:24:50,773 - Mortality wood/non_wood:  BEPA/32.0 wood = 0.745893230925921. leaf = 0.
+2022-08-24 00:24:50,776 - Mortality wood/non_wood:  THOC2/32.0 wood = 0.665979034207601. leaf = 0.150425261793653.
+2022-08-24 00:24:50,778 - Mortality wood/non_wood:  THOC2/12.0 wood = 0.558350773065936. leaf = 0.122095049669517.
+2022-08-24 00:24:50,780 - Mortality wood/non_wood:  PIGL/12.0 wood = 1.07067348785911. leaf = 0.317874194911619.
+2022-08-24 00:24:50,782 - Mortality wood/non_wood:  BEPA/12.0 wood = 0.582232657205967. leaf = 0.
+2022-08-24 00:24:50,784 - Mortality wood/non_wood:  PIGL/2.0 wood = 0.0395080404366645. leaf = 0.10174498678228.
+2022-08-24 00:24:50,789 - currentDeadWoodC:3,3,95.5914118697725, 98.8765126407136, 83.8470648956126, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-08-24 00:24:50,790 - SurfaceDeadWoodC: 3,3,299.96987179061
+2022-08-24 00:24:50,790 -    SoilWater:  month=4, PET=7.26519112630954.
+2022-08-24 00:24:50,791 -    SoilWater:  month=4, Remaining PET=7.26519112630954.
+2022-08-24 00:24:50,791 -    SoilWater:  month=4, addToSoil=66.6534503216067.
+2022-08-24 00:24:50,792 -    SoilWater:  month=4, AET=4.35911467578572.
+2022-08-24 00:24:50,792 -    SoilWater:  month=4, baseflow=8.18094148984678.
+2022-08-24 00:24:50,793 - Mortality wood/non_wood:  PIGL/92.0 wood = 12.9733001213095. leaf = 1.24731981290185.
+2022-08-24 00:24:50,794 - Mortality wood/non_wood:  THOC2/62.0 wood = 1.01647502374117. leaf = 0.201878769257432.
+2022-08-24 00:24:50,796 - Mortality wood/non_wood:  BEPA/62.0 wood = 1.05073942112667. leaf = 1.49000194724442E-07.
+2022-08-24 00:24:50,798 - Mortality wood/non_wood:  BEPA/32.0 wood = 0.787795919899703. leaf = 1.55959663535541E-08.
+2022-08-24 00:24:50,800 - Mortality wood/non_wood:  THOC2/32.0 wood = 0.802888252165402. leaf = 0.154185552929176.
+2022-08-24 00:24:50,804 - Mortality wood/non_wood:  THOC2/12.0 wood = 0.670448343187375. leaf = 0.125199792956653.
+2022-08-24 00:24:50,806 - Mortality wood/non_wood:  PIGL/12.0 wood = 1.17903951744063. leaf = 0.325918769113827.
+2022-08-24 00:24:50,808 - Mortality wood/non_wood:  BEPA/12.0 wood = 0.614267096263302. leaf = 2.65588029372815E-09.
+2022-08-24 00:24:50,811 - Mortality wood/non_wood:  PIGL/2.0 wood = 0.0533736042516204. leaf = 0.101057539225908.
+2022-08-24 00:24:50,813 - currentDeadWoodC:3,4,95.1439479207445, 98.4136711160733, 92.4121624208338, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-08-24 00:24:50,814 - SurfaceDeadWoodC: 3,4,307.379616425185
+2022-08-24 00:24:50,814 -    SoilWater:  month=5, PET=8.74862154867196.
+2022-08-24 00:24:50,815 -    SoilWater:  month=5, Remaining PET=8.74862154867196.
+2022-08-24 00:24:50,815 -    SoilWater:  month=5, addToSoil=61.8945671605312.
+2022-08-24 00:24:50,816 -    SoilWater:  month=5, AET=5.24917292920318.
+2022-08-24 00:24:50,816 -    SoilWater:  month=5, baseflow=7.79693245117697.
+2022-08-24 00:24:50,819 - Mortality wood/non_wood:  PIGL/93.0 wood = 13.1251405599647. leaf = 1.32024348749385.
+2022-08-24 00:24:50,822 - Mortality wood/non_wood:  THOC2/63.0 wood = 1.08622288397173. leaf = 0.21364281219687.
+2022-08-24 00:24:50,824 - Mortality wood/non_wood:  BEPA/63.0 wood = 1.06521230227521. leaf = 4.96395380970168E-07.
+2022-08-24 00:24:50,826 - Mortality wood/non_wood:  BEPA/33.0 wood = 0.802466989937321. leaf = 5.18288597593439E-08.
+2022-08-24 00:24:50,828 - Mortality wood/non_wood:  THOC2/33.0 wood = 0.856005187552627. leaf = 0.163156813879752.
+2022-08-24 00:24:50,831 - Mortality wood/non_wood:  THOC2/13.0 wood = 0.713876043798449. leaf = 0.13256745497547.
+2022-08-24 00:24:50,833 - Mortality wood/non_wood:  PIGL/13.0 wood = 1.22205998634757. leaf = 0.345047312229209.
+2022-08-24 00:24:50,837 - Mortality wood/non_wood:  BEPA/13.0 wood = 0.625396672852808. leaf = 8.82429561043771E-09.
+2022-08-24 00:24:50,839 - Mortality wood/non_wood:  PIGL/3.0 wood = 0.058928669697799. leaf = 0.101820988076165.
+2022-08-24 00:24:50,842 - currentDeadWoodC:3,5,94.6424644679154, 97.894953649798, 101.067629220007, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-08-24 00:24:50,843 - SurfaceDeadWoodC: 3,5,314.735832060685
+2022-08-24 00:24:50,852 - nurseryLogC:3,0,0,0
+2022-08-24 00:24:50,853 - decayClassAreaRatios:3,0,0,0
+2022-08-24 00:24:50,854 - original_lightProbability:3,ABBA,1
+2022-08-24 00:24:50,854 - siteShade:5
+2022-08-24 00:24:50,855 - siteLAI:8.57183588088391
+2022-08-24 00:24:50,856 - nurseryLogPenalty:3,ABBA,0
+2022-08-24 00:24:50,856 - modified_lightProbability:3,ABBA,1
+2022-08-24 00:24:50,857 - regeneration_type:3,ABBA,surface
+2022-08-24 00:24:50,857 - original_lightProbability:3,ACSA3,1
+2022-08-24 00:24:50,858 - siteShade:5
+2022-08-24 00:24:50,859 - siteLAI:8.57183588088391
+2022-08-24 00:24:50,859 - nurseryLogPenalty:3,ACSA3,0
+2022-08-24 00:24:50,859 - modified_lightProbability:3,ACSA3,1
+2022-08-24 00:24:50,860 - regeneration_type:3,ACSA3,surface
+2022-08-24 00:24:50,860 - original_lightProbability:3,BEAL2,0.1
+2022-08-24 00:24:50,860 - siteShade:5
+2022-08-24 00:24:50,861 - siteLAI:8.57183588088391
+2022-08-24 00:24:50,861 - nurseryLogPenalty:3,BEAL2,0
+2022-08-24 00:24:50,862 - modified_lightProbability:3,BEAL2,0.1
+2022-08-24 00:24:50,862 - regeneration_type:3,BEAL2,failed
+2022-08-24 00:24:50,862 - original_lightProbability:3,BEPA,0
+2022-08-24 00:24:50,863 - siteShade:5
+2022-08-24 00:24:50,863 - siteLAI:8.57183588088391
+2022-08-24 00:24:50,863 - nurseryLogPenalty:3,BEPA,0
+2022-08-24 00:24:50,865 - modified_lightProbability:3,BEPA,0
+2022-08-24 00:24:50,868 - regeneration_type:3,BEPA,failed
+2022-08-24 00:24:50,868 - original_lightProbability:3,FRNI,0.25
+2022-08-24 00:24:50,869 - siteShade:5
+2022-08-24 00:24:50,869 - siteLAI:8.57183588088391
+2022-08-24 00:24:50,870 - nurseryLogPenalty:3,FRNI,0
+2022-08-24 00:24:50,870 - modified_lightProbability:3,FRNI,0.25
+2022-08-24 00:24:50,870 - regeneration_type:3,FRNI,failed
+2022-08-24 00:24:50,871 - original_lightProbability:3,PIGL,0.25
+2022-08-24 00:24:50,871 - siteShade:5
+2022-08-24 00:24:50,871 - siteLAI:8.57183588088391
+2022-08-24 00:24:50,872 - nurseryLogPenalty:3,PIGL,0
+2022-08-24 00:24:50,872 - modified_lightProbability:3,PIGL,0.25
+2022-08-24 00:24:50,872 - regeneration_type:3,PIGL,surface
+2022-08-24 00:24:50,873 - original_lightProbability:3,PIMA,0.1
+2022-08-24 00:24:50,873 - siteShade:5
+2022-08-24 00:24:50,873 - siteLAI:8.57183588088391
+2022-08-24 00:24:50,874 - nurseryLogPenalty:3,PIMA,0
+2022-08-24 00:24:50,874 - modified_lightProbability:3,PIMA,0.1
+2022-08-24 00:24:50,875 - regeneration_type:3,PIMA,failed
+2022-08-24 00:24:50,875 - original_lightProbability:3,PIBA2,0
+2022-08-24 00:24:50,876 - siteShade:5
+2022-08-24 00:24:50,876 - siteLAI:8.57183588088391
+2022-08-24 00:24:50,877 - nurseryLogPenalty:3,PIBA2,0
+2022-08-24 00:24:50,877 - modified_lightProbability:3,PIBA2,0
+2022-08-24 00:24:50,877 - regeneration_type:3,PIBA2,failed
+2022-08-24 00:24:50,878 - original_lightProbability:3,PIST,0.1
+2022-08-24 00:24:50,878 - siteShade:5
+2022-08-24 00:24:50,879 - siteLAI:8.57183588088391
+2022-08-24 00:24:50,882 - nurseryLogPenalty:3,PIST,0
+2022-08-24 00:24:50,883 - modified_lightProbability:3,PIST,0.1
+2022-08-24 00:24:50,883 - regeneration_type:3,PIST,failed
+2022-08-24 00:24:50,884 - original_lightProbability:3,POTR5,0
+2022-08-24 00:24:50,884 - siteShade:5
+2022-08-24 00:24:50,885 - siteLAI:8.57183588088391
+2022-08-24 00:24:50,885 - nurseryLogPenalty:3,POTR5,0
+2022-08-24 00:24:50,885 - modified_lightProbability:3,POTR5,0
+2022-08-24 00:24:50,886 - regeneration_type:3,POTR5,failed
+2022-08-24 00:24:50,886 - original_lightProbability:3,QURU,0
+2022-08-24 00:24:50,886 - siteShade:5
+2022-08-24 00:24:50,887 - siteLAI:8.57183588088391
+2022-08-24 00:24:50,887 - nurseryLogPenalty:3,QURU,0
+2022-08-24 00:24:50,888 - modified_lightProbability:3,QURU,0
+2022-08-24 00:24:50,888 - regeneration_type:3,QURU,failed
+2022-08-24 00:24:50,888 - original_lightProbability:3,THOC2,0.25
+2022-08-24 00:24:50,889 - siteShade:5
+2022-08-24 00:24:50,889 - siteLAI:8.57183588088391
+2022-08-24 00:24:50,889 - nurseryLogPenalty:3,THOC2,0
+2022-08-24 00:24:50,890 - modified_lightProbability:3,THOC2,0.25
+2022-08-24 00:24:50,890 - regeneration_type:3,THOC2,failed
+2022-08-24 00:24:50,890 - original_lightProbability:3,HRDWD,0
+2022-08-24 00:24:50,891 - siteShade:5
+2022-08-24 00:24:50,891 - siteLAI:8.57183588088391
+2022-08-24 00:24:50,892 - nurseryLogPenalty:3,HRDWD,0
+2022-08-24 00:24:50,892 - modified_lightProbability:3,HRDWD,0
+2022-08-24 00:24:50,892 - regeneration_type:3,HRDWD,failed
+2022-08-24 00:24:50,893 - original_lightProbability:3,SFTWD,0.25
+2022-08-24 00:24:50,893 - siteShade:5
+2022-08-24 00:24:50,893 - siteLAI:8.57183588088391
+2022-08-24 00:24:50,894 - nurseryLogPenalty:3,SFTWD,0
+2022-08-24 00:24:50,894 - modified_lightProbability:3,SFTWD,0.25
+2022-08-24 00:24:50,894 - regeneration_type:3,SFTWD,failed
+2022-08-24 00:24:51,223 - Current time: 4
+2022-08-24 00:24:51,225 - Running Biomass Browse ...
+2022-08-24 00:24:51,225 - Processing landscape for ungulate browse events ...
+2022-08-24 00:24:51,226 -    Calculating Site Preference & Forage.
+2022-08-24 00:24:51,227 -    Calculating Zone Population.
+2022-08-24 00:24:51,227 - Dynamic Population is True
+2022-08-24 00:24:51,228 - oldPop = 1.  popR = 0.199906222242862. popMortality = 0.151119637442753. popPredation = 0. popHarvest = 0. popGrowth = 0.00131335605081007. newPop = 1.
+2022-08-24 00:24:51,228 - Using dynamic population. PopZone Index 0.  Population = 1. K = 4.21092534696859. EffectivePop = 1.
+2022-08-24 00:24:51,228 -    Calculating HSI.
+2022-08-24 00:24:51,229 -    Calculating Local Population.
+2022-08-24 00:24:51,229 -    Disturbing Sites
+2022-08-24 00:24:51,230 - BEPA/63.0. availForage = 0, browsePref = 0.25, firstPassRemoval = 0
+2022-08-24 00:24:51,230 - BEPA/33.0. availForage = 2.2502832, browsePref = 0.25, firstPassRemoval = 0.5625708
+2022-08-24 00:24:51,230 - BEPA/13.0. availForage = 3.1344192, browsePref = 0.25, firstPassRemoval = 1.3461756
+2022-08-24 00:24:51,232 - PIGL/93.0. availForage = 0, browsePref = 0, firstPassRemoval = 1.3461756
+2022-08-24 00:24:51,232 - PIGL/13.0. availForage = 0, browsePref = 0, firstPassRemoval = 1.3461756
+2022-08-24 00:24:51,233 - PIGL/3.0. availForage = 0, browsePref = 0, firstPassRemoval = 1.3461756
+2022-08-24 00:24:51,233 - PIGL/1.0. availForage = 0, browsePref = 0, firstPassRemoval = 1.3461756
+2022-08-24 00:24:51,233 - THOC2/63.0. availForage = 0, browsePref = 0.05, firstPassRemoval = 1.3461756
+2022-08-24 00:24:51,234 - THOC2/33.0. availForage = 2.9094912, browsePref = 0.05, firstPassRemoval = 1.49165016
+2022-08-24 00:24:51,234 - THOC2/13.0. availForage = 3.23532, browsePref = 0.05, firstPassRemoval = 1.65341616
+2022-08-24 00:24:51,235 - BEPA/63.0. secondPassRemoval = 0, finalRemoval = 0
+2022-08-24 00:24:51,235 - BEPA/33.0. secondPassRemoval = 0.453250822950492, finalRemoval = 1.01582162295049
+2022-08-24 00:24:51,235 - Setting LastBrowseProportion :  BEPA/33.0/0.0984094418885619.
+2022-08-24 00:24:51,236 - Recording cohort biomass removal :  BEPA/33.0/1.01582162295049.
+2022-08-24 00:24:51,236 - Recording reduction:  BEPA/33.0/1.01582162295049.
+2022-08-24 00:24:51,236 - BEPA/13.0. secondPassRemoval = 0.631333017049508, finalRemoval = 1.41493781704951
+2022-08-24 00:24:51,237 - Setting LastBrowseProportion :  BEPA/13.0/0.175150749783312.
+2022-08-24 00:24:51,237 - Recording cohort biomass removal :  BEPA/13.0/1.41493781704951.
+2022-08-24 00:24:51,238 - Recording reduction:  BEPA/13.0/1.41493781704951.
+2022-08-24 00:24:51,238 - Setting LastBrowseProportion :  THOC2/33.0/0.0164.
+2022-08-24 00:24:51,238 - Recording cohort biomass removal :  THOC2/33.0/0.14547456.
+2022-08-24 00:24:51,239 - Recording reduction:  THOC2/33.0/0.14547456.
+2022-08-24 00:24:51,239 - Setting LastBrowseProportion :  THOC2/13.0/0.0215.
+2022-08-24 00:24:51,239 - Recording cohort biomass removal :  THOC2/13.0/0.161766.
+2022-08-24 00:24:51,240 - Recording reduction:  THOC2/13.0/0.161766.
+2022-08-24 00:24:51,240 - Reducing CohortBiomass NOW!
+2022-08-24 00:24:51,240 - Cohort Partial Mortality:  (1, 1)
+2022-08-24 00:24:51,241 - waste input is 1.001798, CN ratio of waste is 50
+2022-08-24 00:24:51,241 - EVENT: Cohort Partial Mortality: species=BEPA, age=13, disturbance=disturbance:browse.
+2022-08-24 00:24:51,241 -        Cohort Reductions:  Foliar=0.00.  Wood=0.00.
+2022-08-24 00:24:51,242 -        InputB/TotalB:  Foliar=1.00/0.24, Wood=0.0/305.3.
+2022-08-24 00:24:51,242 - Cohort Partial Mortality:  (1, 1)
+2022-08-24 00:24:51,243 - waste input is 1.002332, CN ratio of waste is 50
+2022-08-24 00:24:51,243 - EVENT: Cohort Partial Mortality: species=BEPA, age=33, disturbance=disturbance:browse.
+2022-08-24 00:24:51,243 -        Cohort Reductions:  Foliar=0.00.  Wood=0.00.
+2022-08-24 00:24:51,244 -        InputB/TotalB:  Foliar=1.00/0.31, Wood=0.0/390.6.
+2022-08-24 00:24:51,361 - Running NECN Succession ...
+2022-08-24 00:24:51,363 -    SoilWater:  month=6, PET=10.6946290146845.
+2022-08-24 00:24:51,363 -    SoilWater:  month=6, Remaining PET=10.6946290146845.
+2022-08-24 00:24:51,363 -    SoilWater:  month=6, addToSoil=83.2648855141262.
+2022-08-24 00:24:51,364 -    SoilWater:  month=6, AET=6.41677740881071.
+2022-08-24 00:24:51,364 -    SoilWater:  month=6, baseflow=8.82779342951697.
+2022-08-24 00:24:51,365 - Mortality wood/non_wood:  PIGL/93.0 wood = 13.2808834361999. leaf = 1.40748211822961.
+2022-08-24 00:24:51,366 - Mortality wood/non_wood:  THOC2/63.0 wood = 1.15841465661269. leaf = 0.227733869195255.
+2022-08-24 00:24:51,369 - Mortality wood/non_wood:  BEPA/63.0 wood = 1.07805087540658. leaf = 8.94873396045592E-07.
+2022-08-24 00:24:51,371 - Mortality wood/non_wood:  BEPA/33.0 wood = 0.813737460368363. leaf = 9.31321636048711E-08.
+2022-08-24 00:24:51,373 - Mortality wood/non_wood:  THOC2/33.0 wood = 0.910956772126201. leaf = 0.173901324399365.
+2022-08-24 00:24:51,379 - Mortality wood/non_wood:  THOC2/13.0 wood = 0.758788507127226. leaf = 0.141384118127716.
+2022-08-24 00:24:51,381 - Mortality wood/non_wood:  PIGL/13.0 wood = 1.26656504893392. leaf = 0.367953285028082.
+2022-08-24 00:24:51,384 - Mortality wood/non_wood:  BEPA/13.0 wood = 0.633543658402424. leaf = 1.58420533848024E-08.
+2022-08-24 00:24:51,389 - Mortality wood/non_wood:  PIGL/3.0 wood = 0.0646116746555306. leaf = 0.103103694644858.
+2022-08-24 00:24:51,393 - Mortality wood/non_wood:  PIGL/1.0 wood = 0.0595558421726961. leaf = 0.132722956168821.
+2022-08-24 00:24:51,397 - currentDeadWoodC:4,6,94.0695651505664, 97.302366036688, 100.455836446945, 9.35482826602533, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-08-24 00:24:51,398 - SurfaceDeadWoodC: 4,6,321.989523366834
+2022-08-24 00:24:51,398 -    SoilWater:  month=7, PET=10.2252994787525.
+2022-08-24 00:24:51,399 -    SoilWater:  month=7, Remaining PET=10.2252994787525.
+2022-08-24 00:24:51,400 -    SoilWater:  month=7, addToSoil=58.669709248499.
+2022-08-24 00:24:51,401 -    SoilWater:  month=7, AET=6.1351796872515.
+2022-08-24 00:24:51,402 -    SoilWater:  month=7, baseflow=7.88859015848143.
+2022-08-24 00:24:51,404 - Mortality wood/non_wood:  PIGL/93.0 wood = 13.3236511466991. leaf = 1.50831180633269.
+2022-08-24 00:24:51,411 - Mortality wood/non_wood:  THOC2/63.0 wood = 1.18026802093764. leaf = 0.244042622975137.
+2022-08-24 00:24:51,414 - Mortality wood/non_wood:  BEPA/63.0 wood = 1.08017620856342. leaf = 1.34704149737783E-06.
+2022-08-24 00:24:51,416 - Mortality wood/non_wood:  BEPA/33.0 wood = 0.816324515101978. leaf = 1.4025509087183E-07.
+2022-08-24 00:24:51,419 - Mortality wood/non_wood:  THOC2/33.0 wood = 0.927804805769637. leaf = 0.186334583083026.
+2022-08-24 00:24:51,424 - Mortality wood/non_wood:  THOC2/13.0 wood = 0.772503340861738. leaf = 0.151580074111668.
+2022-08-24 00:24:51,427 - Mortality wood/non_wood:  PIGL/13.0 wood = 1.28158704705026. leaf = 0.394458192605069.
+2022-08-24 00:24:51,429 - Mortality wood/non_wood:  BEPA/13.0 wood = 0.635479459494562. leaf = 2.38579826324151E-08.
+2022-08-24 00:24:51,432 - Mortality wood/non_wood:  PIGL/3.0 wood = 0.0665630248057892. leaf = 0.104878888427478.
+2022-08-24 00:24:51,434 - Mortality wood/non_wood:  PIGL/1.0 wood = 0.0614858829556833. leaf = 0.133610894041424.
+2022-08-24 00:24:51,438 - currentDeadWoodC:4,7,93.4739945560804, 96.6863280238344, 99.8198332706089, 18.704200666294, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-08-24 00:24:51,440 - SurfaceDeadWoodC: 4,7,329.149479685345
+2022-08-24 00:24:51,441 -    SoilWater:  month=8, PET=7.58614473057039.
+2022-08-24 00:24:51,441 -    SoilWater:  month=8, Remaining PET=7.58614473057039.
+2022-08-24 00:24:51,442 -    SoilWater:  month=8, addToSoil=68.9108405177718.
+2022-08-24 00:24:51,442 -    SoilWater:  month=8, AET=4.55168683834223.
+2022-08-24 00:24:51,443 -    SoilWater:  month=8, baseflow=8.11329692900084.
+2022-08-24 00:24:51,445 - Mortality wood/non_wood:  PIGL/93.0 wood = 13.1870249313254. leaf = 1.61075547819942.
+2022-08-24 00:24:51,448 - Mortality wood/non_wood:  THOC2/63.0 wood = 1.12314171273093. leaf = 0.260643228459513.
+2022-08-24 00:24:51,451 - Mortality wood/non_wood:  BEPA/63.0 wood = 1.06794308048336. leaf = 1.8114957201962E-06.
+2022-08-24 00:24:51,453 - Mortality wood/non_wood:  BEPA/33.0 wood = 0.804677647665921. leaf = 1.8865494846222E-07.
+2022-08-24 00:24:51,457 - Mortality wood/non_wood:  THOC2/33.0 wood = 0.883795316569855. leaf = 0.198986829604707.
+2022-08-24 00:24:51,460 - Mortality wood/non_wood:  THOC2/13.0 wood = 0.736422902718347. leaf = 0.161952433559773.
+2022-08-24 00:24:51,462 - Mortality wood/non_wood:  PIGL/13.0 wood = 1.2489822233669. leaf = 0.421435726109524.
+2022-08-24 00:24:51,465 - Mortality wood/non_wood:  BEPA/13.0 wood = 0.626524312307679. leaf = 3.20867989869748E-08.
+2022-08-24 00:24:51,468 - Mortality wood/non_wood:  PIGL/3.0 wood = 0.0624838745969158. leaf = 0.106747840416296.
+2022-08-24 00:24:51,473 - Mortality wood/non_wood:  PIGL/1.0 wood = 0.0574800955056463. leaf = 0.134615246520323.
+2022-08-24 00:24:51,477 - currentDeadWoodC:4,8,92.9609340226165, 96.155635618207, 99.2719416655554, 27.8557458323828, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-08-24 00:24:51,478 - SurfaceDeadWoodC: 4,8,336.410658812171
+2022-08-24 00:24:51,480 -    SoilWater:  month=9, PET=2.97687113610201.
+2022-08-24 00:24:51,481 -    SoilWater:  month=9, Remaining PET=2.97687113610201.
+2022-08-24 00:24:51,482 -    SoilWater:  month=9, addToSoil=100.739166105559.
+2022-08-24 00:24:51,484 -    SoilWater:  month=9, AET=1.7861226816612.
+2022-08-24 00:24:51,485 -    SoilWater:  month=9, baseflow=10.3460780981404.
+2022-08-24 00:24:51,489 - Mortality wood/non_wood:  PIGL/93.0 wood = 12.5577173816843. leaf = 1.69599861883213.
+2022-08-24 00:24:51,492 - Mortality wood/non_wood:  THOC2/63.0 wood = 0.848695860516731. leaf = 0.274490673923495.
+2022-08-24 00:24:51,495 - Mortality wood/non_wood:  BEPA/63.0 wood = 1.00154832873826. leaf = 0.776501059532166.
+2022-08-24 00:24:51,498 - Mortality wood/non_wood:  BEPA/33.0 wood = 0.739664251168259. leaf = 0.767377734184265.
+2022-08-24 00:24:51,501 - Mortality wood/non_wood:  THOC2/33.0 wood = 0.674197034493808. leaf = 0.209536300148826.
+2022-08-24 00:24:51,508 - Mortality wood/non_wood:  THOC2/13.0 wood = 0.564845518285017. leaf = 0.170602216756705.
+2022-08-24 00:24:51,512 - Mortality wood/non_wood:  PIGL/13.0 wood = 1.08617993936211. leaf = 0.443944651803364.
+2022-08-24 00:24:51,521 - Mortality wood/non_wood:  BEPA/13.0 wood = 0.576825720641702. leaf = 0.584836900234222.
+2022-08-24 00:24:51,527 - Mortality wood/non_wood:  PIGL/3.0 wood = 0.0420713791333512. leaf = 0.108086959530049.
+2022-08-24 00:24:51,530 - Mortality wood/non_wood:  PIGL/1.0 wood = 0.0373463319227945. leaf = 0.135120429485865.
+2022-08-24 00:24:51,539 - currentDeadWoodC:4,9,92.6438334925945, 95.8276375904363, 98.9333135563455, 36.2523347680285, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-08-24 00:24:51,540 - SurfaceDeadWoodC: 4,9,343.636425961568
+2022-08-24 00:24:51,542 -    SoilWater:  month=10, PET=0.
+2022-08-24 00:24:51,543 -    SoilWater:  month=10, AET=0.
+2022-08-24 00:24:51,545 -    SoilWater:  month=10, baseflow=5.53879012782729.
+2022-08-24 00:24:51,546 - Mortality wood/non_wood:  PIGL/93.0 wood = 11.9789938444231. leaf = 1.71376028230702.
+2022-08-24 00:24:51,553 - Mortality wood/non_wood:  THOC2/63.0 wood = 0.598916875579338. leaf = 0.277418330374633.
+2022-08-24 00:24:51,558 - Mortality wood/non_wood:  BEPA/63.0 wood = 0.96029944120157. leaf = 0.0565282702445984.
+2022-08-24 00:24:51,581 - Mortality wood/non_wood:  BEPA/33.0 wood = 0.699463627711514. leaf = 0.0561606287956238.
+2022-08-24 00:24:51,604 - Mortality wood/non_wood:  THOC2/33.0 wood = 0.484032167918807. leaf = 0.211759384995482.
+2022-08-24 00:24:51,607 - Mortality wood/non_wood:  THOC2/13.0 wood = 0.409314512034258. leaf = 0.172440836764406.
+2022-08-24 00:24:51,610 - Mortality wood/non_wood:  PIGL/13.0 wood = 0.937356733480637. leaf = 0.448735337189573.
+2022-08-24 00:24:51,613 - Mortality wood/non_wood:  BEPA/13.0 wood = 0.546224711248717. leaf = 0.0427627563476562.
+2022-08-24 00:24:51,620 - Mortality wood/non_wood:  PIGL/3.0 wood = 0.0235190652540655. leaf = 0.107234744655876.
+2022-08-24 00:24:51,627 - Mortality wood/non_wood:  PIGL/1.0 wood = 0.0190577372951896. leaf = 0.133487393098301.
+2022-08-24 00:24:51,635 - currentDeadWoodC:4,10,92.6367689852734, 95.8203303037902, 98.9257694479945, 44.0778473749785, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-08-24 00:24:51,636 - SurfaceDeadWoodC: 4,10,351.435799084868
+2022-08-24 00:24:51,637 -    SoilWater:  month=11, PET=0.
+2022-08-24 00:24:51,637 -    SoilWater:  month=11, AET=0.
+2022-08-24 00:24:51,638 -    SoilWater:  month=11, baseflow=3.0083076532924.
+2022-08-24 00:24:51,639 - Mortality wood/non_wood:  PIGL/93.0 wood = 11.9371068040904. leaf = 1.6720847417384.
+2022-08-24 00:24:51,642 - Mortality wood/non_wood:  THOC2/63.0 wood = 0.586862887581073. leaf = 0.270705237841647.
+2022-08-24 00:24:51,649 - Mortality wood/non_wood:  BEPA/63.0 wood = 0.957244181317999. leaf = 0.00184681639075279.
+2022-08-24 00:24:51,653 - Mortality wood/non_wood:  BEPA/33.0 wood = 0.696600412877944. leaf = 0.00223815068602562.
+2022-08-24 00:24:51,657 - Mortality wood/non_wood:  THOC2/33.0 wood = 0.475132009495159. leaf = 0.206634092067974.
+2022-08-24 00:24:51,661 - Mortality wood/non_wood:  THOC2/13.0 wood = 0.402023655175548. leaf = 0.168269791557.
+2022-08-24 00:24:51,664 - Mortality wood/non_wood:  PIGL/13.0 wood = 0.92972252414752. leaf = 0.437882265971655.
+2022-08-24 00:24:51,667 - Mortality wood/non_wood:  BEPA/13.0 wood = 0.544007692728269. leaf = 0.00172394886612892.
+2022-08-24 00:24:51,669 - Mortality wood/non_wood:  PIGL/3.0 wood = 0.0227092763713462. leaf = 0.104458357341993.
+2022-08-24 00:24:51,671 - Mortality wood/non_wood:  PIGL/1.0 wood = 0.0182649943424318. leaf = 0.129978954358214.
+2022-08-24 00:24:51,679 - currentDeadWoodC:4,11,92.6308247165397, 95.8141817539248, 98.919421629901, 51.8622662760107, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-08-24 00:24:51,690 - SurfaceDeadWoodC: 4,11,359.19816901131
+2022-08-24 00:24:51,693 -    SoilWater:  month=0, PET=0.
+2022-08-24 00:24:51,697 -    SoilWater:  month=0, AET=0.
+2022-08-24 00:24:51,698 -    SoilWater:  month=0, baseflow=1.59440305983116.
+2022-08-24 00:24:51,700 - Mortality wood/non_wood:  PIGL/93.0 wood = 11.8894468653205. leaf = 1.62890426463482.
+2022-08-24 00:24:51,706 - Mortality wood/non_wood:  THOC2/63.0 wood = 0.572420959215852. leaf = 0.263746229054434.
+2022-08-24 00:24:51,709 - Mortality wood/non_wood:  BEPA/63.0 wood = 0.955518444721607. leaf = 0.
+2022-08-24 00:24:51,713 - Mortality wood/non_wood:  BEPA/33.0 wood = 0.695346332259828. leaf = 0.
+2022-08-24 00:24:51,716 - Mortality wood/non_wood:  THOC2/33.0 wood = 0.463797805786732. leaf = 0.20133375986874.
+2022-08-24 00:24:51,723 - Mortality wood/non_wood:  THOC2/13.0 wood = 0.392736145817768. leaf = 0.163955072496488.
+2022-08-24 00:24:51,730 - Mortality wood/non_wood:  PIGL/13.0 wood = 0.920083772494832. leaf = 0.426655141836531.
+2022-08-24 00:24:51,737 - Mortality wood/non_wood:  BEPA/13.0 wood = 0.543028444536807. leaf = 0.
+2022-08-24 00:24:51,741 - Mortality wood/non_wood:  PIGL/3.0 wood = 0.0216158904940783. leaf = 0.101676055916494.
+2022-08-24 00:24:51,748 - Mortality wood/non_wood:  PIGL/1.0 wood = 0.0171925733297528. leaf = 0.126486092313657.
+2022-08-24 00:24:51,754 - currentDeadWoodC:4,0,92.6276459238088, 95.8108937185931, 98.9160270326988, 59.6016788673807, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-08-24 00:24:51,755 - SurfaceDeadWoodC: 4,0,366.925761568818
+2022-08-24 00:24:51,756 -    SoilWater:  month=1, PET=0.
+2022-08-24 00:24:51,759 -    SoilWater:  month=1, AET=0.
+2022-08-24 00:24:51,761 -    SoilWater:  month=1, baseflow=0.845033623611189.
+2022-08-24 00:24:51,762 - Mortality wood/non_wood:  PIGL/93.0 wood = 11.8733651941986. leaf = 1.5836526320042.
+2022-08-24 00:24:51,765 - Mortality wood/non_wood:  THOC2/63.0 wood = 0.571886583405943. leaf = 0.256449856968978.
+2022-08-24 00:24:51,768 - Mortality wood/non_wood:  BEPA/63.0 wood = 0.953795789208215. leaf = 0.
+2022-08-24 00:24:51,771 - Mortality wood/non_wood:  BEPA/33.0 wood = 0.694094504217955. leaf = 0.
+2022-08-24 00:24:51,776 - Mortality wood/non_wood:  THOC2/33.0 wood = 0.463357705178271. leaf = 0.195764716227547.
+2022-08-24 00:24:51,779 - Mortality wood/non_wood:  THOC2/13.0 wood = 0.392357391160329. leaf = 0.159420067656405.
+2022-08-24 00:24:51,781 - Mortality wood/non_wood:  PIGL/13.0 wood = 0.918965648540026. leaf = 0.414853825280696.
+2022-08-24 00:24:51,784 - Mortality wood/non_wood:  BEPA/13.0 wood = 0.542050954223845. leaf = 0.
+2022-08-24 00:24:51,786 - Mortality wood/non_wood:  PIGL/3.0 wood = 0.0216073906799211. leaf = 0.0988581572346333.
+2022-08-24 00:24:51,790 - Mortality wood/non_wood:  PIGL/1.0 wood = 0.0171899792887869. leaf = 0.122978938386042.
+2022-08-24 00:24:51,794 - currentDeadWoodC:4,1,92.6243024760419, 95.8074353696795, 98.9124566022254, 67.3301238962364, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-08-24 00:24:51,794 - SurfaceDeadWoodC: 4,1,374.641743812442
+2022-08-24 00:24:51,795 -    SoilWater:  month=2, PET=0.
+2022-08-24 00:24:51,795 -    SoilWater:  month=2, AET=0.
+2022-08-24 00:24:51,796 -    SoilWater:  month=2, baseflow=1.14704766753298.
+2022-08-24 00:24:51,796 - Mortality wood/non_wood:  PIGL/93.0 wood = 11.8914353268977. leaf = 1.53972090533394.
+2022-08-24 00:24:51,798 - Mortality wood/non_wood:  THOC2/63.0 wood = 0.586146013906233. leaf = 0.24936673769474.
+2022-08-24 00:24:51,801 - Mortality wood/non_wood:  BEPA/63.0 wood = 0.952076214777824. leaf = 0.
+2022-08-24 00:24:51,804 - Mortality wood/non_wood:  BEPA/33.0 wood = 0.692844928752327. leaf = 0.
+2022-08-24 00:24:51,808 - Mortality wood/non_wood:  THOC2/33.0 wood = 0.474507537180766. leaf = 0.190358645208322.
+2022-08-24 00:24:51,811 - Mortality wood/non_wood:  THOC2/13.0 wood = 0.40145790244034. leaf = 0.155017809138422.
+2022-08-24 00:24:51,813 - Mortality wood/non_wood:  PIGL/13.0 wood = 0.927033764869518. leaf = 0.403398004344281.
+2022-08-24 00:24:51,815 - Mortality wood/non_wood:  BEPA/13.0 wood = 0.541075221789381. leaf = 0.
+2022-08-24 00:24:51,818 - Mortality wood/non_wood:  PIGL/3.0 wood = 0.0227723267718552. leaf = 0.0961207977592134.
+2022-08-24 00:24:51,822 - Mortality wood/non_wood:  PIGL/1.0 wood = 0.0183444847620042. leaf = 0.119571430275149.
+2022-08-24 00:24:51,826 - currentDeadWoodC:4,2,92.6181797880926, 95.8011022690319, 98.9059182522471, 75.0837764003246, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-08-24 00:24:51,827 - SurfaceDeadWoodC: 4,2,382.372517799319
+2022-08-24 00:24:51,827 -    SoilWater:  month=3, PET=1.27315742917445.
+2022-08-24 00:24:51,828 -    SoilWater:  month=3, AET=0.
+2022-08-24 00:24:51,828 -    SoilWater:  month=3, baseflow=5.20655225904908.
+2022-08-24 00:24:51,829 - Mortality wood/non_wood:  PIGL/93.0 wood = 12.2154821464275. leaf = 1.50069376057867.
+2022-08-24 00:24:51,831 - Mortality wood/non_wood:  THOC2/63.0 wood = 0.732875687956634. leaf = 0.243075806254866.
+2022-08-24 00:24:51,833 - Mortality wood/non_wood:  BEPA/63.0 wood = 0.968096403623455. leaf = 0.
+2022-08-24 00:24:51,836 - Mortality wood/non_wood:  BEPA/33.0 wood = 0.709370816648005. leaf = 0.
+2022-08-24 00:24:51,841 - Mortality wood/non_wood:  THOC2/33.0 wood = 0.585905450047515. leaf = 0.185569536295619.
+2022-08-24 00:24:51,845 - Mortality wood/non_wood:  THOC2/13.0 wood = 0.492516663233755. leaf = 0.151119607823349.
+2022-08-24 00:24:51,847 - Mortality wood/non_wood:  PIGL/13.0 wood = 1.01470733609289. leaf = 0.39325608401605.
+2022-08-24 00:24:51,850 - Mortality wood/non_wood:  BEPA/13.0 wood = 0.553653747729118. leaf = 0.
+2022-08-24 00:24:51,855 - Mortality wood/non_wood:  PIGL/3.0 wood = 0.0339426958094695. leaf = 0.0935867168301708.
+2022-08-24 00:24:51,857 - Mortality wood/non_wood:  PIGL/1.0 wood = 0.0293653148342694. leaf = 0.116384048952519.
+2022-08-24 00:24:51,861 - currentDeadWoodC:4,3,92.3644483504842, 95.5386510800882, 98.6349612880362, 83.0036403838087, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-08-24 00:24:51,861 - SurfaceDeadWoodC: 4,3,389.341837593307
+2022-08-24 00:24:51,862 -    SoilWater:  month=4, PET=5.22641119194906.
+2022-08-24 00:24:51,862 -    SoilWater:  month=4, Remaining PET=5.22641119194906.
+2022-08-24 00:24:51,863 -    SoilWater:  month=4, addToSoil=190.894270930372.
+2022-08-24 00:24:51,863 -    SoilWater:  month=4, AET=3.13584671516944.
+2022-08-24 00:24:51,864 -    SoilWater:  month=4, baseflow=14.2315119731624.
+2022-08-24 00:24:51,864 - Mortality wood/non_wood:  PIGL/93.0 wood = 12.5474377687808. leaf = 1.49901735813894.
+2022-08-24 00:24:51,867 - Mortality wood/non_wood:  THOC2/63.0 wood = 0.881918277151329. leaf = 0.242816194136863.
+2022-08-24 00:24:51,872 - Mortality wood/non_wood:  BEPA/63.0 wood = 0.999904159724501. leaf = 7.28362575868166E-08.
+2022-08-24 00:24:51,874 - Mortality wood/non_wood:  BEPA/33.0 wood = 0.741169318639947. leaf = 7.6953182174928E-09.
+2022-08-24 00:24:51,877 - Mortality wood/non_wood:  THOC2/33.0 wood = 0.699487009744133. leaf = 0.185364469477242.
+2022-08-24 00:24:51,881 - Mortality wood/non_wood:  THOC2/13.0 wood = 0.585495724105368. leaf = 0.150970158935676.
+2022-08-24 00:24:51,883 - Mortality wood/non_wood:  PIGL/13.0 wood = 1.10508617079009. leaf = 0.392893872575755.
+2022-08-24 00:24:51,889 - Mortality wood/non_wood:  BEPA/13.0 wood = 0.577907558191957. leaf = 1.3101905688665E-09.
+2022-08-24 00:24:51,894 - Mortality wood/non_wood:  PIGL/3.0 wood = 0.045486467289702. leaf = 0.0923191962166102.
+2022-08-24 00:24:51,896 - Mortality wood/non_wood:  PIGL/1.0 wood = 0.0407543464890862. leaf = 0.11446475104814.
+2022-08-24 00:24:51,900 - currentDeadWoodC:4,4,92.0259556172581, 95.1885256832458, 98.2734886842986, 91.2336459450968, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-08-24 00:24:51,900 - SurfaceDeadWoodC: 4,4,396.300779161185
+2022-08-24 00:24:51,902 -    SoilWater:  month=5, PET=9.27483738177656.
+2022-08-24 00:24:51,903 -    SoilWater:  month=5, Remaining PET=9.27483738177656.
+2022-08-24 00:24:51,904 -    SoilWater:  month=5, addToSoil=96.9635708672894.
+2022-08-24 00:24:51,904 -    SoilWater:  month=5, AET=5.56490242906593.
+2022-08-24 00:24:51,905 -    SoilWater:  month=5, baseflow=13.1271597853158.
+2022-08-24 00:24:51,905 - Mortality wood/non_wood:  PIGL/94.0 wood = 12.9981448764499. leaf = 1.53434720207494.
+2022-08-24 00:24:51,908 - Mortality wood/non_wood:  THOC2/64.0 wood = 1.08167012812426. leaf = 0.248528575493975.
+2022-08-24 00:24:51,910 - Mortality wood/non_wood:  BEPA/64.0 wood = 1.04608838876189. leaf = 3.05760217479894E-07.
+2022-08-24 00:24:51,913 - Mortality wood/non_wood:  BEPA/34.0 wood = 0.78705535463485. leaf = 3.2048470171612E-08.
+2022-08-24 00:24:51,915 - Mortality wood/non_wood:  THOC2/34.0 wood = 0.851635726992585. leaf = 0.189712072283448.
+2022-08-24 00:24:51,920 - Mortality wood/non_wood:  THOC2/14.0 wood = 0.709941735357282. leaf = 0.154543743154948.
+2022-08-24 00:24:51,924 - Mortality wood/non_wood:  PIGL/14.0 wood = 1.22681928286054. leaf = 0.402251165744569.
+2022-08-24 00:24:51,926 - Mortality wood/non_wood:  BEPA/14.0 wood = 0.612898643905177. leaf = 5.45407820527104E-09.
+2022-08-24 00:24:51,928 - Mortality wood/non_wood:  PIGL/4.0 wood = 0.0609518158339605. leaf = 0.0923118566383503.
+2022-08-24 00:24:51,930 - Mortality wood/non_wood:  PIGL/2.0 wood = 0.0560206570223206. leaf = 0.113806707518842.
+2022-08-24 00:24:51,935 - currentDeadWoodC:4,5,91.5475041707269, 94.6936317427174, 97.7625557360745, 99.8445086674091, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-08-24 00:24:51,935 - SurfaceDeadWoodC: 4,5,403.110716864381
+2022-08-24 00:24:51,957 - nurseryLogC:4,0,0,0
+2022-08-24 00:24:51,958 - decayClassAreaRatios:4,0,0,0
+2022-08-24 00:24:51,959 - original_lightProbability:4,ABBA,1
+2022-08-24 00:24:51,960 - siteShade:5
+2022-08-24 00:24:51,960 - siteLAI:8.6534848759645
+2022-08-24 00:24:51,961 - nurseryLogPenalty:4,ABBA,0
+2022-08-24 00:24:51,962 - modified_lightProbability:4,ABBA,1
+2022-08-24 00:24:51,963 - regeneration_type:4,ABBA,surface
+2022-08-24 00:24:51,963 - original_lightProbability:4,ACSA3,1
+2022-08-24 00:24:51,963 - siteShade:5
+2022-08-24 00:24:51,964 - siteLAI:8.6534848759645
+2022-08-24 00:24:51,964 - nurseryLogPenalty:4,ACSA3,0
+2022-08-24 00:24:51,966 - modified_lightProbability:4,ACSA3,1
+2022-08-24 00:24:51,967 - regeneration_type:4,ACSA3,surface
+2022-08-24 00:24:51,967 - original_lightProbability:4,BEAL2,0.1
+2022-08-24 00:24:51,968 - siteShade:5
+2022-08-24 00:24:51,968 - siteLAI:8.6534848759645
+2022-08-24 00:24:51,969 - nurseryLogPenalty:4,BEAL2,0
+2022-08-24 00:24:51,969 - modified_lightProbability:4,BEAL2,0.1
+2022-08-24 00:24:51,969 - regeneration_type:4,BEAL2,surface
+2022-08-24 00:24:51,970 - original_lightProbability:4,BEPA,0
+2022-08-24 00:24:51,970 - siteShade:5
+2022-08-24 00:24:51,971 - siteLAI:8.6534848759645
+2022-08-24 00:24:51,971 - nurseryLogPenalty:4,BEPA,0
+2022-08-24 00:24:51,971 - modified_lightProbability:4,BEPA,0
+2022-08-24 00:24:51,972 - regeneration_type:4,BEPA,failed
+2022-08-24 00:24:51,972 - original_lightProbability:4,FRNI,0.25
+2022-08-24 00:24:51,972 - siteShade:5
+2022-08-24 00:24:51,973 - siteLAI:8.6534848759645
+2022-08-24 00:24:51,973 - nurseryLogPenalty:4,FRNI,0
+2022-08-24 00:24:51,973 - modified_lightProbability:4,FRNI,0.25
+2022-08-24 00:24:51,974 - regeneration_type:4,FRNI,failed
+2022-08-24 00:24:51,975 - original_lightProbability:4,PIGL,0.25
+2022-08-24 00:24:51,977 - siteShade:5
+2022-08-24 00:24:51,977 - siteLAI:8.6534848759645
+2022-08-24 00:24:51,978 - nurseryLogPenalty:4,PIGL,0
+2022-08-24 00:24:51,978 - modified_lightProbability:4,PIGL,0.25
+2022-08-24 00:24:51,979 - regeneration_type:4,PIGL,failed
+2022-08-24 00:24:51,982 - original_lightProbability:4,PIMA,0.1
+2022-08-24 00:24:51,982 - siteShade:5
+2022-08-24 00:24:51,983 - siteLAI:8.6534848759645
+2022-08-24 00:24:51,983 - nurseryLogPenalty:4,PIMA,0
+2022-08-24 00:24:51,984 - modified_lightProbability:4,PIMA,0.1
+2022-08-24 00:24:51,984 - regeneration_type:4,PIMA,failed
+2022-08-24 00:24:51,984 - original_lightProbability:4,PIBA2,0
+2022-08-24 00:24:51,985 - siteShade:5
+2022-08-24 00:24:51,985 - siteLAI:8.6534848759645
+2022-08-24 00:24:51,986 - nurseryLogPenalty:4,PIBA2,0
+2022-08-24 00:24:51,986 - modified_lightProbability:4,PIBA2,0
+2022-08-24 00:24:51,987 - regeneration_type:4,PIBA2,failed
+2022-08-24 00:24:51,987 - original_lightProbability:4,PIST,0.1
+2022-08-24 00:24:51,987 - siteShade:5
+2022-08-24 00:24:51,988 - siteLAI:8.6534848759645
+2022-08-24 00:24:51,988 - nurseryLogPenalty:4,PIST,0
+2022-08-24 00:24:51,988 - modified_lightProbability:4,PIST,0.1
+2022-08-24 00:24:51,989 - regeneration_type:4,PIST,failed
+2022-08-24 00:24:51,989 - original_lightProbability:4,POTR5,0
+2022-08-24 00:24:51,989 - siteShade:5
+2022-08-24 00:24:51,990 - siteLAI:8.6534848759645
+2022-08-24 00:24:51,990 - nurseryLogPenalty:4,POTR5,0
+2022-08-24 00:24:51,993 - modified_lightProbability:4,POTR5,0
+2022-08-24 00:24:51,994 - regeneration_type:4,POTR5,failed
+2022-08-24 00:24:51,994 - original_lightProbability:4,QURU,0
+2022-08-24 00:24:51,996 - siteShade:5
+2022-08-24 00:24:51,998 - siteLAI:8.6534848759645
+2022-08-24 00:24:51,998 - nurseryLogPenalty:4,QURU,0
+2022-08-24 00:24:51,999 - modified_lightProbability:4,QURU,0
+2022-08-24 00:24:51,999 - regeneration_type:4,QURU,failed
+2022-08-24 00:24:52,000 - original_lightProbability:4,THOC2,0.25
+2022-08-24 00:24:52,000 - siteShade:5
+2022-08-24 00:24:52,000 - siteLAI:8.6534848759645
+2022-08-24 00:24:52,001 - nurseryLogPenalty:4,THOC2,0
+2022-08-24 00:24:52,001 - modified_lightProbability:4,THOC2,0.25
+2022-08-24 00:24:52,002 - regeneration_type:4,THOC2,failed
+2022-08-24 00:24:52,002 - original_lightProbability:4,HRDWD,0
+2022-08-24 00:24:52,002 - siteShade:5
+2022-08-24 00:24:52,003 - siteLAI:8.6534848759645
+2022-08-24 00:24:52,003 - nurseryLogPenalty:4,HRDWD,0
+2022-08-24 00:24:52,003 - modified_lightProbability:4,HRDWD,0
+2022-08-24 00:24:52,004 - regeneration_type:4,HRDWD,failed
+2022-08-24 00:24:52,004 - original_lightProbability:4,SFTWD,0.25
+2022-08-24 00:24:52,005 - siteShade:5
+2022-08-24 00:24:52,005 - siteLAI:8.6534848759645
+2022-08-24 00:24:52,005 - nurseryLogPenalty:4,SFTWD,0
+2022-08-24 00:24:52,006 - modified_lightProbability:4,SFTWD,0.25
+2022-08-24 00:24:52,006 - regeneration_type:4,SFTWD,failed
+2022-08-24 00:24:52,354 - Current time: 5
+2022-08-24 00:24:52,355 - Running Biomass Browse ...
+2022-08-24 00:24:52,356 - Processing landscape for ungulate browse events ...
+2022-08-24 00:24:52,356 -    Calculating Site Preference & Forage.
+2022-08-24 00:24:52,357 -    Calculating Zone Population.
+2022-08-24 00:24:52,357 - Dynamic Population is True
+2022-08-24 00:24:52,358 - oldPop = 1.  popR = 0.177743170550093. popMortality = 0.229956037644297. popPredation = 0. popHarvest = 0. popGrowth = -0.0938971442354283. newPop = 0.
+2022-08-24 00:24:52,358 - Using dynamic population. PopZone Index 0.  Population = 0. K = 4.26403389335281. EffectivePop = 0.
+2022-08-24 00:24:52,359 -    Calculating HSI.
+2022-08-24 00:24:52,360 -    Calculating Local Population.
+2022-08-24 00:24:52,362 -    Disturbing Sites
+2022-08-24 00:24:52,363 - Reducing CohortBiomass NOW!
+2022-08-24 00:24:52,509 - Running NECN Succession ...
+2022-08-24 00:24:52,511 -    SoilWater:  month=6, PET=11.7664360785804.
+2022-08-24 00:24:52,512 -    SoilWater:  month=6, Remaining PET=11.7664360785804.
+2022-08-24 00:24:52,512 -    SoilWater:  month=6, addToSoil=81.1771857885679.
+2022-08-24 00:24:52,512 -    SoilWater:  month=6, AET=7.05986164714823.
+2022-08-24 00:24:52,513 -    SoilWater:  month=6, baseflow=11.4859630293139.
+2022-08-24 00:24:52,513 - Mortality wood/non_wood:  PIGL/94.0 wood = 13.2289527018651. leaf = 1.61779195090055.
+2022-08-24 00:24:52,516 - Mortality wood/non_wood:  THOC2/64.0 wood = 1.1859488695829. leaf = 0.262019558388866.
+2022-08-24 00:24:52,523 - Mortality wood/non_wood:  BEPA/64.0 wood = 1.06299231251126. leaf = 7.43879971401189E-07.
+2022-08-24 00:24:52,525 - Mortality wood/non_wood:  BEPA/34.0 wood = 0.804202070671628. leaf = 7.77290239701409E-08.
+2022-08-24 00:24:52,528 - Mortality wood/non_wood:  THOC2/34.0 wood = 0.931449540198023. leaf = 0.199988195792277.
+2022-08-24 00:24:52,530 - Mortality wood/non_wood:  THOC2/14.0 wood = 0.775172064486697. leaf = 0.162964988817359.
+2022-08-24 00:24:52,532 - Mortality wood/non_wood:  PIGL/14.0 wood = 1.29172233611657. leaf = 0.424270539746662.
+2022-08-24 00:24:52,534 - Mortality wood/non_wood:  BEPA/14.0 wood = 0.625979578840735. leaf = 1.32245243928647E-08.
+2022-08-24 00:24:52,539 - Mortality wood/non_wood:  PIGL/4.0 wood = 0.0692107716617765. leaf = 0.0939319855494507.
+2022-08-24 00:24:52,541 - Mortality wood/non_wood:  PIGL/2.0 wood = 0.0641602755847765. leaf = 0.11477158848707.
+2022-08-24 00:24:52,544 - currentDeadWoodC:5,6,90.9317478633249, 94.0567143134051, 97.1049964626948, 99.1729460013559, 9.35535055661398, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-08-24 00:24:52,544 - SurfaceDeadWoodC: 5,6,409.471475622769
+2022-08-24 00:24:52,545 -    SoilWater:  month=7, PET=11.0256218924706.
+2022-08-24 00:24:52,545 -    SoilWater:  month=7, Remaining PET=11.0256218924706.
+2022-08-24 00:24:52,545 -    SoilWater:  month=7, addToSoil=99.0376157190117.
+2022-08-24 00:24:52,546 -    SoilWater:  month=7, AET=6.61537313548239.
+2022-08-24 00:24:52,546 -    SoilWater:  month=7, baseflow=11.7345592196288.
+2022-08-24 00:24:52,546 - Mortality wood/non_wood:  PIGL/94.0 wood = 13.2484522132418. leaf = 1.72385992502066.
+2022-08-24 00:24:52,548 - Mortality wood/non_wood:  THOC2/64.0 wood = 1.19732709085721. leaf = 0.279192768511583.
+2022-08-24 00:24:52,551 - Mortality wood/non_wood:  BEPA/64.0 wood = 1.06276521807381. leaf = 1.26131570246672E-06.
+2022-08-24 00:24:52,555 - Mortality wood/non_wood:  BEPA/34.0 wood = 0.804382187925098. leaf = 1.31653164101282E-07.
+2022-08-24 00:24:52,557 - Mortality wood/non_wood:  THOC2/34.0 wood = 0.939649992148243. leaf = 0.213067835257941.
+2022-08-24 00:24:52,560 - Mortality wood/non_wood:  THOC2/14.0 wood = 0.78179904550864. leaf = 0.173676684765687.
+2022-08-24 00:24:52,562 - Mortality wood/non_wood:  PIGL/14.0 wood = 1.30010495649865. leaf = 0.452281781079036.
+2022-08-24 00:24:52,564 - Mortality wood/non_wood:  BEPA/14.0 wood = 0.626010868124561. leaf = 2.23928796663804E-08.
+2022-08-24 00:24:52,566 - Mortality wood/non_wood:  PIGL/4.0 wood = 0.070289556673349. leaf = 0.0963309162448748.
+2022-08-24 00:24:52,571 - Mortality wood/non_wood:  PIGL/2.0 wood = 0.0652422248853478. leaf = 0.116522019733729.
+2022-08-24 00:24:52,573 - currentDeadWoodC:5,7,90.3033692606325, 93.4067408101691, 96.4339579813561, 98.487617073918, 18.67056188891, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-08-24 00:24:52,574 - SurfaceDeadWoodC: 5,7,415.72578700804
+2022-08-24 00:24:52,575 -    SoilWater:  month=8, PET=6.42190113834007.
+2022-08-24 00:24:52,575 -    SoilWater:  month=8, Remaining PET=6.42190113834007.
+2022-08-24 00:24:52,575 -    SoilWater:  month=8, addToSoil=146.668845422364.
+2022-08-24 00:24:52,576 -    SoilWater:  month=8, AET=3.85314068300404.
+2022-08-24 00:24:52,576 -    SoilWater:  month=8, baseflow=14.9453556177652.
+2022-08-24 00:24:52,577 - Mortality wood/non_wood:  PIGL/94.0 wood = 12.9186559148013. leaf = 1.8286612918617.
+2022-08-24 00:24:52,578 - Mortality wood/non_wood:  THOC2/64.0 wood = 1.05530453965087. leaf = 0.296199482485934.
+2022-08-24 00:24:52,580 - Mortality wood/non_wood:  BEPA/64.0 wood = 1.03513524911137. leaf = 1.78134064216112E-06.
+2022-08-24 00:24:52,582 - Mortality wood/non_wood:  BEPA/34.0 wood = 0.777618458684848. leaf = 1.8584642479859E-07.
+2022-08-24 00:24:52,587 - Mortality wood/non_wood:  THOC2/34.0 wood = 0.831312903405282. leaf = 0.226016357522948.
+2022-08-24 00:24:52,589 - Mortality wood/non_wood:  THOC2/14.0 wood = 0.693021308555438. leaf = 0.18427827093552.
+2022-08-24 00:24:52,591 - Mortality wood/non_wood:  PIGL/14.0 wood = 1.2162828309097. leaf = 0.480017277569616.
+2022-08-24 00:24:52,593 - Mortality wood/non_wood:  BEPA/14.0 wood = 0.605492717649154. leaf = 3.16014799465784E-08.
+2022-08-24 00:24:52,595 - Mortality wood/non_wood:  PIGL/4.0 wood = 0.0597930483092038. leaf = 0.0987150119898597.
+2022-08-24 00:24:52,597 - Mortality wood/non_wood:  PIGL/2.0 wood = 0.0548849038156785. leaf = 0.118274901396048.
+2022-08-24 00:24:52,603 - currentDeadWoodC:5,8,89.8669363846072, 92.9553094531145, 95.9678961945934, 98.0116300279819, 27.5829330667246, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-08-24 00:24:52,604 - SurfaceDeadWoodC: 5,8,422.509071463789
+2022-08-24 00:24:52,605 -    SoilWater:  month=9, PET=2.32566191431238.
+2022-08-24 00:24:52,606 -    SoilWater:  month=9, Remaining PET=2.32566191431238.
+2022-08-24 00:24:52,607 -    SoilWater:  month=9, addToSoil=58.503923339275.
+2022-08-24 00:24:52,607 -    SoilWater:  month=9, AET=1.39539714858743.
+2022-08-24 00:24:52,608 -    SoilWater:  month=9, baseflow=11.4103693086447.
+2022-08-24 00:24:52,609 - Mortality wood/non_wood:  PIGL/94.0 wood = 12.3639618945007. leaf = 1.89521243295889.
+2022-08-24 00:24:52,610 - Mortality wood/non_wood:  THOC2/64.0 wood = 0.81546523202826. leaf = 0.307040540763908.
+2022-08-24 00:24:52,612 - Mortality wood/non_wood:  BEPA/64.0 wood = 0.97622112728075. leaf = 0.705177843570709.
+2022-08-24 00:24:52,615 - Mortality wood/non_wood:  BEPA/34.0 wood = 0.719941012394831. leaf = 0.697976887226105.
+2022-08-24 00:24:52,619 - Mortality wood/non_wood:  THOC2/34.0 wood = 0.64835663788971. leaf = 0.23426390627523.
+2022-08-24 00:24:52,621 - Mortality wood/non_wood:  THOC2/14.0 wood = 0.543422783963184. leaf = 0.191033962153452.
+2022-08-24 00:24:52,623 - Mortality wood/non_wood:  PIGL/14.0 wood = 1.07268616086226. leaf = 0.497714432636441.
+2022-08-24 00:24:52,625 - Mortality wood/non_wood:  BEPA/14.0 wood = 0.561513228915033. leaf = 0.531783998012543.
+2022-08-24 00:24:52,627 - Mortality wood/non_wood:  PIGL/4.0 wood = 0.0418817651973485. leaf = 0.0998603231457233.
+2022-08-24 00:24:52,629 - Mortality wood/non_wood:  PIGL/2.0 wood = 0.0372283381471956. leaf = 0.118822840828463.
+2022-08-24 00:24:52,634 - currentDeadWoodC:5,9,89.5814628922507, 92.6600253598736, 95.6630422451549, 97.7002839040204, 35.8256844058865, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-08-24 00:24:52,635 - SurfaceDeadWoodC: 5,9,429.357011402743
+2022-08-24 00:24:52,635 -    SoilWater:  month=10, PET=0.
+2022-08-24 00:24:52,636 -    SoilWater:  month=10, AET=0.
+2022-08-24 00:24:52,636 -    SoilWater:  month=10, baseflow=6.0759726720504.
+2022-08-24 00:24:52,636 - Mortality wood/non_wood:  PIGL/94.0 wood = 11.8679494843207. leaf = 1.90134115050933.
+2022-08-24 00:24:52,638 - Mortality wood/non_wood:  THOC2/64.0 wood = 0.603464044826244. leaf = 0.30808828764761.
+2022-08-24 00:24:52,640 - Mortality wood/non_wood:  BEPA/64.0 wood = 0.942673832002312. leaf = 0.04829341173172.
+2022-08-24 00:24:52,643 - Mortality wood/non_wood:  BEPA/34.0 wood = 0.687320832520733. leaf = 0.048064112663269.
+2022-08-24 00:24:52,645 - Mortality wood/non_wood:  THOC2/34.0 wood = 0.487017570049025. leaf = 0.235050424042179.
+2022-08-24 00:24:52,647 - Mortality wood/non_wood:  THOC2/14.0 wood = 0.411526890322911. leaf = 0.191689402100413.
+2022-08-24 00:24:52,650 - Mortality wood/non_wood:  PIGL/14.0 wood = 0.944991368065943. leaf = 0.499474017983886.
+2022-08-24 00:24:52,652 - Mortality wood/non_wood:  BEPA/14.0 wood = 0.536682878876499. leaf = 0.0365816652774811.
+2022-08-24 00:24:52,654 - Mortality wood/non_wood:  PIGL/4.0 wood = 0.0260414673460145. leaf = 0.0990358840205624.
+2022-08-24 00:24:52,656 - Mortality wood/non_wood:  PIGL/2.0 wood = 0.0216139596670239. leaf = 0.117444568115755.
+2022-08-24 00:24:52,659 - currentDeadWoodC:5,10,89.5743658506586, 92.6526844208816, 95.6554633938198, 97.6925436533475, 43.5909933542114, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-08-24 00:24:52,660 - SurfaceDeadWoodC: 5,10,437.087589347911
+2022-08-24 00:24:52,661 -    SoilWater:  month=11, PET=0.
+2022-08-24 00:24:52,661 -    SoilWater:  month=11, AET=0.
+2022-08-24 00:24:52,662 -    SoilWater:  month=11, baseflow=3.22026552342984.
+2022-08-24 00:24:52,662 - Mortality wood/non_wood:  PIGL/94.0 wood = 11.7928209179436. leaf = 1.855696235783.
+2022-08-24 00:24:52,666 - Mortality wood/non_wood:  THOC2/64.0 wood = 0.576927790274734. leaf = 0.300727382990504.
+2022-08-24 00:24:52,668 - Mortality wood/non_wood:  BEPA/64.0 wood = 0.939065275577743. leaf = 0.00275074318051338.
+2022-08-24 00:24:52,670 - Mortality wood/non_wood:  BEPA/34.0 wood = 0.683895998623097. leaf = 0.00315336138010025.
+2022-08-24 00:24:52,672 - Mortality wood/non_wood:  THOC2/34.0 wood = 0.466883505216771. leaf = 0.229433034147812.
+2022-08-24 00:24:52,674 - Mortality wood/non_wood:  THOC2/14.0 wood = 0.395050460543435. leaf = 0.187109985023729.
+2022-08-24 00:24:52,677 - Mortality wood/non_wood:  PIGL/14.0 wood = 0.928354418402557. leaf = 0.487548563528143.
+2022-08-24 00:24:52,681 - Mortality wood/non_wood:  BEPA/14.0 wood = 0.53403955629205. leaf = 0.00242038071155548.
+2022-08-24 00:24:52,684 - Mortality wood/non_wood:  PIGL/4.0 wood = 0.0240960825144113. leaf = 0.0965286250732043.
+2022-08-24 00:24:52,686 - Mortality wood/non_wood:  PIGL/2.0 wood = 0.0197013120622658. leaf = 0.114422569824236.
+2022-08-24 00:24:52,689 - currentDeadWoodC:5,11,89.5701618093032, 92.6483359031635, 95.6509739450791, 97.6879585972355, 51.2781791743975, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-08-24 00:24:52,690 - SurfaceDeadWoodC: 5,11,444.754162368319
+2022-08-24 00:24:52,690 -    SoilWater:  month=0, PET=0.
+2022-08-24 00:24:52,691 -    SoilWater:  month=0, AET=0.
+2022-08-24 00:24:52,692 -    SoilWater:  month=0, baseflow=1.70674073125667.
+2022-08-24 00:24:52,692 - Mortality wood/non_wood:  PIGL/94.0 wood = 11.7739904487892. leaf = 1.8050005761671.
+2022-08-24 00:24:52,694 - Mortality wood/non_wood:  THOC2/64.0 wood = 0.57509008129282. leaf = 0.292544620496175.
+2022-08-24 00:24:52,698 - Mortality wood/non_wood:  BEPA/64.0 wood = 0.937372010285775. leaf = 0.
+2022-08-24 00:24:52,700 - Mortality wood/non_wood:  BEPA/34.0 wood = 0.682664757279491. leaf = 0.
+2022-08-24 00:24:52,702 - Mortality wood/non_wood:  THOC2/34.0 wood = 0.465423849499125. leaf = 0.223193741555673.
+2022-08-24 00:24:52,704 - Mortality wood/non_wood:  THOC2/14.0 wood = 0.393838860969224. leaf = 0.182021941038079.
+2022-08-24 00:24:52,707 - Mortality wood/non_wood:  PIGL/14.0 wood = 0.926436968128607. leaf = 0.474291777266354.
+2022-08-24 00:24:52,709 - Mortality wood/non_wood:  BEPA/14.0 wood = 0.533078268610566. leaf = 0.
+2022-08-24 00:24:52,712 - Mortality wood/non_wood:  PIGL/4.0 wood = 0.0239840837161139. leaf = 0.0938836328828633.
+2022-08-24 00:24:52,716 - Mortality wood/non_wood:  PIGL/2.0 wood = 0.0195965545027478. leaf = 0.111280024327766.
+2022-08-24 00:24:52,722 - currentDeadWoodC:5,0,89.5662029874743, 92.6442410322023, 95.6467463635278, 97.6836409850406, 58.9513671918708, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-08-24 00:24:52,723 - SurfaceDeadWoodC: 5,0,452.407902851784
+2022-08-24 00:24:52,724 -    SoilWater:  month=1, PET=0.
+2022-08-24 00:24:52,725 -    SoilWater:  month=1, AET=0.
+2022-08-24 00:24:52,726 -    SoilWater:  month=1, baseflow=0.904572589600628.
+2022-08-24 00:24:52,726 - Mortality wood/non_wood:  PIGL/94.0 wood = 11.758165737872. leaf = 1.75546003865141.
+2022-08-24 00:24:52,731 - Mortality wood/non_wood:  THOC2/64.0 wood = 0.574556115691694. leaf = 0.284547904533268.
+2022-08-24 00:24:52,734 - Mortality wood/non_wood:  BEPA/64.0 wood = 0.935681826459306. leaf = 0.
+2022-08-24 00:24:52,736 - Mortality wood/non_wood:  BEPA/34.0 wood = 0.681435713600042. leaf = 0.
+2022-08-24 00:24:52,738 - Mortality wood/non_wood:  THOC2/34.0 wood = 0.464983733559769. leaf = 0.2170954605524.
+2022-08-24 00:24:52,740 - Mortality wood/non_wood:  THOC2/14.0 wood = 0.393461135779004. leaf = 0.177048814944674.
+2022-08-24 00:24:52,742 - Mortality wood/non_wood:  PIGL/14.0 wood = 0.925330087589656. leaf = 0.4613342333653.
+2022-08-24 00:24:52,745 - Mortality wood/non_wood:  BEPA/14.0 wood = 0.532118683878856. leaf = 0.
+2022-08-24 00:24:52,749 - Mortality wood/non_wood:  PIGL/4.0 wood = 0.0239750751341129. leaf = 0.0913033846547958.
+2022-08-24 00:24:52,753 - Mortality wood/non_wood:  PIGL/2.0 wood = 0.0195933485919511. leaf = 0.108216157042196.
+2022-08-24 00:24:52,756 - currentDeadWoodC:5,1,89.562179462159, 92.6400792341504, 95.6424496858471, 97.6792528052442, 66.6137462960035, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-08-24 00:24:52,756 - SurfaceDeadWoodC: 5,1,460.050478938241
+2022-08-24 00:24:52,757 -    SoilWater:  month=2, PET=0.
+2022-08-24 00:24:52,758 -    SoilWater:  month=2, AET=0.
+2022-08-24 00:24:52,758 -    SoilWater:  month=2, baseflow=0.828998082489289.
+2022-08-24 00:24:52,762 - Mortality wood/non_wood:  PIGL/94.0 wood = 11.7629447869719. leaf = 1.70736637104713.
+2022-08-24 00:24:52,764 - Mortality wood/non_wood:  THOC2/64.0 wood = 0.582894963781551. leaf = 0.276784574579448.
+2022-08-24 00:24:52,766 - Mortality wood/non_wood:  BEPA/64.0 wood = 0.933994724098337. leaf = 0.
+2022-08-24 00:24:52,768 - Mortality wood/non_wood:  BEPA/34.0 wood = 0.680208922526353. leaf = 0.
+2022-08-24 00:24:52,771 - Mortality wood/non_wood:  THOC2/34.0 wood = 0.471494477056796. leaf = 0.211175410991904.
+2022-08-24 00:24:52,773 - Mortality wood/non_wood:  THOC2/14.0 wood = 0.398762441850346. leaf = 0.172221058130589.
+2022-08-24 00:24:52,777 - Mortality wood/non_wood:  PIGL/14.0 wood = 0.92978664119921. leaf = 0.448755616759567.
+2022-08-24 00:24:52,779 - Mortality wood/non_wood:  BEPA/14.0 wood = 0.531160857030787. leaf = 0.
+2022-08-24 00:24:52,782 - Mortality wood/non_wood:  PIGL/4.0 wood = 0.0246735578600167. leaf = 0.0887972515742121.
+2022-08-24 00:24:52,784 - Mortality wood/non_wood:  PIGL/2.0 wood = 0.0202877876271964. leaf = 0.105239809332136.
+2022-08-24 00:24:52,787 - currentDeadWoodC:5,2,89.5567143579697, 92.6344263158297, 95.6366135622111, 97.673292395427, 74.2872313011399, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-08-24 00:24:52,788 - SurfaceDeadWoodC: 5,2,467.697014555831
+2022-08-24 00:24:52,788 -    SoilWater:  month=3, PET=3.31583032746252.
+2022-08-24 00:24:52,789 -    SoilWater:  month=3, AET=0.
+2022-08-24 00:24:52,789 -    SoilWater:  month=3, baseflow=8.18720255404733.
+2022-08-24 00:24:52,790 - Mortality wood/non_wood:  PIGL/94.0 wood = 12.3114430298499. leaf = 1.66291621288574.
+2022-08-24 00:24:52,793 - Mortality wood/non_wood:  THOC2/64.0 wood = 0.825576999437303. leaf = 0.269610140310306.
+2022-08-24 00:24:52,795 - Mortality wood/non_wood:  BEPA/64.0 wood = 0.970426316885958. leaf = 0.
+2022-08-24 00:24:52,797 - Mortality wood/non_wood:  BEPA/34.0 wood = 0.71685340095176. leaf = 0.
+2022-08-24 00:24:52,799 - Mortality wood/non_wood:  THOC2/34.0 wood = 0.655915420228669. leaf = 0.205712185467519.
+2022-08-24 00:24:52,802 - Mortality wood/non_wood:  THOC2/14.0 wood = 0.54951921167959. leaf = 0.167766440083496.
+2022-08-24 00:24:52,804 - Mortality wood/non_wood:  PIGL/14.0 wood = 1.07699153566138. leaf = 0.437152478327467.
+2022-08-24 00:24:52,806 - Mortality wood/non_wood:  BEPA/14.0 wood = 0.559059929679046. leaf = 0.
+2022-08-24 00:24:52,811 - Mortality wood/non_wood:  PIGL/4.0 wood = 0.0432863580749254. leaf = 0.0864404614098792.
+2022-08-24 00:24:52,813 - Mortality wood/non_wood:  PIGL/2.0 wood = 0.0386474837368407. leaf = 0.102424758577168.
+2022-08-24 00:24:52,816 - currentDeadWoodC:5,3,89.2618908224754, 92.3294708552514, 95.321774806287, 97.3517488283832, 82.3566433936371, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-08-24 00:24:52,816 - SurfaceDeadWoodC: 5,3,474.309612695244
+2022-08-24 00:24:52,817 -    SoilWater:  month=4, PET=7.26519112630954.
+2022-08-24 00:24:52,817 -    SoilWater:  month=4, Remaining PET=7.26519112630954.
+2022-08-24 00:24:52,818 -    SoilWater:  month=4, addToSoil=65.8042245824774.
+2022-08-24 00:24:52,818 -    SoilWater:  month=4, AET=4.35911467578572.
+2022-08-24 00:24:52,818 -    SoilWater:  month=4, baseflow=8.09351343147481.
+2022-08-24 00:24:52,819 - Mortality wood/non_wood:  PIGL/94.0 wood = 12.6969795027832. leaf = 1.6814047369085.
+2022-08-24 00:24:52,821 - Mortality wood/non_wood:  THOC2/64.0 wood = 0.996691211767055. leaf = 0.272611627438756.
+2022-08-24 00:24:52,826 - Mortality wood/non_wood:  BEPA/64.0 wood = 1.01046956858024. leaf = 1.74150220380408E-07.
+2022-08-24 00:24:52,829 - Mortality wood/non_wood:  BEPA/34.0 wood = 0.75676163832002. leaf = 1.82427405603389E-08.
+2022-08-24 00:24:52,831 - Mortality wood/non_wood:  THOC2/34.0 wood = 0.786330296290414. leaf = 0.207989166323786.
+2022-08-24 00:24:52,833 - Mortality wood/non_wood:  THOC2/14.0 wood = 0.656200225446647. leaf = 0.169639458675765.
+2022-08-24 00:24:52,835 - Mortality wood/non_wood:  PIGL/14.0 wood = 1.18230160407612. leaf = 0.442125077857496.
+2022-08-24 00:24:52,838 - Mortality wood/non_wood:  BEPA/14.0 wood = 0.58952847824003. leaf = 3.10267210057631E-09.
+2022-08-24 00:24:52,841 - Mortality wood/non_wood:  PIGL/4.0 wood = 0.0566430262456331. leaf = 0.086189936184339.
+2022-08-24 00:24:52,844 - Mortality wood/non_wood:  PIGL/2.0 wood = 0.0518241147998201. leaf = 0.101700329612574.
+2022-08-24 00:24:52,846 - currentDeadWoodC:5,4,88.8637032088928, 91.9175990998534, 94.8965547075098, 96.9174732356651, 90.7782299582134, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-08-24 00:24:52,847 - SurfaceDeadWoodC: 5,4,480.760141279277
+2022-08-24 00:24:52,848 -    SoilWater:  month=5, PET=8.74862154867196.
+2022-08-24 00:24:52,848 -    SoilWater:  month=5, Remaining PET=8.74862154867196.
+2022-08-24 00:24:52,848 -    SoilWater:  month=5, addToSoil=61.8945671605312.
+2022-08-24 00:24:52,849 -    SoilWater:  month=5, AET=5.24917292920318.
+2022-08-24 00:24:52,849 -    SoilWater:  month=5, baseflow=7.7505955801356.
+2022-08-24 00:24:52,849 - Mortality wood/non_wood:  PIGL/95.0 wood = 12.8437420443628. leaf = 1.74282205631204.
+2022-08-24 00:24:52,851 - Mortality wood/non_wood:  THOC2/65.0 wood = 1.06312521588935. leaf = 0.282555636128556.
+2022-08-24 00:24:52,854 - Mortality wood/non_wood:  BEPA/65.0 wood = 1.02423950918763. leaf = 5.80353606901348E-07.
+2022-08-24 00:24:52,858 - Mortality wood/non_wood:  BEPA/35.0 wood = 0.770712243067042. leaf = 6.06257111189054E-08.
+2022-08-24 00:24:52,860 - Mortality wood/non_wood:  THOC2/35.0 wood = 0.836834579997654. leaf = 0.215553770953315.
+2022-08-24 00:24:52,862 - Mortality wood/non_wood:  THOC2/15.0 wood = 0.697451861188992. leaf = 0.175834564888865.
+2022-08-24 00:24:52,864 - Mortality wood/non_wood:  PIGL/15.0 wood = 1.22408621867666. leaf = 0.458428531753489.
+2022-08-24 00:24:52,866 - Mortality wood/non_wood:  BEPA/15.0 wood = 0.600070741768494. leaf = 1.03087240729807E-08.
+2022-08-24 00:24:52,869 - Mortality wood/non_wood:  PIGL/5.0 wood = 0.0619804194090681. leaf = 0.0873860157082392.
+2022-08-24 00:24:52,873 - Mortality wood/non_wood:  PIGL/3.0 wood = 0.0570929441533085. leaf = 0.102415651005655.
+2022-08-24 00:24:52,877 - currentDeadWoodC:5,5,88.4164573134085, 91.4549831223992, 94.4189458182115, 96.4296931799154, 99.2902677845621, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-08-24 00:24:52,877 - SurfaceDeadWoodC: 5,5,487.054582687889
+2022-08-24 00:24:52,884 - nurseryLogC:5,0,0,0
+2022-08-24 00:24:52,885 - decayClassAreaRatios:5,0,0,0
+2022-08-24 00:24:52,885 - original_lightProbability:5,ABBA,1
+2022-08-24 00:24:52,886 - siteShade:5
+2022-08-24 00:24:52,887 - siteLAI:8.63167265615369
+2022-08-24 00:24:52,889 - nurseryLogPenalty:5,ABBA,0
+2022-08-24 00:24:52,889 - modified_lightProbability:5,ABBA,1
+2022-08-24 00:24:52,890 - regeneration_type:5,ABBA,surface
+2022-08-24 00:24:52,890 - original_lightProbability:5,ACSA3,1
+2022-08-24 00:24:52,890 - siteShade:5
+2022-08-24 00:24:52,891 - siteLAI:8.63167265615369
+2022-08-24 00:24:52,891 - nurseryLogPenalty:5,ACSA3,0
+2022-08-24 00:24:52,892 - modified_lightProbability:5,ACSA3,1
+2022-08-24 00:24:52,892 - regeneration_type:5,ACSA3,surface
+2022-08-24 00:24:52,893 - original_lightProbability:5,BEAL2,0.1
+2022-08-24 00:24:52,893 - siteShade:5
+2022-08-24 00:24:52,893 - siteLAI:8.63167265615369
+2022-08-24 00:24:52,894 - nurseryLogPenalty:5,BEAL2,0
+2022-08-24 00:24:52,894 - modified_lightProbability:5,BEAL2,0.1
+2022-08-24 00:24:52,894 - regeneration_type:5,BEAL2,failed
+2022-08-24 00:24:52,895 - original_lightProbability:5,BEPA,0
+2022-08-24 00:24:52,895 - siteShade:5
+2022-08-24 00:24:52,895 - siteLAI:8.63167265615369
+2022-08-24 00:24:52,896 - nurseryLogPenalty:5,BEPA,0
+2022-08-24 00:24:52,896 - modified_lightProbability:5,BEPA,0
+2022-08-24 00:24:52,897 - regeneration_type:5,BEPA,failed
+2022-08-24 00:24:52,897 - original_lightProbability:5,FRNI,0.25
+2022-08-24 00:24:52,897 - siteShade:5
+2022-08-24 00:24:52,898 - siteLAI:8.63167265615369
+2022-08-24 00:24:52,898 - nurseryLogPenalty:5,FRNI,0
+2022-08-24 00:24:52,898 - modified_lightProbability:5,FRNI,0.25
+2022-08-24 00:24:52,899 - regeneration_type:5,FRNI,failed
+2022-08-24 00:24:52,899 - original_lightProbability:5,PIGL,0.25
+2022-08-24 00:24:52,899 - siteShade:5
+2022-08-24 00:24:52,900 - siteLAI:8.63167265615369
+2022-08-24 00:24:52,900 - nurseryLogPenalty:5,PIGL,0
+2022-08-24 00:24:52,901 - modified_lightProbability:5,PIGL,0.25
+2022-08-24 00:24:52,901 - regeneration_type:5,PIGL,failed
+2022-08-24 00:24:52,902 - original_lightProbability:5,PIMA,0.1
+2022-08-24 00:24:52,902 - siteShade:5
+2022-08-24 00:24:52,903 - siteLAI:8.63167265615369
+2022-08-24 00:24:52,906 - nurseryLogPenalty:5,PIMA,0
+2022-08-24 00:24:52,906 - modified_lightProbability:5,PIMA,0.1
+2022-08-24 00:24:52,907 - regeneration_type:5,PIMA,failed
+2022-08-24 00:24:52,907 - original_lightProbability:5,PIBA2,0
+2022-08-24 00:24:52,908 - siteShade:5
+2022-08-24 00:24:52,908 - siteLAI:8.63167265615369
+2022-08-24 00:24:52,908 - nurseryLogPenalty:5,PIBA2,0
+2022-08-24 00:24:52,909 - modified_lightProbability:5,PIBA2,0
+2022-08-24 00:24:52,909 - regeneration_type:5,PIBA2,failed
+2022-08-24 00:24:52,910 - original_lightProbability:5,PIST,0.1
+2022-08-24 00:24:52,910 - siteShade:5
+2022-08-24 00:24:52,910 - siteLAI:8.63167265615369
+2022-08-24 00:24:52,911 - nurseryLogPenalty:5,PIST,0
+2022-08-24 00:24:52,911 - modified_lightProbability:5,PIST,0.1
+2022-08-24 00:24:52,911 - regeneration_type:5,PIST,failed
+2022-08-24 00:24:52,912 - original_lightProbability:5,POTR5,0
+2022-08-24 00:24:52,912 - siteShade:5
+2022-08-24 00:24:52,912 - siteLAI:8.63167265615369
+2022-08-24 00:24:52,913 - nurseryLogPenalty:5,POTR5,0
+2022-08-24 00:24:52,913 - modified_lightProbability:5,POTR5,0
+2022-08-24 00:24:52,914 - regeneration_type:5,POTR5,failed
+2022-08-24 00:24:52,914 - original_lightProbability:5,QURU,0
+2022-08-24 00:24:52,914 - siteShade:5
+2022-08-24 00:24:52,915 - siteLAI:8.63167265615369
+2022-08-24 00:24:52,915 - nurseryLogPenalty:5,QURU,0
+2022-08-24 00:24:52,915 - modified_lightProbability:5,QURU,0
+2022-08-24 00:24:52,916 - regeneration_type:5,QURU,failed
+2022-08-24 00:24:52,916 - original_lightProbability:5,THOC2,0.25
+2022-08-24 00:24:52,916 - siteShade:5
+2022-08-24 00:24:52,917 - siteLAI:8.63167265615369
+2022-08-24 00:24:52,917 - nurseryLogPenalty:5,THOC2,0
+2022-08-24 00:24:52,918 - modified_lightProbability:5,THOC2,0.25
+2022-08-24 00:24:52,918 - regeneration_type:5,THOC2,surface
+2022-08-24 00:24:52,923 - original_lightProbability:5,HRDWD,0
+2022-08-24 00:24:52,923 - siteShade:5
+2022-08-24 00:24:52,924 - siteLAI:8.63167265615369
+2022-08-24 00:24:52,924 - nurseryLogPenalty:5,HRDWD,0
+2022-08-24 00:24:52,925 - modified_lightProbability:5,HRDWD,0
+2022-08-24 00:24:52,925 - regeneration_type:5,HRDWD,failed
+2022-08-24 00:24:52,925 - original_lightProbability:5,SFTWD,0.25
+2022-08-24 00:24:52,926 - siteShade:5
+2022-08-24 00:24:52,926 - siteLAI:8.63167265615369
+2022-08-24 00:24:52,926 - nurseryLogPenalty:5,SFTWD,0
+2022-08-24 00:24:52,927 - modified_lightProbability:5,SFTWD,0.25
+2022-08-24 00:24:52,927 - regeneration_type:5,SFTWD,failed

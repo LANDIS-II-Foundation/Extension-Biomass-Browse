@@ -47,7 +47,6 @@ namespace Landis.Extension.Browse
         public static double PopPredationMax;
         public static bool DynamicPopulation = false; //SF changed this so that static population can happen -- otherwise
                                                       //dynamic is always used
-        public static bool BrowseDensityIndexFlag = false;
 
 
         //---------------------------------------------------------------------
@@ -110,7 +109,7 @@ namespace Landis.Extension.Browse
 
             PartialDisturbance.Initialize();
             GrowthReduction.Initialize(parameters);
-            //Defoliate.Initialize(parameters); //SF removed this functionality -- biomass is already reduced in PartialDisturbance, and this would double-count it
+            //Defoliate.Initialize(parameters); //TODO This isn't the right way to do this -- biomass is already reduced in PartialDisturbance, and this would double-count it
             PopulationZones.Initialize();
             
             //This is used when calculating habitat suitability

@@ -17,7 +17,7 @@ namespace Landis.Extension.Browse
         private ISppParameters[] sppParameters;
         private string zoneMapFileName;
         private string populationFileName;
-        private string browseDensityIndexFlag;
+        //private string dynamicPopulationFileName;
         private double consumptionRate;
         private static double anppForageProp;
         private double minBrowseinReach;
@@ -125,17 +125,23 @@ namespace Landis.Extension.Browse
             }
         }
         //---------------------------------------------------------------------
-        public bool BrowseDensityIndexFlag
+        /*
+        public string DynamicPopulationFileName
+            //TODO SF do we need to fix this?
         {
             get
             {
-                return browseDensityIndexFlag;
+                return dynamicPopulationFileName;
             }
             set
             {
-                browseDensityIndexFlag = value;
+                if (value == null)
+                    PlugIn.ModelCore.UI.WriteLine("   DynamicPopulationFile could not be found.  Population will be based on PopulationFile");
+                dynamicPopulationFileName = value;
             }
         }
+
+        */
         //---------------------------------------------------------------------
         public double ConsumptionRate
         {
@@ -496,7 +502,7 @@ namespace Landis.Extension.Browse
         ISppParameters[] SppParameters { get; set; }
         string ZoneMapFileName { get; set; }
         string PopulationFileName { get; set; }
-        string BrowseDensityIndexFlag { get; set; }
+        //string DynamicPopulationFileName { get; set; }
         double ConsumptionRate { get; set; }
         double ANPPForageProp { get; set; }
         double MinBrowsePropinReach { get; set; }

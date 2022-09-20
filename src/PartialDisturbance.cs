@@ -81,12 +81,10 @@ namespace Landis.Extension.Browse
         /// </summary>
         public static void ReduceCohortBiomass(ActiveSite site)
         {
-            //PlugIn.ModelCore.UI.WriteLine("Reducing CohortBiomass NOW!");
+            PlugIn.ModelCore.UI.WriteLine("Reducing CohortBiomass NOW!");
 
             currentSite = site;
-            
-            //This loop caused a pretty nasty error where biomass was reduced for every cohort, for each species (multiplying the amount
-            // of reduction by 14, for example). No need to loop here -- just calling ReduceOrKillBiomassCohorts will do all of them at the site.
+                       
             /*foreach (ISpecies species in PlugIn.ModelCore.Species)
             {
                 PlugIn.ModelCore.UI.WriteLine("ReducingCohortBiomass for site {0} species {1} NOW!", site.Location, species.Name);
@@ -107,7 +105,7 @@ namespace Landis.Extension.Browse
                                                   //int reduction)
                                                   double reduction)
         {
-            //PlugIn.ModelCore.UI.WriteLine("Recording reduction:  {0:0.0}/{1:0.0}/{2}.", cohort.Species.Name, cohort.Age, reduction);//debug
+            PlugIn.ModelCore.UI.WriteLine("Recording reduction:  {0:0.0}/{1:0.0}/{2}.", cohort.Species.Name, cohort.Age, reduction);//debug
             reductions[cohort.Species.Index][cohort.Age] = reduction;
         }
 

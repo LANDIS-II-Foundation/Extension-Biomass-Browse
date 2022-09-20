@@ -13,7 +13,8 @@ namespace Landis.Extension.Browse
         {
             PlugIn.ModelCore.UI.WriteLine("   Calculating Browse Index.");
 
-            double deerDensityIndex = parameters.BrowseDensityIndex;
+            //double deerDensityIndex = parameters.DeerDensityIndex;
+            double deerDensityIndex = 0;
 
             foreach (ActiveSite site in PlugIn.ModelCore.Landscape)
             {
