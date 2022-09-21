@@ -347,16 +347,16 @@ namespace Landis.Extension.Browse
                         forageRemoved = adjFirstPassRemoval;
                         int prefLoop = 0;
                         foreach (double prefValue in parameters.PreferenceList)
-                        {
+                        { //loop over each preference value
                             cohortLoop = 0;
                             double prefClassRemoved = 0;
                             foreach (Landis.Library.BiomassCohorts.Cohort cohort in siteCohortList)
-                            {
+                            { //loop over cohorts; this loop happens for each preference value
                                 ISppParameters sppParms = parameters.SppParameters[cohort.Species.Index];
                                 double browsePref = sppParms.BrowsePref;
 
                                 if (browsePref == prefValue)
-                                {
+                                {//only do this if the cohort has matching preference value
                                     double finalRemoval = adjFirstPassRemovalList[cohortLoop];
                                     if (forageRemoved < siteTotalToBrowse)
                                     {
@@ -420,7 +420,7 @@ namespace Landis.Extension.Browse
                                             double biomassKilled = (double)cohort.Biomass - (double)finalRemoval;
                                             finalRemoval = (double)cohort.Biomass;
                                             this.biomassKilled += biomassKilled;
-                                            this.zoneBiomassKilled[popZone.Index] += biomassKilled;
+                                            //this.zoneBiomassKilled[popZone.Index] += biomassKilled; //duplicated
                                             this.cohortsKilled += 1;
                                             this.cohortsKilledSpp[cohort.Species.Index] += 1;
                                             this.zoneCohortsKilled[popZone.Index] += 1;
@@ -457,6 +457,7 @@ namespace Landis.Extension.Browse
         //---------------------------------------------------------------------
         public static double CalculateReduction(double threshold, double max, double propBrowse)
         {
+            //calculate growth reduction
             double reduction = 0;
             if (propBrowse > threshold)
             {
