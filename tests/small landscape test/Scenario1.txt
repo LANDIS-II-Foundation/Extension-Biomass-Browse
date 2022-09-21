@@ -7,7 +7,7 @@ Species 		"species.txt"
 Ecoregions 		"ecoregions.txt"
 EcoregionsMap 		"ecoregions_subset.tif"
 
-CellLength 100 << meters
+CellLength 1000 << meters
 
 >> Succession Extension Initialization File
 >> -------------------- -------------------

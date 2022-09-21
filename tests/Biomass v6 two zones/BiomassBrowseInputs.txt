@@ -26,8 +26,7 @@ SpeciesTable
 
 << Browser population Inputs >>
 ZoneMap  ecoregions.gis
-
-DefinedPopulationFile	DefinedPopulation.txt  << User-defined population, MUST include year 0
+DefinedPopulationFile	"DefinedUngulatePopulation.txt"  << User-defined population
 DynamicPopulation  << Optional.  If exists, then the next 8 parameters must be input
 RMin 0.15
 RMax 0.25		
@@ -42,20 +41,22 @@ ConsumptionRate  2738  << kg/yr/individual
 
 << Forage Inputs >>
 ANPPForageProp		0.66	<<Prop of ANPP that counts as forage
-MinBrowsePropinReach	0.50	<<Min prop of browse within reach for a cohort to be browsed
-BrowseBiomassThreshold	0.05	<<Proportion of ecoregion max biomass when cohort begins to escape browse
+MinBrowsePropinReach	0.2	<<Min prop of browse within reach for a cohort to be browsed. Prevents larger cohorts from being browsed
+BrowseBiomassThresholdMin	0.05	<<Proportion of ecoregion max biomass when cohort begins to escape browse; cohorts smaller than this threshold are completely reachable as forage
+BrowseBiomassThresholdMax	0.1	<<Proportion of ecoregion max biomass above which cohorts completely escape browse; also controls maximum forage possible per cell
 EscapeBrowsePropLong	0.57	<<Prop of longevity when browse is escaped
 
 << Options >>
-<<GrowthReduction	OFF  << Default is ON
-<<Mortality	OFF  << Default is ON
+<<GrowthReduction	ON  << Default is ON
+<<Mortality	ON  << Default is ON
 <<CountNonForageinSitePref	TRUE	<< Default is FALSE
 <<UseInitBiomassAsForage		TRUE	<< Default is FALSE
+
 
 << HSI Inputs >>
 << Component		Neighborhood >>
 << ---------		------------
-<<ForageQuantity		0		<< ForageQuantity and/or SitePreference
+ForageQuantity		500		<< ForageQuantity and/or SitePreference
 SitePreference		500
 
 
