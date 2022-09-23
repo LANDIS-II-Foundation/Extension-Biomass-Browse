@@ -36,6 +36,12 @@ namespace Landis.Extension.Browse
         private static ICore modelCore;
         private bool running;
 
+        //Which version of the population model to use? Static population, dynamic population, or BDI
+        public static bool DynamicPopulation = false; //SF changed this so that static population can happen -- otherwise
+                                                      //dynamic is always used
+        public static bool UseBDI = false;
+        public static string PropInReachMethod = "Ordered";
+
         //Dynamic Population Parameters
         public static double PopRMin;
         public static double PopRMax;
@@ -45,8 +51,6 @@ namespace Landis.Extension.Browse
         public static double PopHarvestMax;
         public static double PopPredationMin;
         public static double PopPredationMax;
-        public static bool DynamicPopulation = false; //SF changed this so that static population can happen -- otherwise
-                                                      //dynamic is always used
 
 
         //---------------------------------------------------------------------
@@ -110,7 +114,7 @@ namespace Landis.Extension.Browse
             PartialDisturbance.Initialize();
             GrowthReduction.Initialize(parameters);
             //Defoliate.Initialize(parameters); //TODO This isn't the right way to do this -- biomass is already reduced in PartialDisturbance, and this would double-count it
-            PopulationZones.Initialize();
+            PopulationZones.Initialize(parameters);
             
             //This is used when calculating habitat suitability
             parameters.ForageNeighbors = GetResourceNeighborhood(parameters.ForageQuantityNbrRad);

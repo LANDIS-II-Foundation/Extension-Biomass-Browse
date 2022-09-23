@@ -104,19 +104,22 @@ namespace Landis.Extension.Browse
             InputVar<string> zoneMapFile = new InputVar<string>("ZoneMap");
             ReadVar(zoneMapFile);
             parameters.ZoneMapFileName = zoneMapFile.Value;
-            
+
+            InputVar<string> browseMethod = new InputVar<string>("BrowseMethod");
+            ReadVar(browseMethod);
+            parameters.BrowseMethod = browseMethod.Value;
+            if(parameters.BrowseMethod == "BDI") PlugIn.UseBDI = true; //UseBDI is false by default
+
             InputVar<string> populationFile = new InputVar<string>("DefinedPopulationFile");
             ReadVar(populationFile);
             parameters.PopulationFileName = populationFile.Value;
-
-            //PlugIn.ModelCore.UI.WriteLine("DynamicPopulation is read as {0}", ReadOptionalName("DynamicPopulation"));
-
+            
             if (ReadOptionalName("DynamicPopulation"))
             {
-                PlugIn.DynamicPopulation = true;
+                if(!PlugIn.UseBDI) PlugIn.DynamicPopulation = true; //only change to true if we're in "population mode"
 
                 //ReadName("DynamicPopulation");
-                    InputVar<double> rmin = new InputVar<double>("RMin");
+                InputVar<double> rmin = new InputVar<double>("RMin");
                     ReadVar(rmin);
                     PlugIn.PopRMin = (double) rmin.Value;
 
@@ -147,12 +150,6 @@ namespace Landis.Extension.Browse
                     InputVar<double> hmax = new InputVar<double>("HarvestMax");
                     ReadVar(hmax);
                     PlugIn.PopHarvestMax = hmax.Value;
-                //}
-                //InputVar<string> dynamicPopulationFile = new InputVar<string>("DynamicPopulationFile");
-                //if (ReadOptionalVar(dynamicPopulationFile))
-                //    parameters.DynamicPopulationFileName = dynamicPopulationFile.Value;
-                //else
-                //    parameters.DynamicPopulationFileName = null;
             }
 
             InputVar<double> consumptionRate = new InputVar<double>("ConsumptionRate");
@@ -222,6 +219,17 @@ namespace Landis.Extension.Browse
                     parameters.UseInitBiomass = false;
             else
                 parameters.UseInitBiomass = false;
+
+            InputVar<string> forageInReachMethod = new InputVar<string>("ForageInReachmethod");
+            if (ReadOptionalVar(forageInReachMethod))
+                if (forageInReachMethod.Value.ToString().ToUpper() == "LinearEachCohort")
+                {
+                    PlugIn.PropInReachMethod = "LinearEachCohort";
+                }
+                else
+                    PlugIn.PropInReachMethod = "Ordered";
+            else
+                PlugIn.PropInReachMethod = "Ordered";
 
             InputVar<double> forageQuantityNbrRad = new InputVar<double>("ForageQuantity");
             if (ReadOptionalVar(forageQuantityNbrRad))

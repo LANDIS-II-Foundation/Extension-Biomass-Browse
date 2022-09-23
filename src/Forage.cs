@@ -36,6 +36,7 @@ namespace Landis.Extension.Browse
             // 
             // SF TODO rename and fix in user guide
             // SF TODO refactor
+    
             double minBrowseProp = parameters.MinBrowsePropinReach;
             double minBrowseEscape = parameters.BrowseBiomassThreshMin;
             double maxBrowseEscape = parameters.BrowseBiomassThreshMax;
@@ -64,71 +65,136 @@ namespace Landis.Extension.Browse
             // This is a different number than NewForage that is calculated in Event.cs.
             double forageBiomassPool = 0;
 
-            foreach (Landis.Library.BiomassCohorts.ICohort cohort in sortedCohortList)
+            if (PlugIn.PropInReachMethod == "LinearCohort")
             {
-                double propInReach = 0;
-
-                if(forageBiomassPool >= maxThreshold)
+                foreach (Landis.Library.BiomassCohorts.ICohort cohort in sortedCohortList)
                 {
-                    sortedProportion[sortedBioIndex] = propInReach;
-                    sortedBioIndex++;
-                    //PlugIn.ModelCore.UI.WriteLine("Threshold exceeded, skipping cohort");//debug
-                    continue;                    
-                }
+                    double propInReach = 0;
 
-                double maxBrowseAge = cohort.Species.Longevity * maxBrowseAgeProp;
+                    double maxBrowseAge = cohort.Species.Longevity * maxBrowseAgeProp;
 
-                biomassThreshold = maxThreshold - forageBiomassPool;
-                //PlugIn.ModelCore.UI.WriteLine("biomassThreshold = {0}", biomassThreshold);//debug
+                    biomassThreshold = maxThreshold - forageBiomassPool;
+                    //PlugIn.ModelCore.UI.WriteLine("biomassThreshold = {0}", biomassThreshold);//debug
 
-                if (cohort.Age < (maxBrowseAge))
-                {
-                    if (cohort.Biomass <= minThreshold)
+                    if (cohort.Age < (maxBrowseAge))
                     {
+                        if (cohort.Biomass <= minThreshold)
+                        {
                             //if a cohort is smaller than minThreshold, all of it can be foraged
                             propInReach = 1.0;
                             forageBiomassPool += cohort.Biomass;
-                    }
-                    else if (cohort.Biomass > maxThreshold)
-                    {
+                        }
+                        else if (cohort.Biomass > maxThreshold)
+                        {
                             // if a cohort is larger than maxThreshold, none of it can be foraged
                             propInReach = 0.0;
                             //PlugIn.ModelCore.UI.WriteLine("Cohort escaped; biomass = {0}", cohort.Biomass);//debug
-                    }
-                    else
-                    {
+                        }
+                        else
+                        {
                             //if the cohort is larger than minThreshold but smaller than maxThreshold,
                             // then it is foraged as a proportion of the maxThreshold. 
                             // The closer to the threshold, the less of the biomass should be available.
                             // E.g., if the maxThreshold was 3,000, and a cohort has a biomass
                             // of 2,000, then 1/3 of the cohort's ANPP should be available for browsing. 
-                            
+
                             double tempPropInReach = Math.Min(1, (1 - (cohort.Biomass / maxThreshold)));
                             if (tempPropInReach < minBrowseProp)
                             {
-                                      propInReach = 0;
-                                      //PlugIn.ModelCore.UI.WriteLine("Cohort escaped by minBrowseProp; tempPropInReach = {0}", tempPropInReach);//debug
+                                propInReach = 0;
+                                //PlugIn.ModelCore.UI.WriteLine("Cohort escaped by minBrowseProp; tempPropInReach = {0}", tempPropInReach);//debug
                             }
                             else
                             {
-                                    propInReach = tempPropInReach;
+                                propInReach = tempPropInReach;
 
-                                    //if adding this biomass to the pool would put the forageBiomassPool over the maxThreshold
-                                    if((forageBiomassPool + (tempPropInReach * cohort.Biomass)) > maxThreshold)
-                                    {
-                                        double tempBiomass = maxThreshold - forageBiomassPool; //how much biomass until we meet the threshold?
-                                        propInReach = tempBiomass/cohort.Biomass; //if all that tempBiomass was foraged, what proportion of the cohort biomass is that?
-                                        //PlugIn.ModelCore.UI.WriteLine("Cohort escaped by reaching site biomass threshold; cohortBiomass = {0}, propInReach = {1}", cohort.Biomass, propInReach);//debug
-                                    }
+                                //if adding this biomass to the pool would put the forageBiomassPool over the maxThreshold
+                                if ((forageBiomassPool + (tempPropInReach * cohort.Biomass)) > maxThreshold)
+                                {
+                                    double tempBiomass = maxThreshold - forageBiomassPool; //how much biomass until we meet the threshold?
+                                    propInReach = tempBiomass / cohort.Biomass; //if all that tempBiomass was foraged, what proportion of the cohort biomass is that?
+                                                                                //PlugIn.ModelCore.UI.WriteLine("Cohort escaped by reaching site biomass threshold; cohortBiomass = {0}, propInReach = {1}", cohort.Biomass, propInReach);//debug
+                                }
 
-                                    forageBiomassPool += propInReach * cohort.Biomass;
+                                forageBiomassPool += propInReach * cohort.Biomass;
                             }
+                        }
                     }
+                    // PlugIn.ModelCore.UI.WriteLine("end Cohort biomass = {0}; proportion in reach = {1}.", cohort.Biomass, propInReach); //debug
+                    sortedProportion[sortedBioIndex] = propInReach;
+                    sortedBioIndex++;
+
                 }
-               // PlugIn.ModelCore.UI.WriteLine("end Cohort biomass = {0}; proportion in reach = {1}.", cohort.Biomass, propInReach); //debug
-                sortedProportion[sortedBioIndex] = propInReach;
-                sortedBioIndex++;
             }
+            else //"ordered cohorts" method
+            {
+                foreach (Landis.Library.BiomassCohorts.ICohort cohort in sortedCohortList)
+                {
+                    double propInReach = 0;
+
+                    if (forageBiomassPool >= maxThreshold)
+                    {
+                        sortedProportion[sortedBioIndex] = propInReach;
+                        sortedBioIndex++;
+                        PlugIn.ModelCore.UI.WriteLine("Threshold exceeded, skipping cohort");//debug
+                        continue;
+                    }
+
+                    double maxBrowseAge = cohort.Species.Longevity * maxBrowseAgeProp;
+
+                    biomassThreshold = maxThreshold - forageBiomassPool;
+                    PlugIn.ModelCore.UI.WriteLine("biomassThreshold = {0}", biomassThreshold);//debug
+
+                    if (cohort.Age < (maxBrowseAge))
+                    {
+                        if (cohort.Biomass <= minThreshold)
+                        {
+                            //if a cohort is smaller than minThreshold, all of it can be foraged
+                            propInReach = 1.0;
+                            forageBiomassPool += cohort.Biomass;
+                        }
+                        else if (cohort.Biomass > maxThreshold)
+                        {
+                            // if a cohort is larger than maxThreshold, none of it can be foraged
+                            propInReach = 0.0;
+                            //PlugIn.ModelCore.UI.WriteLine("Cohort escaped; biomass = {0}", cohort.Biomass);//debug
+                        }
+                        else
+                        {
+                            //if the cohort is larger than minThreshold but smaller than maxThreshold,
+                            // then it is foraged as a proportion of the maxThreshold. 
+                            // The closer to the threshold, the less of the biomass should be available.
+                            // E.g., if the maxThreshold was 3,000, and a cohort has a biomass
+                            // of 2,000, then 1/3 of the cohort's ANPP should be available for browsing. 
+
+                            double tempPropInReach = Math.Min(1, (1 - (cohort.Biomass / maxThreshold)));
+                            if (tempPropInReach < minBrowseProp)
+                            {
+                                propInReach = 0;
+                                //PlugIn.ModelCore.UI.WriteLine("Cohort escaped by minBrowseProp; tempPropInReach = {0}", tempPropInReach);//debug
+                            }
+                            else
+                            {
+                                propInReach = tempPropInReach;
+
+                                //if adding this biomass to the pool would put the forageBiomassPool over the maxThreshold
+                                if ((forageBiomassPool + (tempPropInReach * cohort.Biomass)) > maxThreshold)
+                                {
+                                    double tempBiomass = maxThreshold - forageBiomassPool; //how much biomass until we meet the threshold?
+                                    propInReach = tempBiomass / cohort.Biomass; //if all that tempBiomass was foraged, what proportion of the cohort biomass is that?
+                                                                                //PlugIn.ModelCore.UI.WriteLine("Cohort escaped by reaching site biomass threshold; cohortBiomass = {0}, propInReach = {1}", cohort.Biomass, propInReach);//debug
+                                }
+
+                                forageBiomassPool += propInReach * cohort.Biomass;
+                            }
+                        }
+                    }
+                    // PlugIn.ModelCore.UI.WriteLine("end Cohort biomass = {0}; proportion in reach = {1}.", cohort.Biomass, propInReach); //debug
+                    sortedProportion[sortedBioIndex] = propInReach;
+                    sortedBioIndex++;
+                }
+            }
+            
 
             //SF TODO this seems like a really inefficient way to do this -- looping over all the cohorts
             // just to set values for the handful of cohorts within a site

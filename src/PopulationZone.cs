@@ -18,6 +18,7 @@ namespace Landis.Extension.Browse
         List<Location> PopulationZoneSites {get;}
         double WeightedBrowse { get; set; }
         double TotalForage { get; set; }
+        double BDI { get; set; }
     }
 }
 
@@ -35,6 +36,7 @@ namespace Landis.Extension.Browse
         private List<Location> populationZoneSites;
         private double weightedBrowse;
         private double totalForage;
+        private double bdi;
 
         //---------------------------------------------------------------------
         public int Index
@@ -123,6 +125,18 @@ namespace Landis.Extension.Browse
             set
             {
                 totalForage = value;
+            }
+        }
+        //---------------------------------------------------------------------
+        public double BDI
+        {
+            get
+            {
+                return bdi;
+            }
+            set
+            {
+                bdi = value;
             }
         }
         //---------------------------------------------------------------------

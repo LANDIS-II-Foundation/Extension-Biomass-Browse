@@ -93,17 +93,15 @@ namespace Landis.Extension.Browse
 
             PlugIn.ModelCore.UI.WriteLine("Dynamic Population is {0}", PlugIn.DynamicPopulation);
 
-            // Read from defined populations            
+            // Get population for static population mode          
             if (!PlugIn.DynamicPopulation)
             {
                 PlugIn.ModelCore.UI.WriteLine("Using static population");
 
-                PlugIn.ModelCore.UI.WriteLine("Static population being loaded for current timestep? {0}", 
-                    DynamicInputs.TemporalData.ContainsKey(PlugIn.ModelCore.CurrentTime));
-
                 //if there is defined population data for the timestep
                 if (DynamicInputs.TemporalData.ContainsKey(PlugIn.ModelCore.CurrentTime))
                 {
+                    PlugIn.ModelCore.UI.WriteLine("     Defined population being loaded for current timestep");
                     foreach (IPopulationZone popZone in Dataset)
                     {
                         if (DynamicInputs.TemporalData[PlugIn.ModelCore.CurrentTime][popZone.Index] != null)
@@ -112,7 +110,7 @@ namespace Landis.Extension.Browse
                             //until the model encounters the next defined pop size (timestep 0 not being used for K and Eff. Pop.)
 
                             double newPop = DynamicInputs.TemporalData[PlugIn.ModelCore.CurrentTime][popZone.Index].Population;
-                            Dataset[popZone.Index].Population = (int)(newPop);// * Dataset[popZone.Index].PopulationZoneSites.Count); SF changed -- not converted from density
+                            Dataset[popZone.Index].Population = (int)(newPop);
                             Dataset[popZone.Index].K = CalculateK(popZone.Index, parameters);
                             Dataset[popZone.Index].EffectivePop = Math.Min(Dataset[popZone.Index].Population, Dataset[popZone.Index].K);
 
@@ -123,7 +121,7 @@ namespace Landis.Extension.Browse
                 }
 
                 else
-                {
+                {//If no static population is available for the timestep, use previous year's population size
                     foreach (IPopulationZone popZone in Dataset)
                     {
                         Dataset[popZone.Index].K = CalculateK(popZone.Index, parameters);
@@ -138,18 +136,98 @@ namespace Landis.Extension.Browse
             // For dynamic population
             else
             {
-                //if (parameters.DynamicPopulationFileName != null)
-                //{
-                foreach (IPopulationZone popZone in Dataset)
+                PlugIn.ModelCore.UI.WriteLine("Using dynamic population");
+
+                
+
+                //if there is defined population data for the timestep
+                if (DynamicInputs.TemporalData.ContainsKey(PlugIn.ModelCore.CurrentTime))
+                {
+                    PlugIn.ModelCore.UI.WriteLine("     Defined population being loaded for current timestep");
+
+                    foreach (IPopulationZone popZone in Dataset)
                     {
-                        Dataset[popZone.Index].Population = CalculateDynamicPop(popZone.Index, parameters);
+                        if (DynamicInputs.TemporalData[PlugIn.ModelCore.CurrentTime][popZone.Index] != null)
+                        {
+                            //K and Effective population size are not being calculated for first timesteps,
+                            //until the model encounters the next defined pop size (timestep 0 not being used for K and Eff. Pop.)
+
+                            double newPop = DynamicInputs.TemporalData[PlugIn.ModelCore.CurrentTime][popZone.Index].Population;
+                            Dataset[popZone.Index].Population = (int)(newPop);
+                            Dataset[popZone.Index].K = CalculateK(popZone.Index, parameters);
+                            Dataset[popZone.Index].EffectivePop = Math.Min(Dataset[popZone.Index].Population, Dataset[popZone.Index].K);
+
+                            //PlugIn.ModelCore.UI.WriteLine("Using defined population size. PopZone Index {0}.  Population = {1}. K = {2}. EffectivePop = {3}.",
+                            // popZone.Index, Dataset[popZone.Index].Population, Dataset[popZone.Index].K, Dataset[popZone.Index].EffectivePop);//debug
+                        }
+                    }
+                } 
+                else
+                { //If no static population is available for the timestep, calculate dynamic population
+                    foreach (IPopulationZone popZone in Dataset)
+                    {
                         Dataset[popZone.Index].K = CalculateK(popZone.Index, parameters);
+                        Dataset[popZone.Index].Population = CalculateDynamicPop(popZone.Index, parameters);
                         Dataset[popZone.Index].EffectivePop = Math.Min(Dataset[popZone.Index].Population, Dataset[popZone.Index].K);
                         PlugIn.ModelCore.UI.WriteLine("Using dynamic population. PopZone Index {0}.  Population = {1}. K = {2}. EffectivePop = {3}.",
                             popZone.Index, Dataset[popZone.Index].Population, Dataset[popZone.Index].K, Dataset[popZone.Index].EffectivePop);
+                    }
                 }
+
+                
             }
         }
+
+        //---------------------------------------------------------------------
+        /// <summary>
+        /// Estimate population from forage and Browse Density Index
+        /// </summary>
+        /// <param name="parameters"></param>
+        public static void CalculatePopulationFromBDI(IInputParameters parameters)
+        {
+            PlugIn.ModelCore.UI.WriteLine("   Estimating effective Zone Population from Browse Density Index.");
+
+            //if there is defined population data for the timestep
+            if (DynamicInputs.TemporalData.ContainsKey(PlugIn.ModelCore.CurrentTime))
+            {
+                PlugIn.ModelCore.UI.WriteLine("     Defined browse density index being loaded for current timestep");
+
+                foreach (IPopulationZone popZone in Dataset)
+                {
+                    if (DynamicInputs.TemporalData[PlugIn.ModelCore.CurrentTime][popZone.Index] != null)
+                    {
+                        double newBDI = DynamicInputs.TemporalData[PlugIn.ModelCore.CurrentTime][popZone.Index].Population;//"Population" input is actually BDI
+                        if (newBDI > 1 | newBDI < 0)
+                        {
+                            string mesg = string.Format("Error: Input BDI for year {0} is greater than 1 or less than 0. Value = {0}", 
+                                PlugIn.ModelCore.CurrentTime, newBDI);
+                            throw new System.ApplicationException(mesg);
+                        }
+                        Dataset[popZone.Index].BDI = newBDI;
+                        Dataset[popZone.Index].K = CalculateK(popZone.Index, parameters);
+                        Dataset[popZone.Index].Population = (int)(Dataset[popZone.Index].K * newBDI);
+                        Dataset[popZone.Index].EffectivePop = Math.Min(Dataset[popZone.Index].Population, Dataset[popZone.Index].K);
+                        
+                        //PlugIn.ModelCore.UI.WriteLine("Using defined population size. PopZone Index {0}.  Population = {1}. K = {2}. EffectivePop = {3}.",
+                        // popZone.Index, Dataset[popZone.Index].Population, Dataset[popZone.Index].K, Dataset[popZone.Index].EffectivePop);//debug
+                    }
+                }
+            }
+            else
+            { //If no static population is available for the timestep, calculate dynamic population
+                foreach (IPopulationZone popZone in Dataset)
+                {
+                    Dataset[popZone.Index].K = CalculateK(popZone.Index, parameters);
+                    Dataset[popZone.Index].Population = (int)(Dataset[popZone.Index].K * Dataset[popZone.Index].BDI);
+                    Dataset[popZone.Index].EffectivePop = Math.Min(Dataset[popZone.Index].Population, Dataset[popZone.Index].K);
+                    //PlugIn.ModelCore.UI.WriteLine("Using dynamic population. PopZone Index {0}.  Population = {1}. K = {2}. EffectivePop = {3}.",
+                        //popZone.Index, Dataset[popZone.Index].Population, Dataset[popZone.Index].K, Dataset[popZone.Index].EffectivePop);
+                }
+            }
+
+        }
+
+
         //---------------------------------------------------------------------
         /// <summary>
         /// Calculate dynamic landscape population based on current pop, population parameters
@@ -162,9 +240,7 @@ namespace Landis.Extension.Browse
         {
 
             double oldPop = Dataset[popZoneIndex].EffectivePop;
-            //TODO CalculateK is called again right after this function is called (Line 145)
-            double zoneK = CalculateK(popZoneIndex, parameters);
-            Dataset[popZoneIndex].K = zoneK;
+            double zoneK = Dataset[popZoneIndex].K; //K already calculated (Line 169)
             
             PlugIn.ModelCore.ContinuousUniformDistribution.Alpha = 0.0;
             PlugIn.ModelCore.ContinuousUniformDistribution.Beta = 1.0;
@@ -225,6 +301,7 @@ namespace Landis.Extension.Browse
         /// <returns></returns>
         public static double CalculateK(int popZoneIndex, IInputParameters parameters)
         {
+            PlugIn.ModelCore.UI.WriteLine("     Calculating carrying capacity");
             double totalForage = 0;
             foreach (Location siteLocation in Dataset[popZoneIndex].PopulationZoneSites)
             {
@@ -239,23 +316,28 @@ namespace Landis.Extension.Browse
             return zoneK;
         }
         //---------------------------------------------------------------------
-        public static void Initialize()// Dictionary<int, IDynamicInputRecord[]> allData, IInputParameters parameters)
+        public static void Initialize(IInputParameters parameters)
         {
             foreach (IPopulationZone popZone in Dataset)
             {
                 //Load in initial populations for each zone
-
-                Dataset[popZone.Index].Population = (int)(DynamicInputs.TemporalData[0][popZone.Index].Population); // * Dataset[popZone.Index].PopulationZoneSites.Count); SF changed -- no need to convert density to pop
-                //if (parameters.DynamicPopulationFileName != null)
-                //{
-                //    Dataset[popZone.Index].Population = (int)(allData[0][popZone.Index].Population);
-                //}
-                //else
-                //{
-                //    Dataset[popZone.Index].Population = (int)(allData[0][popZone.Index].Population * Dataset[popZone.Index].PopulationZoneSites.Count);
-                //}
-                //Dataset[popZone.Index].K = CalculateK (popZone.Index, parameters);
-                Dataset[popZone.Index].EffectivePop = Dataset[popZone.Index].Population;
+                if (!PlugIn.UseBDI)
+                {
+                    Dataset[popZone.Index].Population = (int)(DynamicInputs.TemporalData[0][popZone.Index].Population); 
+                    Dataset[popZone.Index].EffectivePop = Dataset[popZone.Index].Population;
+                } else
+                {
+                    double newBDI = DynamicInputs.TemporalData[0][popZone.Index].Population; //"Population" input is actually BDI
+                    if (newBDI > 1 | newBDI <0)
+                    {
+                        string mesg = string.Format("Error: Input BDI for year 0 is greater than 1 or less than 0. Value = {0}", newBDI);
+                        throw new System.ApplicationException(mesg);
+                    }
+                    Dataset[popZone.Index].BDI = newBDI;
+                    Dataset[popZone.Index].K = CalculateK(popZone.Index, parameters);
+                    Dataset[popZone.Index].Population = (int)(Dataset[popZone.Index].K * newBDI);
+                    Dataset[popZone.Index].EffectivePop = Math.Min(Dataset[popZone.Index].Population, Dataset[popZone.Index].K);
+                }
             }
         }
         //---------------------------------------------------------------------
@@ -277,19 +359,7 @@ namespace Landis.Extension.Browse
                 // Calculate weights from proportion of K
                 // If weightForage is higher (closer to 1, for dynamic pop), then it has more influence on the local population size. 
                 double weightForage = Math.Min(1,popZone.EffectivePop/popZone.K);
-                //PlugIn.ModelCore.UI.WriteLine("         weightForage = {0}. For dynamic population, this is the ratio of population size to K. It has a maximum of 1 (if pop == K).", weightForage);//debug
-               
-                /*
-                if (!PlugIn.DynamicPopulation)
-                {
-                    //TODO should we reintroduce the BDI?
-                    weightForage = ((double)Dataset[popZone.Index].EffectivePop) / ((double)popZone.PopulationZoneSites.Count);
-                    PlugIn.ModelCore.UI.WriteLine("         weightForage = {0}. For static population, this is average population per site", weightForage);
-                }
-                */
-
-               
-                //TODO if weightForage is > 1, then weightHSI will be negative -- is this a problem? This will only happen with static landscape.
+                
                 double weightHSI = 1 - weightForage;
                 // END calculate weights from proportion of K
 
@@ -487,40 +557,7 @@ namespace Landis.Extension.Browse
 
             }
         }
-        //---------------------------------------------------------------------
-        /*public static void CalculateBrowseToRemove(IInputParameters parameters)
-        {
-            foreach (IPopulationZone popZone in Dataset)
-            {
-                double sumCappedBrowse = 0;
-                double sumRemainBrowse = 0;
-
-                foreach (Location siteLocation in Dataset[popZone.Index].PopulationZoneSites)
-                {
-                    Site site = PlugIn.ModelCore.Landscape.GetSite(siteLocation);
-                    double rescaleBrowse = SiteVars.WeightedBrowse[site] * popZone.Population * (parameters.ConsumptionRate * 1000) / popZone.WeightedBrowse;// Convert consumption kg to g
-                    double cappedBrowse = rescaleBrowse;
-                    if (rescaleBrowse > SiteVars.ForageQuantity[site])
-                    {
-                        cappedBrowse = SiteVars.ForageQuantity[site];
-                    }
-                    sumCappedBrowse += cappedBrowse;
-                    SiteVars.CappedBrowse[site] = cappedBrowse;
-                    double remainBrowse = SiteVars.ForageQuantity[site] - cappedBrowse;
-                    sumRemainBrowse += remainBrowse;
-                    SiteVars.RemainBrowse[site] = remainBrowse;
-                }
-                foreach (Location siteLocation in Dataset[popZone.Index].PopulationZoneSites)
-                {
-                    Site site = PlugIn.ModelCore.Landscape.GetSite(siteLocation);
-                    double reallocBrowse = (popZone.Population * (parameters.ConsumptionRate * 1000) - sumCappedBrowse) * (SiteVars.RemainBrowse[site] / sumRemainBrowse);// Convert consumption kg to g
-                    double totalBrowseRemoved = SiteVars.CappedBrowse[site] + reallocBrowse;
-                    SiteVars.TotalBrowse[site] = totalBrowseRemoved;
-                }
-
-            }
-        }
-        */
+        
         //---------------------------------------------------------------------
         /// <summary>
         /// Calculate browse to be removed at each site based on local population
@@ -530,8 +567,7 @@ namespace Landis.Extension.Browse
         {
             foreach (IPopulationZone popZone in Dataset)
             {
-                //double totalPop = 0;
-                //double totalToRemove = 0;
+               
                 foreach (Location siteLocation in Dataset[popZone.Index].PopulationZoneSites)
                 {
                     Site site = PlugIn.ModelCore.Landscape.GetSite(siteLocation);
@@ -539,15 +575,6 @@ namespace Landis.Extension.Browse
                     //Browse - calculate local browse to remove
                     //convert number of individuals to grams of forage consumed per meter squared
                     double siteBrowseToBeRemoved = (SiteVars.LocalPopulation[site] * (parameters.ConsumptionRate * 1000)) / (PlugIn.ModelCore.CellLength * PlugIn.ModelCore.CellLength);
-
-                    //PlugIn.ModelCore.UI.WriteLine("LocalPopulation = {0}. siteBrowseToBeRemoved = {1}.", SiteVars.LocalPopulation[site], siteBrowseToBeRemoved);//debug
-
-                    //totalPop += SiteVars.LocalPopulation[site];
-                    //if (!PlugIn.DynamicPopulation)
-                        // If non-dynamic pop, then population value = rate of removal
-                        // SF 2022-5-4 removed this code; it is a legacy of the old system where static pop size was stored as density rather than number of individuals
-                        //siteBrowseToBeRemoved = SiteVars.ForageQuantity[site] * SiteVars.LocalPopulation[site];
-                        //PlugIn.ModelCore.UI.WriteLine("Static population LocalPopulation = {0}. siteBrowseToBeRemoved = {1}.", SiteVars.LocalPopulation[site], siteBrowseToBeRemoved);
 
                     SiteVars.TotalBrowse[site] = siteBrowseToBeRemoved;
                     

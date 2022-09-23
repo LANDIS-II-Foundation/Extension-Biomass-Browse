@@ -67,6 +67,7 @@ namespace Landis.Extension.Browse
                 IDynamicInputRecord dynamicInputRecord = new DynamicInputRecord();
 
                 ReadValue(population, currentLine);
+                
                 dynamicInputRecord.Population = population.Value;
 
                 DynamicInputs.TemporalData[yr][popZone.Index] = dynamicInputRecord;

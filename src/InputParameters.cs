@@ -16,8 +16,8 @@ namespace Landis.Extension.Browse
         private int timestep;
         private ISppParameters[] sppParameters;
         private string zoneMapFileName;
+        private string browseMethod;
         private string populationFileName;
-        //private string dynamicPopulationFileName;
         private double consumptionRate;
         private static double anppForageProp;
         private double minBrowseinReach;
@@ -111,6 +111,26 @@ namespace Landis.Extension.Browse
             }
         }
         //---------------------------------------------------------------------
+        /// <summary>
+        /// What method of browsing is being used -- population-based or browse density index-based?
+        /// </summary>
+        public string BrowseMethod
+        {
+            get
+            {
+                return browseMethod;
+            }
+            set
+            {
+                if (value == null)
+                    throw new InputValueException(value.ToString(), "Browse method must be provided (either 'Population' or 'BDI'");
+                if( value == "Population")
+                    browseMethod = "Population";
+                if (value == "BDI")
+                    browseMethod = "BDI";
+            }
+        }
+        //---------------------------------------------------------------------
         public string PopulationFileName
         {
             get
@@ -124,24 +144,7 @@ namespace Landis.Extension.Browse
                 populationFileName = value;
             }
         }
-        //---------------------------------------------------------------------
-        /*
-        public string DynamicPopulationFileName
-            //TODO SF do we need to fix this?
-        {
-            get
-            {
-                return dynamicPopulationFileName;
-            }
-            set
-            {
-                if (value == null)
-                    PlugIn.ModelCore.UI.WriteLine("   DynamicPopulationFile could not be found.  Population will be based on PopulationFile");
-                dynamicPopulationFileName = value;
-            }
-        }
 
-        */
         //---------------------------------------------------------------------
         public double ConsumptionRate
         {
@@ -501,8 +504,8 @@ namespace Landis.Extension.Browse
         int Timestep { get; set; }
         ISppParameters[] SppParameters { get; set; }
         string ZoneMapFileName { get; set; }
+        string BrowseMethod { get; set; }
         string PopulationFileName { get; set; }
-        //string DynamicPopulationFileName { get; set; }
         double ConsumptionRate { get; set; }
         double ANPPForageProp { get; set; }
         double MinBrowsePropinReach { get; set; }

@@ -11,7 +11,7 @@ namespace Landis.Extension.Browse
 {
     public class Event
     {
-        
+
         private int sitesDamaged;
         private int cohortsKilled;
         private double biomassRemoved;
@@ -33,13 +33,14 @@ namespace Landis.Extension.Browse
 
         static Event()
         {
-           
+
         }
 
         //---------------------------------------------------------------------
         public int SitesDamaged
         {
-            get {
+            get
+            {
                 return sitesDamaged;
             }
         }
@@ -54,7 +55,8 @@ namespace Landis.Extension.Browse
         //---------------------------------------------------------------------
         public int CohortsKilled
         {
-            get {
+            get
+            {
                 return cohortsKilled;
             }
         }
@@ -69,7 +71,8 @@ namespace Landis.Extension.Browse
         //---------------------------------------------------------------------
         public double BiomassKilled
         {
-            get {
+            get
+            {
                 return biomassKilled;
             }
         }
@@ -148,40 +151,47 @@ namespace Landis.Extension.Browse
         //---------------------------------------------------------------------
         public static void Initialize()
         {
-           
+
         }
 
         //---------------------------------------------------------------------
 
         public static Event Initiate(IInputParameters parameters)
         {
-                Event browseEvent = new Event();
+            Event browseEvent = new Event();
 
-                //Calculate forage for each site
-                browseEvent.CalculateForage(parameters);
+            //Calculate forage for each site
+            browseEvent.CalculateForage(parameters);
 
-                // Calculate population
+            // Calculate population
+            if (PlugIn.UseBDI)
+            {
+                PopulationZones.CalculatePopulationFromBDI(parameters); //TODO Start here
+            }
+            else
+            {
                 PopulationZones.CalculatePopulation(parameters);
+            }
 
-                // Calculate HSI
-                HabitatSuitability.CalculateHSI(parameters);
+            // Calculate HSI
+            HabitatSuitability.CalculateHSI(parameters);
 
-                // Calculate site-level population
-                PopulationZones.CalculateLocalPopulation(parameters);
-            
-                //Calculate Browse to remove
-                PopulationZones.CalculateBrowseToRemove(parameters);
-                
-                browseEvent.DisturbSites(parameters);
+            // Calculate site-level population
+            PopulationZones.CalculateLocalPopulation(parameters);
 
-                return browseEvent;
+            //Calculate Browse to remove
+            PopulationZones.CalculateBrowseToRemove(parameters);
+
+            browseEvent.DisturbSites(parameters);
+
+            return browseEvent;
         }
 
 
         //---------------------------------------------------------------------
 
         private Event()
-        {           
+        {
             this.sitesDamaged = 0;
             this.population = 0;
             this.cohortsKilled = 0;
@@ -208,10 +218,10 @@ namespace Landis.Extension.Browse
             this.zoneCohortsKilledSpp = new int[PopulationZones.Dataset.Count][];
             //this.zoneBiomassRemovedSpp = new int[PopulationZones.Dataset.Count][];
             this.zoneBiomassRemovedSpp = new double[PopulationZones.Dataset.Count][];
-            
+
             foreach (IPopulationZone popZone in PopulationZones.Dataset)
 
-                {
+            {
                 this.zoneSitesDamaged[popZone.Index] = 0;
                 this.zonePopulation[popZone.Index] = 0;
                 this.zoneCohortsKilled[popZone.Index] = 0;
@@ -226,7 +236,7 @@ namespace Landis.Extension.Browse
                 }
             }
         }
-         //---------------------------------------------------------------------
+        //---------------------------------------------------------------------
         //Go through all active sites and damage them according to the
         // site's browse to be removed.
         private void DisturbSites(IInputParameters parameters)
@@ -239,7 +249,7 @@ namespace Landis.Extension.Browse
                 {
                     double siteTotalRemoval = 0;
                     ActiveSite site = (ActiveSite)PlugIn.ModelCore.Landscape.GetSite(siteLocation);
-                    
+
                     double siteTotalToBrowse = SiteVars.TotalBrowse[site];
 
                     PlugIn.ModelCore.UI.WriteLine(" Allocating browse for site {0}; total browse: {1}", site.DataIndex, siteTotalToBrowse);
@@ -260,7 +270,7 @@ namespace Landis.Extension.Browse
                             }
                         }
                         double forageRemoved = 0.0;
-                        
+
                         //Browse - compile browse by preference class
                         double[] forageByPrefClass = new double[parameters.PreferenceList.Count];
                         double[] propBrowseList = new double[siteCohortList.Count];
@@ -279,10 +289,10 @@ namespace Landis.Extension.Browse
                             double browsePref = sppParms.BrowsePref;
 
                             double availForage = SiteVars.GetForageInReach(cohort, site);
-                            firstPassRemoval += availForage * browsePref;                           
+                            firstPassRemoval += availForage * browsePref;
                             PlugIn.ModelCore.UI.WriteLine("{0:0.0}/{1:0.0}. availForage = {2}, browsePref = {3}, " +
                                 "firstPass increment = {4}, firstPassRemoval = {5}",
-                                cohort.Species.Name, cohort.Age, availForage, browsePref, availForage*browsePref, firstPassRemoval);//debug
+                                cohort.Species.Name, cohort.Age, availForage, browsePref, availForage * browsePref, firstPassRemoval);//debug
                             //firstPassRemovalInt += (availForage * browsePref);
                             //assign first pass removal to each cohort
                             firstPassRemovalList[cohortLoop] = availForage * browsePref;
@@ -315,7 +325,7 @@ namespace Landis.Extension.Browse
                             //adjFirstPassRemovalInt = 0;
                             int removalIndex = 0;
                             foreach (var i in firstPassRemovalList)
-                                //loop over cohorts
+                            //loop over cohorts
                             {
                                 double firstRemoval = firstPassRemovalList[removalIndex];
                                 double adjFirstRemoval = firstRemoval * siteTotalToBrowse / firstPassRemoval;
@@ -338,7 +348,7 @@ namespace Landis.Extension.Browse
                             adjIndex++;
                         }
                         double unallocatedBrowse = siteTotalToBrowse - adjFirstPassRemoval;
-                        
+
 
                         //Browse - allocate second pass of browse removal to cohorts
                         //second pass removes all of most preferred before moving down in preference
@@ -360,7 +370,7 @@ namespace Landis.Extension.Browse
                                     double finalRemoval = adjFirstPassRemovalList[cohortLoop];
                                     if (forageRemoved < siteTotalToBrowse)
                                     {
-                                        double availForage = SiteVars.GetForageInReach(cohort, site); 
+                                        double availForage = SiteVars.GetForageInReach(cohort, site);
                                         double prefClassForage = forageByPrefClass[prefLoop];
                                         double secondPassRemoval = 0;
                                         if (prefClassForage > 0)
@@ -377,7 +387,7 @@ namespace Landis.Extension.Browse
                                         prefClassRemoved += (finalRemoval - adjFirstPassRemovalList[cohortLoop]);
                                         PlugIn.ModelCore.UI.WriteLine("{0:0.0}/{1:0.0}. adjusted firstPassRemoval = {2}, secondPassRemoval = {3}, finalRemoval = {4}", cohort.Species.Name, cohort.Age, adjFirstPassRemovalList[cohortLoop], secondPassRemoval, finalRemoval); //debug
                                     }
-                                    
+
                                     finalRemovalList[cohortLoop] = finalRemoval;
 
                                     this.biomassRemoved += (double)finalRemoval;
@@ -392,7 +402,7 @@ namespace Landis.Extension.Browse
                                     if (propBrowse < 0.0 || propBrowse > 1.0001)
                                         //SF TODO this error still comes up frequently -- track this down
                                         PlugIn.ModelCore.UI.WriteLine("   Browse Proportion not between 0 and 1: {0}. finalRemoval = {1}," +
-                                            "total forage = {2}", 
+                                            "total forage = {2}",
                                             propBrowse, finalRemoval, SiteVars.GetForage(siteCohortList[cohortLoop], site));
 
                                     if (propBrowse > 1.0001)
@@ -402,7 +412,7 @@ namespace Landis.Extension.Browse
                                     if (propBrowse > 0.0)
                                         //PlugIn.ModelCore.UI.WriteLine("Setting LastBrowseProportion :  {0:0.0}/{1:0.0}/{2}.", cohort.Species.Name, cohort.Age, propBrowse);
                                         SiteVars.SetLastBrowseProportion(cohort, site, propBrowse);
-                                        
+
                                     // Add mortality
                                     // Browse - Mortality caused by browsing
                                     if (parameters.Mortality)
@@ -413,7 +423,7 @@ namespace Landis.Extension.Browse
                                         PlugIn.ModelCore.ContinuousUniformDistribution.Alpha = 0.0;
                                         PlugIn.ModelCore.ContinuousUniformDistribution.Beta = 1.0;
                                         double myRand = PlugIn.ModelCore.ContinuousUniformDistribution.NextDouble();
-                                        
+
                                         if (myRand < mortProb)
                                         {
                                             //int biomassKilled = cohort.Biomass - (int)finalRemoval;
@@ -429,7 +439,7 @@ namespace Landis.Extension.Browse
                                     }
                                     if (finalRemoval > 0)
                                     {
-                                        PlugIn.ModelCore.UI.WriteLine("Recording cohort biomass removal :  {0:0.0}/{1:0.0}/{2}.", 
+                                        PlugIn.ModelCore.UI.WriteLine("Recording cohort biomass removal :  {0:0.0}/{1:0.0}/{2}.",
                                             cohort.Species.Name, cohort.Age, finalRemoval); //debug
                                         PartialDisturbance.RecordBiomassReduction(cohort, finalRemoval);
                                         this.biomassRemovedSpp[cohort.Species.Index] += finalRemoval;
@@ -449,7 +459,7 @@ namespace Landis.Extension.Browse
 
                     // Send biomass reduction to the succession extensions
                     PartialDisturbance.ReduceCohortBiomass(site);
-                    
+
                 }
             }
         }
@@ -492,15 +502,15 @@ namespace Landis.Extension.Browse
                 {
                     ISppParameters sppParms = parameters.SppParameters[species.Index];
                     double browsePref = sppParms.BrowsePref;
-                                       
+
                     ISpeciesCohorts cohortList = SiteVars.BiomassCohorts[site][species];
 
                     if (cohortList != null)
                     {
                         foreach (ICohort cohort in cohortList)
-                            //for each cohort, get the new forage (Biomass*0.04*proportion of ANPP that is forage)
-                            //and assign newForage to cohort in SiteVars
-                            //total forage will later be reduced to represent forage in reach of browsers
+                        //for each cohort, get the new forage (Biomass*0.04*proportion of ANPP that is forage)
+                        //and assign newForage to cohort in SiteVars
+                        //total forage will later be reduced to represent forage in reach of browsers
                         {
                             //int newForage = 0;
                             double newForage = 0;
@@ -558,7 +568,7 @@ namespace Landis.Extension.Browse
 
 
                 foreach (ISpecies species in PlugIn.ModelCore.Species)
-                    //Build a list of cohorts at the site
+                //Build a list of cohorts at the site
                 {
                     ISpeciesCohorts cohortList = SiteVars.BiomassCohorts[site][species];
 
@@ -570,7 +580,7 @@ namespace Landis.Extension.Browse
 
                         }
                     }
-                       
+
                 }
 
 

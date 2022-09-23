@@ -24,8 +24,8 @@ HRDWD		0.15		0.3		0.4	0.8		0.01   5000
 
 << Browser population Inputs >>
 ZoneMap  "./rasters/single3.tif" <<same as ecoregions right now; every active cell can be browsed. sf 2021-12-20
-BrowseMethod "Population" <<must be either "Population" or "BDI"
-DefinedPopulationFile	"DefinedUngulatePopulation.txt"  << File with user-defined population or BDI; must contain year-0 data
+BrowseMethod "BDI" <<must be either "Population" or "BDI"
+DefinedPopulationFile	"DefinedUngulateBDI.txt"  << File with user-defined population or BDI; must contain year-0 data
 DynamicPopulation  << Optional.  If exists, then the next 8 parameters must be input
 RMin 0.15
 RMax 0.25		
