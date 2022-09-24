@@ -220,16 +220,32 @@ namespace Landis.Extension.Browse
             else
                 parameters.UseInitBiomass = false;
 
-            InputVar<string> forageInReachMethod = new InputVar<string>("ForageInReachmethod");
+            InputVar<string> forageInReachMethod = new InputVar<string>("ForageInReachMethod");
             if (ReadOptionalVar(forageInReachMethod))
-                if (forageInReachMethod.Value.ToString().ToUpper() == "LinearEachCohort")
+            {
+                PlugIn.ModelCore.UI.WriteLine("forageInReachMethod is {0}", forageInReachMethod.Value);
+                if (forageInReachMethod.Value == "LinearEachCohort")
                 {
                     PlugIn.PropInReachMethod = "LinearEachCohort";
+                    PlugIn.ModelCore.UI.WriteLine("Using linear each cohort method");
                 }
-                else
+                else if (forageInReachMethod.Value == "Ordered")
+                {
                     PlugIn.PropInReachMethod = "Ordered";
+                    PlugIn.ModelCore.UI.WriteLine("Using ordered cohorts method");
+                } 
+                else
+                {
+                    PlugIn.PropInReachMethod = "Ordered";
+                    PlugIn.ModelCore.UI.WriteLine("ForageInReachMethod not recognized: Using ordered cohorts method");
+                }
+
+            }
             else
+            {
                 PlugIn.PropInReachMethod = "Ordered";
+                PlugIn.ModelCore.UI.WriteLine("Using linear each cohort method by default");
+            }
 
             InputVar<double> forageQuantityNbrRad = new InputVar<double>("ForageQuantity");
             if (ReadOptionalVar(forageQuantityNbrRad))

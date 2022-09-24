@@ -28,6 +28,7 @@ namespace Landis.Extension.Browse
         private bool mortality;
         private bool countNonForage;
         private bool useInitBiomass;
+        private string forageInReachMethod;
         private double forageQuantityNbrRad;
         private double sitePrefNbrRad;
         private string sitePrefMapNamesTemplate;
@@ -263,6 +264,18 @@ namespace Landis.Extension.Browse
             set
             {
                 useInitBiomass = value;
+            }
+        }
+        //---------------------------------------------------------------------
+        public string ForageInReachMethod
+        {
+            get
+            {
+                return forageInReachMethod;
+            }
+            set
+            {
+                forageInReachMethod = value;
             }
         }
         //---------------------------------------------------------------------
@@ -516,6 +529,7 @@ namespace Landis.Extension.Browse
         bool Mortality { get; set; }
         bool CountNonForage { get; set; }
         bool UseInitBiomass { get; set; }
+        string ForageInReachMethod { get; set; }
         double ForageQuantityNbrRad { get; set; }
         double SitePrefNbrRad { get; set; }
         string SitePrefMapNamesTemplate { get; set; }

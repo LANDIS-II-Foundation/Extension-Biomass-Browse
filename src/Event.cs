@@ -525,7 +525,7 @@ namespace Landis.Extension.Browse
                                 // This value also matches more closely what Biomass Succession was generating for the previous version of the model
                                 // This gets us site ANPP within 10% of what NECN produces, at least for the handful of "typical" sites I tested -- SF
                                 newForage = (cohort.Biomass * 0.04) * parameters.ANPPForageProp;
-                                //PlugIn.ModelCore.UI.WriteLine("ANPP estimated as {0}", newForage);//debug
+                                PlugIn.ModelCore.UI.WriteLine("New Forage estimated as {0}", newForage);//debug
 
                                 //Use estimates from Keeling quadratic all-data model, inverted to represent ANPP ~ biomass
                                 // Work in progress -- these curves do not work well for small cohorts
@@ -556,7 +556,7 @@ namespace Landis.Extension.Browse
                             //we also need to update the site max biomass if a species with a high value is present
                             //TODO SF why?
                             siteBiomassMax = Math.Max(siteBiomassMax, sppParms.BiomassMax);
-                            //PlugIn.ModelCore.UI.WriteLine("     adjusting siteBiomassMax = {0} g m-2", siteBiomassMax); //debug  
+                            PlugIn.ModelCore.UI.WriteLine("     adjusting siteBiomassMax = {0} g m-2", siteBiomassMax); //debug  
 
                             //record original forage
                             SiteVars.SetForage(cohort, site, newForage);
@@ -583,9 +583,6 @@ namespace Landis.Extension.Browse
 
                 }
 
-
-                // This next chunk calculates how much of the forage is "in reach" or available to be 
-                // foraged. It's highly dependent upon the biomassThreshold.
                 List<double> propInReachList = new List<double>(siteCohortList.Count);
                 propInReachList = Forage.CalculateCohortPropInReach(siteCohortList, parameters, siteBiomassMax);
 
@@ -594,7 +591,8 @@ namespace Landis.Extension.Browse
                 {
                     //int newForageinReach = (int)Math.Round(SiteVars.GetForage(cohort, site) * propInReachList[listCount]);
                     double newForageinReach = SiteVars.GetForage(cohort, site) * propInReachList[listCount];
-                    //PlugIn.ModelCore.UI.WriteLine("forage in reach = {0} g m-2", newForageinReach); //debug
+                    PlugIn.ModelCore.UI.WriteLine("forage in reach = {0} g m-2; cohort forage = {1}, propinreach = {2}", 
+                        newForageinReach, SiteVars.GetForage(cohort, site), propInReachList[listCount]); //debug
 
                     if (newForageinReach > 0)
                         SiteVars.SetForageInReach(cohort, site, newForageinReach);

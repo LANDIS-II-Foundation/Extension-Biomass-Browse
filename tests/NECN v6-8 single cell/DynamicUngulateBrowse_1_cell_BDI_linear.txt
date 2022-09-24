@@ -7,41 +7,32 @@ SpeciesTable
 >>				--GrowthReduction--	----Mortality-----     Biomass
 >> Name		Preference	Threshold	Max	Threshold	Max      Max
 >> --------	----------	---------	---	---------	---    -------
-ABBA		0.15		0.3		0.4	0.8		0.01   5000
-ACSA3		0.15		0.3		0.4	0.8		0.01   5000
-BEAL2		0.15		0.3		0.4	0.8		0.01   5000
-BEPA		0.25		0.4		0.3	0.9		0.01   5000
-PIGL		0		0		1	0.8		0.01   5000
-PIBA2		0		0		1	0.8		0.01   5000
-POTR5		0.30		0.4		0.3	0.9		0.01   5000
-THOC2		0.05		0.3		0.4	0.8		0.01   5000
-FRNI		0		0		1	0.8		0.01   5000
-PIMA		0		0		1	0.8		0.01   5000
-PIST             0.05            0.3		0.4	0.8		0.01   5000
-QURU		0.05		0.3		0.4	0.8		0.01   5000
-SFTWD		0.15		0.3		0.4	0.8		0.01   5000
-HRDWD		0.15		0.3		0.4	0.8		0.01   5000
+ABBA		0.15		0.3		0.4	0.8		0.01   1000
+ACSA3		0.15		0.3		0.4	0.8		0.01   1000
+BEAL2		0.15		0.3		0.4	0.8		0.01   1000
+BEPA		0.25		0.4		0.3	0.9		0.01   1000
+PIGL		0		0		1	0.8		0.01   2000
+PIBA2		0		0		1	0.8		0.01   2000
+POTR5		0.30		0.4		0.3	0.9		0.01   1000
+THOC2		0.05		0.3		0.4	0.8		0.01   1000
+FRNI		0		0		1	0.8		0.01   1000
+PIMA		0		0		1	0.8		0.01   2000
+PIST             0.05            0.3		0.4	0.8		0.01   3000
+QURU		0.05		0.3		0.4	0.8		0.01   1000
+SFTWD		0.15		0.3		0.4	0.8		0.01   1000
+HRDWD		0.15		0.3		0.4	0.8		0.01   1000
 
 << Browser population Inputs >>
 ZoneMap  "./rasters/single3.tif" <<same as ecoregions right now; every active cell can be browsed. sf 2021-12-20
-BrowseMethod "Population" <<must be either "Population" or "BDI"
-DefinedPopulationFile	"DefinedUngulatePopulation.txt"  << File with user-defined population or BDI; must contain year-0 data
-DynamicPopulation  << Optional.  If exists, then the next 8 parameters must be input
-RMin 0.15
-RMax 0.25		
-MortalityMin 0.15
-MortalityMax 0.25
-PredationMin 0.0
-PredationMax 0.0
-HarvestMin 0.0
-HarvestMax 0.0
+BrowseMethod "BDI" <<must be either "Population" or "BDI"
+DefinedPopulationFile	"DefinedUngulateBDI.txt"  << File with user-defined population or BDI; must contain year-0 data
 
 << Forage Inputs >>
 ConsumptionRate  2738  << kg/yr/individual
 ANPPForageProp		0.66	<<Prop of ANPP that counts as forage
-MinBrowsePropinReach	0.2	<<Min prop of browse within reach for a cohort to be browsed. Prevents larger cohorts from being browsed. Not needed for Ordered forage in reach method
+MinBrowsePropinReach	0.2	<<Min prop of browse within reach for a cohort to be browsed. Prevents larger cohorts from being browsed
 BrowseBiomassThresholdMin	0.05	<<Proportion of ecoregion max biomass when cohort begins to escape browse; cohorts smaller than this threshold are completely reachable as forage
-BrowseBiomassThresholdMax	0.1	<<Proportion of ecoregion max biomass above which cohorts completely escape browse; also controls maximum forage possible per cell
+BrowseBiomassThresholdMax	1	<<Proportion of ecoregion max biomass above which cohorts completely escape browse; also controls maximum forage possible per cell
 EscapeBrowsePropLong	0.57	<<Prop of longevity when browse is escaped
 
 << Options >>
@@ -49,7 +40,7 @@ GrowthReduction	ON  << Default is ON
 Mortality	ON  << Default is ON
 CountNonForageinSitePref	TRUE	<< Default is FALSE
 UseInitBiomassAsForage		TRUE	<< Default is FALSE
-ForageInReachMethod	"LinearEachCohort"
+ForageInReachMethod	"LinearEachCohort" <<Must be either "LinearEachCohort" or "Ordered"; if omitted, "Ordered" is used by default
 
 << HSI Inputs >>
 << Component		Neighborhood >>

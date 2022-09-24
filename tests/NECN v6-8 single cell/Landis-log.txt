@@ -1,426 +1,946 @@
-2022-09-23 14:25:21,757 - LANDIS-II 7.0 (7)
-2022-09-23 14:25:21,767 - 
-2022-09-23 14:25:21,835 - Loading scenario from file "Scenario1_BDI.txt" ...
-2022-09-23 14:25:21,899 - Initialized random number generator with seed = 2,204,290,458
-2022-09-23 14:25:21,899 - Loading species data from file "species.txt" ...
-2022-09-23 14:25:21,923 - Loading ecoregions from file "ecoregions_one_cell.txt" ...
-2022-09-23 14:25:21,939 - Initializing landscape from ecoregions map "./rasters/single3.tif" ...
-2022-09-23 14:25:21,954 - Cell length = 1000 m, cell area = 100 ha
-2022-09-23 14:25:21,956 - Map dimensions: 1 row by 1 column = 1 cell
-2022-09-23 14:25:21,963 - Sites: 1 active (100.0%), 0 inactive (0.0%)
-2022-09-23 14:25:21,971 - Loading NECN Succession extension ...
-2022-09-23 14:25:22,007 -    Begin parsing NECN SPECIES table.
-2022-09-23 14:25:22,033 -    Begin parsing FUNCTIONAL GROUP table.
-2022-09-23 14:25:22,039 -    Begin reading FIRE REDUCTION parameters.
-2022-09-23 14:25:22,040 -    Begin reading HARVEST REDUCTION parameters.
-2022-09-23 14:25:22,048 - Initializing NECN Succession ...
-2022-09-23 14:25:22,110 -    Registering Data:  Succession.LeafBiomassCohorts.
-2022-09-23 14:25:22,111 -    Registering Data:  Succession.AgeCohorts.
-2022-09-23 14:25:22,111 -    Registering Data:  Succession.BiomassCohorts.
-2022-09-23 14:25:22,111 -    Registering Data:  Succession.FineFuels.
-2022-09-23 14:25:22,111 -    Registering Data:  Succession.SmolderConsumption.
-2022-09-23 14:25:22,111 -    Registering Data:  Succession.FlamingConsumption.
-2022-09-23 14:25:22,111 -    Registering Data:  Succession.CWD.
-2022-09-23 14:25:22,111 -    Registering Data:  Succession.PET.
-2022-09-23 14:25:22,113 -   Read in data from ./rasters/soil_depth.tif
-2022-09-23 14:25:22,122 -   Read in data from ./rasters/soil_drain.tif
-2022-09-23 14:25:22,125 -   Read in data from ./rasters/baseflow.tif
-2022-09-23 14:25:22,129 -   Read in data from ./rasters/stormflow.tif
-2022-09-23 14:25:22,131 -   Read in data from ./rasters/field_capacity.tif
-2022-09-23 14:25:22,133 -   Read in data from ./rasters/wilt_point.tif
-2022-09-23 14:25:22,136 -   Read in data from ./rasters/sand.tif
-2022-09-23 14:25:22,138 -   Read in data from ./rasters/clay.tif
-2022-09-23 14:25:22,147 -   Read in data from ./rasters/SOM1surfC.tif
-2022-09-23 14:25:22,148 -   Read in data from ./rasters/SOM1surfN.tif
-2022-09-23 14:25:22,150 -   Read in data from ./rasters/SOM1soilC.tif
-2022-09-23 14:25:22,151 -   Read in data from ./rasters/SOM1soilN.tif
-2022-09-23 14:25:22,152 -   Read in data from ./rasters/SOM2C.tif
-2022-09-23 14:25:22,154 -   Read in data from ./rasters/SOM2N.tif
-2022-09-23 14:25:22,155 -   Read in data from ./rasters/SOM3C.tif
-2022-09-23 14:25:22,156 -   Read in data from ./rasters/SOM3N.tif
-2022-09-23 14:25:22,160 -   Read in data from ./rasters/dead_wood.tif
-2022-09-23 14:25:22,162 -   Read in data from ./rasters/coarse_roots.tif
-2022-09-23 14:25:22,187 -    Loading weather data ...
-2022-09-23 14:25:24,601 -    Registering Data:  TimeOfLastSuccession.
-2022-09-23 14:25:24,602 -    Registering Data:  Shade.
-2022-09-23 14:25:24,604 -    Creating Dispersal Neighborhood List.
-2022-09-23 14:25:24,605 -    Dispersal:  NeighborRadius=5500, CellLength=1000, numCellRadius=5
-2022-09-23 14:25:24,612 -    Loading initial communities from file "initial_communities_pointer.txt" ...
-2022-09-23 14:25:24,641 -    Reading initial communities map "./rasters/initial_communities.tif" ...
-2022-09-23 14:25:24,707 - Loading Biomass Browse extension ...
-2022-09-23 14:25:24,807 -    Begin parsing SPECIES table.
-2022-09-23 14:25:24,825 -    Loading dynamic input data from file "DefinedUngulateBDI.txt" ...
-2022-09-23 14:25:24,830 -   Dynamic Input Parser:  Add new year = 0.
-2022-09-23 14:25:24,831 -   Dynamic Input Parser:  Add new year = 1.
-2022-09-23 14:25:24,842 -      Calculating carrying capacity
-2022-09-23 14:25:24,844 - Creating Neighborhood List.
-2022-09-23 14:25:24,844 - NeighborRadius=500, CellLength=1000, numCellRadius=0
-2022-09-23 14:25:24,845 - Creating Neighborhood List.
-2022-09-23 14:25:24,845 - NeighborRadius=500, CellLength=1000, numCellRadius=0
-2022-09-23 14:25:24,847 -    Opening browse log files "browse/browse_log.csv" ...
-2022-09-23 14:25:24,854 -    Generating summary table...
-2022-09-23 14:25:24,855 -    Generating summary table...
-2022-09-23 14:25:24,862 - Loading Output Biomass Community extension ...
-2022-09-23 14:25:24,872 - Using the following extensions ...
+2022-09-23 23:12:28,484 - LANDIS-II 7.0 (7)
+2022-09-23 23:12:28,499 - 
+2022-09-23 23:12:28,612 - Loading scenario from file "Scenario1_BDI_linear.txt" ...
+2022-09-23 23:12:28,729 - Initialized random number generator with seed = 2,954,435,518
+2022-09-23 23:12:28,729 - Loading species data from file "species.txt" ...
+2022-09-23 23:12:28,762 - Loading ecoregions from file "ecoregions_one_cell.txt" ...
+2022-09-23 23:12:28,783 - Initializing landscape from ecoregions map "./rasters/single3.tif" ...
+2022-09-23 23:12:28,809 - Cell length = 1000 m, cell area = 100 ha
+2022-09-23 23:12:28,812 - Map dimensions: 1 row by 1 column = 1 cell
+2022-09-23 23:12:28,829 - Sites: 1 active (100.0%), 0 inactive (0.0%)
+2022-09-23 23:12:28,843 - Loading NECN Succession extension ...
+2022-09-23 23:12:28,900 -    Begin parsing NECN SPECIES table.
+2022-09-23 23:12:28,939 -    Begin parsing FUNCTIONAL GROUP table.
+2022-09-23 23:12:28,945 -    Begin reading FIRE REDUCTION parameters.
+2022-09-23 23:12:28,948 -    Begin reading HARVEST REDUCTION parameters.
+2022-09-23 23:12:28,956 - Initializing NECN Succession ...
+2022-09-23 23:12:29,059 -    Registering Data:  Succession.LeafBiomassCohorts.
+2022-09-23 23:12:29,060 -    Registering Data:  Succession.AgeCohorts.
+2022-09-23 23:12:29,061 -    Registering Data:  Succession.BiomassCohorts.
+2022-09-23 23:12:29,061 -    Registering Data:  Succession.FineFuels.
+2022-09-23 23:12:29,061 -    Registering Data:  Succession.SmolderConsumption.
+2022-09-23 23:12:29,061 -    Registering Data:  Succession.FlamingConsumption.
+2022-09-23 23:12:29,061 -    Registering Data:  Succession.CWD.
+2022-09-23 23:12:29,061 -    Registering Data:  Succession.PET.
+2022-09-23 23:12:29,064 -   Read in data from ./rasters/soil_depth.tif
+2022-09-23 23:12:29,075 -   Read in data from ./rasters/soil_drain.tif
+2022-09-23 23:12:29,082 -   Read in data from ./rasters/baseflow.tif
+2022-09-23 23:12:29,086 -   Read in data from ./rasters/stormflow.tif
+2022-09-23 23:12:29,093 -   Read in data from ./rasters/field_capacity.tif
+2022-09-23 23:12:29,096 -   Read in data from ./rasters/wilt_point.tif
+2022-09-23 23:12:29,099 -   Read in data from ./rasters/sand.tif
+2022-09-23 23:12:29,101 -   Read in data from ./rasters/clay.tif
+2022-09-23 23:12:29,109 -   Read in data from ./rasters/SOM1surfC.tif
+2022-09-23 23:12:29,111 -   Read in data from ./rasters/SOM1surfN.tif
+2022-09-23 23:12:29,113 -   Read in data from ./rasters/SOM1soilC.tif
+2022-09-23 23:12:29,114 -   Read in data from ./rasters/SOM1soilN.tif
+2022-09-23 23:12:29,115 -   Read in data from ./rasters/SOM2C.tif
+2022-09-23 23:12:29,116 -   Read in data from ./rasters/SOM2N.tif
+2022-09-23 23:12:29,118 -   Read in data from ./rasters/SOM3C.tif
+2022-09-23 23:12:29,121 -   Read in data from ./rasters/SOM3N.tif
+2022-09-23 23:12:29,126 -   Read in data from ./rasters/dead_wood.tif
+2022-09-23 23:12:29,128 -   Read in data from ./rasters/coarse_roots.tif
+2022-09-23 23:12:29,178 -    Loading weather data ...
+2022-09-23 23:12:32,509 -    Registering Data:  TimeOfLastSuccession.
+2022-09-23 23:12:32,511 -    Registering Data:  Shade.
+2022-09-23 23:12:32,515 -    Creating Dispersal Neighborhood List.
+2022-09-23 23:12:32,515 -    Dispersal:  NeighborRadius=5500, CellLength=1000, numCellRadius=5
+2022-09-23 23:12:32,526 -    Loading initial communities from file "initial_communities_pointer.txt" ...
+2022-09-23 23:12:32,605 -    Reading initial communities map "./rasters/initial_communities.tif" ...
+2022-09-23 23:12:32,674 - Loading Biomass Browse extension ...
+2022-09-23 23:12:32,688 -    Begin parsing SPECIES table.
+2022-09-23 23:12:32,691 - forageInReachMethod is "LinearEachCohort"
+2022-09-23 23:12:32,692 - Using linear each cohort method
+2022-09-23 23:12:32,711 -    Loading dynamic input data from file "DefinedUngulateBDI.txt" ...
+2022-09-23 23:12:32,715 -   Dynamic Input Parser:  Add new year = 0.
+2022-09-23 23:12:32,716 -   Dynamic Input Parser:  Add new year = 1.
+2022-09-23 23:12:32,717 -   Dynamic Input Parser:  Add new year = 2.
+2022-09-23 23:12:32,717 -   Dynamic Input Parser:  Add new year = 3.
+2022-09-23 23:12:32,718 -   Dynamic Input Parser:  Add new year = 4.
+2022-09-23 23:12:32,732 -      Calculating carrying capacity
+2022-09-23 23:12:32,734 - Creating Neighborhood List.
+2022-09-23 23:12:32,736 - NeighborRadius=500, CellLength=1000, numCellRadius=0
+2022-09-23 23:12:32,739 - Creating Neighborhood List.
+2022-09-23 23:12:32,740 - NeighborRadius=500, CellLength=1000, numCellRadius=0
+2022-09-23 23:12:32,741 -    Opening browse log files "browse/browse_log.csv" ...
+2022-09-23 23:12:32,748 -    Generating summary table...
+2022-09-23 23:12:32,748 -    Generating summary table...
+2022-09-23 23:12:32,759 - Loading Output Biomass Community extension ...
+2022-09-23 23:12:32,777 - Using the following extensions ...
    Extension Name            Extension Filename       
    --------------            ------------------       
    NECN Succession           NECN_Succession.txt      
-   Biomass Browse            DynamicUngulateBrowse_1_cell_BDI.txt
+   Biomass Browse            DynamicUngulateBrowse_1_cell_BDI_linear.txt
    Output Biomass Community  output_Biomass_Community.txt
 
-2022-09-23 14:25:24,873 - Running Output Biomass Community ...
-2022-09-23 14:25:24,878 -    Opening community csv file "community-input-file-0.csv" ...
-2022-09-23 14:25:24,883 -    Opening community log file "community-input-file-0.txt" ...
-2022-09-23 14:25:24,887 -    Writing community biomass map to output-community-0.img ...
-2022-09-23 14:25:24,931 - Current time: 1
-2022-09-23 14:25:24,932 - Running Biomass Browse ...
-2022-09-23 14:25:24,935 - Processing landscape for ungulate browse events ...
-2022-09-23 14:25:24,938 -    Calculating Site Preference & Forage.
-2022-09-23 14:25:24,952 -    Estimating effective Zone Population from Browse Density Index.
-2022-09-23 14:25:24,953 -      Defined browse density index being loaded for current timestep
-2022-09-23 14:25:24,953 -      Calculating carrying capacity
-2022-09-23 14:25:24,954 -    Calculating HSI.
-2022-09-23 14:25:24,960 -    Calculating Local Population.
-2022-09-23 14:25:24,964 -    Disturbing Sites
-2022-09-23 14:25:24,965 -  Allocating browse for site 1; total browse: 2.738
-2022-09-23 14:25:24,965 - BEPA/60.0. availForage = 0, browsePref = 0.25, firstPass increment = 0, firstPassRemoval = 0
-2022-09-23 14:25:24,965 - BEPA/30.0. availForage = 0, browsePref = 0.25, firstPass increment = 0, firstPassRemoval = 0
-2022-09-23 14:25:24,966 - BEPA/10.0. availForage = 2.9704752, browsePref = 0.25, firstPass increment = 0.7426188, firstPassRemoval = 0.7426188
-2022-09-23 14:25:24,966 - PIGL/90.0. availForage = 0, browsePref = 0, firstPass increment = 0, firstPassRemoval = 0.7426188
-2022-09-23 14:25:24,967 - PIGL/10.0. availForage = 0, browsePref = 0, firstPass increment = 0, firstPassRemoval = 0.7426188
-2022-09-23 14:25:24,967 - THOC2/60.0. availForage = 0, browsePref = 0.05, firstPass increment = 0, firstPassRemoval = 0.7426188
-2022-09-23 14:25:24,968 - THOC2/30.0. availForage = 2.9274432, browsePref = 0.05, firstPass increment = 0.14637216, firstPassRemoval = 0.88899096
-2022-09-23 14:25:24,968 - THOC2/10.0. availForage = 3.2389632, browsePref = 0.05, firstPass increment = 0.16194816, firstPassRemoval = 1.05093912
-2022-09-23 14:25:24,968 - BEPA/60.0. adjusted firstPassRemoval = 0, secondPassRemoval = 0, finalRemoval = 0
-2022-09-23 14:25:24,970 - BEPA/30.0. adjusted firstPassRemoval = 0, secondPassRemoval = 0, finalRemoval = 0
-2022-09-23 14:25:24,971 - BEPA/10.0. adjusted firstPassRemoval = 0.7426188, secondPassRemoval = 1.68706088, finalRemoval = 2.42967968
-2022-09-23 14:25:24,971 - Recording cohort biomass removal :  BEPA/10.0/2.42967968.
-2022-09-23 14:25:24,972 - Recording reduction:  BEPA/10.0/2.42967968.
-2022-09-23 14:25:24,976 - Recording cohort biomass removal :  THOC2/30.0/0.14637216.
-2022-09-23 14:25:24,976 - Recording reduction:  THOC2/30.0/0.14637216.
-2022-09-23 14:25:24,977 - Recording cohort biomass removal :  THOC2/10.0/0.16194816.
-2022-09-23 14:25:24,977 - Recording reduction:  THOC2/10.0/0.16194816.
-2022-09-23 14:25:24,977 - Reducing CohortBiomass NOW!
-2022-09-23 14:25:25,048 - Running NECN Succession ...
-2022-09-23 14:25:25,065 -    SoilWater:  month=6, PET=10.6946290146845.
-2022-09-23 14:25:25,065 -    SoilWater:  month=6, Remaining PET=10.6946290146845.
-2022-09-23 14:25:25,066 -    SoilWater:  month=6, addToSoil=83.2648855141262.
-2022-09-23 14:25:25,066 -    SoilWater:  month=6, AET=6.41677740881071.
-2022-09-23 14:25:25,067 -    SoilWater:  month=6, baseflow=0.296219218809697.
-2022-09-23 14:25:25,117 - currentDeadWoodC:1,6,9.55542281410127, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-2022-09-23 14:25:25,118 - SurfaceDeadWoodC: 1,6,35.2475029253225
-2022-09-23 14:25:25,127 -    SoilWater:  month=7, PET=10.2252994787525.
-2022-09-23 14:25:25,128 -    SoilWater:  month=7, Remaining PET=10.2252994787525.
-2022-09-23 14:25:25,128 -    SoilWater:  month=7, addToSoil=58.669709248499.
-2022-09-23 14:25:25,129 -    SoilWater:  month=7, AET=6.1351796872515.
-2022-09-23 14:25:25,129 -    SoilWater:  month=7, baseflow=3.36685581663615.
-2022-09-23 14:25:25,142 - currentDeadWoodC:1,7,19.0645900944147, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-2022-09-23 14:25:25,143 - SurfaceDeadWoodC: 1,7,44.4079870128765
-2022-09-23 14:25:25,143 -    SoilWater:  month=8, PET=7.58614473057039.
-2022-09-23 14:25:25,144 -    SoilWater:  month=8, Remaining PET=7.58614473057039.
-2022-09-23 14:25:25,144 -    SoilWater:  month=8, addToSoil=68.9108405177718.
-2022-09-23 14:25:25,144 -    SoilWater:  month=8, AET=4.55168683834223.
-2022-09-23 14:25:25,145 -    SoilWater:  month=8, baseflow=5.71677772243251.
-2022-09-23 14:25:25,157 - currentDeadWoodC:1,8,28.3702881496174, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-2022-09-23 14:25:25,157 - SurfaceDeadWoodC: 1,8,53.4407357769592
-2022-09-23 14:25:25,158 -    SoilWater:  month=9, PET=2.97687113610201.
-2022-09-23 14:25:25,158 -    SoilWater:  month=9, Remaining PET=2.97687113610201.
-2022-09-23 14:25:25,159 -    SoilWater:  month=9, addToSoil=100.739166105559.
-2022-09-23 14:25:25,159 -    SoilWater:  month=9, AET=1.7861226816612.
-2022-09-23 14:25:25,159 -    SoilWater:  month=9, baseflow=9.07592291580228.
-2022-09-23 14:25:25,171 - currentDeadWoodC:1,9,36.9333460278432, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-2022-09-23 14:25:25,172 - SurfaceDeadWoodC: 1,9,61.8443850112202
-2022-09-23 14:25:25,172 -    SoilWater:  month=10, PET=0.
-2022-09-23 14:25:25,173 -    SoilWater:  month=10, AET=0.
-2022-09-23 14:25:25,173 -    SoilWater:  month=10, baseflow=5.13738974151628.
-2022-09-23 14:25:25,185 - currentDeadWoodC:1,10,44.9797876850413, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-2022-09-23 14:25:25,186 - SurfaceDeadWoodC: 1,10,69.8873922043967
-2022-09-23 14:25:25,186 -    SoilWater:  month=11, PET=0.
-2022-09-23 14:25:25,186 -    SoilWater:  month=11, AET=0.
-2022-09-23 14:25:25,187 -    SoilWater:  month=11, baseflow=2.86639640633449.
-2022-09-23 14:25:25,198 - currentDeadWoodC:1,11,52.9838974362291, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-2022-09-23 14:25:25,199 - SurfaceDeadWoodC: 1,11,77.8886673809802
-2022-09-23 14:25:25,199 -    SoilWater:  month=0, PET=0.
-2022-09-23 14:25:25,199 -    SoilWater:  month=0, AET=0.
-2022-09-23 14:25:25,200 -    SoilWater:  month=0, baseflow=1.51919009877429.
-2022-09-23 14:25:25,212 - currentDeadWoodC:1,0,60.9421885399733, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-2022-09-23 14:25:25,212 - SurfaceDeadWoodC: 1,0,85.8454595961672
-2022-09-23 14:25:25,213 -    SoilWater:  month=1, PET=0.
-2022-09-23 14:25:25,213 -    SoilWater:  month=1, AET=0.
-2022-09-23 14:25:25,213 -    SoilWater:  month=1, baseflow=0.805170754161389.
-2022-09-23 14:25:25,224 - currentDeadWoodC:1,1,68.8891600887931, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-2022-09-23 14:25:25,224 - SurfaceDeadWoodC: 1,1,93.7908630944118
-2022-09-23 14:25:25,225 -    SoilWater:  month=2, PET=0.
-2022-09-23 14:25:25,225 -    SoilWater:  month=2, AET=0.
-2022-09-23 14:25:25,225 -    SoilWater:  month=2, baseflow=1.20575809338727.
-2022-09-23 14:25:25,259 - currentDeadWoodC:1,2,76.8615707967815, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-2022-09-23 14:25:25,260 - SurfaceDeadWoodC: 1,2,101.760405285897
-2022-09-23 14:25:25,261 -    SoilWater:  month=3, PET=1.27315742917445.
-2022-09-23 14:25:25,261 -    SoilWater:  month=3, AET=0.
-2022-09-23 14:25:25,262 -    SoilWater:  month=3, baseflow=5.69681044322456.
-2022-09-23 14:25:25,282 - currentDeadWoodC:1,3,84.9440097609665, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-2022-09-23 14:25:25,283 - SurfaceDeadWoodC: 1,3,109.72367558804
-2022-09-23 14:25:25,283 -    SoilWater:  month=4, PET=5.22641119194906.
-2022-09-23 14:25:25,284 -    SoilWater:  month=4, Remaining PET=5.22641119194906.
-2022-09-23 14:25:25,284 -    SoilWater:  month=4, addToSoil=200.268324168138.
-2022-09-23 14:25:25,284 -    SoilWater:  month=4, AET=3.13584671516944.
-2022-09-23 14:25:25,285 -    SoilWater:  month=4, baseflow=15.0641034417261.
-2022-09-23 14:25:25,296 - currentDeadWoodC:1,4,93.3286295010792, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-2022-09-23 14:25:25,297 - SurfaceDeadWoodC: 1,4,117.94868144509
-2022-09-23 14:25:25,297 -    SoilWater:  month=5, PET=9.27483738177656.
-2022-09-23 14:25:25,297 -    SoilWater:  month=5, Remaining PET=9.27483738177656.
-2022-09-23 14:25:25,298 -    SoilWater:  month=5, addToSoil=96.9635708672894.
-2022-09-23 14:25:25,298 -    SoilWater:  month=5, AET=5.56490242906593.
-2022-09-23 14:25:25,299 -    SoilWater:  month=5, baseflow=13.5684332646471.
-2022-09-23 14:25:25,311 - currentDeadWoodC:1,5,102.076513675566, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-2022-09-23 14:25:25,311 - SurfaceDeadWoodC: 1,5,126.469470786275
-2022-09-23 14:25:25,330 - nurseryLogC:1,0,0,0
-2022-09-23 14:25:25,330 - decayClassAreaRatios:1,0,0,0
-2022-09-23 14:25:25,331 - original_lightProbability:1,ABBA,1
-2022-09-23 14:25:25,331 - siteShade:5
-2022-09-23 14:25:25,331 - siteLAI:8.5274961429096
-2022-09-23 14:25:25,332 - nurseryLogPenalty:1,ABBA,0
-2022-09-23 14:25:25,332 - modified_lightProbability:1,ABBA,1
-2022-09-23 14:25:25,332 - regeneration_type:1,ABBA,surface
-2022-09-23 14:25:25,337 - original_lightProbability:1,ACSA3,1
-2022-09-23 14:25:25,337 - siteShade:5
-2022-09-23 14:25:25,338 - siteLAI:8.5274961429096
-2022-09-23 14:25:25,338 - nurseryLogPenalty:1,ACSA3,0
-2022-09-23 14:25:25,338 - modified_lightProbability:1,ACSA3,1
-2022-09-23 14:25:25,339 - regeneration_type:1,ACSA3,surface
-2022-09-23 14:25:25,339 - original_lightProbability:1,BEAL2,0.1
-2022-09-23 14:25:25,340 - siteShade:5
-2022-09-23 14:25:25,340 - siteLAI:8.5274961429096
-2022-09-23 14:25:25,340 - nurseryLogPenalty:1,BEAL2,0
-2022-09-23 14:25:25,341 - modified_lightProbability:1,BEAL2,0.1
-2022-09-23 14:25:25,341 - regeneration_type:1,BEAL2,surface
-2022-09-23 14:25:25,342 - original_lightProbability:1,BEPA,0
-2022-09-23 14:25:25,342 - siteShade:5
-2022-09-23 14:25:25,342 - siteLAI:8.5274961429096
-2022-09-23 14:25:25,343 - nurseryLogPenalty:1,BEPA,0
-2022-09-23 14:25:25,343 - modified_lightProbability:1,BEPA,0
-2022-09-23 14:25:25,344 - regeneration_type:1,BEPA,failed
-2022-09-23 14:25:25,344 - original_lightProbability:1,FRNI,0.25
-2022-09-23 14:25:25,344 - siteShade:5
-2022-09-23 14:25:25,345 - siteLAI:8.5274961429096
-2022-09-23 14:25:25,345 - nurseryLogPenalty:1,FRNI,0
-2022-09-23 14:25:25,345 - modified_lightProbability:1,FRNI,0.25
-2022-09-23 14:25:25,346 - regeneration_type:1,FRNI,failed
-2022-09-23 14:25:25,346 - original_lightProbability:1,PIGL,0.25
-2022-09-23 14:25:25,346 - siteShade:5
-2022-09-23 14:25:25,347 - siteLAI:8.5274961429096
-2022-09-23 14:25:25,347 - nurseryLogPenalty:1,PIGL,0
-2022-09-23 14:25:25,348 - modified_lightProbability:1,PIGL,0.25
-2022-09-23 14:25:25,348 - regeneration_type:1,PIGL,failed
-2022-09-23 14:25:25,348 - original_lightProbability:1,PIMA,0.1
-2022-09-23 14:25:25,349 - siteShade:5
-2022-09-23 14:25:25,349 - siteLAI:8.5274961429096
-2022-09-23 14:25:25,350 - nurseryLogPenalty:1,PIMA,0
-2022-09-23 14:25:25,350 - modified_lightProbability:1,PIMA,0.1
-2022-09-23 14:25:25,350 - regeneration_type:1,PIMA,failed
-2022-09-23 14:25:25,351 - original_lightProbability:1,PIBA2,0
-2022-09-23 14:25:25,352 - siteShade:5
-2022-09-23 14:25:25,354 - siteLAI:8.5274961429096
-2022-09-23 14:25:25,355 - nurseryLogPenalty:1,PIBA2,0
-2022-09-23 14:25:25,355 - modified_lightProbability:1,PIBA2,0
-2022-09-23 14:25:25,355 - regeneration_type:1,PIBA2,failed
-2022-09-23 14:25:25,356 - original_lightProbability:1,PIST,0.1
-2022-09-23 14:25:25,356 - siteShade:5
-2022-09-23 14:25:25,357 - siteLAI:8.5274961429096
-2022-09-23 14:25:25,357 - nurseryLogPenalty:1,PIST,0
-2022-09-23 14:25:25,357 - modified_lightProbability:1,PIST,0.1
-2022-09-23 14:25:25,358 - regeneration_type:1,PIST,failed
-2022-09-23 14:25:25,358 - original_lightProbability:1,POTR5,0
-2022-09-23 14:25:25,358 - siteShade:5
-2022-09-23 14:25:25,359 - siteLAI:8.5274961429096
-2022-09-23 14:25:25,359 - nurseryLogPenalty:1,POTR5,0
-2022-09-23 14:25:25,360 - modified_lightProbability:1,POTR5,0
-2022-09-23 14:25:25,360 - regeneration_type:1,POTR5,failed
-2022-09-23 14:25:25,360 - original_lightProbability:1,QURU,0
-2022-09-23 14:25:25,361 - siteShade:5
-2022-09-23 14:25:25,361 - siteLAI:8.5274961429096
-2022-09-23 14:25:25,361 - nurseryLogPenalty:1,QURU,0
-2022-09-23 14:25:25,362 - modified_lightProbability:1,QURU,0
-2022-09-23 14:25:25,362 - regeneration_type:1,QURU,failed
-2022-09-23 14:25:25,362 - original_lightProbability:1,THOC2,0.25
-2022-09-23 14:25:25,363 - siteShade:5
-2022-09-23 14:25:25,363 - siteLAI:8.5274961429096
-2022-09-23 14:25:25,363 - nurseryLogPenalty:1,THOC2,0
-2022-09-23 14:25:25,364 - modified_lightProbability:1,THOC2,0.25
-2022-09-23 14:25:25,364 - regeneration_type:1,THOC2,failed
-2022-09-23 14:25:25,364 - original_lightProbability:1,HRDWD,0
-2022-09-23 14:25:25,365 - siteShade:5
-2022-09-23 14:25:25,365 - siteLAI:8.5274961429096
-2022-09-23 14:25:25,366 - nurseryLogPenalty:1,HRDWD,0
-2022-09-23 14:25:25,366 - modified_lightProbability:1,HRDWD,0
-2022-09-23 14:25:25,366 - regeneration_type:1,HRDWD,failed
-2022-09-23 14:25:25,367 - original_lightProbability:1,SFTWD,0.25
-2022-09-23 14:25:25,371 - siteShade:5
-2022-09-23 14:25:25,371 - siteLAI:8.5274961429096
-2022-09-23 14:25:25,372 - nurseryLogPenalty:1,SFTWD,0
-2022-09-23 14:25:25,372 - modified_lightProbability:1,SFTWD,0.25
-2022-09-23 14:25:25,372 - regeneration_type:1,SFTWD,failed
-2022-09-23 14:25:25,666 - Current time: 2
-2022-09-23 14:25:25,667 - Running Biomass Browse ...
-2022-09-23 14:25:25,668 - Processing landscape for ungulate browse events ...
-2022-09-23 14:25:25,669 -    Calculating Site Preference & Forage.
-2022-09-23 14:25:25,670 -    Estimating effective Zone Population from Browse Density Index.
-2022-09-23 14:25:25,670 -      Calculating carrying capacity
-2022-09-23 14:25:25,671 -    Calculating HSI.
-2022-09-23 14:25:25,671 -    Calculating Local Population.
-2022-09-23 14:25:25,672 -    Disturbing Sites
-2022-09-23 14:25:25,672 -  Allocating browse for site 1; total browse: 2.738
-2022-09-23 14:25:25,672 - BEPA/61.0. availForage = 0, browsePref = 0.25, firstPass increment = 0, firstPassRemoval = 0
-2022-09-23 14:25:25,673 - BEPA/31.0. availForage = 0, browsePref = 0.25, firstPass increment = 0, firstPassRemoval = 0
-2022-09-23 14:25:25,673 - BEPA/11.0. availForage = 3.0338352, browsePref = 0.25, firstPass increment = 0.7584588, firstPassRemoval = 0.7584588
-2022-09-23 14:25:25,674 - PIGL/91.0. availForage = 0, browsePref = 0, firstPass increment = 0, firstPassRemoval = 0.7584588
-2022-09-23 14:25:25,675 - PIGL/11.0. availForage = 0, browsePref = 0, firstPass increment = 0, firstPassRemoval = 0.7584588
-2022-09-23 14:25:25,675 - THOC2/61.0. availForage = 0, browsePref = 0.05, firstPass increment = 0, firstPassRemoval = 0.7584588
-2022-09-23 14:25:25,675 - THOC2/31.0. availForage = 2.9094912, browsePref = 0.05, firstPass increment = 0.14547456, firstPassRemoval = 0.90393336
-2022-09-23 14:25:25,676 - THOC2/11.0. availForage = 3.2315712, browsePref = 0.05, firstPass increment = 0.16157856, firstPassRemoval = 1.06551192
-2022-09-23 14:25:25,676 - BEPA/61.0. adjusted firstPassRemoval = 0, secondPassRemoval = 0, finalRemoval = 0
-2022-09-23 14:25:25,677 - BEPA/31.0. adjusted firstPassRemoval = 0, secondPassRemoval = 0, finalRemoval = 0
-2022-09-23 14:25:25,677 - BEPA/11.0. adjusted firstPassRemoval = 0.7584588, secondPassRemoval = 1.67248808, finalRemoval = 2.43094688
-2022-09-23 14:25:25,678 - Recording cohort biomass removal :  BEPA/11.0/2.43094688.
-2022-09-23 14:25:25,678 - Recording reduction:  BEPA/11.0/2.43094688.
-2022-09-23 14:25:25,679 - Recording cohort biomass removal :  THOC2/31.0/0.14547456.
-2022-09-23 14:25:25,679 - Recording reduction:  THOC2/31.0/0.14547456.
-2022-09-23 14:25:25,679 - Recording cohort biomass removal :  THOC2/11.0/0.16157856.
-2022-09-23 14:25:25,680 - Recording reduction:  THOC2/11.0/0.16157856.
-2022-09-23 14:25:25,681 - Reducing CohortBiomass NOW!
-2022-09-23 14:25:25,754 - Running NECN Succession ...
-2022-09-23 14:25:25,759 -    SoilWater:  month=6, PET=11.7664360785804.
-2022-09-23 14:25:25,760 -    SoilWater:  month=6, Remaining PET=11.7664360785804.
-2022-09-23 14:25:25,761 -    SoilWater:  month=6, addToSoil=81.1771857885679.
-2022-09-23 14:25:25,763 -    SoilWater:  month=6, AET=7.05986164714823.
-2022-09-23 14:25:25,764 -    SoilWater:  month=6, baseflow=11.7198379738855.
-2022-09-23 14:25:25,783 - currentDeadWoodC:2,6,101.243544813546, 9.62233857981681, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-2022-09-23 14:25:25,785 - SurfaceDeadWoodC: 2,6,134.964199357373
-2022-09-23 14:25:25,786 -    SoilWater:  month=7, PET=11.0256218924706.
-2022-09-23 14:25:25,788 -    SoilWater:  month=7, Remaining PET=11.0256218924706.
-2022-09-23 14:25:25,789 -    SoilWater:  month=7, addToSoil=99.0376157190117.
-2022-09-23 14:25:25,791 -    SoilWater:  month=7, AET=6.61537313548239.
-2022-09-23 14:25:25,792 -    SoilWater:  month=7, baseflow=11.8585129405305.
-2022-09-23 14:25:25,813 - currentDeadWoodC:2,7,100.407806877218, 19.1899605088706, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-2022-09-23 14:25:25,816 - SurfaceDeadWoodC: 2,7,143.392698992643
-2022-09-23 14:25:25,818 -    SoilWater:  month=8, PET=6.42190113834007.
-2022-09-23 14:25:25,819 -    SoilWater:  month=8, Remaining PET=6.42190113834007.
-2022-09-23 14:25:25,820 -    SoilWater:  month=8, addToSoil=146.668845422364.
-2022-09-23 14:25:25,822 -    SoilWater:  month=8, AET=3.85314068300404.
-2022-09-23 14:25:25,823 -    SoilWater:  month=8, baseflow=15.0110510899909.
-2022-09-23 14:25:25,843 - currentDeadWoodC:2,8,99.8357059767939, 28.3397486995267, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-2022-09-23 14:25:25,844 - SurfaceDeadWoodC: 2,8,151.757639488459
-2022-09-23 14:25:25,846 -    SoilWater:  month=9, PET=2.32566191431238.
-2022-09-23 14:25:25,847 -    SoilWater:  month=9, Remaining PET=2.32566191431238.
-2022-09-23 14:25:25,848 -    SoilWater:  month=9, addToSoil=58.503923339275.
-2022-09-23 14:25:25,849 -    SoilWater:  month=9, AET=1.39539714858743.
-2022-09-23 14:25:25,849 -    SoilWater:  month=9, baseflow=11.4451879090026.
-2022-09-23 14:25:25,863 - currentDeadWoodC:2,9,99.4658876690082, 36.7973582891747, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-2022-09-23 14:25:25,864 - SurfaceDeadWoodC: 2,9,159.70477033965
-2022-09-23 14:25:25,864 -    SoilWater:  month=10, PET=0.
-2022-09-23 14:25:25,865 -    SoilWater:  month=10, AET=0.
-2022-09-23 14:25:25,865 -    SoilWater:  month=10, baseflow=6.18171073518568.
-2022-09-23 14:25:25,896 - currentDeadWoodC:2,10,99.4567828084375, 44.775967543481, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-2022-09-23 14:25:25,897 - SurfaceDeadWoodC: 2,10,167.670737560046
-2022-09-23 14:25:25,898 -    SoilWater:  month=11, PET=0.
-2022-09-23 14:25:25,899 -    SoilWater:  month=11, AET=0.
-2022-09-23 14:25:25,901 -    SoilWater:  month=11, baseflow=3.27630669701758.
-2022-09-23 14:25:25,918 - currentDeadWoodC:2,11,99.4514337045153, 52.6736481365263, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-2022-09-23 14:25:25,918 - SurfaceDeadWoodC: 2,11,175.560944798883
-2022-09-23 14:25:25,919 -    SoilWater:  month=0, PET=0.
-2022-09-23 14:25:25,919 -    SoilWater:  month=0, AET=0.
-2022-09-23 14:25:25,920 -    SoilWater:  month=0, baseflow=1.73644255332498.
-2022-09-23 14:25:25,944 - currentDeadWoodC:2,0,99.4464341223867, 60.5568980702275, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-2022-09-23 14:25:25,945 - SurfaceDeadWoodC: 2,0,183.437166584218
-2022-09-23 14:25:25,945 -    SoilWater:  month=1, PET=0.
-2022-09-23 14:25:25,946 -    SoilWater:  month=1, AET=0.
-2022-09-23 14:25:25,947 -    SoilWater:  month=1, baseflow=0.92031455533224.
-2022-09-23 14:25:25,964 - currentDeadWoodC:2,1,99.4413872997925, 68.4290045440968, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-2022-09-23 14:25:25,964 - SurfaceDeadWoodC: 2,1,191.302135013613
-2022-09-23 14:25:25,965 -    SoilWater:  month=2, PET=0.
-2022-09-23 14:25:25,966 -    SoilWater:  month=2, AET=0.
-2022-09-23 14:25:25,966 -    SoilWater:  month=2, baseflow=0.849237981609953.
-2022-09-23 14:25:25,981 - currentDeadWoodC:2,2,99.434574927723, 76.312537760312, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-2022-09-23 14:25:25,982 - SurfaceDeadWoodC: 2,2,199.175974238191
-2022-09-23 14:25:25,982 -    SoilWater:  month=3, PET=3.31583032746252.
-2022-09-23 14:25:25,983 -    SoilWater:  month=3, AET=0.
-2022-09-23 14:25:25,983 -    SoilWater:  month=3, baseflow=8.36978260864176.
-2022-09-23 14:25:25,998 - currentDeadWoodC:2,3,99.0693282103779, 84.5799322683116, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-2022-09-23 14:25:25,999 - SurfaceDeadWoodC: 2,3,206.920207737686
-2022-09-23 14:25:25,999 -    SoilWater:  month=4, PET=7.26519112630954.
-2022-09-23 14:25:25,999 -    SoilWater:  month=4, Remaining PET=7.26519112630954.
-2022-09-23 14:25:26,000 -    SoilWater:  month=4, addToSoil=68.1167975540504.
-2022-09-23 14:25:26,000 -    SoilWater:  month=4, AET=4.35911467578572.
-2022-09-23 14:25:26,000 -    SoilWater:  month=4, baseflow=8.33157906364945.
-2022-09-23 14:25:26,012 - currentDeadWoodC:2,4,98.5791085614395, 93.202939837564, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-2022-09-23 14:25:26,012 - SurfaceDeadWoodC: 2,4,214.836573347005
-2022-09-23 14:25:26,013 -    SoilWater:  month=5, PET=8.74862154867196.
-2022-09-23 14:25:26,013 -    SoilWater:  month=5, Remaining PET=8.74862154867196.
-2022-09-23 14:25:26,014 -    SoilWater:  month=5, addToSoil=61.8945671605312.
-2022-09-23 14:25:26,014 -    SoilWater:  month=5, AET=5.24917292920318.
-2022-09-23 14:25:26,014 -    SoilWater:  month=5, baseflow=7.87677036547196.
-2022-09-23 14:25:26,027 - currentDeadWoodC:2,5,98.031769374364, 101.913474066942, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-2022-09-23 14:25:26,027 - SurfaceDeadWoodC: 2,5,222.753174547257
-2022-09-23 14:25:26,035 - nurseryLogC:2,0,0,0
-2022-09-23 14:25:26,036 - decayClassAreaRatios:2,0,0,0
-2022-09-23 14:25:26,036 - original_lightProbability:2,ABBA,1
-2022-09-23 14:25:26,037 - siteShade:5
-2022-09-23 14:25:26,037 - siteLAI:8.50362641264924
-2022-09-23 14:25:26,037 - nurseryLogPenalty:2,ABBA,0
-2022-09-23 14:25:26,038 - modified_lightProbability:2,ABBA,1
-2022-09-23 14:25:26,038 - regeneration_type:2,ABBA,surface
-2022-09-23 14:25:26,039 - original_lightProbability:2,ACSA3,1
-2022-09-23 14:25:26,039 - siteShade:5
-2022-09-23 14:25:26,040 - siteLAI:8.50362641264924
-2022-09-23 14:25:26,040 - nurseryLogPenalty:2,ACSA3,0
-2022-09-23 14:25:26,041 - modified_lightProbability:2,ACSA3,1
-2022-09-23 14:25:26,041 - regeneration_type:2,ACSA3,surface
-2022-09-23 14:25:26,042 - original_lightProbability:2,BEAL2,0.1
-2022-09-23 14:25:26,043 - siteShade:5
-2022-09-23 14:25:26,043 - siteLAI:8.50362641264924
-2022-09-23 14:25:26,044 - nurseryLogPenalty:2,BEAL2,0
-2022-09-23 14:25:26,044 - modified_lightProbability:2,BEAL2,0.1
-2022-09-23 14:25:26,044 - regeneration_type:2,BEAL2,failed
-2022-09-23 14:25:26,045 - original_lightProbability:2,BEPA,0
-2022-09-23 14:25:26,045 - siteShade:5
-2022-09-23 14:25:26,045 - siteLAI:8.50362641264924
-2022-09-23 14:25:26,046 - nurseryLogPenalty:2,BEPA,0
-2022-09-23 14:25:26,046 - modified_lightProbability:2,BEPA,0
-2022-09-23 14:25:26,047 - regeneration_type:2,BEPA,failed
-2022-09-23 14:25:26,047 - original_lightProbability:2,FRNI,0.25
-2022-09-23 14:25:26,048 - siteShade:5
-2022-09-23 14:25:26,048 - siteLAI:8.50362641264924
-2022-09-23 14:25:26,048 - nurseryLogPenalty:2,FRNI,0
-2022-09-23 14:25:26,049 - modified_lightProbability:2,FRNI,0.25
-2022-09-23 14:25:26,049 - regeneration_type:2,FRNI,surface
-2022-09-23 14:25:26,052 - original_lightProbability:2,PIGL,0.25
-2022-09-23 14:25:26,053 - siteShade:5
-2022-09-23 14:25:26,053 - siteLAI:8.50362641264924
-2022-09-23 14:25:26,054 - nurseryLogPenalty:2,PIGL,0
-2022-09-23 14:25:26,054 - modified_lightProbability:2,PIGL,0.25
-2022-09-23 14:25:26,054 - regeneration_type:2,PIGL,failed
-2022-09-23 14:25:26,055 - original_lightProbability:2,PIMA,0.1
-2022-09-23 14:25:26,055 - siteShade:5
-2022-09-23 14:25:26,055 - siteLAI:8.50362641264924
-2022-09-23 14:25:26,056 - nurseryLogPenalty:2,PIMA,0
-2022-09-23 14:25:26,056 - modified_lightProbability:2,PIMA,0.1
-2022-09-23 14:25:26,057 - regeneration_type:2,PIMA,failed
-2022-09-23 14:25:26,057 - original_lightProbability:2,PIBA2,0
-2022-09-23 14:25:26,057 - siteShade:5
-2022-09-23 14:25:26,058 - siteLAI:8.50362641264924
-2022-09-23 14:25:26,058 - nurseryLogPenalty:2,PIBA2,0
-2022-09-23 14:25:26,058 - modified_lightProbability:2,PIBA2,0
-2022-09-23 14:25:26,059 - regeneration_type:2,PIBA2,failed
-2022-09-23 14:25:26,059 - original_lightProbability:2,PIST,0.1
-2022-09-23 14:25:26,060 - siteShade:5
-2022-09-23 14:25:26,060 - siteLAI:8.50362641264924
-2022-09-23 14:25:26,060 - nurseryLogPenalty:2,PIST,0
-2022-09-23 14:25:26,061 - modified_lightProbability:2,PIST,0.1
-2022-09-23 14:25:26,061 - regeneration_type:2,PIST,failed
-2022-09-23 14:25:26,061 - original_lightProbability:2,POTR5,0
-2022-09-23 14:25:26,062 - siteShade:5
-2022-09-23 14:25:26,062 - siteLAI:8.50362641264924
-2022-09-23 14:25:26,062 - nurseryLogPenalty:2,POTR5,0
-2022-09-23 14:25:26,063 - modified_lightProbability:2,POTR5,0
-2022-09-23 14:25:26,065 - regeneration_type:2,POTR5,failed
-2022-09-23 14:25:26,067 - original_lightProbability:2,QURU,0
+2022-09-23 23:12:32,778 - Running Output Biomass Community ...
+2022-09-23 23:12:32,789 -    Opening community csv file "community-input-file-0.csv" ...
+2022-09-23 23:12:32,796 -    Opening community log file "community-input-file-0.txt" ...
+2022-09-23 23:12:32,801 -    Writing community biomass map to output-community-0.img ...
+2022-09-23 23:12:32,911 - Current time: 1
+2022-09-23 23:12:32,912 - Running Biomass Browse ...
+2022-09-23 23:12:32,916 - Processing landscape for ungulate browse events ...
+2022-09-23 23:12:32,924 -    Calculating Site Preference & Forage.
+2022-09-23 23:12:32,925 - New Forage estimated as 14.9688
+2022-09-23 23:12:32,926 -      adjusting siteBiomassMax = 1000 g m-2
+2022-09-23 23:12:32,930 - New Forage estimated as 10.9032
+2022-09-23 23:12:32,930 -      adjusting siteBiomassMax = 1000 g m-2
+2022-09-23 23:12:32,932 - New Forage estimated as 8.6856
+2022-09-23 23:12:32,933 -      adjusting siteBiomassMax = 1000 g m-2
+2022-09-23 23:12:32,933 - New Forage estimated as 231.8448
+2022-09-23 23:12:32,934 -      adjusting siteBiomassMax = 2000 g m-2
+2022-09-23 23:12:32,934 - New Forage estimated as 16.9488
+2022-09-23 23:12:32,935 -      adjusting siteBiomassMax = 2000 g m-2
+2022-09-23 23:12:32,938 - New Forage estimated as 10.7448
+2022-09-23 23:12:32,939 -      adjusting siteBiomassMax = 2000 g m-2
+2022-09-23 23:12:32,941 - New Forage estimated as 8.8176
+2022-09-23 23:12:32,941 -      adjusting siteBiomassMax = 2000 g m-2
+2022-09-23 23:12:32,942 - New Forage estimated as 7.4976
+2022-09-23 23:12:32,942 -      adjusting siteBiomassMax = 2000 g m-2
+2022-09-23 23:12:32,945 -    Calculating proportion of browse in reach using method LinearEachCohort
+2022-09-23 23:12:32,948 - Min biomass threshold = 50, Max biomass threshold 1000, maxBrowseAge = 456
+2022-09-23 23:12:32,949 - tempPropInReach = 0.716
+2022-09-23 23:12:32,949 - end Cohort biomass = 284; proportion in reach = 0.716.
+2022-09-23 23:12:32,949 - Min biomass threshold = 50, Max biomass threshold 1000, maxBrowseAge = 114
+2022-09-23 23:12:32,950 - tempPropInReach = 0.671
+2022-09-23 23:12:32,950 - end Cohort biomass = 329; proportion in reach = 0.671.
+2022-09-23 23:12:32,950 - Min biomass threshold = 50, Max biomass threshold 1000, maxBrowseAge = 456
+2022-09-23 23:12:32,951 - tempPropInReach = 0.666
+2022-09-23 23:12:32,951 - end Cohort biomass = 334; proportion in reach = 0.666.
+2022-09-23 23:12:32,952 - Min biomass threshold = 50, Max biomass threshold 1000, maxBrowseAge = 456
+2022-09-23 23:12:32,952 - tempPropInReach = 0.593
+2022-09-23 23:12:32,953 - end Cohort biomass = 407; proportion in reach = 0.593.
+2022-09-23 23:12:32,953 - Min biomass threshold = 50, Max biomass threshold 1000, maxBrowseAge = 114
+2022-09-23 23:12:32,954 - tempPropInReach = 0.587
+2022-09-23 23:12:32,956 - end Cohort biomass = 413; proportion in reach = 0.587.
+2022-09-23 23:12:32,957 - Min biomass threshold = 50, Max biomass threshold 1000, maxBrowseAge = 114
+2022-09-23 23:12:32,958 - tempPropInReach = 0.433
+2022-09-23 23:12:32,958 - end Cohort biomass = 567; proportion in reach = 0.433.
+2022-09-23 23:12:32,959 - Min biomass threshold = 100, Max biomass threshold 2000, maxBrowseAge = 171
+2022-09-23 23:12:32,959 - tempPropInReach = 0.679
+2022-09-23 23:12:32,959 - end Cohort biomass = 642; proportion in reach = 0.679.
+2022-09-23 23:12:32,960 - Min biomass threshold = 100, Max biomass threshold 2000, maxBrowseAge = 171
+2022-09-23 23:12:32,960 - Cohort escaped; biomass = 8782, maxThresold = 2000
+2022-09-23 23:12:32,960 - end Cohort biomass = 8782; proportion in reach = 0.
+2022-09-23 23:12:32,961 - forage in reach = 6.4814904 g m-2; cohort forage = 14.9688, propinreach = 0.433
+2022-09-23 23:12:32,962 - forage in reach = 6.4001784 g m-2; cohort forage = 10.9032, propinreach = 0.587
+2022-09-23 23:12:32,962 - forage in reach = 5.8280376 g m-2; cohort forage = 8.6856, propinreach = 0.671
+2022-09-23 23:12:32,963 - forage in reach = 0 g m-2; cohort forage = 231.8448, propinreach = 0
+2022-09-23 23:12:32,963 - forage in reach = 11.5082352 g m-2; cohort forage = 16.9488, propinreach = 0.679
+2022-09-23 23:12:32,963 - forage in reach = 6.3716664 g m-2; cohort forage = 10.7448, propinreach = 0.593
+2022-09-23 23:12:32,964 - forage in reach = 5.8725216 g m-2; cohort forage = 8.8176, propinreach = 0.666
+2022-09-23 23:12:32,964 - forage in reach = 5.3682816 g m-2; cohort forage = 7.4976, propinreach = 0.716
+2022-09-23 23:12:32,966 -    Estimating effective Zone Population from Browse Density Index.
+2022-09-23 23:12:32,967 -      Defined browse density index being loaded for current timestep
+2022-09-23 23:12:32,967 -      Calculating carrying capacity
+2022-09-23 23:12:32,968 -    Calculating HSI.
+2022-09-23 23:12:32,976 -    Calculating Local Population.
+2022-09-23 23:12:32,976 -      Site number 1
+2022-09-23 23:12:32,976 -          siteTotalForage = 36322176
+2022-09-23 23:12:32,981 -    Disturbing Sites
+2022-09-23 23:12:32,981 -  Allocating browse for site 1; total browse: 35.594
+2022-09-23 23:12:32,982 - BEPA/60.0. availForage = 6.4814904, browsePref = 0.25, firstPass increment = 1.6203726, firstPassRemoval = 1.6203726
+2022-09-23 23:12:32,982 - BEPA/30.0. availForage = 6.4001784, browsePref = 0.25, firstPass increment = 1.6000446, firstPassRemoval = 3.2204172
+2022-09-23 23:12:32,983 - BEPA/10.0. availForage = 5.8280376, browsePref = 0.25, firstPass increment = 1.4570094, firstPassRemoval = 4.6774266
+2022-09-23 23:12:32,983 - PIGL/90.0. availForage = 0, browsePref = 0, firstPass increment = 0, firstPassRemoval = 4.6774266
+2022-09-23 23:12:32,983 - PIGL/10.0. availForage = 11.5082352, browsePref = 0, firstPass increment = 0, firstPassRemoval = 4.6774266
+2022-09-23 23:12:32,988 - THOC2/60.0. availForage = 6.3716664, browsePref = 0.05, firstPass increment = 0.31858332, firstPassRemoval = 4.99600992
+2022-09-23 23:12:32,988 - THOC2/30.0. availForage = 5.8725216, browsePref = 0.05, firstPass increment = 0.29362608, firstPassRemoval = 5.289636
+2022-09-23 23:12:32,990 - THOC2/10.0. availForage = 5.3682816, browsePref = 0.05, firstPass increment = 0.26841408, firstPassRemoval = 5.55805008
+2022-09-23 23:12:32,990 - BEPA/60.0. adjusted firstPassRemoval = 1.6203726, secondPassRemoval = 4.8611178, finalRemoval = 6.4814904
+2022-09-23 23:12:32,997 - Recording cohort biomass removal :  BEPA/60.0/6.4814904.
+2022-09-23 23:12:32,998 - Recording reduction:  BEPA/60.0/6.4814904.
+2022-09-23 23:12:33,005 - BEPA/30.0. adjusted firstPassRemoval = 1.6000446, secondPassRemoval = 4.8001338, finalRemoval = 6.4001784
+2022-09-23 23:12:33,006 - Recording cohort biomass removal :  BEPA/30.0/6.4001784.
+2022-09-23 23:12:33,007 - Recording reduction:  BEPA/30.0/6.4001784.
+2022-09-23 23:12:33,008 - BEPA/10.0. adjusted firstPassRemoval = 1.4570094, secondPassRemoval = 4.3710282, finalRemoval = 5.8280376
+2022-09-23 23:12:33,008 - Recording cohort biomass removal :  BEPA/10.0/5.8280376.
+2022-09-23 23:12:33,009 - Recording reduction:  BEPA/10.0/5.8280376.
+2022-09-23 23:12:33,009 - THOC2/60.0. adjusted firstPassRemoval = 0.31858332, secondPassRemoval = 5.7896507131679, finalRemoval = 6.1082340331679
+2022-09-23 23:12:33,010 - Recording cohort biomass removal :  THOC2/60.0/6.1082340331679.
+2022-09-23 23:12:33,011 - Recording reduction:  THOC2/60.0/6.1082340331679.
+2022-09-23 23:12:33,011 - THOC2/30.0. adjusted firstPassRemoval = 0.29362608, secondPassRemoval = 5.33609996743299, finalRemoval = 5.62972604743299
+2022-09-23 23:12:33,013 - Recording cohort biomass removal :  THOC2/30.0/5.62972604743299.
+2022-09-23 23:12:33,014 - Recording reduction:  THOC2/30.0/5.62972604743299.
+2022-09-23 23:12:33,015 - THOC2/10.0. adjusted firstPassRemoval = 0.26841408, secondPassRemoval = 4.8779194393991, finalRemoval = 5.14633351939911
+2022-09-23 23:12:33,016 - Recording cohort biomass removal :  THOC2/10.0/5.14633351939911.
+2022-09-23 23:12:33,018 - Recording reduction:  THOC2/10.0/5.14633351939911.
+2022-09-23 23:12:33,020 - Reducing CohortBiomass NOW!
+2022-09-23 23:12:33,098 - Running NECN Succession ...
+2022-09-23 23:12:33,117 -    SoilWater:  month=6, PET=11.7664360785804.
+2022-09-23 23:12:33,118 -    SoilWater:  month=6, Remaining PET=11.7664360785804.
+2022-09-23 23:12:33,118 -    SoilWater:  month=6, addToSoil=81.1771857885679.
+2022-09-23 23:12:33,119 -    SoilWater:  month=6, AET=7.05986164714823.
+2022-09-23 23:12:33,119 -    SoilWater:  month=6, baseflow=0.12936832515891.
+2022-09-23 23:12:33,172 - currentDeadWoodC:1,6,9.46587815788434, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-09-23 23:12:33,173 - SurfaceDeadWoodC: 1,6,35.1018275802942
+2022-09-23 23:12:33,184 -    SoilWater:  month=7, PET=11.0256218924706.
+2022-09-23 23:12:33,184 -    SoilWater:  month=7, Remaining PET=11.0256218924706.
+2022-09-23 23:12:33,185 -    SoilWater:  month=7, addToSoil=99.0376157190117.
+2022-09-23 23:12:33,185 -    SoilWater:  month=7, AET=6.61537313548239.
+2022-09-23 23:12:33,186 -    SoilWater:  month=7, baseflow=5.71556401288853.
+2022-09-23 23:12:33,197 - currentDeadWoodC:1,7,18.8417178281434, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-09-23 23:12:33,198 - SurfaceDeadWoodC: 1,7,44.087490500248
+2022-09-23 23:12:33,198 -    SoilWater:  month=8, PET=6.42190113834007.
+2022-09-23 23:12:33,198 -    SoilWater:  month=8, Remaining PET=6.42190113834007.
+2022-09-23 23:12:33,199 -    SoilWater:  month=8, addToSoil=146.668845422364.
+2022-09-23 23:12:33,199 -    SoilWater:  month=8, AET=3.85314068300404.
+2022-09-23 23:12:33,199 -    SoilWater:  month=8, baseflow=11.7552881510176.
+2022-09-23 23:12:33,211 - currentDeadWoodC:1,8,27.8579653611123, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-09-23 23:12:33,212 - SurfaceDeadWoodC: 1,8,52.857769393073
+2022-09-23 23:12:33,212 -    SoilWater:  month=9, PET=2.32566191431238.
+2022-09-23 23:12:33,213 -    SoilWater:  month=9, Remaining PET=2.32566191431238.
+2022-09-23 23:12:33,213 -    SoilWater:  month=9, addToSoil=58.503923339275.
+2022-09-23 23:12:33,214 -    SoilWater:  month=9, AET=1.39539714858743.
+2022-09-23 23:12:33,214 -    SoilWater:  month=9, baseflow=9.71963354746563.
+2022-09-23 23:12:33,229 - currentDeadWoodC:1,9,36.2639471123706, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-09-23 23:12:33,229 - SurfaceDeadWoodC: 1,9,61.111899686326
+2022-09-23 23:12:33,229 -    SoilWater:  month=10, PET=0.
+2022-09-23 23:12:33,230 -    SoilWater:  month=10, AET=0.
+2022-09-23 23:12:33,230 -    SoilWater:  month=10, baseflow=5.50225811670646.
+2022-09-23 23:12:33,241 - currentDeadWoodC:1,10,44.2919538089476, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-09-23 23:12:33,242 - SurfaceDeadWoodC: 1,10,69.1362620582247
+2022-09-23 23:12:33,242 -    SoilWater:  month=11, PET=0.
+2022-09-23 23:12:33,243 -    SoilWater:  month=11, AET=0.
+2022-09-23 23:12:33,243 -    SoilWater:  month=11, baseflow=2.91619680841363.
+2022-09-23 23:12:33,252 - currentDeadWoodC:1,11,52.2449863453492, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-09-23 23:12:33,253 - SurfaceDeadWoodC: 1,11,77.0871800981317
+2022-09-23 23:12:33,254 -    SoilWater:  month=0, PET=0.
+2022-09-23 23:12:33,256 -    SoilWater:  month=0, AET=0.
+2022-09-23 23:12:33,257 -    SoilWater:  month=0, baseflow=1.5455843119356.
+2022-09-23 23:12:33,266 - currentDeadWoodC:1,0,60.1837791697661, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-09-23 23:12:33,266 - SurfaceDeadWoodC: 1,0,85.024006520805
+2022-09-23 23:12:33,266 -    SoilWater:  month=1, PET=0.
+2022-09-23 23:12:33,267 -    SoilWater:  month=1, AET=0.
+2022-09-23 23:12:33,267 -    SoilWater:  month=1, baseflow=0.819159687168348.
+2022-09-23 23:12:33,281 - currentDeadWoodC:1,1,68.1112912779299, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-09-23 23:12:33,282 - SurfaceDeadWoodC: 1,1,92.9495330445344
+2022-09-23 23:12:33,282 -    SoilWater:  month=2, PET=0.
+2022-09-23 23:12:33,283 -    SoilWater:  month=2, AET=0.
+2022-09-23 23:12:33,283 -    SoilWater:  month=2, baseflow=0.827668346820944.
+2022-09-23 23:12:33,297 - currentDeadWoodC:1,2,76.0479987237441, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-09-23 23:12:33,297 - SurfaceDeadWoodC: 1,2,100.883548918975
+2022-09-23 23:12:33,297 -    SoilWater:  month=3, PET=3.31583032746252.
+2022-09-23 23:12:33,298 -    SoilWater:  month=3, AET=0.
+2022-09-23 23:12:33,298 -    SoilWater:  month=3, baseflow=8.82121916265091.
+2022-09-23 23:12:33,310 - currentDeadWoodC:1,3,84.2631247289772, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-09-23 23:12:33,310 - SurfaceDeadWoodC: 1,3,108.953232502505
+2022-09-23 23:12:33,311 -    SoilWater:  month=4, PET=7.26519112630954.
+2022-09-23 23:12:33,311 -    SoilWater:  month=4, Remaining PET=7.26519112630954.
+2022-09-23 23:12:33,312 -    SoilWater:  month=4, addToSoil=74.3454794152683.
+2022-09-23 23:12:33,312 -    SoilWater:  month=4, AET=4.35911467578572.
+2022-09-23 23:12:33,312 -    SoilWater:  month=4, baseflow=8.95141288460828.
+2022-09-23 23:12:33,326 - currentDeadWoodC:1,4,92.7784502789082, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-09-23 23:12:33,327 - SurfaceDeadWoodC: 1,4,117.271543380618
+2022-09-23 23:12:33,327 -    SoilWater:  month=5, PET=8.74862154867196.
+2022-09-23 23:12:33,328 -    SoilWater:  month=5, Remaining PET=8.74862154867196.
+2022-09-23 23:12:33,328 -    SoilWater:  month=5, addToSoil=61.8945671605312.
+2022-09-23 23:12:33,329 -    SoilWater:  month=5, AET=5.24917292920318.
+2022-09-23 23:12:33,329 -    SoilWater:  month=5, baseflow=8.20528229131904.
+2022-09-23 23:12:33,344 - currentDeadWoodC:1,5,101.480460134435, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-09-23 23:12:33,344 - SurfaceDeadWoodC: 1,5,125.751108837407
+2022-09-23 23:12:33,367 - nurseryLogC:1,0,0,0
+2022-09-23 23:12:33,368 - decayClassAreaRatios:1,0,0,0
+2022-09-23 23:12:33,369 - original_lightProbability:1,ABBA,1
+2022-09-23 23:12:33,369 - siteShade:5
+2022-09-23 23:12:33,369 - siteLAI:8.50491740023947
+2022-09-23 23:12:33,370 - nurseryLogPenalty:1,ABBA,0
+2022-09-23 23:12:33,370 - modified_lightProbability:1,ABBA,1
+2022-09-23 23:12:33,371 - regeneration_type:1,ABBA,surface
+2022-09-23 23:12:33,375 - original_lightProbability:1,ACSA3,1
+2022-09-23 23:12:33,375 - siteShade:5
+2022-09-23 23:12:33,376 - siteLAI:8.50491740023947
+2022-09-23 23:12:33,376 - nurseryLogPenalty:1,ACSA3,0
+2022-09-23 23:12:33,376 - modified_lightProbability:1,ACSA3,1
+2022-09-23 23:12:33,377 - regeneration_type:1,ACSA3,surface
+2022-09-23 23:12:33,378 - original_lightProbability:1,BEAL2,0.1
+2022-09-23 23:12:33,379 - siteShade:5
+2022-09-23 23:12:33,383 - siteLAI:8.50491740023947
+2022-09-23 23:12:33,384 - nurseryLogPenalty:1,BEAL2,0
+2022-09-23 23:12:33,387 - modified_lightProbability:1,BEAL2,0.1
+2022-09-23 23:12:33,388 - regeneration_type:1,BEAL2,failed
+2022-09-23 23:12:33,389 - original_lightProbability:1,BEPA,0
+2022-09-23 23:12:33,389 - siteShade:5
+2022-09-23 23:12:33,389 - siteLAI:8.50491740023947
+2022-09-23 23:12:33,390 - nurseryLogPenalty:1,BEPA,0
+2022-09-23 23:12:33,390 - modified_lightProbability:1,BEPA,0
+2022-09-23 23:12:33,391 - regeneration_type:1,BEPA,failed
+2022-09-23 23:12:33,391 - original_lightProbability:1,FRNI,0.25
+2022-09-23 23:12:33,391 - siteShade:5
+2022-09-23 23:12:33,392 - siteLAI:8.50491740023947
+2022-09-23 23:12:33,392 - nurseryLogPenalty:1,FRNI,0
+2022-09-23 23:12:33,392 - modified_lightProbability:1,FRNI,0.25
+2022-09-23 23:12:33,393 - regeneration_type:1,FRNI,failed
+2022-09-23 23:12:33,393 - original_lightProbability:1,PIGL,0.25
+2022-09-23 23:12:33,393 - siteShade:5
+2022-09-23 23:12:33,394 - siteLAI:8.50491740023947
+2022-09-23 23:12:33,394 - nurseryLogPenalty:1,PIGL,0
+2022-09-23 23:12:33,395 - modified_lightProbability:1,PIGL,0.25
+2022-09-23 23:12:33,397 - regeneration_type:1,PIGL,failed
+2022-09-23 23:12:33,398 - original_lightProbability:1,PIMA,0.1
+2022-09-23 23:12:33,398 - siteShade:5
+2022-09-23 23:12:33,399 - siteLAI:8.50491740023947
+2022-09-23 23:12:33,399 - nurseryLogPenalty:1,PIMA,0
+2022-09-23 23:12:33,399 - modified_lightProbability:1,PIMA,0.1
+2022-09-23 23:12:33,400 - regeneration_type:1,PIMA,failed
+2022-09-23 23:12:33,400 - original_lightProbability:1,PIBA2,0
+2022-09-23 23:12:33,400 - siteShade:5
+2022-09-23 23:12:33,401 - siteLAI:8.50491740023947
+2022-09-23 23:12:33,401 - nurseryLogPenalty:1,PIBA2,0
+2022-09-23 23:12:33,402 - modified_lightProbability:1,PIBA2,0
+2022-09-23 23:12:33,403 - regeneration_type:1,PIBA2,failed
+2022-09-23 23:12:33,403 - original_lightProbability:1,PIST,0.1
+2022-09-23 23:12:33,404 - siteShade:5
+2022-09-23 23:12:33,404 - siteLAI:8.50491740023947
+2022-09-23 23:12:33,405 - nurseryLogPenalty:1,PIST,0
+2022-09-23 23:12:33,405 - modified_lightProbability:1,PIST,0.1
+2022-09-23 23:12:33,405 - regeneration_type:1,PIST,failed
+2022-09-23 23:12:33,406 - original_lightProbability:1,POTR5,0
+2022-09-23 23:12:33,406 - siteShade:5
+2022-09-23 23:12:33,406 - siteLAI:8.50491740023947
+2022-09-23 23:12:33,407 - nurseryLogPenalty:1,POTR5,0
+2022-09-23 23:12:33,407 - modified_lightProbability:1,POTR5,0
+2022-09-23 23:12:33,407 - regeneration_type:1,POTR5,failed
+2022-09-23 23:12:33,408 - original_lightProbability:1,QURU,0
+2022-09-23 23:12:33,408 - siteShade:5
+2022-09-23 23:12:33,409 - siteLAI:8.50491740023947
+2022-09-23 23:12:33,409 - nurseryLogPenalty:1,QURU,0
+2022-09-23 23:12:33,409 - modified_lightProbability:1,QURU,0
+2022-09-23 23:12:33,410 - regeneration_type:1,QURU,failed
+2022-09-23 23:12:33,410 - original_lightProbability:1,THOC2,0.25
+2022-09-23 23:12:33,412 - siteShade:5
+2022-09-23 23:12:33,415 - siteLAI:8.50491740023947
+2022-09-23 23:12:33,416 - nurseryLogPenalty:1,THOC2,0
+2022-09-23 23:12:33,416 - modified_lightProbability:1,THOC2,0.25
+2022-09-23 23:12:33,417 - regeneration_type:1,THOC2,failed
+2022-09-23 23:12:33,417 - original_lightProbability:1,HRDWD,0
+2022-09-23 23:12:33,418 - siteShade:5
+2022-09-23 23:12:33,419 - siteLAI:8.50491740023947
+2022-09-23 23:12:33,419 - nurseryLogPenalty:1,HRDWD,0
+2022-09-23 23:12:33,420 - modified_lightProbability:1,HRDWD,0
+2022-09-23 23:12:33,420 - regeneration_type:1,HRDWD,failed
+2022-09-23 23:12:33,421 - original_lightProbability:1,SFTWD,0.25
+2022-09-23 23:12:33,421 - siteShade:5
+2022-09-23 23:12:33,422 - siteLAI:8.50491740023947
+2022-09-23 23:12:33,422 - nurseryLogPenalty:1,SFTWD,0
+2022-09-23 23:12:33,423 - modified_lightProbability:1,SFTWD,0.25
+2022-09-23 23:12:33,423 - regeneration_type:1,SFTWD,failed
+2022-09-23 23:12:33,942 - Current time: 2
+2022-09-23 23:12:33,943 - Running Biomass Browse ...
+2022-09-23 23:12:33,944 - Processing landscape for ungulate browse events ...
+2022-09-23 23:12:33,944 -    Calculating Site Preference & Forage.
+2022-09-23 23:12:33,945 - New Forage estimated as 14.5464
+2022-09-23 23:12:33,945 -      adjusting siteBiomassMax = 1000 g m-2
+2022-09-23 23:12:33,946 - New Forage estimated as 10.56
+2022-09-23 23:12:33,947 -      adjusting siteBiomassMax = 1000 g m-2
+2022-09-23 23:12:33,947 - New Forage estimated as 8.3952
+2022-09-23 23:12:33,948 -      adjusting siteBiomassMax = 1000 g m-2
+2022-09-23 23:12:33,951 - New Forage estimated as 230.1024
+2022-09-23 23:12:33,953 -      adjusting siteBiomassMax = 2000 g m-2
+2022-09-23 23:12:33,954 - New Forage estimated as 17.2128
+2022-09-23 23:12:33,955 -      adjusting siteBiomassMax = 2000 g m-2
+2022-09-23 23:12:33,956 - New Forage estimated as 10.6656
+2022-09-23 23:12:33,957 -      adjusting siteBiomassMax = 2000 g m-2
+2022-09-23 23:12:33,958 - New Forage estimated as 8.712
+2022-09-23 23:12:33,958 -      adjusting siteBiomassMax = 2000 g m-2
+2022-09-23 23:12:33,959 - New Forage estimated as 7.392
+2022-09-23 23:12:33,960 -      adjusting siteBiomassMax = 2000 g m-2
+2022-09-23 23:12:33,961 -    Calculating proportion of browse in reach using method LinearEachCohort
+2022-09-23 23:12:33,961 - Min biomass threshold = 50, Max biomass threshold 1000, maxBrowseAge = 456
+2022-09-23 23:12:33,962 - tempPropInReach = 0.72
+2022-09-23 23:12:33,963 - end Cohort biomass = 280; proportion in reach = 0.72.
+2022-09-23 23:12:33,964 - Min biomass threshold = 50, Max biomass threshold 1000, maxBrowseAge = 114
+2022-09-23 23:12:33,967 - tempPropInReach = 0.682
+2022-09-23 23:12:33,968 - end Cohort biomass = 318; proportion in reach = 0.682.
+2022-09-23 23:12:33,971 - Min biomass threshold = 50, Max biomass threshold 1000, maxBrowseAge = 456
+2022-09-23 23:12:33,973 - tempPropInReach = 0.67
+2022-09-23 23:12:33,973 - end Cohort biomass = 330; proportion in reach = 0.67.
+2022-09-23 23:12:33,974 - Min biomass threshold = 50, Max biomass threshold 1000, maxBrowseAge = 114
+2022-09-23 23:12:33,974 - tempPropInReach = 0.6
+2022-09-23 23:12:33,975 - end Cohort biomass = 400; proportion in reach = 0.6.
+2022-09-23 23:12:33,976 - Min biomass threshold = 50, Max biomass threshold 1000, maxBrowseAge = 456
+2022-09-23 23:12:33,976 - tempPropInReach = 0.596
+2022-09-23 23:12:33,976 - end Cohort biomass = 404; proportion in reach = 0.596.
+2022-09-23 23:12:33,977 - Min biomass threshold = 50, Max biomass threshold 1000, maxBrowseAge = 114
+2022-09-23 23:12:33,977 - tempPropInReach = 0.449
+2022-09-23 23:12:33,978 - end Cohort biomass = 551; proportion in reach = 0.449.
+2022-09-23 23:12:33,978 - Min biomass threshold = 100, Max biomass threshold 2000, maxBrowseAge = 171
+2022-09-23 23:12:33,979 - tempPropInReach = 0.674
+2022-09-23 23:12:33,984 - end Cohort biomass = 652; proportion in reach = 0.674.
+2022-09-23 23:12:33,984 - Min biomass threshold = 100, Max biomass threshold 2000, maxBrowseAge = 171
+2022-09-23 23:12:33,986 - Cohort escaped; biomass = 8716, maxThresold = 2000
+2022-09-23 23:12:33,990 - end Cohort biomass = 8716; proportion in reach = 0.
+2022-09-23 23:12:33,990 - forage in reach = 6.5313336 g m-2; cohort forage = 14.5464, propinreach = 0.449
+2022-09-23 23:12:33,991 - forage in reach = 6.336 g m-2; cohort forage = 10.56, propinreach = 0.6
+2022-09-23 23:12:33,992 - forage in reach = 5.7255264 g m-2; cohort forage = 8.3952, propinreach = 0.682
+2022-09-23 23:12:33,992 - forage in reach = 0 g m-2; cohort forage = 230.1024, propinreach = 0
+2022-09-23 23:12:33,993 - forage in reach = 11.6014272 g m-2; cohort forage = 17.2128, propinreach = 0.674
+2022-09-23 23:12:33,993 - forage in reach = 6.3566976 g m-2; cohort forage = 10.6656, propinreach = 0.596
+2022-09-23 23:12:33,994 - forage in reach = 5.83704 g m-2; cohort forage = 8.712, propinreach = 0.67
+2022-09-23 23:12:33,994 - forage in reach = 5.32224 g m-2; cohort forage = 7.392, propinreach = 0.72
+2022-09-23 23:12:33,995 -    Estimating effective Zone Population from Browse Density Index.
+2022-09-23 23:12:33,995 -      Defined browse density index being loaded for current timestep
+2022-09-23 23:12:33,998 -      Calculating carrying capacity
+2022-09-23 23:12:33,998 -    Calculating HSI.
+2022-09-23 23:12:33,999 -    Calculating Local Population.
+2022-09-23 23:12:33,999 -      Site number 1
+2022-09-23 23:12:34,000 -          siteTotalForage = 36108837.6
+2022-09-23 23:12:34,000 -    Disturbing Sites
+2022-09-23 23:12:34,001 -  Allocating browse for site 1; total browse: 16.428
+2022-09-23 23:12:34,001 - BEPA/61.0. availForage = 6.5313336, browsePref = 0.25, firstPass increment = 1.6328334, firstPassRemoval = 1.6328334
+2022-09-23 23:12:34,002 - BEPA/31.0. availForage = 6.336, browsePref = 0.25, firstPass increment = 1.584, firstPassRemoval = 3.2168334
+2022-09-23 23:12:34,003 - BEPA/11.0. availForage = 5.7255264, browsePref = 0.25, firstPass increment = 1.4313816, firstPassRemoval = 4.648215
+2022-09-23 23:12:34,003 - PIGL/91.0. availForage = 0, browsePref = 0, firstPass increment = 0, firstPassRemoval = 4.648215
+2022-09-23 23:12:34,004 - PIGL/11.0. availForage = 11.6014272, browsePref = 0, firstPass increment = 0, firstPassRemoval = 4.648215
+2022-09-23 23:12:34,005 - THOC2/61.0. availForage = 6.3566976, browsePref = 0.05, firstPass increment = 0.31783488, firstPassRemoval = 4.96604988
+2022-09-23 23:12:34,005 - THOC2/31.0. availForage = 5.83704, browsePref = 0.05, firstPass increment = 0.291852, firstPassRemoval = 5.25790188
+2022-09-23 23:12:34,006 - THOC2/11.0. availForage = 5.32224, browsePref = 0.05, firstPass increment = 0.266112, firstPassRemoval = 5.52401388
+2022-09-23 23:12:34,006 - BEPA/61.0. adjusted firstPassRemoval = 1.6328334, secondPassRemoval = 3.83037203095649, finalRemoval = 5.46320543095649
+2022-09-23 23:12:34,007 - Recording cohort biomass removal :  BEPA/61.0/5.46320543095649.
+2022-09-23 23:12:34,007 - Recording reduction:  BEPA/61.0/5.46320543095649.
+2022-09-23 23:12:34,009 - BEPA/31.0. adjusted firstPassRemoval = 1.584, secondPassRemoval = 3.71581650463242, finalRemoval = 5.29981650463242
+2022-09-23 23:12:34,009 - Recording cohort biomass removal :  BEPA/31.0/5.29981650463242.
+2022-09-23 23:12:34,010 - Recording reduction:  BEPA/31.0/5.29981650463242.
+2022-09-23 23:12:34,014 - BEPA/11.0. adjusted firstPassRemoval = 1.4313816, secondPassRemoval = 3.35779758441109, finalRemoval = 4.78917918441109
+2022-09-23 23:12:34,014 - Recording cohort biomass removal :  BEPA/11.0/4.78917918441109.
+2022-09-23 23:12:34,015 - Recording reduction:  BEPA/11.0/4.78917918441109.
+2022-09-23 23:12:34,016 - Recording cohort biomass removal :  THOC2/61.0/0.31783488.
+2022-09-23 23:12:34,016 - Recording reduction:  THOC2/61.0/0.31783488.
+2022-09-23 23:12:34,016 - Recording cohort biomass removal :  THOC2/31.0/0.291852.
+2022-09-23 23:12:34,017 - Recording reduction:  THOC2/31.0/0.291852.
+2022-09-23 23:12:34,018 - Recording cohort biomass removal :  THOC2/11.0/0.266112.
+2022-09-23 23:12:34,019 - Recording reduction:  THOC2/11.0/0.266112.
+2022-09-23 23:12:34,019 - Reducing CohortBiomass NOW!
+2022-09-23 23:12:34,096 - Running NECN Succession ...
+2022-09-23 23:12:34,097 -    SoilWater:  month=6, PET=10.6946290146845.
+2022-09-23 23:12:34,098 -    SoilWater:  month=6, Remaining PET=10.6946290146845.
+2022-09-23 23:12:34,098 -    SoilWater:  month=6, addToSoil=83.2648855141262.
+2022-09-23 23:12:34,099 -    SoilWater:  month=6, AET=6.41677740881071.
+2022-09-23 23:12:34,099 -    SoilWater:  month=6, baseflow=9.04421884527906.
+2022-09-23 23:12:34,110 - currentDeadWoodC:2,6,100.755732613264, 9.44516422892516, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-09-23 23:12:34,111 - SurfaceDeadWoodC: 2,6,134.215045441356
+2022-09-23 23:12:34,111 -    SoilWater:  month=7, PET=10.2252994787525.
+2022-09-23 23:12:34,112 -    SoilWater:  month=7, Remaining PET=10.2252994787525.
+2022-09-23 23:12:34,112 -    SoilWater:  month=7, addToSoil=58.669709248499.
+2022-09-23 23:12:34,113 -    SoilWater:  month=7, AET=6.1351796872515.
+2022-09-23 23:12:34,114 -    SoilWater:  month=7, baseflow=8.00329562909334.
+2022-09-23 23:12:34,129 - currentDeadWoodC:2,7,100.013836968461, 18.8737510858397, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-09-23 23:12:34,130 - SurfaceDeadWoodC: 2,7,142.632245298273
+2022-09-23 23:12:34,131 -    SoilWater:  month=8, PET=7.58614473057039.
+2022-09-23 23:12:34,131 -    SoilWater:  month=8, Remaining PET=7.58614473057039.
+2022-09-23 23:12:34,132 -    SoilWater:  month=8, addToSoil=68.9108405177718.
+2022-09-23 23:12:34,132 -    SoilWater:  month=8, AET=4.55168683834223.
+2022-09-23 23:12:34,133 -    SoilWater:  month=8, baseflow=8.17409082856189.
+2022-09-23 23:12:34,150 - currentDeadWoodC:2,8,99.3831967152226, 28.1007340309057, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-09-23 23:12:34,151 - SurfaceDeadWoodC: 2,8,150.993753773324
+2022-09-23 23:12:34,156 -    SoilWater:  month=9, PET=2.97687113610201.
+2022-09-23 23:12:34,156 -    SoilWater:  month=9, Remaining PET=2.97687113610201.
+2022-09-23 23:12:34,157 -    SoilWater:  month=9, addToSoil=100.739166105559.
+2022-09-23 23:12:34,158 -    SoilWater:  month=9, AET=1.7861226816612.
+2022-09-23 23:12:34,158 -    SoilWater:  month=9, baseflow=10.3782988649802.
+2022-09-23 23:12:34,176 - currentDeadWoodC:2,9,98.9976699728667, 36.5831508453544, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-09-23 23:12:34,176 - SurfaceDeadWoodC: 2,9,158.943816058056
+2022-09-23 23:12:34,178 -    SoilWater:  month=10, PET=0.
+2022-09-23 23:12:34,179 -    SoilWater:  month=10, AET=0.
+2022-09-23 23:12:34,181 -    SoilWater:  month=10, baseflow=5.57216485419299.
+2022-09-23 23:12:34,212 - currentDeadWoodC:2,10,98.9891569469508, 44.5162164960835, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-09-23 23:12:34,213 - SurfaceDeadWoodC: 2,10,166.865057379336
+2022-09-23 23:12:34,213 -    SoilWater:  month=11, PET=0.
+2022-09-23 23:12:34,216 -    SoilWater:  month=11, AET=0.
+2022-09-23 23:12:34,222 -    SoilWater:  month=11, baseflow=3.03024372026093.
+2022-09-23 23:12:34,244 - currentDeadWoodC:2,11,98.9820476783451, 52.4081662718916, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-09-23 23:12:34,246 - SurfaceDeadWoodC: 2,11,174.747070900827
+2022-09-23 23:12:34,248 -    SoilWater:  month=0, PET=0.
+2022-09-23 23:12:34,251 -    SoilWater:  month=0, AET=0.
+2022-09-23 23:12:34,254 -    SoilWater:  month=0, baseflow=1.60602917535063.
+2022-09-23 23:12:34,296 - currentDeadWoodC:2,0,98.9782715620567, 60.2552917068644, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-09-23 23:12:34,297 - SurfaceDeadWoodC: 2,0,182.588886048192
+2022-09-23 23:12:34,300 -    SoilWater:  month=1, PET=0.
+2022-09-23 23:12:34,308 -    SoilWater:  month=1, AET=0.
+2022-09-23 23:12:34,309 -    SoilWater:  month=1, baseflow=0.851195464850368.
+2022-09-23 23:12:34,333 - currentDeadWoodC:2,1,98.9743241781004, 68.0912706091755, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-09-23 23:12:34,335 - SurfaceDeadWoodC: 2,1,190.419279735881
+2022-09-23 23:12:34,339 -    SoilWater:  month=2, PET=0.
+2022-09-23 23:12:34,340 -    SoilWater:  month=2, AET=0.
+2022-09-23 23:12:34,341 -    SoilWater:  month=2, baseflow=1.15510100804428.
+2022-09-23 23:12:34,367 - currentDeadWoodC:2,2,98.9671360641248, 75.9518430801971, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-09-23 23:12:34,367 - SurfaceDeadWoodC: 2,2,198.269619349132
+2022-09-23 23:12:34,368 -    SoilWater:  month=3, PET=1.27315742917445.
+2022-09-23 23:12:34,370 -    SoilWater:  month=3, AET=0.
+2022-09-23 23:12:34,371 -    SoilWater:  month=3, baseflow=5.23835350061666.
+2022-09-23 23:12:34,387 - currentDeadWoodC:2,3,98.6708482690445, 83.953205067594, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-09-23 23:12:34,387 - SurfaceDeadWoodC: 2,3,205.84650455677
+2022-09-23 23:12:34,388 -    SoilWater:  month=4, PET=5.22641119194906.
+2022-09-23 23:12:34,395 -    SoilWater:  month=4, Remaining PET=5.22641119194906.
+2022-09-23 23:12:34,398 -    SoilWater:  month=4, addToSoil=191.456397089129.
+2022-09-23 23:12:34,399 -    SoilWater:  month=4, AET=3.13584671516944.
+2022-09-23 23:12:34,408 -    SoilWater:  month=4, baseflow=14.2827125381842.
+2022-09-23 23:12:34,434 - currentDeadWoodC:2,4,98.277694101475, 92.2533022468001, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-09-23 23:12:34,435 - SurfaceDeadWoodC: 2,4,213.579850336568
+2022-09-23 23:12:34,439 -    SoilWater:  month=5, PET=9.27483738177656.
+2022-09-23 23:12:34,444 -    SoilWater:  month=5, Remaining PET=9.27483738177656.
+2022-09-23 23:12:34,444 -    SoilWater:  month=5, addToSoil=96.9635708672894.
+2022-09-23 23:12:34,445 -    SoilWater:  month=5, AET=5.56490242906593.
+2022-09-23 23:12:34,446 -    SoilWater:  month=5, baseflow=13.1542960848385.
+2022-09-23 23:12:34,461 - currentDeadWoodC:2,5,97.7248589680707, 100.921675688718, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-09-23 23:12:34,462 - SurfaceDeadWoodC: 2,5,221.446157131673
+2022-09-23 23:12:34,492 - nurseryLogC:2,0,0,0
+2022-09-23 23:12:34,493 - decayClassAreaRatios:2,0,0,0
+2022-09-23 23:12:34,495 - original_lightProbability:2,ABBA,1
+2022-09-23 23:12:34,495 - siteShade:5
+2022-09-23 23:12:34,495 - siteLAI:8.48165663846869
+2022-09-23 23:12:34,496 - nurseryLogPenalty:2,ABBA,0
+2022-09-23 23:12:34,497 - modified_lightProbability:2,ABBA,1
+2022-09-23 23:12:34,498 - regeneration_type:2,ABBA,surface
+2022-09-23 23:12:34,504 - original_lightProbability:2,ACSA3,1
+2022-09-23 23:12:34,505 - siteShade:5
+2022-09-23 23:12:34,506 - siteLAI:8.48165663846869
+2022-09-23 23:12:34,506 - nurseryLogPenalty:2,ACSA3,0
+2022-09-23 23:12:34,507 - modified_lightProbability:2,ACSA3,1
+2022-09-23 23:12:34,508 - regeneration_type:2,ACSA3,surface
+2022-09-23 23:12:34,508 - original_lightProbability:2,BEAL2,0.1
+2022-09-23 23:12:34,509 - siteShade:5
+2022-09-23 23:12:34,509 - siteLAI:8.48165663846869
+2022-09-23 23:12:34,510 - nurseryLogPenalty:2,BEAL2,0
+2022-09-23 23:12:34,510 - modified_lightProbability:2,BEAL2,0.1
+2022-09-23 23:12:34,511 - regeneration_type:2,BEAL2,failed
+2022-09-23 23:12:34,512 - original_lightProbability:2,BEPA,0
+2022-09-23 23:12:34,512 - siteShade:5
+2022-09-23 23:12:34,512 - siteLAI:8.48165663846869
+2022-09-23 23:12:34,513 - nurseryLogPenalty:2,BEPA,0
+2022-09-23 23:12:34,513 - modified_lightProbability:2,BEPA,0
+2022-09-23 23:12:34,513 - regeneration_type:2,BEPA,failed
+2022-09-23 23:12:34,513 - original_lightProbability:2,FRNI,0.25
+2022-09-23 23:12:34,514 - siteShade:5
+2022-09-23 23:12:34,514 - siteLAI:8.48165663846869
+2022-09-23 23:12:34,515 - nurseryLogPenalty:2,FRNI,0
+2022-09-23 23:12:34,517 - modified_lightProbability:2,FRNI,0.25
+2022-09-23 23:12:34,522 - regeneration_type:2,FRNI,surface
+2022-09-23 23:12:34,522 - original_lightProbability:2,PIGL,0.25
+2022-09-23 23:12:34,523 - siteShade:5
+2022-09-23 23:12:34,523 - siteLAI:8.48165663846869
+2022-09-23 23:12:34,524 - nurseryLogPenalty:2,PIGL,0
+2022-09-23 23:12:34,524 - modified_lightProbability:2,PIGL,0.25
+2022-09-23 23:12:34,525 - regeneration_type:2,PIGL,failed
+2022-09-23 23:12:34,525 - original_lightProbability:2,PIMA,0.1
+2022-09-23 23:12:34,526 - siteShade:5
+2022-09-23 23:12:34,527 - siteLAI:8.48165663846869
+2022-09-23 23:12:34,527 - nurseryLogPenalty:2,PIMA,0
+2022-09-23 23:12:34,528 - modified_lightProbability:2,PIMA,0.1
+2022-09-23 23:12:34,529 - regeneration_type:2,PIMA,failed
+2022-09-23 23:12:34,529 - original_lightProbability:2,PIBA2,0
+2022-09-23 23:12:34,530 - siteShade:5
+2022-09-23 23:12:34,532 - siteLAI:8.48165663846869
+2022-09-23 23:12:34,533 - nurseryLogPenalty:2,PIBA2,0
+2022-09-23 23:12:34,533 - modified_lightProbability:2,PIBA2,0
+2022-09-23 23:12:34,535 - regeneration_type:2,PIBA2,failed
+2022-09-23 23:12:34,536 - original_lightProbability:2,PIST,0.1
+2022-09-23 23:12:34,536 - siteShade:5
+2022-09-23 23:12:34,537 - siteLAI:8.48165663846869
+2022-09-23 23:12:34,538 - nurseryLogPenalty:2,PIST,0
+2022-09-23 23:12:34,538 - modified_lightProbability:2,PIST,0.1
+2022-09-23 23:12:34,539 - regeneration_type:2,PIST,failed
+2022-09-23 23:12:34,539 - original_lightProbability:2,POTR5,0
+2022-09-23 23:12:34,540 - siteShade:5
+2022-09-23 23:12:34,540 - siteLAI:8.48165663846869
+2022-09-23 23:12:34,540 - nurseryLogPenalty:2,POTR5,0
+2022-09-23 23:12:34,541 - modified_lightProbability:2,POTR5,0
+2022-09-23 23:12:34,541 - regeneration_type:2,POTR5,failed
+2022-09-23 23:12:34,542 - original_lightProbability:2,QURU,0
+2022-09-23 23:12:34,542 - siteShade:5
+2022-09-23 23:12:34,542 - siteLAI:8.48165663846869
+2022-09-23 23:12:34,543 - nurseryLogPenalty:2,QURU,0
+2022-09-23 23:12:34,543 - modified_lightProbability:2,QURU,0
+2022-09-23 23:12:34,543 - regeneration_type:2,QURU,failed
+2022-09-23 23:12:34,544 - original_lightProbability:2,THOC2,0.25
+2022-09-23 23:12:34,544 - siteShade:5
+2022-09-23 23:12:34,544 - siteLAI:8.48165663846869
+2022-09-23 23:12:34,545 - nurseryLogPenalty:2,THOC2,0
+2022-09-23 23:12:34,545 - modified_lightProbability:2,THOC2,0.25
+2022-09-23 23:12:34,546 - regeneration_type:2,THOC2,failed
+2022-09-23 23:12:34,549 - original_lightProbability:2,HRDWD,0
+2022-09-23 23:12:34,550 - siteShade:5
+2022-09-23 23:12:34,550 - siteLAI:8.48165663846869
+2022-09-23 23:12:34,551 - nurseryLogPenalty:2,HRDWD,0
+2022-09-23 23:12:34,551 - modified_lightProbability:2,HRDWD,0
+2022-09-23 23:12:34,552 - regeneration_type:2,HRDWD,failed
+2022-09-23 23:12:34,552 - original_lightProbability:2,SFTWD,0.25
+2022-09-23 23:12:34,553 - siteShade:5
+2022-09-23 23:12:34,555 - siteLAI:8.48165663846869
+2022-09-23 23:12:34,555 - nurseryLogPenalty:2,SFTWD,0
+2022-09-23 23:12:34,556 - modified_lightProbability:2,SFTWD,0.25
+2022-09-23 23:12:34,556 - regeneration_type:2,SFTWD,surface
+2022-09-23 23:12:34,896 - Current time: 3
+2022-09-23 23:12:34,897 - Running Biomass Browse ...
+2022-09-23 23:12:34,897 - Processing landscape for ungulate browse events ...
+2022-09-23 23:12:34,898 -    Calculating Site Preference & Forage.
+2022-09-23 23:12:34,899 - New Forage estimated as 14.124
+2022-09-23 23:12:34,900 -      adjusting siteBiomassMax = 1000 g m-2
+2022-09-23 23:12:34,900 - New Forage estimated as 10.2168
+2022-09-23 23:12:34,901 -      adjusting siteBiomassMax = 1000 g m-2
+2022-09-23 23:12:34,901 - New Forage estimated as 8.1312
+2022-09-23 23:12:34,903 -      adjusting siteBiomassMax = 1000 g m-2
+2022-09-23 23:12:34,903 - New Forage estimated as 228.096
+2022-09-23 23:12:34,905 -      adjusting siteBiomassMax = 2000 g m-2
+2022-09-23 23:12:34,905 - New Forage estimated as 17.424
+2022-09-23 23:12:34,906 -      adjusting siteBiomassMax = 2000 g m-2
+2022-09-23 23:12:34,906 - New Forage estimated as 10.7184
+2022-09-23 23:12:34,907 -      adjusting siteBiomassMax = 2000 g m-2
+2022-09-23 23:12:34,907 - New Forage estimated as 8.7648
+2022-09-23 23:12:34,907 -      adjusting siteBiomassMax = 2000 g m-2
+2022-09-23 23:12:34,908 - New Forage estimated as 7.4184
+2022-09-23 23:12:34,908 -      adjusting siteBiomassMax = 2000 g m-2
+2022-09-23 23:12:34,909 -    Calculating proportion of browse in reach using method LinearEachCohort
+2022-09-23 23:12:34,913 - Min biomass threshold = 50, Max biomass threshold 1000, maxBrowseAge = 456
+2022-09-23 23:12:34,913 - tempPropInReach = 0.719
+2022-09-23 23:12:34,914 - end Cohort biomass = 281; proportion in reach = 0.719.
+2022-09-23 23:12:34,914 - Min biomass threshold = 50, Max biomass threshold 1000, maxBrowseAge = 114
+2022-09-23 23:12:34,915 - tempPropInReach = 0.692
+2022-09-23 23:12:34,915 - end Cohort biomass = 308; proportion in reach = 0.692.
+2022-09-23 23:12:34,915 - Min biomass threshold = 50, Max biomass threshold 1000, maxBrowseAge = 456
+2022-09-23 23:12:34,916 - tempPropInReach = 0.668
+2022-09-23 23:12:34,916 - end Cohort biomass = 332; proportion in reach = 0.668.
+2022-09-23 23:12:34,916 - Min biomass threshold = 50, Max biomass threshold 1000, maxBrowseAge = 114
+2022-09-23 23:12:34,917 - tempPropInReach = 0.613
+2022-09-23 23:12:34,918 - end Cohort biomass = 387; proportion in reach = 0.613.
+2022-09-23 23:12:34,918 - Min biomass threshold = 50, Max biomass threshold 1000, maxBrowseAge = 456
+2022-09-23 23:12:34,919 - tempPropInReach = 0.594
+2022-09-23 23:12:34,919 - end Cohort biomass = 406; proportion in reach = 0.594.
+2022-09-23 23:12:34,921 - Min biomass threshold = 50, Max biomass threshold 1000, maxBrowseAge = 114
+2022-09-23 23:12:34,922 - tempPropInReach = 0.465
+2022-09-23 23:12:34,923 - end Cohort biomass = 535; proportion in reach = 0.465.
+2022-09-23 23:12:34,923 - Min biomass threshold = 100, Max biomass threshold 2000, maxBrowseAge = 171
+2022-09-23 23:12:34,923 - tempPropInReach = 0.67
+2022-09-23 23:12:34,926 - end Cohort biomass = 660; proportion in reach = 0.67.
+2022-09-23 23:12:34,926 - Min biomass threshold = 100, Max biomass threshold 2000, maxBrowseAge = 171
+2022-09-23 23:12:34,927 - Cohort escaped; biomass = 8640, maxThresold = 2000
+2022-09-23 23:12:34,928 - end Cohort biomass = 8640; proportion in reach = 0.
+2022-09-23 23:12:34,929 - forage in reach = 6.56766 g m-2; cohort forage = 14.124, propinreach = 0.465
+2022-09-23 23:12:34,929 - forage in reach = 6.2628984 g m-2; cohort forage = 10.2168, propinreach = 0.613
+2022-09-23 23:12:34,930 - forage in reach = 5.6267904 g m-2; cohort forage = 8.1312, propinreach = 0.692
+2022-09-23 23:12:34,930 - forage in reach = 0 g m-2; cohort forage = 228.096, propinreach = 0
+2022-09-23 23:12:34,931 - forage in reach = 11.67408 g m-2; cohort forage = 17.424, propinreach = 0.67
+2022-09-23 23:12:34,931 - forage in reach = 6.3667296 g m-2; cohort forage = 10.7184, propinreach = 0.594
+2022-09-23 23:12:34,932 - forage in reach = 5.8548864 g m-2; cohort forage = 8.7648, propinreach = 0.668
+2022-09-23 23:12:34,933 - forage in reach = 5.3338296 g m-2; cohort forage = 7.4184, propinreach = 0.719
+2022-09-23 23:12:34,933 -    Estimating effective Zone Population from Browse Density Index.
+2022-09-23 23:12:34,933 -      Defined browse density index being loaded for current timestep
+2022-09-23 23:12:34,934 -      Calculating carrying capacity
+2022-09-23 23:12:34,934 -    Calculating HSI.
+2022-09-23 23:12:34,935 -    Calculating Local Population.
+2022-09-23 23:12:34,935 -      Site number 1
+2022-09-23 23:12:34,936 -          siteTotalForage = 36012794.4
+2022-09-23 23:12:34,936 -    Disturbing Sites
+2022-09-23 23:12:34,937 -  Allocating browse for site 1; total browse: 2.738
+2022-09-23 23:12:34,938 - BEPA/62.0. availForage = 6.56766, browsePref = 0.25, firstPass increment = 1.641915, firstPassRemoval = 1.641915
+2022-09-23 23:12:34,938 - BEPA/32.0. availForage = 6.2628984, browsePref = 0.25, firstPass increment = 1.5657246, firstPassRemoval = 3.2076396
+2022-09-23 23:12:34,939 - BEPA/12.0. availForage = 5.6267904, browsePref = 0.25, firstPass increment = 1.4066976, firstPassRemoval = 4.6143372
+2022-09-23 23:12:34,939 - PIGL/92.0. availForage = 0, browsePref = 0, firstPass increment = 0, firstPassRemoval = 4.6143372
+2022-09-23 23:12:34,942 - PIGL/12.0. availForage = 11.67408, browsePref = 0, firstPass increment = 0, firstPassRemoval = 4.6143372
+2022-09-23 23:12:34,945 - THOC2/62.0. availForage = 6.3667296, browsePref = 0.05, firstPass increment = 0.31833648, firstPassRemoval = 4.93267368
+2022-09-23 23:12:34,945 - THOC2/32.0. availForage = 5.8548864, browsePref = 0.05, firstPass increment = 0.29274432, firstPassRemoval = 5.225418
+2022-09-23 23:12:34,946 - THOC2/12.0. availForage = 5.3338296, browsePref = 0.05, firstPass increment = 0.26669148, firstPassRemoval = 5.49210948
+2022-09-23 23:12:34,946 - BEPA/62.0. adjusted firstPassRemoval = 0.81854946380275, secondPassRemoval = 1.84433707717222E-16, finalRemoval = 0.81854946380275
+2022-09-23 23:12:34,948 - Recording cohort biomass removal :  BEPA/62.0/0.81854946380275.
+2022-09-23 23:12:34,949 - Recording reduction:  BEPA/62.0/0.81854946380275.
+2022-09-23 23:12:34,949 - BEPA/32.0. adjusted firstPassRemoval = 0.780566004813145, secondPassRemoval = 1.75875360930416E-16, finalRemoval = 0.780566004813145
+2022-09-23 23:12:34,950 - Recording cohort biomass removal :  BEPA/32.0/0.780566004813145.
+2022-09-23 23:12:34,950 - Recording reduction:  BEPA/32.0/0.780566004813145.
+2022-09-23 23:12:34,951 - BEPA/12.0. adjusted firstPassRemoval = 0.701285734165663, secondPassRemoval = 1.58012110252307E-16, finalRemoval = 0.701285734165663
+2022-09-23 23:12:34,951 - Recording cohort biomass removal :  BEPA/12.0/0.701285734165663.
+2022-09-23 23:12:34,952 - Recording reduction:  BEPA/12.0/0.701285734165663.
+2022-09-23 23:12:34,953 - THOC2/62.0. adjusted firstPassRemoval = 0.158701367009166, secondPassRemoval = -4.13264833142172E-17, finalRemoval = 0.158701367009166
+2022-09-23 23:12:34,953 - Recording cohort biomass removal :  THOC2/62.0/0.158701367009166.
+2022-09-23 23:12:34,954 - Recording reduction:  THOC2/62.0/0.158701367009166.
+2022-09-23 23:12:34,954 - THOC2/32.0. adjusted firstPassRemoval = 0.145942820528042, secondPassRemoval = -3.80041057682483E-17, finalRemoval = 0.145942820528042
+2022-09-23 23:12:34,955 - Recording cohort biomass removal :  THOC2/32.0/0.145942820528042.
+2022-09-23 23:12:34,955 - Recording reduction:  THOC2/32.0/0.145942820528042.
+2022-09-23 23:12:34,956 - THOC2/12.0. adjusted firstPassRemoval = 0.132954609681233, secondPassRemoval = -3.46219226846508E-17, finalRemoval = 0.132954609681233
+2022-09-23 23:12:34,959 - Recording cohort biomass removal :  THOC2/12.0/0.132954609681233.
+2022-09-23 23:12:34,960 - Recording reduction:  THOC2/12.0/0.132954609681233.
+2022-09-23 23:12:34,961 - PIGL/92.0. adjusted firstPassRemoval = 0, secondPassRemoval = 0, finalRemoval = 0
+2022-09-23 23:12:34,962 - PIGL/12.0. adjusted firstPassRemoval = 0, secondPassRemoval = -2.77555756156289E-17, finalRemoval = -2.77555756156289E-17
+2022-09-23 23:12:34,962 -    Browse Proportion not between 0 and 1: -1.5929508503001E-18. finalRemoval = -2.77555756156289E-17,total forage = 17.424
+2022-09-23 23:12:34,962 - Reducing CohortBiomass NOW!
+2022-09-23 23:12:35,047 - Running NECN Succession ...
+2022-09-23 23:12:35,049 -    SoilWater:  month=6, PET=11.7664360785804.
+2022-09-23 23:12:35,049 -    SoilWater:  month=6, Remaining PET=11.7664360785804.
+2022-09-23 23:12:35,050 -    SoilWater:  month=6, addToSoil=81.1771857885679.
+2022-09-23 23:12:35,050 -    SoilWater:  month=6, AET=7.05986164714823.
+2022-09-23 23:12:35,053 -    SoilWater:  month=6, baseflow=11.5003452680932.
+2022-09-23 23:12:35,062 - currentDeadWoodC:3,6,97.0169196033556, 100.190577913521, 9.45543826266885, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-09-23 23:12:35,063 - SurfaceDeadWoodC: 3,6,229.136889923873
+2022-09-23 23:12:35,064 -    SoilWater:  month=7, PET=11.0256218924706.
+2022-09-23 23:12:35,064 -    SoilWater:  month=7, Remaining PET=11.0256218924706.
+2022-09-23 23:12:35,064 -    SoilWater:  month=7, addToSoil=99.0376157190117.
+2022-09-23 23:12:35,065 -    SoilWater:  month=7, AET=6.61537313548239.
+2022-09-23 23:12:35,065 -    SoilWater:  month=7, baseflow=11.742181806199.
+2022-09-23 23:12:35,081 - currentDeadWoodC:3,7,96.2978699199598, 99.4480063742212, 18.8635499241213, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-09-23 23:12:35,081 - SurfaceDeadWoodC: 3,7,236.746250434266
+2022-09-23 23:12:35,082 -    SoilWater:  month=8, PET=6.42190113834007.
+2022-09-23 23:12:35,084 -    SoilWater:  month=8, Remaining PET=6.42190113834007.
+2022-09-23 23:12:35,087 -    SoilWater:  month=8, addToSoil=146.668845422364.
+2022-09-23 23:12:35,087 -    SoilWater:  month=8, AET=3.85314068300404.
+2022-09-23 23:12:35,089 -    SoilWater:  month=8, baseflow=14.9493955886565.
+2022-09-23 23:12:35,101 - currentDeadWoodC:3,8,95.8005733727005, 98.9344420529872, 27.8689600816941, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-09-23 23:12:35,102 - SurfaceDeadWoodC: 3,8,244.503483436561
+2022-09-23 23:12:35,102 -    SoilWater:  month=9, PET=2.32566191431238.
+2022-09-23 23:12:35,103 -    SoilWater:  month=9, Remaining PET=2.32566191431238.
+2022-09-23 23:12:35,103 -    SoilWater:  month=9, addToSoil=58.503923339275.
+2022-09-23 23:12:35,104 -    SoilWater:  month=9, AET=1.39539714858743.
+2022-09-23 23:12:35,105 -    SoilWater:  month=9, baseflow=11.4125104932219.
+2022-09-23 23:12:35,116 - currentDeadWoodC:3,9,95.4764568632343, 98.5997229078372, 36.206081779425, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-09-23 23:12:35,118 - SurfaceDeadWoodC: 3,9,252.024435226486
+2022-09-23 23:12:35,119 -    SoilWater:  month=10, PET=0.
+2022-09-23 23:12:35,119 -    SoilWater:  month=10, AET=0.
+2022-09-23 23:12:35,120 -    SoilWater:  month=10, baseflow=6.08234160017448.
+2022-09-23 23:12:35,132 - currentDeadWoodC:3,10,95.4684237688204, 98.5914270314575, 44.074115349199, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-09-23 23:12:35,132 - SurfaceDeadWoodC: 3,10,259.872175632726
+2022-09-23 23:12:35,133 -    SoilWater:  month=11, PET=0.
+2022-09-23 23:12:35,133 -    SoilWater:  month=11, AET=0.
+2022-09-23 23:12:35,134 -    SoilWater:  month=11, baseflow=3.22364105534319.
+2022-09-23 23:12:35,144 - currentDeadWoodC:3,11,95.4636777754182, 98.5865257851215, 51.8640372459202, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-09-23 23:12:35,145 - SurfaceDeadWoodC: 3,11,267.650065965296
+2022-09-23 23:12:35,145 -    SoilWater:  month=0, PET=0.
+2022-09-23 23:12:35,146 -    SoilWater:  month=0, AET=0.
+2022-09-23 23:12:35,148 -    SoilWater:  month=0, baseflow=1.70852976317477.
+2022-09-23 23:12:35,160 - currentDeadWoodC:3,0,95.4592195741221, 98.581921745268, 59.6398108261069, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-09-23 23:12:35,160 - SurfaceDeadWoodC: 3,0,275.41449788645
+2022-09-23 23:12:35,161 -    SoilWater:  month=1, PET=0.
+2022-09-23 23:12:35,161 -    SoilWater:  month=1, AET=0.
+2022-09-23 23:12:35,162 -    SoilWater:  month=1, baseflow=0.905520776519355.
+2022-09-23 23:12:35,173 - currentDeadWoodC:3,1,95.4546988861825, 98.5772531746817, 67.4046005656609, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-09-23 23:12:35,174 - SurfaceDeadWoodC: 3,1,283.16774681341
+2022-09-23 23:12:35,174 -    SoilWater:  month=2, PET=0.
+2022-09-23 23:12:35,175 -    SoilWater:  month=2, AET=0.
+2022-09-23 23:12:35,175 -    SoilWater:  month=2, baseflow=0.830214018641864.
+2022-09-23 23:12:35,190 - currentDeadWoodC:3,2,95.4485716970341, 98.5709255503429, 75.1801370275681, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-09-23 23:12:35,191 - SurfaceDeadWoodC: 3,2,290.927586685072
+2022-09-23 23:12:35,191 -    SoilWater:  month=3, PET=3.31583032746252.
+2022-09-23 23:12:35,192 -    SoilWater:  month=3, AET=0.
+2022-09-23 23:12:35,192 -    SoilWater:  month=3, baseflow=8.19815236253429.
+2022-09-23 23:12:35,208 - currentDeadWoodC:3,3,95.1187427447686, 98.2303070945601, 83.3345834726639, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-09-23 23:12:35,211 - SurfaceDeadWoodC: 3,3,298.233906156856
+2022-09-23 23:12:35,212 -    SoilWater:  month=4, PET=7.26519112630954.
+2022-09-23 23:12:35,212 -    SoilWater:  month=4, Remaining PET=7.26519112630954.
+2022-09-23 23:12:35,213 -    SoilWater:  month=4, addToSoil=65.9429007483134.
+2022-09-23 23:12:35,213 -    SoilWater:  month=4, AET=4.35911467578572.
+2022-09-23 23:12:35,214 -    SoilWater:  month=4, baseflow=8.10778994338625.
+2022-09-23 23:12:35,226 - currentDeadWoodC:3,4,94.6742795710304, 97.7713044544003, 91.8343945664056, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-09-23 23:12:35,226 - SurfaceDeadWoodC: 3,4,305.586811197484
+2022-09-23 23:12:35,227 -    SoilWater:  month=5, PET=8.74862154867196.
+2022-09-23 23:12:35,227 -    SoilWater:  month=5, Remaining PET=8.74862154867196.
+2022-09-23 23:12:35,228 -    SoilWater:  month=5, addToSoil=61.8945671605312.
+2022-09-23 23:12:35,228 -    SoilWater:  month=5, AET=5.24917292920318.
+2022-09-23 23:12:35,229 -    SoilWater:  month=5, baseflow=7.75816213146568.
+2022-09-23 23:12:35,240 - currentDeadWoodC:3,5,94.1761523531048, 97.2568822892516, 100.419278374394, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-09-23 23:12:35,242 - SurfaceDeadWoodC: 3,5,312.881932797701
+2022-09-23 23:12:35,250 - nurseryLogC:3,0,0,0
+2022-09-23 23:12:35,251 - decayClassAreaRatios:3,0,0,0
+2022-09-23 23:12:35,251 - original_lightProbability:3,ABBA,1
+2022-09-23 23:12:35,252 - siteShade:5
+2022-09-23 23:12:35,252 - siteLAI:8.45886139554155
+2022-09-23 23:12:35,253 - nurseryLogPenalty:3,ABBA,0
+2022-09-23 23:12:35,253 - modified_lightProbability:3,ABBA,1
+2022-09-23 23:12:35,255 - regeneration_type:3,ABBA,surface
+2022-09-23 23:12:35,256 - original_lightProbability:3,ACSA3,1
+2022-09-23 23:12:35,256 - siteShade:5
+2022-09-23 23:12:35,259 - siteLAI:8.45886139554155
+2022-09-23 23:12:35,260 - nurseryLogPenalty:3,ACSA3,0
+2022-09-23 23:12:35,261 - modified_lightProbability:3,ACSA3,1
+2022-09-23 23:12:35,261 - regeneration_type:3,ACSA3,surface
+2022-09-23 23:12:35,262 - original_lightProbability:3,BEAL2,0.1
+2022-09-23 23:12:35,262 - siteShade:5
+2022-09-23 23:12:35,262 - siteLAI:8.45886139554155
+2022-09-23 23:12:35,263 - nurseryLogPenalty:3,BEAL2,0
+2022-09-23 23:12:35,263 - modified_lightProbability:3,BEAL2,0.1
+2022-09-23 23:12:35,264 - regeneration_type:3,BEAL2,surface
+2022-09-23 23:12:35,264 - original_lightProbability:3,BEPA,0
+2022-09-23 23:12:35,265 - siteShade:5
+2022-09-23 23:12:35,265 - siteLAI:8.45886139554155
+2022-09-23 23:12:35,265 - nurseryLogPenalty:3,BEPA,0
+2022-09-23 23:12:35,266 - modified_lightProbability:3,BEPA,0
+2022-09-23 23:12:35,266 - regeneration_type:3,BEPA,failed
+2022-09-23 23:12:35,267 - original_lightProbability:3,FRNI,0.25
+2022-09-23 23:12:35,267 - siteShade:5
+2022-09-23 23:12:35,269 - siteLAI:8.45886139554155
+2022-09-23 23:12:35,269 - nurseryLogPenalty:3,FRNI,0
+2022-09-23 23:12:35,271 - modified_lightProbability:3,FRNI,0.25
+2022-09-23 23:12:35,272 - regeneration_type:3,FRNI,failed
+2022-09-23 23:12:35,274 - original_lightProbability:3,PIGL,0.25
+2022-09-23 23:12:35,278 - siteShade:5
+2022-09-23 23:12:35,278 - siteLAI:8.45886139554155
+2022-09-23 23:12:35,280 - nurseryLogPenalty:3,PIGL,0
+2022-09-23 23:12:35,281 - modified_lightProbability:3,PIGL,0.25
+2022-09-23 23:12:35,281 - regeneration_type:3,PIGL,surface
+2022-09-23 23:12:35,285 - original_lightProbability:3,PIMA,0.1
+2022-09-23 23:12:35,286 - siteShade:5
+2022-09-23 23:12:35,286 - siteLAI:8.45886139554155
+2022-09-23 23:12:35,287 - nurseryLogPenalty:3,PIMA,0
+2022-09-23 23:12:35,287 - modified_lightProbability:3,PIMA,0.1
+2022-09-23 23:12:35,288 - regeneration_type:3,PIMA,failed
+2022-09-23 23:12:35,288 - original_lightProbability:3,PIBA2,0
+2022-09-23 23:12:35,289 - siteShade:5
+2022-09-23 23:12:35,291 - siteLAI:8.45886139554155
+2022-09-23 23:12:35,291 - nurseryLogPenalty:3,PIBA2,0
+2022-09-23 23:12:35,292 - modified_lightProbability:3,PIBA2,0
+2022-09-23 23:12:35,292 - regeneration_type:3,PIBA2,failed
+2022-09-23 23:12:35,293 - original_lightProbability:3,PIST,0.1
+2022-09-23 23:12:35,293 - siteShade:5
+2022-09-23 23:12:35,293 - siteLAI:8.45886139554155
+2022-09-23 23:12:35,294 - nurseryLogPenalty:3,PIST,0
+2022-09-23 23:12:35,294 - modified_lightProbability:3,PIST,0.1
+2022-09-23 23:12:35,294 - regeneration_type:3,PIST,failed
+2022-09-23 23:12:35,295 - original_lightProbability:3,POTR5,0
+2022-09-23 23:12:35,296 - siteShade:5
+2022-09-23 23:12:35,296 - siteLAI:8.45886139554155
+2022-09-23 23:12:35,296 - nurseryLogPenalty:3,POTR5,0
+2022-09-23 23:12:35,296 - modified_lightProbability:3,POTR5,0
+2022-09-23 23:12:35,297 - regeneration_type:3,POTR5,failed
+2022-09-23 23:12:35,297 - original_lightProbability:3,QURU,0
+2022-09-23 23:12:35,298 - siteShade:5
+2022-09-23 23:12:35,298 - siteLAI:8.45886139554155
+2022-09-23 23:12:35,298 - nurseryLogPenalty:3,QURU,0
+2022-09-23 23:12:35,299 - modified_lightProbability:3,QURU,0
+2022-09-23 23:12:35,299 - regeneration_type:3,QURU,failed
+2022-09-23 23:12:35,299 - original_lightProbability:3,THOC2,0.25
+2022-09-23 23:12:35,300 - siteShade:5
+2022-09-23 23:12:35,301 - siteLAI:8.45886139554155
+2022-09-23 23:12:35,302 - nurseryLogPenalty:3,THOC2,0
+2022-09-23 23:12:35,302 - modified_lightProbability:3,THOC2,0.25
+2022-09-23 23:12:35,303 - regeneration_type:3,THOC2,failed
+2022-09-23 23:12:35,303 - original_lightProbability:3,HRDWD,0
+2022-09-23 23:12:35,308 - siteShade:5
+2022-09-23 23:12:35,308 - siteLAI:8.45886139554155
+2022-09-23 23:12:35,309 - nurseryLogPenalty:3,HRDWD,0
+2022-09-23 23:12:35,310 - modified_lightProbability:3,HRDWD,0
+2022-09-23 23:12:35,310 - regeneration_type:3,HRDWD,failed
+2022-09-23 23:12:35,311 - original_lightProbability:3,SFTWD,0.25
+2022-09-23 23:12:35,311 - siteShade:5
+2022-09-23 23:12:35,312 - siteLAI:8.45886139554155
+2022-09-23 23:12:35,312 - nurseryLogPenalty:3,SFTWD,0
+2022-09-23 23:12:35,312 - modified_lightProbability:3,SFTWD,0.25
+2022-09-23 23:12:35,313 - regeneration_type:3,SFTWD,failed
+2022-09-23 23:12:35,646 - Current time: 4
+2022-09-23 23:12:35,647 - Running Biomass Browse ...
+2022-09-23 23:12:35,647 - Processing landscape for ungulate browse events ...
+2022-09-23 23:12:35,648 -    Calculating Site Preference & Forage.
+2022-09-23 23:12:35,649 - New Forage estimated as 13.86
+2022-09-23 23:12:35,650 -      adjusting siteBiomassMax = 1000 g m-2
+2022-09-23 23:12:35,651 - New Forage estimated as 10.032
+2022-09-23 23:12:35,653 -      adjusting siteBiomassMax = 1000 g m-2
+2022-09-23 23:12:35,654 - New Forage estimated as 7.9992
+2022-09-23 23:12:35,654 -      adjusting siteBiomassMax = 1000 g m-2
+2022-09-23 23:12:35,655 - New Forage estimated as 226.1688
+2022-09-23 23:12:35,655 -      adjusting siteBiomassMax = 2000 g m-2
+2022-09-23 23:12:35,655 - New Forage estimated as 17.6088
+2022-09-23 23:12:35,655 -      adjusting siteBiomassMax = 2000 g m-2
+2022-09-23 23:12:35,656 - New Forage estimated as 0.4224
+2022-09-23 23:12:35,656 -      adjusting siteBiomassMax = 2000 g m-2
+2022-09-23 23:12:35,657 - New Forage estimated as 10.7976
+2022-09-23 23:12:35,657 -      adjusting siteBiomassMax = 2000 g m-2
+2022-09-23 23:12:35,658 - New Forage estimated as 8.8176
+2022-09-23 23:12:35,658 -      adjusting siteBiomassMax = 2000 g m-2
+2022-09-23 23:12:35,658 - New Forage estimated as 7.4448
+2022-09-23 23:12:35,659 -      adjusting siteBiomassMax = 2000 g m-2
+2022-09-23 23:12:35,660 -    Calculating proportion of browse in reach using method LinearEachCohort
+2022-09-23 23:12:35,660 - Min biomass threshold = 100, Max biomass threshold 2000, maxBrowseAge = 171
+2022-09-23 23:12:35,661 - Cohort entirely in reach; biomass = 16, threshold = 100
+2022-09-23 23:12:35,662 - end Cohort biomass = 16; proportion in reach = 1.
+2022-09-23 23:12:35,662 - Min biomass threshold = 50, Max biomass threshold 1000, maxBrowseAge = 456
+2022-09-23 23:12:35,662 - tempPropInReach = 0.718
+2022-09-23 23:12:35,663 - end Cohort biomass = 282; proportion in reach = 0.718.
+2022-09-23 23:12:35,663 - Min biomass threshold = 50, Max biomass threshold 1000, maxBrowseAge = 114
+2022-09-23 23:12:35,663 - tempPropInReach = 0.697
+2022-09-23 23:12:35,664 - end Cohort biomass = 303; proportion in reach = 0.697.
+2022-09-23 23:12:35,664 - Min biomass threshold = 50, Max biomass threshold 1000, maxBrowseAge = 456
+2022-09-23 23:12:35,665 - tempPropInReach = 0.666
+2022-09-23 23:12:35,665 - end Cohort biomass = 334; proportion in reach = 0.666.
+2022-09-23 23:12:35,665 - Min biomass threshold = 50, Max biomass threshold 1000, maxBrowseAge = 114
+2022-09-23 23:12:35,666 - tempPropInReach = 0.62
+2022-09-23 23:12:35,667 - end Cohort biomass = 380; proportion in reach = 0.62.
+2022-09-23 23:12:35,670 - Min biomass threshold = 50, Max biomass threshold 1000, maxBrowseAge = 456
+2022-09-23 23:12:35,671 - tempPropInReach = 0.591
+2022-09-23 23:12:35,672 - end Cohort biomass = 409; proportion in reach = 0.591.
+2022-09-23 23:12:35,672 - Min biomass threshold = 50, Max biomass threshold 1000, maxBrowseAge = 114
+2022-09-23 23:12:35,673 - tempPropInReach = 0.475
+2022-09-23 23:12:35,673 - end Cohort biomass = 525; proportion in reach = 0.475.
+2022-09-23 23:12:35,674 - Min biomass threshold = 100, Max biomass threshold 2000, maxBrowseAge = 171
+2022-09-23 23:12:35,674 - tempPropInReach = 0.6665
+2022-09-23 23:12:35,675 - end Cohort biomass = 667; proportion in reach = 0.6665.
+2022-09-23 23:12:35,676 - Min biomass threshold = 100, Max biomass threshold 2000, maxBrowseAge = 171
+2022-09-23 23:12:35,676 - Cohort escaped; biomass = 8567, maxThresold = 2000
+2022-09-23 23:12:35,677 - end Cohort biomass = 8567; proportion in reach = 0.
+2022-09-23 23:12:35,677 - forage in reach = 6.5835 g m-2; cohort forage = 13.86, propinreach = 0.475
+2022-09-23 23:12:35,678 - forage in reach = 6.21984 g m-2; cohort forage = 10.032, propinreach = 0.62
+2022-09-23 23:12:35,679 - forage in reach = 5.5754424 g m-2; cohort forage = 7.9992, propinreach = 0.697
+2022-09-23 23:12:35,679 - forage in reach = 0 g m-2; cohort forage = 226.1688, propinreach = 0
+2022-09-23 23:12:35,680 - forage in reach = 11.7362652 g m-2; cohort forage = 17.6088, propinreach = 0.6665
+2022-09-23 23:12:35,680 - forage in reach = 10.56 g m-2; cohort forage = 10.56, propinreach = 1
+2022-09-23 23:12:35,681 - forage in reach = 6.3813816 g m-2; cohort forage = 10.7976, propinreach = 0.591
+2022-09-23 23:12:35,681 - forage in reach = 5.8725216 g m-2; cohort forage = 8.8176, propinreach = 0.666
+2022-09-23 23:12:35,682 - forage in reach = 5.3453664 g m-2; cohort forage = 7.4448, propinreach = 0.718
+2022-09-23 23:12:35,689 -    Estimating effective Zone Population from Browse Density Index.
+2022-09-23 23:12:35,690 -      Defined browse density index being loaded for current timestep
+2022-09-23 23:12:35,690 -      Calculating carrying capacity
+2022-09-23 23:12:35,691 -    Calculating HSI.
+2022-09-23 23:12:35,692 -    Calculating Local Population.
+2022-09-23 23:12:35,692 -      Site number 1
+2022-09-23 23:12:35,693 -          siteTotalForage = 35978052
+2022-09-23 23:12:35,693 -    Disturbing Sites
+2022-09-23 23:12:35,694 -  Allocating browse for site 1; total browse: 27.38
+2022-09-23 23:12:35,694 - BEPA/63.0. availForage = 6.5835, browsePref = 0.25, firstPass increment = 1.645875, firstPassRemoval = 1.645875
+2022-09-23 23:12:35,694 - BEPA/33.0. availForage = 6.21984, browsePref = 0.25, firstPass increment = 1.55496, firstPassRemoval = 3.200835
+2022-09-23 23:12:35,695 - BEPA/13.0. availForage = 5.5754424, browsePref = 0.25, firstPass increment = 1.3938606, firstPassRemoval = 4.5946956
+2022-09-23 23:12:35,695 - PIGL/93.0. availForage = 0, browsePref = 0, firstPass increment = 0, firstPassRemoval = 4.5946956
+2022-09-23 23:12:35,695 - PIGL/13.0. availForage = 11.7362652, browsePref = 0, firstPass increment = 0, firstPassRemoval = 4.5946956
+2022-09-23 23:12:35,696 - PIGL/1.0. availForage = 10.56, browsePref = 0, firstPass increment = 0, firstPassRemoval = 4.5946956
+2022-09-23 23:12:35,696 - THOC2/63.0. availForage = 6.3813816, browsePref = 0.05, firstPass increment = 0.31906908, firstPassRemoval = 4.91376468
+2022-09-23 23:12:35,697 - THOC2/33.0. availForage = 5.8725216, browsePref = 0.05, firstPass increment = 0.29362608, firstPassRemoval = 5.20739076
+2022-09-23 23:12:35,697 - THOC2/13.0. availForage = 5.3453664, browsePref = 0.05, firstPass increment = 0.26726832, firstPassRemoval = 5.47465908
+2022-09-23 23:12:35,697 - BEPA/63.0. adjusted firstPassRemoval = 1.645875, secondPassRemoval = 4.937625, finalRemoval = 6.5835
+2022-09-23 23:12:35,698 - Recording cohort biomass removal :  BEPA/63.0/6.5835.
+2022-09-23 23:12:35,698 - Recording reduction:  BEPA/63.0/6.5835.
+2022-09-23 23:12:35,702 - BEPA/33.0. adjusted firstPassRemoval = 1.55496, secondPassRemoval = 4.66488, finalRemoval = 6.21984
+2022-09-23 23:12:35,704 - Recording cohort biomass removal :  BEPA/33.0/6.21984.
+2022-09-23 23:12:35,704 - Recording reduction:  BEPA/33.0/6.21984.
+2022-09-23 23:12:35,704 - BEPA/13.0. adjusted firstPassRemoval = 1.3938606, secondPassRemoval = 4.1815818, finalRemoval = 5.5754424
+2022-09-23 23:12:35,704 - Recording cohort biomass removal :  BEPA/13.0/5.5754424.
+2022-09-23 23:12:35,704 - Recording reduction:  BEPA/13.0/5.5754424.
+2022-09-23 23:12:35,704 - THOC2/63.0. adjusted firstPassRemoval = 0.31906908, secondPassRemoval = 2.94471434259364, finalRemoval = 3.26378342259364
+2022-09-23 23:12:35,704 - Recording cohort biomass removal :  THOC2/63.0/3.26378342259364.
+2022-09-23 23:12:35,704 - Recording reduction:  THOC2/63.0/3.26378342259364.
+2022-09-23 23:12:35,704 - THOC2/33.0. adjusted firstPassRemoval = 0.29362608, secondPassRemoval = 2.7098988380057, finalRemoval = 3.0035249180057
+2022-09-23 23:12:35,704 - Recording cohort biomass removal :  THOC2/33.0/3.0035249180057.
+2022-09-23 23:12:35,705 - Recording reduction:  THOC2/33.0/3.0035249180057.
+2022-09-23 23:12:35,705 - THOC2/13.0. adjusted firstPassRemoval = 0.26726832, secondPassRemoval = 2.46664093940066, finalRemoval = 2.73390925940066
+2022-09-23 23:12:35,705 - Recording cohort biomass removal :  THOC2/13.0/2.73390925940066.
+2022-09-23 23:12:35,705 - Recording reduction:  THOC2/13.0/2.73390925940066.
+2022-09-23 23:12:35,705 - Reducing CohortBiomass NOW!
+2022-09-23 23:12:35,760 - Running NECN Succession ...
+2022-09-23 23:12:35,760 -    SoilWater:  month=6, PET=10.6946290146845.
+2022-09-23 23:12:35,760 -    SoilWater:  month=6, Remaining PET=10.6946290146845.
+2022-09-23 23:12:35,760 -    SoilWater:  month=6, addToSoil=83.2648855141262.
+2022-09-23 23:12:35,761 -    SoilWater:  month=6, AET=6.41677740881071.
+2022-09-23 23:12:35,761 -    SoilWater:  month=6, baseflow=8.80724516002377.
+2022-09-23 23:12:35,774 - currentDeadWoodC:4,6,93.6071148315527, 96.6692301727768, 99.8125182142635, 9.21757570750403, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-09-23 23:12:35,774 - SurfaceDeadWoodC: 4,6,320.014392475767
+2022-09-23 23:12:35,774 -    SoilWater:  month=7, PET=10.2252994787525.
+2022-09-23 23:12:35,774 -    SoilWater:  month=7, Remaining PET=10.2252994787525.
+2022-09-23 23:12:35,774 -    SoilWater:  month=7, addToSoil=58.669709248499.
+2022-09-23 23:12:35,774 -    SoilWater:  month=7, AET=6.1351796872515.
+2022-09-23 23:12:35,774 -    SoilWater:  month=7, baseflow=7.87769957562554.
+2022-09-23 23:12:35,792 - currentDeadWoodC:4,7,93.015585858065, 96.0583508545236, 99.1817755987395, 18.4279337397169, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-09-23 23:12:35,793 - SurfaceDeadWoodC: 4,7,327.05216836241
+2022-09-23 23:12:35,794 -    SoilWater:  month=8, PET=7.58614473057039.
+2022-09-23 23:12:35,794 -    SoilWater:  month=8, Remaining PET=7.58614473057039.
+2022-09-23 23:12:35,794 -    SoilWater:  month=8, addToSoil=68.9108405177718.
+2022-09-23 23:12:35,794 -    SoilWater:  month=8, AET=4.55168683834223.
+2022-09-23 23:12:35,794 -    SoilWater:  month=8, baseflow=8.10752492007424.
+2022-09-23 23:12:35,813 - currentDeadWoodC:4,8,92.5060287434974, 95.5321248931428, 98.6384389210681, 27.4485032046032, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+2022-09-23 23:12:35,813 - SurfaceDeadWoodC: 4,8,334.197017799517
+2022-09-23 23:12:35,813 -    SoilWater:  month=9, PET=2.97687113610201.
+2022-09-23 23:12:35,813 -    SoilWater:  month=9, Remaining PET=2.97687113610201.
+2022-09-23 23:12:35,813 -    SoilWater:  month=9, addToSoil=100.739166105559.
+2022-09-23 23:12:35,813 -    SoilWater:  month=9, AET=1.7861226816612.
+2022-09-23 23:12:35,813 -    SoilWater:  month=9, baseflow=10.3430189334024.

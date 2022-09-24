@@ -388,13 +388,13 @@ namespace Landis.Extension.Browse
                     zoneSiteCount++;
                     totalSiteCount++;
 
-                    //PlugIn.ModelCore.UI.WriteLine("     Site number {0}", totalSiteCount);//debug
+                    PlugIn.ModelCore.UI.WriteLine("     Site number {0}", totalSiteCount);//debug
 
                     // Calculate local K
 
                     //siteTotalForage is total g of forage in the site
                     double siteTotalForage = SiteVars.ForageQuantity[site] * PlugIn.ModelCore.CellLength * PlugIn.ModelCore.CellLength;
-                    //PlugIn.ModelCore.UI.WriteLine("         siteTotalForage = {0}", siteTotalForage);//debug
+                    PlugIn.ModelCore.UI.WriteLine("         siteTotalForage = {0}", siteTotalForage);//debug
                     //siteK is how many browsers could be supported by that much forage (divide by grams needed for each browser)
                     double siteK = siteTotalForage / (parameters.ConsumptionRate * 1000); // Convert consumption kg to g
                     //PlugIn.ModelCore.UI.WriteLine("         siteK = {0}", siteK);//debug
