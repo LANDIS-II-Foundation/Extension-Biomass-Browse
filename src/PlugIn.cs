@@ -290,6 +290,7 @@ namespace Landis.Extension.Browse
             sl.AverageBiomassRemoved = totalBiomassRemoved / totalSites; //site mean biomass in g/m2
             sl.AverageBiomassKilled = totalBiomassKilled / totalSites; //site mean biomass in g/m2
             sl.TotalCohortsKilled = totalCohortsKilled;
+            sl.BDI = (totalBiomassRemoved * Math.Pow(PlugIn.ModelCore.CellLength, 2.0)) / (totalForage*1000);
 
             summaryLog.AddObject(sl);
             summaryLog.WriteToFile();
@@ -314,6 +315,7 @@ namespace Landis.Extension.Browse
                 el.AverageBiomassKilled = (int) (browseEvent.ZoneBiomassKilled[popZone.Index] /
                                     (double)PopulationZones.Dataset[popZone.Index].PopulationZoneSites.Count); //site mean biomass in g/m2
                 el.TotalCohortsKilled = browseEvent.ZoneCohortsKilled[popZone.Index];
+                el.BDI = (browseEvent.ZoneBiomassRemoved[popZone.Index] * Math.Pow(PlugIn.ModelCore.CellLength, 2.0)) /(el.TotalForage*1000);
 
                 eventLog.AddObject(el);
                 eventLog.WriteToFile();

@@ -36,14 +36,17 @@ namespace Landis.Extension.Browse
         [DataFieldAttribute(Unit = FieldUnits.Count, Desc = "Total Sites Damaged")]
         public int TotalSitesDamaged { get; set; }
 
-        [DataFieldAttribute(Unit = FieldUnits.g_B_m2, Desc = "Total Biomass Removed")]
+        [DataFieldAttribute(Unit = FieldUnits.g_B_m2, Desc = "Average Biomass Removed")]
         public int AverageBiomassRemoved { get; set; }
 
-        [DataFieldAttribute(Unit = FieldUnits.g_B_m2, Desc = "Total Biomass Killed")]
+        [DataFieldAttribute(Unit = FieldUnits.g_B_m2, Desc = "Average Biomass Killed")]
         public int AverageBiomassKilled { get; set; }
 
         [DataFieldAttribute(Unit = FieldUnits.Count, Desc = "Total Cohorts Killed")]
         public int TotalCohortsKilled { get; set; }
+
+        [DataFieldAttribute(Unit = FieldUnits.Count, Desc = "Browse Density Index")]
+        public double BDI { get; set; }
 
     }
 }

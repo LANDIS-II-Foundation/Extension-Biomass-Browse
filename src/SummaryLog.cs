@@ -42,5 +42,9 @@ namespace Landis.Extension.Browse
         [DataFieldAttribute(Unit = FieldUnits.Count, Desc = "Total Cohorts Killed")]
         public int TotalCohortsKilled { get; set; }
 
+        [DataFieldAttribute(Unit = FieldUnits.Count, Desc = "Browse Density Index")]
+        public double BDI { get; set; }
+
+
     }
 }
