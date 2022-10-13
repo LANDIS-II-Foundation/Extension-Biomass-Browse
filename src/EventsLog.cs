@@ -27,6 +27,9 @@ namespace Landis.Extension.Browse
         [DataFieldAttribute(Desc = "Total Forage (kg)")]
         public int TotalForage { get; set; }
 
+        [DataFieldAttribute(Desc = "Mean Forage (g m^-2)")]
+        public int MeanForage { get; set; }
+
         [DataFieldAttribute(Unit = FieldUnits.Count, Desc = "Total Capacity (K)")]
         public int TotalK { get; set; }
 

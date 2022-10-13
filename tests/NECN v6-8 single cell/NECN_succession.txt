@@ -27,9 +27,9 @@ InitialSOM3NMapName				"./rasters/SOM3N.tif"
 InitialDeadWoodSurfaceMapName			"./rasters/dead_wood.tif" 
 InitialDeadCoarseRootsMapName			"./rasters/coarse_roots.tif"
 
-CalibrateMode yes
+CalibrateMode no
 SmokeModelOutputs no
-Version_Henne_SoilWater yes
+Version_Henne_SoilWater no
 WaterDecayFunction Ratio <<Linear or Ratio
 
 ProbabilityEstablishAdjust 	1.0

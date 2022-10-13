@@ -166,7 +166,7 @@ namespace Landis.Extension.Browse
             // Calculate population
             if (PlugIn.UseBDI)
             {
-                PopulationZones.CalculatePopulationFromBDI(parameters); //TODO Start here
+                PopulationZones.CalculatePopulationFromBDI(parameters);
             }
             else
             {
@@ -524,7 +524,11 @@ namespace Landis.Extension.Browse
                                 // SF: using smaller value of 4%, from Hubbard Brook:  https://hubbardbrook.org/online-book/forest-biomass-and-primary-productivity
                                 // This value also matches more closely what Biomass Succession was generating for the previous version of the model
                                 // This gets us site ANPP within 10% of what NECN produces, at least for the handful of "typical" sites I tested -- SF
-                                newForage = (cohort.Biomass * 0.04) * parameters.ANPPForageProp;
+
+                                //because ANPP is not communicated from the succession extension, we need to reduce ANPP here as well:
+                                double growthReduction  = GrowthReduction.ReduceCohortGrowth(cohort, site);
+                                newForage = (cohort.Biomass * 0.04) * parameters.ANPPForageProp * (1-growthReduction);
+                                
                                 PlugIn.ModelCore.UI.WriteLine("New Forage estimated as {0}", newForage);//debug
 
                                 //Use estimates from Keeling quadratic all-data model, inverted to represent ANPP ~ biomass
@@ -594,7 +598,7 @@ namespace Landis.Extension.Browse
                     PlugIn.ModelCore.UI.WriteLine("forage in reach = {0} g m-2; cohort forage = {1}, propinreach = {2}", 
                         newForageinReach, SiteVars.GetForage(cohort, site), propInReachList[listCount]); //debug
 
-                    if (newForageinReach > 0)
+                    //if (newForageinReach > 0)
                         SiteVars.SetForageInReach(cohort, site, newForageinReach);
 
                     listCount++;

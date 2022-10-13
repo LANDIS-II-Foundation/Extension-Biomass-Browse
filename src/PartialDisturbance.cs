@@ -54,9 +54,10 @@ namespace Landis.Extension.Browse
         int IDisturbance.ReduceOrKillMarkedCohort(ICohort cohort)
         {
             double reduction;
+            
             if (reductions[cohort.Species.Index].TryGetValue(cohort.Age, out reduction))
             {
-
+                PlugIn.ModelCore.UI.WriteLine("Reduction = {0}", reduction);
                 SiteVars.BiomassRemoved[currentSite] += reduction;
                 SiteVars.CohortsPartiallyDamaged[currentSite]++;
 

@@ -23,21 +23,19 @@ namespace Landis.Extension.Browse
         // This function is delegated to BiomassCohorts to allow the succession extension to 
         // reduce growth. It might need to be modified to accomodate other succession extensions,
         // or some extensions might need to be modified to call BiomassCohorts library. 
-        // TODO SF figure out how timesteps work with this
-        // TODO SF add compatibility with other types of cohorts?
 
         public static double ReduceCohortGrowth(ICohort cohort, ActiveSite site)
         {
-            //PlugIn.ModelCore.UI.WriteLine("   Reducing cohort growth..."); //debug
+            PlugIn.ModelCore.UI.WriteLine("   Reducing cohort growth..."); //debug
             double reduction = 0;
-            double propBrowse = SiteVars.GetLastBrowseProportion(cohort, site); //cohort.Data.LastBrowseProp;
+            double propBrowse = SiteVars.GetLastBrowseProportion(cohort, site); 
             double threshold = inputParameters.SppParameters[cohort.Species.Index].GrowthReductThresh;
 
             double max = inputParameters.SppParameters[cohort.Species.Index].GrowthReductMax;
             if (propBrowse > threshold)
             {
                 reduction = (max / (1.0 - threshold)) * propBrowse - threshold * (max / (1 - threshold));
-                //PlugIn.ModelCore.UI.WriteLine("Growth reduction from Browse extension is {0}", reduction); //debug
+                PlugIn.ModelCore.UI.WriteLine("Growth reduction from Browse extension is {0}", reduction); //debug
             }
             return reduction;
 

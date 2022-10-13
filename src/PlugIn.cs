@@ -285,6 +285,7 @@ namespace Landis.Extension.Browse
             sl.TotalSitesDamaged = totalSitesDamaged;
             sl.PopulationDensity = (double) ((double) totalPopulation / (double) totalSites / Math.Pow(PlugIn.ModelCore.CellLength, 2.0) * 1000000.0); //population density (km-2)
             sl.TotalForage = totalForage; //kg
+            sl.MeanForage = (int)((sl.TotalForage * 1000) / (sl.TotalSites * Math.Pow(PlugIn.ModelCore.CellLength, 2.0))); //g/m2
             sl.TotalK = totalK;
             sl.TotalEffectivePopulation = totalEffPop;
             sl.AverageBiomassRemoved = totalBiomassRemoved / totalSites; //site mean biomass in g/m2
@@ -308,6 +309,7 @@ namespace Landis.Extension.Browse
                 el.TotalSitesDamaged = browseEvent.ZoneSitesDamaged[popZone.Index];
                 el.PopulationDensity = (double)((double)PopulationZones.Dataset[popZone.Index].Population / (double)PopulationZones.Dataset[popZone.Index].PopulationZoneSites.Count / Math.Pow(PlugIn.ModelCore.CellLength, 2.0) * 1000000.0); //population density (km-2)
                 el.TotalForage = (int) PopulationZones.Dataset[popZone.Index].TotalForage; //kg
+                el.MeanForage = (int)((el.TotalForage *1000) / (el.TotalSites * Math.Pow(PlugIn.ModelCore.CellLength, 2.0))); //g/m2 
                 el.TotalK = (int) PopulationZones.Dataset[popZone.Index].K;
                 el.TotalEffectivePopulation = (int) PopulationZones.Dataset[popZone.Index].EffectivePop;
                 el.AverageBiomassRemoved = (int) (browseEvent.ZoneBiomassRemoved[popZone.Index] /

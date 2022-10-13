@@ -129,14 +129,21 @@ namespace Landis.Extension.Browse
                         else
                         {
                             double tempPropInReach = (remainingThreshold / cohort.Biomass);
+                            PlugIn.ModelCore.UI.WriteLine("tempPropInReach = {0}.", tempPropInReach); //debug
                             if (tempPropInReach < minBrowseProp)
+                            {
+                                PlugIn.ModelCore.UI.WriteLine("Cohort escaped browse. tempPropInReach = {0}; minBrowseProp = {1}.", tempPropInReach, minBrowseProp); //debug
                                 propInReach = 0;
+                            }
                             else
+                            {
+                                PlugIn.ModelCore.UI.WriteLine("Cohort partially in reach"); //debug
                                 propInReach = tempPropInReach;
-                            remainingThreshold = 0;
+                                remainingThreshold = 0;
+                            }
                         }
                     }
-                    // PlugIn.ModelCore.UI.WriteLine("end Cohort biomass = {0}; proportion in reach = {1}.", cohort.Biomass, propInReach); //debug
+                    PlugIn.ModelCore.UI.WriteLine("end Cohort biomass = {0}; proportion in reach = {1}.", cohort.Biomass, propInReach); //debug
                     sortedProportion[sortedBioIndex] = propInReach;
                     sortedBioIndex++;
                 }

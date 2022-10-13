@@ -14,6 +14,7 @@ namespace Landis.Extension.Browse
             List<double> preferenceList = new List<double>();
             foreach (ISpecies species in PlugIn.ModelCore.Species)
             {
+                //PlugIn.ModelCore.UI.WriteLine("species = {0}", species.Name); //debug
                 double browsePref = sppParms[species.Index].BrowsePref;
                 if (!preferenceList.Contains(browsePref))
                     preferenceList.Add(browsePref);

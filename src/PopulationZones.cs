@@ -397,7 +397,7 @@ namespace Landis.Extension.Browse
                     PlugIn.ModelCore.UI.WriteLine("         siteTotalForage = {0}", siteTotalForage);//debug
                     //siteK is how many browsers could be supported by that much forage (divide by grams needed for each browser)
                     double siteK = siteTotalForage / (parameters.ConsumptionRate * 1000); // Convert consumption kg to g
-                    //PlugIn.ModelCore.UI.WriteLine("         siteK = {0}", siteK);//debug
+                    PlugIn.ModelCore.UI.WriteLine("         siteK = {0}", siteK);//debug
                     //Check that siteK sums to popZone.K
                     sumSiteK += siteK;
                     //PlugIn.ModelCore.UI.WriteLine("         sumSiteK = {0}", sumSiteK);//debug
@@ -424,8 +424,8 @@ namespace Landis.Extension.Browse
                     // "avgSitePop" is a confusing term, because it will differ for each site
                     // depending on forage and HSI -- it's not an average across all the sites.
                     double avgSitePop = (sitePopOptimal * weightForage) + (sitePopHSI * weightHSI);
-                    //PlugIn.ModelCore.UI.WriteLine("         avgSitePop = {0}. {1} * {2} + {3} * {4}", avgSitePop,
-                       // sitePopOptimal, weightForage, sitePopHSI, weightHSI);//debug
+                    PlugIn.ModelCore.UI.WriteLine("         avgSitePop = {0}. {1} * {2} + {3} * {4}", avgSitePop,
+                        sitePopOptimal, weightForage, sitePopHSI, weightHSI);//debug
 
                     //Browse - re-assign excess population on local sites
                     // In the case that the site population exceeds the carrying capacity, 
