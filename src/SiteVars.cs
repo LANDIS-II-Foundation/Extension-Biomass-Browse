@@ -125,7 +125,7 @@ namespace Landis.Extension.Browse
                 if (cohortDict.TryGetValue(cohortAddYear, out oldForageInReach))
                 {
                     PlugIn.ModelCore.UI.WriteLine("Overwriting old forageInReach value for cohort");
-                    ForageInReach[site][cohort.Species.Index][cohortAddYear] = forageInReach; //RMS_calibrate_log forageInReach
+                    ForageInReach[site][cohort.Species.Index][cohortAddYear] = forageInReach; 
                     return;
                 }
 
@@ -358,7 +358,7 @@ namespace Landis.Extension.Browse
         //    }
         //}
         //---------------------------------------------------------------------
-        private static int GetAddYear(ICohort cohort)
+        public static int GetAddYear(ICohort cohort)
         {
             int currentYear = PlugIn.ModelCore.CurrentTime;
             int cohortAddYear = currentYear - cohort.Age;

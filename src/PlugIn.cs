@@ -23,15 +23,15 @@ namespace Landis.Extension.Browse
 
         public static MetadataTable<EventsLog> eventLog;
         public static MetadataTable<SummaryLog> summaryLog;
+        public static MetadataTable<CalibrateLog> calibrateLog;
         public static MetadataTable<EventsSpeciesLog> eventSpeciesLog;
+        public static bool Calibrate = false;
 
         private string sitePrefMapNameTemplate;
         private string siteForageMapNameTemplate;
         private string siteHSIMapNameTemplate;
         private string sitePopMapNamesTemplate;
         private string biomassRemovedMapNameTemplate;
-        //private StreamWriter eventLog;
-        //private StreamWriter summaryLog;
         private IInputParameters parameters;
         private static ICore modelCore;
         private bool running;
