@@ -125,7 +125,7 @@ namespace Landis.Extension.Browse
                 if (cohortDict.TryGetValue(cohortAddYear, out oldForageInReach))
                 {
                     PlugIn.ModelCore.UI.WriteLine("Overwriting old forageInReach value for cohort");
-                    ForageInReach[site][cohort.Species.Index][cohortAddYear] = forageInReach;
+                    ForageInReach[site][cohort.Species.Index][cohortAddYear] = forageInReach; //RMS_calibrate_log forageInReach
                     return;
                 }
 

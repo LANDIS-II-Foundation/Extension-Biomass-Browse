@@ -289,7 +289,7 @@ namespace Landis.Extension.Browse
                             double browsePref = sppParms.BrowsePref;
 
                             double availForage = SiteVars.GetForageInReach(cohort, site);
-                            firstPassRemoval += availForage * browsePref;
+                            firstPassRemoval += availForage * browsePref; //RMS_calibrate_log
                             PlugIn.ModelCore.UI.WriteLine("{0:0.0}/{1:0.0}. availForage = {2}, browsePref = {3}, " +
                                 "firstPass increment = {4}, firstPassRemoval = {5}",
                                 cohort.Species.Name, cohort.Age, availForage, browsePref, availForage * browsePref, firstPassRemoval);//debug
@@ -315,7 +315,7 @@ namespace Landis.Extension.Browse
 
                         // First pass adjustment
                         // if first pass exceeds removal then adjust downward for each cohort
-                        double[] adjFirstPassRemovalList = new double[siteCohortList.Count];
+                        double[] adjFirstPassRemovalList = new double[siteCohortList.Count]; //RMS_calibrate_log
                         double[] remainingBrowseList = new double[siteCohortList.Count];
                         double adjFirstPassRemoval = firstPassRemoval;
                         //double adjFirstPassRemovalInt = firstPassRemovalInt;
@@ -380,7 +380,7 @@ namespace Landis.Extension.Browse
                                             secondPassRemoval = unallocatedBrowse * ((availForage - adjFirstPassRemovalList[cohortLoop]) / prefClassForage);
                                             secondPassRemoval = Math.Min(secondPassRemoval, (availForage - adjFirstPassRemovalList[cohortLoop]));
                                         }
-                                        secondPassRemovalList[cohortLoop] = secondPassRemoval;
+                                        secondPassRemovalList[cohortLoop] = secondPassRemoval; //RMS_calibrate_log
                                         finalRemoval += secondPassRemoval; //cohort-level, add first and second pass removal. 
                                         forageRemoved -= adjFirstPassRemovalList[cohortLoop];
                                         forageRemoved += finalRemoval;
@@ -388,7 +388,7 @@ namespace Landis.Extension.Browse
                                         PlugIn.ModelCore.UI.WriteLine("{0:0.0}/{1:0.0}. adjusted firstPassRemoval = {2}, secondPassRemoval = {3}, finalRemoval = {4}", cohort.Species.Name, cohort.Age, adjFirstPassRemovalList[cohortLoop], secondPassRemoval, finalRemoval); //debug
                                     }
 
-                                    finalRemovalList[cohortLoop] = finalRemoval;
+                                    finalRemovalList[cohortLoop] = finalRemoval; //RMS_calibrate_log
 
                                     this.biomassRemoved += (double)finalRemoval;
                                     this.zoneBiomassRemoved[popZone.Index] += (double)finalRemoval;
@@ -398,7 +398,7 @@ namespace Landis.Extension.Browse
                                     if (SiteVars.GetForage(siteCohortList[cohortLoop], site) > 0)
                                         propBrowse = finalRemoval / SiteVars.GetForage(siteCohortList[cohortLoop], site);
                                     //PlugIn.ModelCore.UI.WriteLine("propBrowse = {0}", propBrowse);//debug
-                                    propBrowseList[cohortLoop] = propBrowse;
+                                    propBrowseList[cohortLoop] = propBrowse;  //RMS_calibrate_log
                                     if (propBrowse < 0.0 || propBrowse > 1.0001)
                                         //SF TODO this error still comes up frequently -- track this down
                                         PlugIn.ModelCore.UI.WriteLine("   Browse Proportion not between 0 and 1: {0}. finalRemoval = {1}," +
@@ -411,7 +411,7 @@ namespace Landis.Extension.Browse
                                     //LastBrowseProportion is only used for GrowthReduction
                                     if (propBrowse > 0.0)
                                         //PlugIn.ModelCore.UI.WriteLine("Setting LastBrowseProportion :  {0:0.0}/{1:0.0}/{2}.", cohort.Species.Name, cohort.Age, propBrowse);
-                                        SiteVars.SetLastBrowseProportion(cohort, site, propBrowse);
+                                        SiteVars.SetLastBrowseProportion(cohort, site, propBrowse); //RMS_calibrate_log
 
                                     // Add mortality
                                     // Browse - Mortality caused by browsing
@@ -428,7 +428,7 @@ namespace Landis.Extension.Browse
                                         {
                                             //int biomassKilled = cohort.Biomass - (int)finalRemoval;
                                             double biomassKilled = (double)cohort.Biomass - (double)finalRemoval;
-                                            finalRemoval = (double)cohort.Biomass;
+                                            finalRemoval = (double)cohort.Biomass; 
                                             this.biomassKilled += biomassKilled;
                                             //this.zoneBiomassKilled[popZone.Index] += biomassKilled; //duplicated
                                             this.cohortsKilled += 1;
@@ -526,9 +526,9 @@ namespace Landis.Extension.Browse
                                 // This gets us site ANPP within 10% of what NECN produces, at least for the handful of "typical" sites I tested -- SF
 
                                 //because ANPP is not communicated from the succession extension, we need to reduce ANPP here as well:
-                                double growthReduction  = GrowthReduction.ReduceCohortGrowth(cohort, site);
-                                newForage = (cohort.Biomass * 0.04) * parameters.ANPPForageProp * (1-growthReduction);
-                                
+                                double growthReduction  = GrowthReduction.ReduceCohortGrowth(cohort, site); //RMS_calibrate_log
+                                newForage = (cohort.Biomass * 0.04) * parameters.ANPPForageProp * (1-growthReduction); //RMS_calibrate_log
+
                                 PlugIn.ModelCore.UI.WriteLine("New Forage estimated as {0}", newForage);//debug
 
                                 //Use estimates from Keeling quadratic all-data model, inverted to represent ANPP ~ biomass
@@ -547,11 +547,11 @@ namespace Landis.Extension.Browse
                                 {
                                     if (parameters.UseInitBiomass)
                                     {
-                                        newForage = cohort.Biomass * parameters.ANPPForageProp; //(int)Math.Round(cohort.Biomass * parameters.ANPPForageProp);
+                                        newForage = cohort.Biomass * parameters.ANPPForageProp; //RMS_calibrate_log //(int)Math.Round(cohort.Biomass * parameters.ANPPForageProp);
                                     }
                                     else
                                     {
-                                        newForage = 0;
+                                        newForage = 0; //RMS_calibrate_log
                                         //PlugIn.ModelCore.UI.WriteLine("     Baby cohort = no forage"); //debug
                                     }
                                 }
@@ -594,7 +594,7 @@ namespace Landis.Extension.Browse
                 foreach (ICohort cohort in siteCohortList)
                 {
                     //int newForageinReach = (int)Math.Round(SiteVars.GetForage(cohort, site) * propInReachList[listCount]);
-                    double newForageinReach = SiteVars.GetForage(cohort, site) * propInReachList[listCount];
+                    double newForageinReach = SiteVars.GetForage(cohort, site) * propInReachList[listCount]; //RMS_calibrate_log
                     PlugIn.ModelCore.UI.WriteLine("forage in reach = {0} g m-2; cohort forage = {1}, propinreach = {2}", 
                         newForageinReach, SiteVars.GetForage(cohort, site), propInReachList[listCount]); //debug
 
