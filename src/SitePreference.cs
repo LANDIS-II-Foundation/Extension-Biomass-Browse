@@ -40,11 +40,11 @@ namespace Landis.Extension.Browse
                             weightPref += (browsePref * SiteVars.GetForageInReach(cohort, site));
                             countCohorts += 1;
                             sumWeight += SiteVars.GetForageInReach(cohort, site);
-                            PlugIn.ModelCore.UI.WriteLine("     Adding to sumWeight. sumWeight = {0}", sumWeight);
+                            //PlugIn.ModelCore.UI.WriteLine("     Adding to sumWeight. sumWeight = {0}", sumWeight);
                         }
                         if (browsePref > 0)
                             sumForage += SiteVars.GetForageInReach(cohort, site);
-                            PlugIn.ModelCore.UI.WriteLine("     Adding to sumForage. sumForage = {0}", sumForage);
+                            //PlugIn.ModelCore.UI.WriteLine("     Adding to sumForage. sumForage = {0}", sumForage);
                     }
                 }
             }
@@ -60,7 +60,7 @@ namespace Landis.Extension.Browse
             SiteVars.SitePreference[site] = avgWeightPref;
             SiteVars.ForageQuantity[site] = sumForage;
 
-            PlugIn.ModelCore.UI.WriteLine("     Site avgWeightPref = {0}; sumForage = {1}", avgWeightPref, sumForage);
+            //PlugIn.ModelCore.UI.WriteLine("     Site avgWeightPref = {0}; sumForage = {1}", avgWeightPref, sumForage);
 
         }  //end SitePreference
         //---------------------------------------------------------------------
