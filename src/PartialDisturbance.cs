@@ -106,7 +106,7 @@ namespace Landis.Extension.Browse
                                                   //int reduction)
                                                   double reduction)
         {
-            PlugIn.ModelCore.UI.WriteLine("Recording reduction:  {0:0.0}/{1:0.0}/{2}.", cohort.Species.Name, cohort.Age, reduction);//debug
+            //PlugIn.ModelCore.UI.WriteLine("Recording reduction:  {0:0.0}/{1:0.0}/{2}.", cohort.Species.Name, cohort.Age, reduction);//debug
             reductions[cohort.Species.Index][cohort.Age] = reduction;
         }
     }

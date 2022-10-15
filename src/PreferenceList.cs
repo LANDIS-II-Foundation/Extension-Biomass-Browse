@@ -15,6 +15,7 @@ namespace Landis.Extension.Browse
             foreach (ISpecies species in PlugIn.ModelCore.Species)
             {
                 //PlugIn.ModelCore.UI.WriteLine("species = {0}", species.Name); //debug
+                //SF TODO try-catch here and throw exception if species is missing; name the species
                 double browsePref = sppParms[species.Index].BrowsePref;
                 if (!preferenceList.Contains(browsePref))
                     preferenceList.Add(browsePref);
