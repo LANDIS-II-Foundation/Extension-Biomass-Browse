@@ -10,7 +10,7 @@ namespace Landis.Extension.Browse
     /// A parser that reads the tool parameters from text input.
     /// </summary>
     public class DynamicInputsParser
-        : TextParser<bool> //Dictionary<int, IDynamicInputRecord[]>>
+        : TextParser<bool> 
     {
 
         private string FileName = "Defined Population";

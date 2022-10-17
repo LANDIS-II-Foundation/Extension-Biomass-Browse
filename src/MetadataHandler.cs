@@ -35,6 +35,7 @@ namespace Landis.Extension.Browse
             PlugIn.eventLog = new MetadataTable<EventsLog>("browse-events-log.csv");
             PlugIn.eventSpeciesLog = new MetadataTable<EventsSpeciesLog>("browse-event-species-log.csv");
             PlugIn.summaryLog = new MetadataTable<SummaryLog>("browse-summary-log.csv");
+            PlugIn.calibrateLog = new MetadataTable<CalibrateLog>("browse-calibrate-log.csv");
 
             OutputMetadata tblOut_events = new OutputMetadata()
             {
@@ -67,6 +68,18 @@ namespace Landis.Extension.Browse
             };
             tblOut_species.RetriveFields(typeof(EventsSpeciesLog));
             Extension.OutputMetadatas.Add(tblOut_species);
+
+            PlugIn.ModelCore.UI.WriteLine("   Generating calibration table...");
+            OutputMetadata tblOut_calibration = new OutputMetadata()
+            {
+                Type = OutputType.Table,
+                Name = "CalibrationLog",
+                FilePath = PlugIn.calibrateLog.FilePath,
+                Visualize = true,
+            };
+            tblOut_calibration.RetriveFields(typeof(CalibrateLog));
+            Extension.OutputMetadatas.Add(tblOut_calibration);
+
 
             //---------------------------------------            
             //          map outputs:         
