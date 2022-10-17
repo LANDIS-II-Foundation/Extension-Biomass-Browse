@@ -57,7 +57,7 @@ namespace Landis.Extension.Browse
             
             if (reductions[cohort.Species.Index].TryGetValue(cohort.Age, out reduction))
             {
-                PlugIn.ModelCore.UI.WriteLine("Reduction = {0}", reduction);
+                //PlugIn.ModelCore.UI.WriteLine("Reduction = {0}", reduction); //debug
                 SiteVars.BiomassRemoved[currentSite] += reduction;
                 SiteVars.CohortsPartiallyDamaged[currentSite]++;
 
@@ -82,7 +82,7 @@ namespace Landis.Extension.Browse
         /// </summary>
         public static void ReduceCohortBiomass(ActiveSite site)
         {
-            PlugIn.ModelCore.UI.WriteLine("Reducing CohortBiomass NOW!");
+            //PlugIn.ModelCore.UI.WriteLine("Reducing CohortBiomass NOW!");
 
             currentSite = site;
                        

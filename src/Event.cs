@@ -252,7 +252,7 @@ namespace Landis.Extension.Browse
 
                     double siteTotalToBrowse = SiteVars.TotalBrowse[site];
 
-                    PlugIn.ModelCore.UI.WriteLine(" Allocating browse for site {0}; total browse: {1}", site.DataIndex, siteTotalToBrowse);
+                    //PlugIn.ModelCore.UI.WriteLine(" Allocating browse for site {0}; total browse: {1}", site.DataIndex, siteTotalToBrowse); //debug
 
                     //Browse - allocate browse to cohorts
                     if (siteTotalToBrowse > 0)

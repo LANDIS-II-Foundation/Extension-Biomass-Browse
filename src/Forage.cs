@@ -31,7 +31,7 @@ namespace Landis.Extension.Browse
         //---------------------------------------------------------------------
         public static List<double> CalculateCohortPropInReach(List<Landis.Library.BiomassCohorts.ICohort> cohortList, IInputParameters parameters, double siteBiomassMax)
         {
-            PlugIn.ModelCore.UI.WriteLine("   Calculating proportion of browse in reach using method {0}", PlugIn.PropInReachMethod);
+            //PlugIn.ModelCore.UI.WriteLine("   Calculating proportion of browse in reach using method {0}", PlugIn.PropInReachMethod); //debug
 
             //Cohorts above maxBrowseAge (calculated from maxBrowseAgeProp) are immune from forage (due to height and crown lift)
             double maxBrowseAgeProp = parameters.EscapeBrowsePropLong;

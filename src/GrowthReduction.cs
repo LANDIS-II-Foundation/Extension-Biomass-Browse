@@ -26,7 +26,7 @@ namespace Landis.Extension.Browse
 
         public static double ReduceCohortGrowth(ICohort cohort, ActiveSite site)
         {
-            PlugIn.ModelCore.UI.WriteLine("   Reducing cohort growth..."); //debug
+            //PlugIn.ModelCore.UI.WriteLine("   Reducing cohort growth..."); //debug
             double reduction = 0;
             double propBrowse = SiteVars.GetLastBrowseProportion(cohort, site); 
             double threshold = inputParameters.SppParameters[cohort.Species.Index].GrowthReductThresh;
