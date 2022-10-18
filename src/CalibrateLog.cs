@@ -15,14 +15,13 @@ namespace Landis.Extension.Browse
         public static void WriteLogFile(int year)
         {
 
-
             foreach (int sppkey in CohortCalibrationData.Keys)
             {
-                PlugIn.ModelCore.UI.WriteLine("sppkey = {0}", sppkey);
+                //PlugIn.ModelCore.UI.WriteLine("sppkey = {0}", sppkey);
                 Dictionary<int, double[]> cohortDict;
                 CohortCalibrationData.TryGetValue(sppkey, out cohortDict);
                 
-                cohortDict.ToList().ForEach(x => PlugIn.ModelCore.UI.WriteLine("age keys in cohortDict = {0}", x.Key));
+                //cohortDict.ToList().ForEach(x => PlugIn.ModelCore.UI.WriteLine("age keys in cohortDict = {0}", x.Key));
 
                 foreach (int agekey in cohortDict.Keys)
                 {
@@ -30,7 +29,7 @@ namespace Landis.Extension.Browse
                     PlugIn.calibrateLog.Clear();
                     CalibrateLog clog = new CalibrateLog();
 
-                    PlugIn.ModelCore.UI.WriteLine("agekey = {0}", agekey);
+                    //PlugIn.ModelCore.UI.WriteLine("agekey = {0}", agekey);
 
                     double[] cohortData;
                     cohortDict.TryGetValue(agekey, out cohortData);
@@ -103,14 +102,14 @@ namespace Landis.Extension.Browse
             Dictionary<int, double[]> cohortDict;
             double[] oldValue;
 
-            PlugIn.ModelCore.UI.WriteLine("cohort species = {0}, species index = {1}, cohort add year = {2}, calibrate index = {3}", 
-                cohort.Species.Name, cohort.Species.Index, cohortAddYear, index);
+            //PlugIn.ModelCore.UI.WriteLine("cohort species = {0}, species index = {1}, cohort add year = {2}, calibrate index = {3}", 
+             //   cohort.Species.Name, cohort.Species.Index, cohortAddYear, index);
 
             // If the dictionary entry exists for the cohort, overwrite it:
             if (CohortCalibrationData.TryGetValue(cohort.Species.Index, out cohortDict))
                 if (cohortDict.TryGetValue(cohortAddYear, out oldValue))
                 {
-                    PlugIn.ModelCore.UI.WriteLine("Replacing values for cohort in calibrate log");
+                 //   PlugIn.ModelCore.UI.WriteLine("Replacing values for cohort in calibrate log");
                     CohortCalibrationData[cohort.Species.Index][cohortAddYear][index] = newValue;
                     return;
                 }
@@ -123,12 +122,12 @@ namespace Landis.Extension.Browse
 
             if (CohortCalibrationData.ContainsKey(cohort.Species.Index))
             {
-                PlugIn.ModelCore.UI.WriteLine("Adding species to calibrate log");
+              //  PlugIn.ModelCore.UI.WriteLine("Adding species to calibrate log");
                 CohortCalibrationData[cohort.Species.Index].Add(cohortAddYear, newArray);
             }
             else
             {
-                PlugIn.ModelCore.UI.WriteLine("Adding species to calibrate log");
+              //  PlugIn.ModelCore.UI.WriteLine("Adding species to calibrate log");
                 CohortCalibrationData.Add(cohort.Species.Index, newEntry);
             }
         }
