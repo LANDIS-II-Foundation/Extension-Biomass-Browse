@@ -15,8 +15,6 @@ namespace Landis.Extension.Browse
         public static void WriteLogFile(int year)
         {
 
-            PlugIn.calibrateLog.Clear();
-            CalibrateLog clog = new CalibrateLog();
 
             foreach (int sppkey in CohortCalibrationData.Keys)
             {
@@ -29,7 +27,8 @@ namespace Landis.Extension.Browse
                 foreach (int agekey in cohortDict.Keys)
                 {
 
-                    PlugIn.ModelCore.UI.WriteLine("agekey = {0}", agekey);
+                    PlugIn.calibrateLog.Clear();
+                    CalibrateLog clog = new CalibrateLog();
 
                     double[] cohortData;
                     cohortDict.TryGetValue(agekey, out cohortData);
