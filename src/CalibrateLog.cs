@@ -30,6 +30,8 @@ namespace Landis.Extension.Browse
                     PlugIn.calibrateLog.Clear();
                     CalibrateLog clog = new CalibrateLog();
 
+                    PlugIn.ModelCore.UI.WriteLine("agekey = {0}", agekey);
+
                     double[] cohortData;
                     cohortDict.TryGetValue(agekey, out cohortData);
 
