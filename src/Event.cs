@@ -392,9 +392,9 @@ namespace Landis.Extension.Browse
                                         forageRemoved -= adjFirstPassRemovalList[cohortLoop];
                                         forageRemoved += finalRemoval;
                                         prefClassRemoved += (finalRemoval - adjFirstPassRemovalList[cohortLoop]);
-                                        //PlugIn.ModelCore.UI.WriteLine("{0:0.0}/{1:0.0}. adjusted firstPassRemoval = {2},
-                                        //secondPassRemoval = {3}, finalRemoval = {4}", cohort.Species.Name, cohort.Age,
-                                        //adjFirstPassRemovalList[cohortLoop], secondPassRemoval, finalRemoval); //debug
+                                        PlugIn.ModelCore.UI.WriteLine("{0:0.0}/{1:0.0}. adjusted firstPassRemoval = {2}, " +
+                                            "secondPassRemoval = {3}, finalRemoval = {4}", cohort.Species.Name, cohort.Age,
+                                            adjFirstPassRemovalList[cohortLoop], secondPassRemoval, finalRemoval); //debug
                                     }
 
                                     finalRemovalList[cohortLoop] = finalRemoval; //RMS_calibrate_log
@@ -421,7 +421,7 @@ namespace Landis.Extension.Browse
 
                                     //LastBrowseProportion is only used for GrowthReduction
                                     if (propBrowse > 0.0)
-                                        //PlugIn.ModelCore.UI.WriteLine("Setting LastBrowseProportion :  {0:0.0}/{1:0.0}/{2}.", cohort.Species.Name, cohort.Age, propBrowse);
+                                        PlugIn.ModelCore.UI.WriteLine("Setting LastBrowseProportion :  {0:0.0}/{1:0.0}/{2}.", cohort.Species.Name, cohort.Age, propBrowse);
                                         SiteVars.SetLastBrowseProportion(cohort, site, propBrowse); //RMS_calibrate_log
 
                                     if (PlugIn.Calibrate)

@@ -121,7 +121,7 @@ namespace Landis.Extension.Browse
             parameters.ForageNeighbors = GetResourceNeighborhood(parameters.ForageQuantityNbrRad);
             parameters.SitePrefNeighbors = GetResourceNeighborhood(parameters.SitePrefNbrRad);
                      
-            ModelCore.UI.WriteLine("   Opening browse log files \"{0}\" ...", parameters.LogFileName);
+            ModelCore.UI.WriteLine("   Opening browse log files \"{0}\" ...", parameters.LogFileName); //TODO SF this filename isn't used
             MetadataHandler.InitializeMetadata(Timestep);
         }
 
@@ -140,6 +140,10 @@ namespace Landis.Extension.Browse
 
             if (browseEvent != null)
                 LogBrowseEvent(browseEvent);
+
+            //calibrate log write
+            if(PlugIn.Calibrate)
+                CalibrateLog.WriteLogFile(PlugIn.ModelCore.CurrentTime);
             
             //  Write site preference map 
             string path = MapNames.ReplaceTemplateVars(sitePrefMapNameTemplate, PlugIn.modelCore.CurrentTime);
