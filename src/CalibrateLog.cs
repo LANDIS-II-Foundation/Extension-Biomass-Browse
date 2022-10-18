@@ -9,9 +9,9 @@ namespace Landis.Extension.Browse
 {
     public class CalibrateLog
     {
-
+        
         public static Dictionary<int, Dictionary<int, double[]>> CohortCalibrationData;
-
+               
         public static void WriteLogFile(int year)
         {
 
@@ -95,13 +95,13 @@ namespace Landis.Extension.Browse
             Dictionary<int, double[]> cohortDict;
             double[] oldValue;
 
-            PlugIn.ModelCore.UI.WriteLine("cohort species = {0}, species index = {1}", cohort.Species, cohort.Species.Index);
+            PlugIn.ModelCore.UI.WriteLine("cohort species = {0}, species index = {1}", cohort.Species.Name, cohort.Species.Index);
 
             // If the dictionary entry exists for the cohort, overwrite it:
             if (CohortCalibrationData.TryGetValue(cohort.Species.Index, out cohortDict))
                 if (cohortDict.TryGetValue(cohortAddYear, out oldValue))
                 {
-                    PlugIn.ModelCore.UI.WriteLine("cohort species = {0}, species index = {1}, oldvalue = {2}", cohort.Species, cohort.Species.Index, oldValue);
+                    PlugIn.ModelCore.UI.WriteLine("cohort species = {0}, species index = {1}, oldvalue = {2}", cohort.Species.Name, cohort.Species.Index, oldValue);
                     CohortCalibrationData[cohort.Species.Index][cohortAddYear][index] = newValue;
                     return;
                 }

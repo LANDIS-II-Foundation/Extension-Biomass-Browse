@@ -1,0 +1,96 @@
+2022-10-18 11:05:29,149 - LANDIS-II 7.0 (7)
+2022-10-18 11:05:29,172 - 
+2022-10-18 11:05:29,327 - Loading scenario from file "Scenario1_dynamic.txt" ...
+2022-10-18 11:05:29,479 - Initialized random number generator with seed = 2,934,754,599
+2022-10-18 11:05:29,482 - Loading species data from file "species.txt" ...
+2022-10-18 11:05:29,536 - Loading ecoregions from file "ecoregions_one_cell.txt" ...
+2022-10-18 11:05:29,582 - Initializing landscape from ecoregions map "./rasters/single3.tif" ...
+2022-10-18 11:05:29,617 - Cell length = 1000 m, cell area = 100 ha
+2022-10-18 11:05:29,620 - Map dimensions: 1 row by 1 column = 1 cell
+2022-10-18 11:05:29,633 - Sites: 1 active (100.0%), 0 inactive (0.0%)
+2022-10-18 11:05:29,654 - Loading NECN Succession extension ...
+2022-10-18 11:05:29,763 -    Begin parsing NECN SPECIES table.
+2022-10-18 11:05:29,811 -    Begin parsing FUNCTIONAL GROUP table.
+2022-10-18 11:05:29,822 -    Begin reading FIRE REDUCTION parameters.
+2022-10-18 11:05:29,824 -    Begin reading HARVEST REDUCTION parameters.
+2022-10-18 11:05:29,839 - Initializing NECN Succession ...
+2022-10-18 11:05:29,970 -    Registering Data:  Succession.LeafBiomassCohorts.
+2022-10-18 11:05:29,971 -    Registering Data:  Succession.AgeCohorts.
+2022-10-18 11:05:29,972 -    Registering Data:  Succession.BiomassCohorts.
+2022-10-18 11:05:29,972 -    Registering Data:  Succession.FineFuels.
+2022-10-18 11:05:29,972 -    Registering Data:  Succession.SmolderConsumption.
+2022-10-18 11:05:29,972 -    Registering Data:  Succession.FlamingConsumption.
+2022-10-18 11:05:29,972 -    Registering Data:  Succession.CWD.
+2022-10-18 11:05:29,972 -    Registering Data:  Succession.PET.
+2022-10-18 11:05:29,977 -   Read in data from ./rasters/soil_depth.tif
+2022-10-18 11:05:30,005 -   Read in data from ./rasters/soil_drain.tif
+2022-10-18 11:05:30,013 -   Read in data from ./rasters/baseflow.tif
+2022-10-18 11:05:30,026 -   Read in data from ./rasters/stormflow.tif
+2022-10-18 11:05:30,030 -   Read in data from ./rasters/field_capacity.tif
+2022-10-18 11:05:30,040 -   Read in data from ./rasters/wilt_point.tif
+2022-10-18 11:05:30,043 -   Read in data from ./rasters/sand.tif
+2022-10-18 11:05:30,046 -   Read in data from ./rasters/clay.tif
+2022-10-18 11:05:30,060 -   Read in data from ./rasters/SOM1surfC.tif
+2022-10-18 11:05:30,062 -   Read in data from ./rasters/SOM1surfN.tif
+2022-10-18 11:05:30,063 -   Read in data from ./rasters/SOM1soilC.tif
+2022-10-18 11:05:30,065 -   Read in data from ./rasters/SOM1soilN.tif
+2022-10-18 11:05:30,067 -   Read in data from ./rasters/SOM2C.tif
+2022-10-18 11:05:30,071 -   Read in data from ./rasters/SOM2N.tif
+2022-10-18 11:05:30,073 -   Read in data from ./rasters/SOM3C.tif
+2022-10-18 11:05:30,074 -   Read in data from ./rasters/SOM3N.tif
+2022-10-18 11:05:30,077 -   Read in data from ./rasters/dead_wood.tif
+2022-10-18 11:05:30,079 -   Read in data from ./rasters/coarse_roots.tif
+2022-10-18 11:05:30,111 -    Loading weather data ...
+2022-10-18 11:05:32,962 -    Registering Data:  TimeOfLastSuccession.
+2022-10-18 11:05:32,965 -    Registering Data:  Shade.
+2022-10-18 11:05:32,968 -    Creating Dispersal Neighborhood List.
+2022-10-18 11:05:32,970 -    Dispersal:  NeighborRadius=5500, CellLength=1000, numCellRadius=5
+2022-10-18 11:05:32,980 -    Loading initial communities from file "initial_communities_pointer.txt" ...
+2022-10-18 11:05:33,023 -    Reading initial communities map "./rasters/initial_communities.tif" ...
+2022-10-18 11:05:33,095 - Loading Biomass Browse extension ...
+2022-10-18 11:05:33,192 -    Begin parsing SPECIES table.
+2022-10-18 11:05:33,195 - Running in Calibration Mode!
+2022-10-18 11:05:33,197 - forageInReachMethod is "LinearEachCohort"
+2022-10-18 11:05:33,198 - Using linear each cohort method
+2022-10-18 11:05:33,217 -    Loading dynamic input data from file "DefinedUngulatePopulation.txt" ...
+2022-10-18 11:05:33,224 -   Dynamic Input Parser:  Add new year = 0.
+2022-10-18 11:05:33,226 -   Dynamic Input Parser:  Add new year = 1.
+2022-10-18 11:05:33,227 -   Dynamic Input Parser:  Add new year = 2.
+2022-10-18 11:05:33,229 -   Dynamic Input Parser:  Add new year = 3.
+2022-10-18 11:05:33,231 -   Dynamic Input Parser:  Add new year = 4.
+2022-10-18 11:05:33,232 -   Dynamic Input Parser:  Add new year = 5.
+2022-10-18 11:05:33,259 - Creating Neighborhood List.
+2022-10-18 11:05:33,263 - NeighborRadius=500, CellLength=1000, numCellRadius=0
+2022-10-18 11:05:33,266 - Creating Neighborhood List.
+2022-10-18 11:05:33,269 - NeighborRadius=500, CellLength=1000, numCellRadius=0
+2022-10-18 11:05:33,270 -    Opening browse log files "browse/browse_log.csv" ...
+2022-10-18 11:05:33,293 -    Generating summary table...
+2022-10-18 11:05:33,295 -    Generating summary table...
+2022-10-18 11:05:33,298 -    Generating calibration table...
+2022-10-18 11:05:33,321 - Loading Output Biomass Community extension ...
+2022-10-18 11:05:33,343 - Using the following extensions ...
+   Extension Name            Extension Filename       
+   --------------            ------------------       
+   NECN Succession           NECN_Succession.txt      
+   Biomass Browse            DynamicUngulateBrowse_1_cell_dynamic.txt
+   Output Biomass Community  output_Biomass_Community.txt
+
+2022-10-18 11:05:33,345 - Running Output Biomass Community ...
+2022-10-18 11:05:33,353 -    Opening community csv file "community-input-file-0.csv" ...
+2022-10-18 11:05:33,361 -    Opening community log file "community-input-file-0.txt" ...
+2022-10-18 11:05:33,370 -    Writing community biomass map to output-community-0.img ...
+2022-10-18 11:05:33,449 - Current time: 1
+2022-10-18 11:05:33,451 - Running Biomass Browse ...
+2022-10-18 11:05:33,457 - Processing landscape for ungulate browse events ...
+2022-10-18 11:05:33,466 -    Calculating Site Preference & Forage.
+2022-10-18 11:05:33,472 - cohort species = BEPA, species index = 3
+2022-10-18 11:05:33,475 - Internal error occurred within the program:
+2022-10-18 11:05:33,477 -   Object reference not set to an instance of an object.
+2022-10-18 11:05:33,480 - 
+2022-10-18 11:05:33,482 - Stack trace:
+2022-10-18 11:05:33,605 -    at Landis.Extension.Browse.CalibrateLog.SetCalibrateData(ICohort cohort, Int32 index, Double newValue) in C:\Users\Sam\Documents\Research\Extension-Biomass-Browse\src\CalibrateLog.cs:line 101
+   at Landis.Extension.Browse.Event.CalculateForage(IInputParameters parameters) in C:\Users\Sam\Documents\Research\Extension-Biomass-Browse\src\Event.cs:line 547
+   at Landis.Extension.Browse.Event.Initiate(IInputParameters parameters) in C:\Users\Sam\Documents\Research\Extension-Biomass-Browse\src\Event.cs:line 164
+   at Landis.Extension.Browse.PlugIn.Run() in C:\Users\Sam\Documents\Research\Extension-Biomass-Browse\src\PlugIn.cs:line 139
+   at Landis.Model.Run(String scenarioPath, IUserInterface ui)
+   at Landis.App.Main(String[] args) in D:\CGAProjects\Rob\LANDIS_FINAL\GitHubRepo\Core-Model-v7\Tool-Console\src\App.cs:line 98
