@@ -18,13 +18,9 @@ namespace Landis.Extension.Browse
 
             foreach (int sppkey in CohortCalibrationData.Keys)
             {
-                PlugIn.ModelCore.UI.WriteLine("sppkey = {0}", sppkey);
                 Dictionary<int, double[]> cohortDict;
                 CohortCalibrationData.TryGetValue(sppkey, out cohortDict);
-                
-                cohortDict.ToList().ForEach(x => PlugIn.ModelCore.UI.WriteLine("age keys in cohortDict = {0}", x.Key));
-
-                foreach (int agekey in cohortDict.Keys)
+                foreach(int agekey in cohortDict.Keys)
                 {
 
                     PlugIn.calibrateLog.Clear();
@@ -37,15 +33,14 @@ namespace Landis.Extension.Browse
                     clog.CohortAge = agekey;
                     clog.CohortCode = sppkey;
                     clog.CohortName = PlugIn.ModelCore.Species[sppkey].Name;
-                    clog.GrowthReduction = (short) cohortData[0];
+                    clog.GrowthReduction = (int) cohortData[0];
                     clog.NewForageInReach = (int) cohortData[1]; 
                     clog.FirstPassRemoval = (int)cohortData[2]; 
                     clog.SecondPassRemoval = (int)cohortData[3]; 
                     clog.FinalRemoval = (int)cohortData[4]; 
                     clog.NewForage = (int)cohortData[5]; 
                     clog.LastBrowseProportion = (int)cohortData[6]; 
-                    clog.ForageInReach = (int)cohortData[7];
-                    clog.ProportionBrowsed = (short)cohortData[8];
+                    clog.ForageInReach = (int)cohortData[7];  
 
                     PlugIn.calibrateLog.AddObject(clog);
                     PlugIn.calibrateLog.WriteToFile();
@@ -67,8 +62,8 @@ namespace Landis.Extension.Browse
         [DataFieldAttribute(Desc = "SpeciesIndex")]
         public string CohortName { get; set; }
 
-        [DataFieldAttribute(Unit = "Proportion", Desc = "Growth Reduction B")]
-        public short GrowthReduction { get; set; } // index 0
+        [DataFieldAttribute(Unit = FieldUnits.g_C_m2, Desc = "Growth Reduction B")]
+        public int GrowthReduction { get; set; } // index 0
 
         [DataFieldAttribute(Unit = FieldUnits.g_C_m2)]
         public int NewForageInReach { get; set; } // index 1
@@ -91,8 +86,8 @@ namespace Landis.Extension.Browse
         [DataFieldAttribute(Unit = FieldUnits.g_C_m2)]
         public int ForageInReach { get; set; } // index 7
 
-        [DataFieldAttribute(Unit = "Proportion")]
-        public short ProportionBrowsed { get; set; } // index 8
+        [DataFieldAttribute(Unit = FieldUnits.g_C_m2)]
+        public int ProporationBrowsed { get; set; } // index 8
 
 
         public static void SetCalibrateData(ICohort cohort, int index, double newValue)
@@ -101,32 +96,29 @@ namespace Landis.Extension.Browse
             Dictionary<int, double[]> cohortDict;
             double[] oldValue;
 
-            PlugIn.ModelCore.UI.WriteLine("cohort species = {0}, species index = {1}, cohort add year = {2}, calibrate index = {3}", 
-                cohort.Species.Name, cohort.Species.Index, cohortAddYear, index);
+            PlugIn.ModelCore.UI.WriteLine("cohort species = {0}, species index = {1}", cohort.Species, cohort.Species.Index);
 
             // If the dictionary entry exists for the cohort, overwrite it:
             if (CohortCalibrationData.TryGetValue(cohort.Species.Index, out cohortDict))
                 if (cohortDict.TryGetValue(cohortAddYear, out oldValue))
                 {
-                    PlugIn.ModelCore.UI.WriteLine("Replacing values for cohort in calibrate log");
+                    PlugIn.ModelCore.UI.WriteLine("cohort species = {0}, species index = {1}, oldvalue = {2}", cohort.Species, cohort.Species.Index, oldValue);
                     CohortCalibrationData[cohort.Species.Index][cohortAddYear][index] = newValue;
                     return;
                 }
 
             // If the dictionary does not exist for the cohort, create it:
             Dictionary<int, double[]> newEntry = new Dictionary<int, double[]>();
-            double[] newArray = new double[9]; //SF update this number when adding new calibration variable -- n+1
+            double[] newArray = new double[7];
             newArray[index] = newValue;
             newEntry.Add(cohortAddYear, newArray);
 
             if (CohortCalibrationData.ContainsKey(cohort.Species.Index))
             {
-                PlugIn.ModelCore.UI.WriteLine("Adding species to calibrate log");
                 CohortCalibrationData[cohort.Species.Index].Add(cohortAddYear, newArray);
             }
             else
             {
-                PlugIn.ModelCore.UI.WriteLine("Adding species to calibrate log");
                 CohortCalibrationData.Add(cohort.Species.Index, newEntry);
             }
         }
