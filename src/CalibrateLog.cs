@@ -39,7 +39,7 @@ namespace Landis.Extension.Browse
                     clog.FinalRemoval = (int)cohortData[4]; 
                     clog.NewForage = (int)cohortData[5]; 
                     clog.LastBrowseProportion = (int)cohortData[6]; 
-                    clog.ForageInReach = (int)cohortData[7]; // 
+                    clog.ForageInReach = (int)cohortData[7];  
 
                     PlugIn.calibrateLog.AddObject(clog);
                     PlugIn.calibrateLog.WriteToFile();
@@ -95,10 +95,13 @@ namespace Landis.Extension.Browse
             Dictionary<int, double[]> cohortDict;
             double[] oldValue;
 
+            PlugIn.ModelCore.UI.WriteLine("cohort species = {0}, species index = {1}", cohort.Species, cohort.Species.Index);
+
             // If the dictionary entry exists for the cohort, overwrite it:
             if (CohortCalibrationData.TryGetValue(cohort.Species.Index, out cohortDict))
                 if (cohortDict.TryGetValue(cohortAddYear, out oldValue))
                 {
+                    PlugIn.ModelCore.UI.WriteLine("cohort species = {0}, species index = {1}, oldvalue = {2}", cohort.Species, cohort.Species.Index, oldValue);
                     CohortCalibrationData[cohort.Species.Index][cohortAddYear][index] = newValue;
                     return;
                 }

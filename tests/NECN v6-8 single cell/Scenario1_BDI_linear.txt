@@ -16,4 +16,4 @@ CellLength 1000 << meters
 
 "Biomass Browse"	"DynamicUngulateBrowse_1_cell_BDI_linear.txt"
 
- "Output Biomass Community"		"output_Biomass_Community.txt"
+>> "Output Biomass Community"		"output_Biomass_Community.txt"

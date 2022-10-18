@@ -294,9 +294,9 @@ namespace Landis.Extension.Browse
                                 CalibrateLog.SetCalibrateData(cohort, 2, firstPassRemoval);
 
 
-                            PlugIn.ModelCore.UI.WriteLine("{0:0.0}/{1:0.0}. availForage = {2}, browsePref = {3}, " +
-                                "firstPass increment = {4}, firstPassRemoval = {5}",
-                                cohort.Species.Name, cohort.Age, availForage, browsePref, availForage * browsePref, firstPassRemoval);//debug
+                            //PlugIn.ModelCore.UI.WriteLine("{0:0.0}/{1:0.0}. availForage = {2}, browsePref = {3}, " +
+                            //    "firstPass increment = {4}, firstPassRemoval = {5}",
+                            //    cohort.Species.Name, cohort.Age, availForage, browsePref, availForage * browsePref, firstPassRemoval);//debug
                             //firstPassRemovalInt += (availForage * browsePref);
                             //assign first pass removal to each cohort
                             firstPassRemovalList[cohortLoop] = availForage * browsePref;
@@ -617,8 +617,8 @@ namespace Landis.Extension.Browse
                 {
                     //int newForageinReach = (int)Math.Round(SiteVars.GetForage(cohort, site) * propInReachList[listCount]);
                     double newForageinReach = SiteVars.GetForage(cohort, site) * propInReachList[listCount]; //RMS_calibrate_log
-                    PlugIn.ModelCore.UI.WriteLine("forage in reach = {0} g m-2; cohort forage = {1}, propinreach = {2}", 
-                        newForageinReach, SiteVars.GetForage(cohort, site), propInReachList[listCount]); //debug
+                    //PlugIn.ModelCore.UI.WriteLine("forage in reach = {0} g m-2; cohort forage = {1}, propinreach = {2}", 
+                    //    newForageinReach, SiteVars.GetForage(cohort, site), propInReachList[listCount]); //debug
 
                     //if (newForageinReach > 0)
                     //SF need to set this every time for each cohort, so that cohorts that escape browse have forageInReach = 0 
