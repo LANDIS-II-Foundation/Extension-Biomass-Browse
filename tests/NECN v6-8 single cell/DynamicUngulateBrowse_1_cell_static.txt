@@ -37,7 +37,7 @@ BrowseBiomassThresholdMax	0.5	<<Proportion of ecoregion max biomass above which 
 EscapeBrowsePropLong	0.57	<<Prop of longevity when browse is escaped
 
 << Options >>
-CalibrateMode OFF <<Default is OFF
+CalibrateMode ON <<Default is OFF
 <<GrowthReduction	ON  << Default is ON
 <<Mortality	ON  << Default is ON
 <<CountNonForageinSitePref	FALSE	<< Default is FALSE
