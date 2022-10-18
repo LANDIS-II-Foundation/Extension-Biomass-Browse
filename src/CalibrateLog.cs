@@ -10,7 +10,7 @@ namespace Landis.Extension.Browse
     public class CalibrateLog
     {
 
-        public static Dictionary<int, Dictionary<int, double[]>> CohortCalibrationData;
+        public static Dictionary<int, Dictionary<int, double[]>> CohortCalibrationData = new Dictionary<int, Dictionary<int, double>>();
 
         public static void WriteLogFile(int year)
         {
