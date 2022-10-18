@@ -1,0 +1,209 @@
+2022-10-18 14:39:51,939 - LANDIS-II 7.0 (7)
+2022-10-18 14:39:51,962 - 
+2022-10-18 14:39:52,243 - Loading scenario from file "Scenario1_BDI_linear.txt" ...
+2022-10-18 14:39:52,544 - Initialized random number generator with seed = 1,691,913,698
+2022-10-18 14:39:52,544 - Loading species data from file "species.txt" ...
+2022-10-18 14:39:52,611 - Loading ecoregions from file "ecoregions_one_cell.txt" ...
+2022-10-18 14:39:52,648 - Initializing landscape from ecoregions map "./rasters/single3.tif" ...
+2022-10-18 14:39:52,673 - Cell length = 1000 m, cell area = 100 ha
+2022-10-18 14:39:52,675 - Map dimensions: 1 row by 1 column = 1 cell
+2022-10-18 14:39:52,686 - Sites: 1 active (100.0%), 0 inactive (0.0%)
+2022-10-18 14:39:52,698 - Loading NECN Succession extension ...
+2022-10-18 14:39:52,748 -    Begin parsing NECN SPECIES table.
+2022-10-18 14:39:52,781 -    Begin parsing FUNCTIONAL GROUP table.
+2022-10-18 14:39:52,792 -    Begin reading FIRE REDUCTION parameters.
+2022-10-18 14:39:52,793 -    Begin reading HARVEST REDUCTION parameters.
+2022-10-18 14:39:52,806 - Initializing NECN Succession ...
+2022-10-18 14:39:52,894 -    Registering Data:  Succession.LeafBiomassCohorts.
+2022-10-18 14:39:52,896 -    Registering Data:  Succession.AgeCohorts.
+2022-10-18 14:39:52,896 -    Registering Data:  Succession.BiomassCohorts.
+2022-10-18 14:39:52,896 -    Registering Data:  Succession.FineFuels.
+2022-10-18 14:39:52,896 -    Registering Data:  Succession.SmolderConsumption.
+2022-10-18 14:39:52,896 -    Registering Data:  Succession.FlamingConsumption.
+2022-10-18 14:39:52,897 -    Registering Data:  Succession.CWD.
+2022-10-18 14:39:52,897 -    Registering Data:  Succession.PET.
+2022-10-18 14:39:52,900 -   Read in data from ./rasters/soil_depth.tif
+2022-10-18 14:39:52,914 -   Read in data from ./rasters/soil_drain.tif
+2022-10-18 14:39:52,917 -   Read in data from ./rasters/baseflow.tif
+2022-10-18 14:39:52,921 -   Read in data from ./rasters/stormflow.tif
+2022-10-18 14:39:52,923 -   Read in data from ./rasters/field_capacity.tif
+2022-10-18 14:39:52,925 -   Read in data from ./rasters/wilt_point.tif
+2022-10-18 14:39:52,929 -   Read in data from ./rasters/sand.tif
+2022-10-18 14:39:52,931 -   Read in data from ./rasters/clay.tif
+2022-10-18 14:39:52,939 -   Read in data from ./rasters/SOM1surfC.tif
+2022-10-18 14:39:52,941 -   Read in data from ./rasters/SOM1surfN.tif
+2022-10-18 14:39:52,942 -   Read in data from ./rasters/SOM1soilC.tif
+2022-10-18 14:39:52,944 -   Read in data from ./rasters/SOM1soilN.tif
+2022-10-18 14:39:52,945 -   Read in data from ./rasters/SOM2C.tif
+2022-10-18 14:39:52,946 -   Read in data from ./rasters/SOM2N.tif
+2022-10-18 14:39:52,947 -   Read in data from ./rasters/SOM3C.tif
+2022-10-18 14:39:52,948 -   Read in data from ./rasters/SOM3N.tif
+2022-10-18 14:39:52,954 -   Read in data from ./rasters/dead_wood.tif
+2022-10-18 14:39:52,956 -   Read in data from ./rasters/coarse_roots.tif
+2022-10-18 14:39:52,983 -    Loading weather data ...
+2022-10-18 14:39:55,416 -    Registering Data:  TimeOfLastSuccession.
+2022-10-18 14:39:55,417 -    Registering Data:  Shade.
+2022-10-18 14:39:55,422 -    Creating Dispersal Neighborhood List.
+2022-10-18 14:39:55,423 -    Dispersal:  NeighborRadius=5500, CellLength=1000, numCellRadius=5
+2022-10-18 14:39:55,429 -    Loading initial communities from file "initial_communities_pointer.txt" ...
+2022-10-18 14:39:55,456 -    Reading initial communities map "./rasters/initial_communities.tif" ...
+2022-10-18 14:39:55,508 - Loading Biomass Browse extension ...
+2022-10-18 14:39:55,615 -    Begin parsing SPECIES table.
+2022-10-18 14:39:55,618 - Running in Calibration Mode!
+2022-10-18 14:39:55,619 - forageInReachMethod is "LinearEachCohort"
+2022-10-18 14:39:55,620 - Using linear each cohort method
+2022-10-18 14:39:55,639 -    Loading dynamic input data from file "DefinedUngulateBDI.txt" ...
+2022-10-18 14:39:55,644 -   Dynamic Input Parser:  Add new year = 0.
+2022-10-18 14:39:55,645 -   Dynamic Input Parser:  Add new year = 1.
+2022-10-18 14:39:55,646 -   Dynamic Input Parser:  Add new year = 2.
+2022-10-18 14:39:55,647 -   Dynamic Input Parser:  Add new year = 3.
+2022-10-18 14:39:55,647 -   Dynamic Input Parser:  Add new year = 4.
+2022-10-18 14:39:55,666 -      Calculating carrying capacity
+2022-10-18 14:39:55,672 - Creating Neighborhood List.
+2022-10-18 14:39:55,672 - NeighborRadius=500, CellLength=1000, numCellRadius=0
+2022-10-18 14:39:55,673 - Creating Neighborhood List.
+2022-10-18 14:39:55,676 - NeighborRadius=500, CellLength=1000, numCellRadius=0
+2022-10-18 14:39:55,676 -    Opening browse log files "browse/browse_log.csv" ...
+2022-10-18 14:39:55,692 -    Generating summary table...
+2022-10-18 14:39:55,692 -    Generating summary table...
+2022-10-18 14:39:55,693 -    Generating calibration table...
+2022-10-18 14:39:55,708 - Using the following extensions ...
+   Extension Name            Extension Filename       
+   --------------            ------------------       
+   NECN Succession           NECN_Succession.txt      
+   Biomass Browse            DynamicUngulateBrowse_1_cell_BDI_linear.txt
+
+2022-10-18 14:39:55,710 - Current time: 1
+2022-10-18 14:39:55,711 - Running Biomass Browse ...
+2022-10-18 14:39:55,714 - Processing landscape for ungulate browse events ...
+2022-10-18 14:39:55,724 -    Calculating Site Preference & Forage.
+2022-10-18 14:39:55,729 - cohort species = BEPA, species index = 3, cohort add year = -59, calibrate index = 0
+2022-10-18 14:39:55,730 - Adding species to calibrate log
+2022-10-18 14:39:55,730 - cohort species = BEPA, species index = 3, cohort add year = -59, calibrate index = 5
+2022-10-18 14:39:55,731 - Replacing values for cohort in calibrate log
+2022-10-18 14:39:55,741 - cohort species = BEPA, species index = 3, cohort add year = -29, calibrate index = 0
+2022-10-18 14:39:55,742 - Adding species to calibrate log
+2022-10-18 14:39:55,743 - cohort species = BEPA, species index = 3, cohort add year = -29, calibrate index = 5
+2022-10-18 14:39:55,744 - Replacing values for cohort in calibrate log
+2022-10-18 14:39:55,746 - cohort species = BEPA, species index = 3, cohort add year = -9, calibrate index = 0
+2022-10-18 14:39:55,747 - Adding species to calibrate log
+2022-10-18 14:39:55,748 - cohort species = BEPA, species index = 3, cohort add year = -9, calibrate index = 5
+2022-10-18 14:39:55,748 - Replacing values for cohort in calibrate log
+2022-10-18 14:39:55,749 - cohort species = PIGL, species index = 5, cohort add year = -89, calibrate index = 0
+2022-10-18 14:39:55,749 - Adding species to calibrate log
+2022-10-18 14:39:55,750 - cohort species = PIGL, species index = 5, cohort add year = -89, calibrate index = 5
+2022-10-18 14:39:55,752 - Replacing values for cohort in calibrate log
+2022-10-18 14:39:55,753 - cohort species = PIGL, species index = 5, cohort add year = -9, calibrate index = 0
+2022-10-18 14:39:55,753 - Adding species to calibrate log
+2022-10-18 14:39:55,756 - cohort species = PIGL, species index = 5, cohort add year = -9, calibrate index = 5
+2022-10-18 14:39:55,757 - Replacing values for cohort in calibrate log
+2022-10-18 14:39:55,757 - cohort species = THOC2, species index = 11, cohort add year = -59, calibrate index = 0
+2022-10-18 14:39:55,758 - Adding species to calibrate log
+2022-10-18 14:39:55,758 - cohort species = THOC2, species index = 11, cohort add year = -59, calibrate index = 5
+2022-10-18 14:39:55,759 - Replacing values for cohort in calibrate log
+2022-10-18 14:39:55,759 - cohort species = THOC2, species index = 11, cohort add year = -29, calibrate index = 0
+2022-10-18 14:39:55,760 - Adding species to calibrate log
+2022-10-18 14:39:55,760 - cohort species = THOC2, species index = 11, cohort add year = -29, calibrate index = 5
+2022-10-18 14:39:55,761 - Replacing values for cohort in calibrate log
+2022-10-18 14:39:55,761 - cohort species = THOC2, species index = 11, cohort add year = -9, calibrate index = 0
+2022-10-18 14:39:55,762 - Adding species to calibrate log
+2022-10-18 14:39:55,762 - cohort species = THOC2, species index = 11, cohort add year = -9, calibrate index = 5
+2022-10-18 14:39:55,763 - Replacing values for cohort in calibrate log
+2022-10-18 14:39:55,778 -    Estimating effective Zone Population from Browse Density Index.
+2022-10-18 14:39:55,779 -      Defined browse density index being loaded for current timestep
+2022-10-18 14:39:55,779 -      Calculating carrying capacity
+2022-10-18 14:39:55,780 -    Calculating HSI.
+2022-10-18 14:39:55,791 -    Calculating Local Population.
+2022-10-18 14:39:55,800 -    Disturbing Sites
+2022-10-18 14:39:55,810 - cohort species = BEPA, species index = 3, cohort add year = -59, calibrate index = 2
+2022-10-18 14:39:55,810 - Replacing values for cohort in calibrate log
+2022-10-18 14:39:55,811 - cohort species = BEPA, species index = 3, cohort add year = -29, calibrate index = 2
+2022-10-18 14:39:55,811 - Replacing values for cohort in calibrate log
+2022-10-18 14:39:55,812 - cohort species = BEPA, species index = 3, cohort add year = -9, calibrate index = 2
+2022-10-18 14:39:55,813 - Replacing values for cohort in calibrate log
+2022-10-18 14:39:55,813 - cohort species = PIGL, species index = 5, cohort add year = -89, calibrate index = 2
+2022-10-18 14:39:55,814 - Replacing values for cohort in calibrate log
+2022-10-18 14:39:55,815 - cohort species = PIGL, species index = 5, cohort add year = -9, calibrate index = 2
+2022-10-18 14:39:55,815 - Replacing values for cohort in calibrate log
+2022-10-18 14:39:55,815 - cohort species = THOC2, species index = 11, cohort add year = -59, calibrate index = 2
+2022-10-18 14:39:55,816 - Replacing values for cohort in calibrate log
+2022-10-18 14:39:55,816 - cohort species = THOC2, species index = 11, cohort add year = -29, calibrate index = 2
+2022-10-18 14:39:55,817 - Replacing values for cohort in calibrate log
+2022-10-18 14:39:55,817 - cohort species = THOC2, species index = 11, cohort add year = -9, calibrate index = 2
+2022-10-18 14:39:55,821 - Replacing values for cohort in calibrate log
+2022-10-18 14:39:55,822 - cohort species = BEPA, species index = 3, cohort add year = -59, calibrate index = 3
+2022-10-18 14:39:55,823 - Replacing values for cohort in calibrate log
+2022-10-18 14:39:55,823 - BEPA/60.0. adjusted firstPassRemoval = 1.6203726, secondPassRemoval = 4.8611178, finalRemoval = 6.4814904
+2022-10-18 14:39:55,824 - cohort species = BEPA, species index = 3, cohort add year = -59, calibrate index = 4
+2022-10-18 14:39:55,824 - Replacing values for cohort in calibrate log
+2022-10-18 14:39:55,825 - Setting LastBrowseProportion :  BEPA/60.0/0.433.
+2022-10-18 14:39:55,826 - cohort species = BEPA, species index = 3, cohort add year = -59, calibrate index = 8
+2022-10-18 14:39:55,827 - Replacing values for cohort in calibrate log
+2022-10-18 14:39:55,832 - cohort species = BEPA, species index = 3, cohort add year = -29, calibrate index = 3
+2022-10-18 14:39:55,832 - Replacing values for cohort in calibrate log
+2022-10-18 14:39:55,833 - BEPA/30.0. adjusted firstPassRemoval = 1.6000446, secondPassRemoval = 4.8001338, finalRemoval = 6.4001784
+2022-10-18 14:39:55,844 - cohort species = BEPA, species index = 3, cohort add year = -29, calibrate index = 4
+2022-10-18 14:39:55,844 - Replacing values for cohort in calibrate log
+2022-10-18 14:39:55,844 - Setting LastBrowseProportion :  BEPA/30.0/0.587.
+2022-10-18 14:39:55,845 - cohort species = BEPA, species index = 3, cohort add year = -29, calibrate index = 8
+2022-10-18 14:39:55,846 - Replacing values for cohort in calibrate log
+2022-10-18 14:39:55,846 - cohort species = BEPA, species index = 3, cohort add year = -9, calibrate index = 3
+2022-10-18 14:39:55,847 - Replacing values for cohort in calibrate log
+2022-10-18 14:39:55,848 - BEPA/10.0. adjusted firstPassRemoval = 1.4570094, secondPassRemoval = 4.3710282, finalRemoval = 5.8280376
+2022-10-18 14:39:55,848 - cohort species = BEPA, species index = 3, cohort add year = -9, calibrate index = 4
+2022-10-18 14:39:55,849 - Replacing values for cohort in calibrate log
+2022-10-18 14:39:55,850 - Setting LastBrowseProportion :  BEPA/10.0/0.671.
+2022-10-18 14:39:55,854 - cohort species = BEPA, species index = 3, cohort add year = -9, calibrate index = 8
+2022-10-18 14:39:55,854 - Replacing values for cohort in calibrate log
+2022-10-18 14:39:55,858 - cohort species = THOC2, species index = 11, cohort add year = -59, calibrate index = 3
+2022-10-18 14:39:55,858 - Replacing values for cohort in calibrate log
+2022-10-18 14:39:55,859 - THOC2/60.0. adjusted firstPassRemoval = 0.31858332, secondPassRemoval = 5.7896507131679, finalRemoval = 6.1082340331679
+2022-10-18 14:39:55,860 - cohort species = THOC2, species index = 11, cohort add year = -59, calibrate index = 4
+2022-10-18 14:39:55,860 - Replacing values for cohort in calibrate log
+2022-10-18 14:39:55,861 - Setting LastBrowseProportion :  THOC2/60.0/0.56848280406968.
+2022-10-18 14:39:55,861 - cohort species = THOC2, species index = 11, cohort add year = -59, calibrate index = 8
+2022-10-18 14:39:55,861 - Replacing values for cohort in calibrate log
+2022-10-18 14:39:55,862 - cohort species = THOC2, species index = 11, cohort add year = -29, calibrate index = 3
+2022-10-18 14:39:55,862 - Replacing values for cohort in calibrate log
+2022-10-18 14:39:55,863 - THOC2/30.0. adjusted firstPassRemoval = 0.29362608, secondPassRemoval = 5.33609996743299, finalRemoval = 5.62972604743299
+2022-10-18 14:39:55,863 - cohort species = THOC2, species index = 11, cohort add year = -29, calibrate index = 4
+2022-10-18 14:39:55,863 - Replacing values for cohort in calibrate log
+2022-10-18 14:39:55,864 - Setting LastBrowseProportion :  THOC2/30.0/0.638464666965273.
+2022-10-18 14:39:55,865 - cohort species = THOC2, species index = 11, cohort add year = -29, calibrate index = 8
+2022-10-18 14:39:55,865 - Replacing values for cohort in calibrate log
+2022-10-18 14:39:55,870 - cohort species = THOC2, species index = 11, cohort add year = -9, calibrate index = 3
+2022-10-18 14:39:55,871 - Replacing values for cohort in calibrate log
+2022-10-18 14:39:55,871 - THOC2/10.0. adjusted firstPassRemoval = 0.26841408, secondPassRemoval = 4.8779194393991, finalRemoval = 5.14633351939911
+2022-10-18 14:39:55,872 - cohort species = THOC2, species index = 11, cohort add year = -9, calibrate index = 4
+2022-10-18 14:39:55,872 - Replacing values for cohort in calibrate log
+2022-10-18 14:39:55,872 - Setting LastBrowseProportion :  THOC2/10.0/0.686397449770474.
+2022-10-18 14:39:55,873 - cohort species = THOC2, species index = 11, cohort add year = -9, calibrate index = 8
+2022-10-18 14:39:55,873 - Replacing values for cohort in calibrate log
+2022-10-18 14:39:55,874 - cohort species = PIGL, species index = 5, cohort add year = -89, calibrate index = 4
+2022-10-18 14:39:55,874 - Replacing values for cohort in calibrate log
+2022-10-18 14:39:55,874 - cohort species = PIGL, species index = 5, cohort add year = -89, calibrate index = 8
+2022-10-18 14:39:55,875 - Replacing values for cohort in calibrate log
+2022-10-18 14:39:55,875 - cohort species = PIGL, species index = 5, cohort add year = -9, calibrate index = 4
+2022-10-18 14:39:55,876 - Replacing values for cohort in calibrate log
+2022-10-18 14:39:55,876 - cohort species = PIGL, species index = 5, cohort add year = -9, calibrate index = 8
+2022-10-18 14:39:55,876 - Replacing values for cohort in calibrate log
+2022-10-18 14:39:55,919 - sppkey = 3
+2022-10-18 14:39:55,922 - key = -59
+2022-10-18 14:39:55,923 - key = -29
+2022-10-18 14:39:55,924 - key = -9
+2022-10-18 14:39:55,924 - agekey = -59
+2022-10-18 14:39:55,928 - agekey = -29
+2022-10-18 14:39:55,929 - agekey = -9
+2022-10-18 14:39:55,932 - sppkey = 5
+2022-10-18 14:39:55,932 - key = -89
+2022-10-18 14:39:55,933 - key = -9
+2022-10-18 14:39:55,933 - agekey = -89
+2022-10-18 14:39:55,937 - agekey = -9
+2022-10-18 14:39:55,939 - sppkey = 11
+2022-10-18 14:39:55,940 - key = -59
+2022-10-18 14:39:55,940 - key = -29
+2022-10-18 14:39:55,941 - key = -9
+2022-10-18 14:39:55,941 - agekey = -59
+2022-10-18 14:39:55,943 - agekey = -29
+2022-10-18 14:39:55,945 - agekey = -9
+2022-10-18 14:39:56,017 - Running NECN Succession ...

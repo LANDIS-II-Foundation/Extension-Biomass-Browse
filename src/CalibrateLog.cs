@@ -15,15 +15,15 @@ namespace Landis.Extension.Browse
         public static void WriteLogFile(int year)
         {
 
+            PlugIn.calibrateLog.Clear();
+            CalibrateLog clog = new CalibrateLog();
+
             foreach (int sppkey in CohortCalibrationData.Keys)
             {
                 Dictionary<int, double[]> cohortDict;
                 CohortCalibrationData.TryGetValue(sppkey, out cohortDict);
                 foreach(int agekey in cohortDict.Keys)
                 {
-
-                    PlugIn.calibrateLog.Clear();
-                    CalibrateLog clog = new CalibrateLog();
 
                     double[] cohortData;
                     cohortDict.TryGetValue(agekey, out cohortData);
