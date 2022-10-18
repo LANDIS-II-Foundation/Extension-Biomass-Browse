@@ -10,13 +10,10 @@ namespace Landis.Extension.Browse
     public class CalibrateLog
     {
 
-        public static Dictionary<int, Dictionary<int, double[]>> CohortCalibrationData = new Dictionary<int, Dictionary<int, double>>();
+        public static Dictionary<int, Dictionary<int, double[]>> CohortCalibrationData = new Dictionary<int, Dictionary<int, double[]>>();
 
         public static void WriteLogFile(int year)
         {
-
-            PlugIn.calibrateLog.Clear();
-            CalibrateLog clog = new CalibrateLog();
 
             foreach (int sppkey in CohortCalibrationData.Keys)
             {
@@ -24,6 +21,9 @@ namespace Landis.Extension.Browse
                 CohortCalibrationData.TryGetValue(sppkey, out cohortDict);
                 foreach(int agekey in cohortDict.Keys)
                 {
+
+                    PlugIn.calibrateLog.Clear();
+                    CalibrateLog clog = new CalibrateLog();
 
                     double[] cohortData;
                     cohortDict.TryGetValue(agekey, out cohortData);
