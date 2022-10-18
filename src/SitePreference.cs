@@ -17,7 +17,7 @@ namespace Landis.Extension.Browse
         /// <param name="parameters"></param>
         public static void CalcSiteForage(IInputParameters parameters, ActiveSite site)
         {
-            PlugIn.ModelCore.UI.WriteLine("   Calculating Site Preference & Forage.");
+            //PlugIn.ModelCore.UI.WriteLine("   Calculating Site Preference & Forage.");
 
             double sumPref = 0.0;
             double weightPref = 0.0;
@@ -40,11 +40,13 @@ namespace Landis.Extension.Browse
                             weightPref += (browsePref * SiteVars.GetForageInReach(cohort, site));
                             countCohorts += 1;
                             sumWeight += SiteVars.GetForageInReach(cohort, site);
-                            PlugIn.ModelCore.UI.WriteLine("     Adding to sumWeight. sumWeight = {0}", sumWeight);
+                            //PlugIn.ModelCore.UI.WriteLine("     Adding to sumWeight. sumWeight = {0}", sumWeight); //debug
                         }
                         if (browsePref > 0)
+                        {
                             sumForage += SiteVars.GetForageInReach(cohort, site);
-                            PlugIn.ModelCore.UI.WriteLine("     Adding to sumForage. sumForage = {0}", sumForage);
+                            //PlugIn.ModelCore.UI.WriteLine("     Adding to sumForage. sumForage = {0}", sumForage); //debug
+                        }
                     }
                 }
             }
@@ -60,7 +62,7 @@ namespace Landis.Extension.Browse
             SiteVars.SitePreference[site] = avgWeightPref;
             SiteVars.ForageQuantity[site] = sumForage;
 
-            PlugIn.ModelCore.UI.WriteLine("     Site avgWeightPref = {0}; sumForage = {1}", avgWeightPref, sumForage);
+            //PlugIn.ModelCore.UI.WriteLine("     Site avgWeightPref = {0}; sumForage = {1}", avgWeightPref, sumForage);
 
         }  //end SitePreference
         //---------------------------------------------------------------------

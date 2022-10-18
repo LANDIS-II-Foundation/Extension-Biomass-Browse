@@ -24,6 +24,7 @@ namespace Landis.Extension.Browse
         private double browseBiomassThreshMin;
         private double browseBiomassThreshMax;
         private double escapeBrowsePropLong;
+        private bool calibrateMode;
         private bool growthReduction;
         private bool mortality;
         private bool countNonForage;
@@ -216,6 +217,18 @@ namespace Landis.Extension.Browse
             set
             {
                 escapeBrowsePropLong = value;
+            }
+        }
+        //---------------------------------------------------------------------
+        public bool CalibrateMode
+        {
+            get
+            {
+                return calibrateMode;
+            }
+            set
+            {
+                calibrateMode = value;
             }
         }
         //---------------------------------------------------------------------
@@ -525,6 +538,7 @@ namespace Landis.Extension.Browse
         double BrowseBiomassThreshMin { get; set; }
         double BrowseBiomassThreshMax { get; set; }
         double EscapeBrowsePropLong { get; set; }
+        bool CalibrateMode { get; set; }
         bool GrowthReduction { get; set; }
         bool Mortality { get; set; }
         bool CountNonForage { get; set; }

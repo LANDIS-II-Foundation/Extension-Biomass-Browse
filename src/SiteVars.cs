@@ -124,7 +124,7 @@ namespace Landis.Extension.Browse
             if (ForageInReach[site].TryGetValue(cohort.Species.Index, out cohortDict))
                 if (cohortDict.TryGetValue(cohortAddYear, out oldForageInReach))
                 {
-                    PlugIn.ModelCore.UI.WriteLine("Overwriting old forageInReach value for cohort");
+                    //PlugIn.ModelCore.UI.WriteLine("Overwriting old forageInReach value for cohort");
                     ForageInReach[site][cohort.Species.Index][cohortAddYear] = forageInReach; 
                     return;
                 }
@@ -136,11 +136,11 @@ namespace Landis.Extension.Browse
             if (ForageInReach[site].ContainsKey(cohort.Species.Index))
             {
                 ForageInReach[site][cohort.Species.Index].Add(cohortAddYear, forageInReach);
-                PlugIn.ModelCore.UI.WriteLine("Adding new cohort");
+                //PlugIn.ModelCore.UI.WriteLine("Adding new cohort"); //debug
             }
             else
             {
-                PlugIn.ModelCore.UI.WriteLine("Adding new cohort");
+                //PlugIn.ModelCore.UI.WriteLine("Adding new cohort"); //debug
                 ForageInReach[site].Add(cohort.Species.Index, newEntry);
             }
         }

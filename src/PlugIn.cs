@@ -113,7 +113,8 @@ namespace Landis.Extension.Browse
 
             PartialDisturbance.Initialize();
             GrowthReduction.Initialize(parameters);
-            //Defoliate.Initialize(parameters); //TODO This isn't the right way to do this -- biomass is already reduced in PartialDisturbance, and this would double-count it
+            //Defoliate.Initialize(parameters); //SF be careful if using defoliate -- forage could be greater than available leaf biomass, and browsing
+                                                // could be double-counted if using both defoliate and BiomassCohorts.ReduceOrKillMarkedCohorts
             PopulationZones.Initialize(parameters);
             
             //This is used when calculating habitat suitability

@@ -175,7 +175,16 @@ namespace Landis.Extension.Browse
             InputVar<double> escapeBrowsePropLong = new InputVar<double>("EscapeBrowsePropLong");
             ReadVar(escapeBrowsePropLong);
             parameters.EscapeBrowsePropLong= escapeBrowsePropLong.Value;
-            
+
+            InputVar<string> calibrateMode = new InputVar<string>("CalibrateMode");
+            if (ReadOptionalVar(calibrateMode))
+                if (calibrateMode.Value.ToString().ToUpper() == "ON")
+                {
+                    parameters.CalibrateMode = true;
+                    PlugIn.Calibrate = true;
+                    PlugIn.ModelCore.UI.WriteLine("Running in Calibration Mode!");
+                }
+
             InputVar<string> growthReduction = new InputVar<string>("GrowthReduction");
             if (ReadOptionalVar(growthReduction))
                 if (growthReduction.Value.ToString().ToUpper() == "OFF")
@@ -244,7 +253,7 @@ namespace Landis.Extension.Browse
             else
             {
                 PlugIn.PropInReachMethod = "Ordered";
-                PlugIn.ModelCore.UI.WriteLine("Using linear each cohort method by default");
+                PlugIn.ModelCore.UI.WriteLine("Using ordered method by default");
             }
 
             InputVar<double> forageQuantityNbrRad = new InputVar<double>("ForageQuantity");
