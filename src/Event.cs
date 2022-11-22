@@ -392,9 +392,9 @@ namespace Landis.Extension.Browse
                                         forageRemoved -= adjFirstPassRemovalList[cohortLoop];
                                         forageRemoved += finalRemoval;
                                         prefClassRemoved += (finalRemoval - adjFirstPassRemovalList[cohortLoop]);
-                                        PlugIn.ModelCore.UI.WriteLine("{0:0.0}/{1:0.0}. adjusted firstPassRemoval = {2}, " +
-                                            "secondPassRemoval = {3}, finalRemoval = {4}", cohort.Species.Name, cohort.Age,
-                                            adjFirstPassRemovalList[cohortLoop], secondPassRemoval, finalRemoval); //debug
+                                        //PlugIn.ModelCore.UI.WriteLine("{0:0.0}/{1:0.0}. adjusted firstPassRemoval = {2}, " +
+                                        //    "secondPassRemoval = {3}, finalRemoval = {4}", cohort.Species.Name, cohort.Age,
+                                        //    adjFirstPassRemovalList[cohortLoop], secondPassRemoval, finalRemoval); //debug
                                     }
 
                                     finalRemovalList[cohortLoop] = finalRemoval; //RMS_calibrate_log
@@ -410,18 +410,19 @@ namespace Landis.Extension.Browse
                                         propBrowse = finalRemoval / SiteVars.GetForage(siteCohortList[cohortLoop], site);
                                     //PlugIn.ModelCore.UI.WriteLine("propBrowse = {0}", propBrowse);//debug
                                     propBrowseList[cohortLoop] = propBrowse;  //RMS_calibrate_log
-                                    if (propBrowse < 0.0 || propBrowse > 1.0001)
+                                    if (propBrowse < -0.0001  || propBrowse > 1.0001)
                                         //SF TODO this error still comes up frequently -- track this down
                                         PlugIn.ModelCore.UI.WriteLine("   Browse Proportion not between 0 and 1: {0}. finalRemoval = {1}," +
-                                            "total forage = {2}",
-                                            propBrowse, finalRemoval, SiteVars.GetForage(siteCohortList[cohortLoop], site));
+                                            "total forage = {2}. \r\n    Error encountered for site {3} (row {4}, column {5}), cohort {6:0.0}/{7:0.0}.",
+                                            propBrowse, finalRemoval, SiteVars.GetForage(siteCohortList[cohortLoop], site), site.DataIndex, site.Location.Row, site.Location.Column,
+                                            cohort.Species.Name, cohort.Age); 
 
                                     if (propBrowse > 1.0001)
                                         propBrowse = 1;
 
                                     //LastBrowseProportion is only used for GrowthReduction
                                     if (propBrowse > 0.0)
-                                        PlugIn.ModelCore.UI.WriteLine("Setting LastBrowseProportion :  {0:0.0}/{1:0.0}/{2}.", cohort.Species.Name, cohort.Age, propBrowse);
+                                        //PlugIn.ModelCore.UI.WriteLine("Setting LastBrowseProportion :  {0:0.0}/{1:0.0}/{2}.", cohort.Species.Name, cohort.Age, propBrowse); //debug
                                         SiteVars.SetLastBrowseProportion(cohort, site, propBrowse); //RMS_calibrate_log
 
                                     if (PlugIn.Calibrate)

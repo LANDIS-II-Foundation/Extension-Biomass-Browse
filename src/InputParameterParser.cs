@@ -232,7 +232,7 @@ namespace Landis.Extension.Browse
             InputVar<string> forageInReachMethod = new InputVar<string>("ForageInReachMethod");
             if (ReadOptionalVar(forageInReachMethod))
             {
-                PlugIn.ModelCore.UI.WriteLine("forageInReachMethod is {0}", forageInReachMethod.Value);
+                //PlugIn.ModelCore.UI.WriteLine("forageInReachMethod is {0}", forageInReachMethod.Value); //debug
                 if (forageInReachMethod.Value == "LinearEachCohort")
                 {
                     PlugIn.PropInReachMethod = "LinearEachCohort";

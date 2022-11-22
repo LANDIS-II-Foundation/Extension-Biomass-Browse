@@ -73,6 +73,7 @@ namespace Landis.Extension.Browse
 
             if (biomassCohorts == null)
             {
+                //SF TODO throw exception if missing?
                 PlugIn.ModelCore.UI.WriteLine("Problem getting biomassCohorts");
             }
 

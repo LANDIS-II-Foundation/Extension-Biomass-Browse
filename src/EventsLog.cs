@@ -25,7 +25,7 @@ namespace Landis.Extension.Browse
         public double PopulationDensity { get; set; }
 
         [DataFieldAttribute(Desc = "Total Forage (kg)")]
-        public int TotalForage { get; set; }
+        public long TotalForage { get; set; }
 
         [DataFieldAttribute(Desc = "Mean Forage (g m^-2)")]
         public int MeanForage { get; set; }

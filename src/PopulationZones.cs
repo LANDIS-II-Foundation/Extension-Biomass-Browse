@@ -61,13 +61,13 @@ namespace Landis.Extension.Browse
                     }
                 }
             }
-
+            /*
             foreach (IPopulationZone popZone in PopulationZones.Dataset)
             {
-                //PlugIn.ModelCore.UI.WriteLine("Population Zone {0} has Map Code {1}.", popZone.Index, popZone.MapCode);//debug
-                //PlugIn.ModelCore.UI.WriteLine("Population Zone {0} has {1} cells", popZone.Index, popZone.PopulationZoneSites.Count);//debug
+                PlugIn.ModelCore.UI.WriteLine("Population Zone {0} has Map Code {1}.", popZone.Index, popZone.MapCode);//debug
+                PlugIn.ModelCore.UI.WriteLine("Population Zone {0} has {1} cells", popZone.Index, popZone.PopulationZoneSites.Count);//debug
             }
-
+            */
         }
         //---------------------------------------------------------------------
         public static IPopulationZone FindZone(int mapCode)
@@ -91,17 +91,17 @@ namespace Landis.Extension.Browse
         {
             PlugIn.ModelCore.UI.WriteLine("   Calculating Zone Population.");
 
-            PlugIn.ModelCore.UI.WriteLine("Dynamic Population is {0}", PlugIn.DynamicPopulation);
+            //PlugIn.ModelCore.UI.WriteLine("Dynamic Population is {0}", PlugIn.DynamicPopulation); //debug
 
             // Get population for static population mode          
             if (!PlugIn.DynamicPopulation)
             {
-                PlugIn.ModelCore.UI.WriteLine("Using static population");
+                PlugIn.ModelCore.UI.WriteLine("    Using static population");
 
                 //if there is defined population data for the timestep
                 if (DynamicInputs.TemporalData.ContainsKey(PlugIn.ModelCore.CurrentTime))
                 {
-                    PlugIn.ModelCore.UI.WriteLine("     Defined population being loaded for current timestep");
+                    PlugIn.ModelCore.UI.WriteLine("    Defined population being loaded for current timestep");
                     foreach (IPopulationZone popZone in Dataset)
                     {
                         if (DynamicInputs.TemporalData[PlugIn.ModelCore.CurrentTime][popZone.Index] != null)
@@ -127,8 +127,8 @@ namespace Landis.Extension.Browse
                         Dataset[popZone.Index].K = CalculateK(popZone.Index, parameters);
                         Dataset[popZone.Index].EffectivePop = Math.Min(Dataset[popZone.Index].Population, Dataset[popZone.Index].K);
 
-                        PlugIn.ModelCore.UI.WriteLine("Using previous population size. PopZone Index {0}.  Population = {1}. K = {2}. EffectivePop = {3}.",
-                        popZone.Index, Dataset[popZone.Index].Population, Dataset[popZone.Index].K, Dataset[popZone.Index].EffectivePop);
+                        //PlugIn.ModelCore.UI.WriteLine("Using previous population size. PopZone Index {0}.  Population = {1}. K = {2}. EffectivePop = {3}.",
+                        //popZone.Index, Dataset[popZone.Index].Population, Dataset[popZone.Index].K, Dataset[popZone.Index].EffectivePop); //debug
                     }
                 }
             }
@@ -169,8 +169,8 @@ namespace Landis.Extension.Browse
                         Dataset[popZone.Index].K = CalculateK(popZone.Index, parameters);
                         Dataset[popZone.Index].Population = CalculateDynamicPop(popZone.Index, parameters);
                         Dataset[popZone.Index].EffectivePop = Math.Min(Dataset[popZone.Index].Population, Dataset[popZone.Index].K);
-                        PlugIn.ModelCore.UI.WriteLine("Using dynamic population. PopZone Index {0}.  Population = {1}. K = {2}. EffectivePop = {3}.",
-                            popZone.Index, Dataset[popZone.Index].Population, Dataset[popZone.Index].K, Dataset[popZone.Index].EffectivePop);
+                        //PlugIn.ModelCore.UI.WriteLine("    Using dynamic population. PopZone Index {0}.  Population = {1}. K = {2}. EffectivePop = {3}.",
+                        //    popZone.Index, Dataset[popZone.Index].Population, Dataset[popZone.Index].K, Dataset[popZone.Index].EffectivePop); //debug
                     }
                 }
 
@@ -205,7 +205,7 @@ namespace Landis.Extension.Browse
                         }
                         Dataset[popZone.Index].BDI = newBDI;
                         Dataset[popZone.Index].K = CalculateK(popZone.Index, parameters);
-                        Dataset[popZone.Index].Population = (int)(Dataset[popZone.Index].K * newBDI);
+                        Dataset[popZone.Index].Population = (double)(Dataset[popZone.Index].K * newBDI);
                         Dataset[popZone.Index].EffectivePop = Math.Min(Dataset[popZone.Index].Population, Dataset[popZone.Index].K);
                         
                         //PlugIn.ModelCore.UI.WriteLine("Using defined population size. PopZone Index {0}.  Population = {1}. K = {2}. EffectivePop = {3}.",
@@ -218,7 +218,7 @@ namespace Landis.Extension.Browse
                 foreach (IPopulationZone popZone in Dataset)
                 {
                     Dataset[popZone.Index].K = CalculateK(popZone.Index, parameters);
-                    Dataset[popZone.Index].Population = (int)(Dataset[popZone.Index].K * Dataset[popZone.Index].BDI);
+                    Dataset[popZone.Index].Population = (double)(Dataset[popZone.Index].K * Dataset[popZone.Index].BDI);
                     Dataset[popZone.Index].EffectivePop = Math.Min(Dataset[popZone.Index].Population, Dataset[popZone.Index].K);
                     //PlugIn.ModelCore.UI.WriteLine("Using dynamic population. PopZone Index {0}.  Population = {1}. K = {2}. EffectivePop = {3}.",
                         //popZone.Index, Dataset[popZone.Index].Population, Dataset[popZone.Index].K, Dataset[popZone.Index].EffectivePop);
@@ -278,6 +278,7 @@ namespace Landis.Extension.Browse
             if (newPop < 0)
             {
                 newPop = 0;
+                //SF TODO throw exception here?
                 PlugIn.ModelCore.UI.WriteLine("New population was negative, probably because oldPop was much greater than zoneK. Check initial population.");
             } else if (zoneK < 0.0001)
             {
@@ -285,8 +286,8 @@ namespace Landis.Extension.Browse
                 PlugIn.ModelCore.UI.WriteLine("Carrying capacity = 0; check parameters.");
             }
 
-            PlugIn.ModelCore.UI.WriteLine("oldPop = {0}.  popR = {1}. popMortality = {2}. popPredation = {3}. popHarvest = {4}. popGrowth = {5}. newPop = {6}.",
-                                          oldPop, popR, popMortality, popPredation, popHarvest, popGrowth, newPop);
+            //PlugIn.ModelCore.UI.WriteLine("oldPop = {0}.  popR = {1}. popMortality = {2}. popPredation = {3}. popHarvest = {4}. popGrowth = {5}. newPop = {6}.",
+            //                              oldPop, popR, popMortality, popPredation, popHarvest, popGrowth, newPop);//debug
                      
 
             return newPop;
@@ -335,7 +336,7 @@ namespace Landis.Extension.Browse
                     }
                     Dataset[popZone.Index].BDI = newBDI;
                     Dataset[popZone.Index].K = CalculateK(popZone.Index, parameters);
-                    Dataset[popZone.Index].Population = (int)(Dataset[popZone.Index].K * newBDI);
+                    Dataset[popZone.Index].Population = (double)(Dataset[popZone.Index].K * newBDI);
                     Dataset[popZone.Index].EffectivePop = Math.Min(Dataset[popZone.Index].Population, Dataset[popZone.Index].K);
                 }
             }

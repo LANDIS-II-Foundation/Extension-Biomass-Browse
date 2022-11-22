@@ -42,7 +42,7 @@ namespace Landis.Extension.Browse
 
             double defoliation = amountForaged / (double)leafBiomass;
 
-            PlugIn.ModelCore.UI.WriteLine("   Defoliation proportion is {0}. Estimated leafBiomass is {1}; total biomass is {2}", defoliation, leafBiomass, cohort.Biomass);
+            //PlugIn.ModelCore.UI.WriteLine("   Defoliation proportion is {0}. Estimated leafBiomass is {1}; total biomass is {2}", defoliation, leafBiomass, cohort.Biomass); //debug
 
             return defoliation;  // Cohort total defoliation proportion
 
