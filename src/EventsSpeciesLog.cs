@@ -24,8 +24,17 @@ namespace Landis.Extension.Browse
         [DataFieldAttribute(Desc = "Species Index")]
         public int SpeciesIndex { get; set; }
 
-        [DataFieldAttribute(Unit = FieldUnits.g_B_m2, Desc = "Total Biomass Removed")]
-        public int AverageBiomassRemoved { get; set; }
+        [DataFieldAttribute(Unit = FieldUnits.g_B_m2, Desc = "Average Forage Density")]
+        public double AverageForage { get; set; }
+
+        [DataFieldAttribute(Unit = FieldUnits.g_B_m2, Desc = "Average ForageInReach Density")]
+        public double AverageForageInReach { get; set; }
+
+        [DataFieldAttribute(Unit = FieldUnits.g_B_m2, Desc = "Total Biomass Consumed")]
+        public double AverageBiomassBrowsed { get; set; }
+
+        [DataFieldAttribute(Unit = FieldUnits.g_B_m2, Desc = "Total Biomass Removed (Consumed + Killed)")]
+        public double AverageBiomassRemoved { get; set; }
 
         [DataFieldAttribute(Unit = FieldUnits.Count, Desc = "Total Cohorts Killed")]
         public int TotalCohortsKilled { get; set; }

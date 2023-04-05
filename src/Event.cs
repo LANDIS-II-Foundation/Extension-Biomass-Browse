@@ -17,6 +17,7 @@ namespace Landis.Extension.Browse
         private double biomassRemoved;
         private double biomassKilled;
         private int population;
+
         private int[] cohortsKilledSpp;
         private double[] biomassRemovedSpp;
 
@@ -27,6 +28,9 @@ namespace Landis.Extension.Browse
         private int[] zonePopulation;
         private int[][] zoneCohortsKilledSpp;
         private double[][] zoneBiomassRemovedSpp;
+        private double[][] zoneBiomassBrowsedSpp;
+        private double[][] zoneForageSpp;
+        private double[][] zoneForageInReachSpp;
 
 
         //---------------------------------------------------------------------
@@ -149,6 +153,30 @@ namespace Landis.Extension.Browse
             }
         }
         //---------------------------------------------------------------------
+        public double[][] ZoneBiomassBrowsedSpp
+        {
+            get
+            {
+                return zoneBiomassBrowsedSpp;
+            }
+        }
+        //---------------------------------------------------------------------
+        public double[][] ZoneForageSpp
+        {
+            get
+            {
+                return zoneForageSpp;
+            }
+        }
+        //---------------------------------------------------------------------
+        public double[][] ZoneForageInReachSpp
+        {
+            get
+            {
+                return zoneForageInReachSpp;
+            }
+        }
+        //---------------------------------------------------------------------
         public static void Initialize()
         {
 
@@ -211,13 +239,13 @@ namespace Landis.Extension.Browse
             this.zoneSitesDamaged = new int[PopulationZones.Dataset.Count];
             this.zonePopulation = new int[PopulationZones.Dataset.Count];
             this.zoneCohortsKilled = new int[PopulationZones.Dataset.Count];
-            //this.zoneBiomassRemoved = new int[PopulationZones.Dataset.Count];
             this.zoneBiomassRemoved = new double[PopulationZones.Dataset.Count];
-            //this.zoneBiomassKilled = new int[PopulationZones.Dataset.Count];
             this.zoneBiomassKilled = new double[PopulationZones.Dataset.Count];
             this.zoneCohortsKilledSpp = new int[PopulationZones.Dataset.Count][];
-            //this.zoneBiomassRemovedSpp = new int[PopulationZones.Dataset.Count][];
             this.zoneBiomassRemovedSpp = new double[PopulationZones.Dataset.Count][];
+            this.zoneBiomassBrowsedSpp = new double[PopulationZones.Dataset.Count][];
+            this.zoneForageSpp = new double[PopulationZones.Dataset.Count][];
+            this.zoneForageInReachSpp = new double[PopulationZones.Dataset.Count][];
 
             foreach (IPopulationZone popZone in PopulationZones.Dataset)
 
@@ -229,10 +257,17 @@ namespace Landis.Extension.Browse
                 this.zoneBiomassKilled[popZone.Index] = 0;
                 this.zoneCohortsKilledSpp[popZone.Index] = new int[PlugIn.ModelCore.Species.Count];
                 this.zoneBiomassRemovedSpp[popZone.Index] = new double[PlugIn.ModelCore.Species.Count];
+                this.zoneBiomassBrowsedSpp[popZone.Index] = new double[PlugIn.ModelCore.Species.Count];
+                this.zoneForageSpp[popZone.Index] = new double[PlugIn.ModelCore.Species.Count];
+                this.zoneForageInReachSpp[popZone.Index] = new double[PlugIn.ModelCore.Species.Count];
+
                 foreach (ISpecies species in PlugIn.ModelCore.Species)
                 {
                     this.zoneCohortsKilledSpp[popZone.Index][species.Index] = 0;
                     this.zoneBiomassRemovedSpp[popZone.Index][species.Index] = 0;
+                    this.zoneBiomassBrowsedSpp[popZone.Index] = new double[PlugIn.ModelCore.Species.Count];
+                    this.zoneForageSpp[popZone.Index][species.Index] = 0;
+                    this.zoneForageInReachSpp[popZone.Index][species.Index] = 0;
                 }
             }
         }
@@ -403,6 +438,7 @@ namespace Landis.Extension.Browse
 
                                     this.biomassRemoved += (double)finalRemoval;
                                     this.zoneBiomassRemoved[popZone.Index] += (double)finalRemoval;
+                                    this.zoneBiomassBrowsedSpp[popZone.Index][cohort.Species.Index] += (double)finalRemoval;
                                     siteTotalRemoval += finalRemoval;
 
                                     double propBrowse = 0.0;
@@ -410,8 +446,8 @@ namespace Landis.Extension.Browse
                                         propBrowse = finalRemoval / SiteVars.GetForage(siteCohortList[cohortLoop], site);
                                     //PlugIn.ModelCore.UI.WriteLine("propBrowse = {0}", propBrowse);//debug
                                     propBrowseList[cohortLoop] = propBrowse;  //RMS_calibrate_log
+
                                     if (propBrowse < -0.0001  || propBrowse > 1.0001)
-                                        //SF TODO this error still comes up frequently -- track this down
                                         PlugIn.ModelCore.UI.WriteLine("   Browse Proportion not between 0 and 1: {0}. finalRemoval = {1}," +
                                             "total forage = {2}. \r\n    Error encountered for site {3} (row {4}, column {5}), cohort {6:0.0}/{7:0.0}.",
                                             propBrowse, finalRemoval, SiteVars.GetForage(siteCohortList[cohortLoop], site), site.DataIndex, site.Location.Row, site.Location.Column,
@@ -472,10 +508,32 @@ namespace Landis.Extension.Browse
                         }
                         this.sitesDamaged += 1;
                         this.zoneSitesDamaged[popZone.Index] += 1;
+
+
                     }
 
                     // Send biomass reduction to the succession extensions
                     PartialDisturbance.ReduceCohortBiomass(site);
+
+                    //add species forage per zone for log file
+                    List<ICohort> siteCohortListAll = new List<ICohort>();
+                    foreach (ISpecies species in PlugIn.ModelCore.Species)
+                    {
+                        ISpeciesCohorts cohortList = SiteVars.BiomassCohorts[site][species];
+                        if (cohortList != null)
+                        {
+                            foreach (ICohort cohort in cohortList)
+                            {
+                                siteCohortListAll.Add(cohort);
+                            }
+                        }
+                    }
+
+                    foreach (ICohort cohort in siteCohortListAll)
+                    {
+                        this.zoneForageSpp[popZone.Index][cohort.Species.Index] += SiteVars.GetForage(cohort, site);
+                        this.zoneForageInReachSpp[popZone.Index][cohort.Species.Index] += SiteVars.GetForageInReach(cohort, site);
+                    }
 
                 }
             }

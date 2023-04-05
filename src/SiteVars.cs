@@ -56,7 +56,7 @@ namespace Landis.Extension.Browse
             cohortsDamaged = PlugIn.ModelCore.Landscape.NewSiteVar<int>();
             //youngCohortCount = PlugIn.ModelCore.Landscape.NewSiteVar<int>();
             //ecoMaxBiomass = PlugIn.ModelCore.GetSiteVar<int>("Succession.MaxBiomass");
-            siteCohortList = PlugIn.ModelCore.Landscape.NewSiteVar<List<ICohort>>();
+            siteCohortList = PlugIn.ModelCore.Landscape.NewSiteVar<List<ICohort>>(); // SF can probably remove
 
             Forage = PlugIn.ModelCore.Landscape.NewSiteVar<Dictionary<int, Dictionary<int, double>>>();
             ForageInReach = PlugIn.ModelCore.Landscape.NewSiteVar<Dictionary<int, Dictionary<int, double>>>();

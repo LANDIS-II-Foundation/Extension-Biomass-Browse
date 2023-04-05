@@ -24,6 +24,7 @@ HRDWD		0.15		0.3		0.4	0.8		0.01   5000
 
 << Browser population Inputs >>
 ZoneMap  "ecoregions_subset.tif" <<same as ecoregions right now; every active cell can be browsed. sf 2021-12-20
+BrowseMethod "Population"
 DefinedPopulationFile	"DefinedUngulatePopulation.txt"  << User-defined population
 DynamicPopulation
 RMin 0.15

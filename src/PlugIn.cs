@@ -342,7 +342,13 @@ namespace Landis.Extension.Browse
                     el.TotalSites = PopulationZones.Dataset[popZone.Index].PopulationZoneSites.Count;
                     el.SpeciesName = species.Name;
                     el.SpeciesIndex = species.Index;
-                    el.AverageBiomassRemoved = (int)(browseEvent.ZoneBiomassRemovedSpp[popZone.Index][species.Index] /
+                    el.AverageForage = browseEvent.ZoneForageSpp[popZone.Index][species.Index] /
+                        (double)PopulationZones.Dataset[popZone.Index].PopulationZoneSites.Count;
+                    el.AverageForageInReach = browseEvent.ZoneForageInReachSpp[popZone.Index][species.Index] /
+                        (double)PopulationZones.Dataset[popZone.Index].PopulationZoneSites.Count;
+                    el.AverageBiomassBrowsed = (double)(browseEvent.ZoneBiomassBrowsedSpp[popZone.Index][species.Index] /
+                       (double)PopulationZones.Dataset[popZone.Index].PopulationZoneSites.Count); //site mean biomass in g/m2
+                    el.AverageBiomassRemoved = (double)(browseEvent.ZoneBiomassRemovedSpp[popZone.Index][species.Index] /
                         (double)PopulationZones.Dataset[popZone.Index].PopulationZoneSites.Count); //site mean biomass in g/m2
                     el.TotalCohortsKilled = browseEvent.ZoneCohortsKilledSpp[popZone.Index][species.Index];
 
