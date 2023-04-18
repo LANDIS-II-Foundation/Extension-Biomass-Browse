@@ -1,0 +1,28 @@
+LandisData "Dynamic Ungulate Population"
+
+R		<<rate of population growth		
+<<Min Max	<<model randomly picks a number between Min and Max
+<<--- ---
+0.40	0.50	<<mean=0.45	UG: 0.3	0.4
+>>Rate of increase=0.45
+
+>>Balance increase and decrease (mortality) for stable population
+>>Rate of decrease=0.40; apportion to cause according to % given below
+Mortality	<<road kills, starvation, cold, old age (15% of mortality in data below - use 34% to make causes sum to 100%)
+<<Min Max
+<<--- ---
+0.121	0.151 	<<mean=0.136	UG: 0.0	0.10
+
+Predation	<<13% of mortality - use 15%
+<<Min Max
+<<--- ---
+0.05	0.07	<<mean=0.06
+
+Harvest		<<hunting pressure, including poaching (51% of mortality)
+<<Min Max
+<<--- ---
+0.194	0.214	<<mean=0.204
+
+>> [2009] Mortality rates in the northern region break down to 43 percent due to human hunting, 9 percent starvation, 8 percent poaching, 7 percent coyotes, 6 percent wolves, and 6 percent vehicle collisions. 
+>>On average, 73 percent of does and 47 percent of adult bucks in the northern study survived the year. Mean=60% survival, 40% mortality.
+>>https://www.outdoorlife.com/blogs/newshound/2014/01/new-wisconsin-study-reveals-data-deer-mortality/#:~:text=Mortality%20rates%20reflect%20the%20percentage,northern%20study%20survived%20the%20year.

@@ -605,6 +605,7 @@ namespace Landis.Extension.Browse
                                 if(PlugIn.Calibrate)
                                     CalibrateLog.SetCalibrateData(cohort, 0, growthReduction);
                                 newForage = (cohort.Biomass * 0.04) * parameters.ANPPForageProp * (1-growthReduction); //RMS_calibrate_log
+                                //newForage = cohort.ANPP * parameters.ANPPForageProp; //BRM
 
                                 //PlugIn.ModelCore.UI.WriteLine("New Forage estimated as {0}", newForage);//debug
 
