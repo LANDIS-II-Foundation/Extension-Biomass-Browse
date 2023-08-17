@@ -53,7 +53,7 @@ namespace Landis.Extension.Browse
                
             double avgPref = 0.0;
             double avgWeightPref = 0.0;
-            if (countCohorts > 0)
+            if (countCohorts > 0 && sumWeight > 0)
             {
                 avgPref = sumPref / (double)countCohorts;
                 avgWeightPref = weightPref / sumWeight;
