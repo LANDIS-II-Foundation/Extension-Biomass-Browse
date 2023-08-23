@@ -16,7 +16,11 @@ namespace Landis.Extension.Browse
             {
                 //PlugIn.ModelCore.UI.WriteLine("species = {0}", species.Name); //debug
                 //SF TODO try-catch here and throw exception if species is missing; name the species
-                double browsePref = sppParms[species.Index].BrowsePref;
+                double browsePref = 0;
+                if (sppParms[species.Index] != null)
+                {
+                    browsePref = sppParms[species.Index].BrowsePref;
+                }
                 if (!preferenceList.Contains(browsePref))
                     preferenceList.Add(browsePref);
             }

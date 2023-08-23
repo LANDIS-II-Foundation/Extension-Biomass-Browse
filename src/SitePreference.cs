@@ -28,12 +28,16 @@ namespace Landis.Extension.Browse
             {
 
                 ISppParameters sppParms = parameters.SppParameters[species.Index];
+                double browsePref = 0;
+                if (sppParms != null)
+                {
+                    browsePref = sppParms.BrowsePref;
+                }
                 ISpeciesCohorts cohortList = SiteVars.BiomassCohorts[site][species];
                 if (cohortList != null)
                 {
                     foreach (ICohort cohort in cohortList)
                     {
-                        double browsePref = sppParms.BrowsePref;
                         if ((browsePref > 0) || (parameters.CountNonForage))
                         {
                             sumPref += browsePref;
@@ -49,6 +53,7 @@ namespace Landis.Extension.Browse
                         }
                     }
                 }
+
             }
                
             double avgPref = 0.0;

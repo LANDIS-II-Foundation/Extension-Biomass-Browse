@@ -28,14 +28,18 @@ namespace Landis.Extension.Browse
         {
             //PlugIn.ModelCore.UI.WriteLine("   Reducing cohort growth..."); //debug
             double reduction = 0;
-            double propBrowse = SiteVars.GetLastBrowseProportion(cohort, site); 
-            double threshold = inputParameters.SppParameters[cohort.Species.Index].GrowthReductThresh;
-
-            double max = inputParameters.SppParameters[cohort.Species.Index].GrowthReductMax;
-            if (propBrowse > threshold)
+            double propBrowse = SiteVars.GetLastBrowseProportion(cohort, site);
+            ISppParameters sppParms = inputParameters.SppParameters[cohort.Species.Index];
+            if (sppParms != null)
             {
-                reduction = (max / (1.0 - threshold)) * propBrowse - threshold * (max / (1 - threshold));
-                //PlugIn.ModelCore.UI.WriteLine("Growth reduction from Browse extension is {0}", reduction); //debug
+                double threshold = sppParms.GrowthReductThresh;
+
+                double max = sppParms.GrowthReductMax;
+                if (propBrowse > threshold)
+                {
+                    reduction = (max / (1.0 - threshold)) * propBrowse - threshold * (max / (1 - threshold));
+                    //PlugIn.ModelCore.UI.WriteLine("Growth reduction from Browse extension is {0}", reduction); //debug
+                }
             }
             return reduction;
 
