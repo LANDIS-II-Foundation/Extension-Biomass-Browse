@@ -600,11 +600,13 @@ namespace Landis.Extension.Browse
                                 // This value also matches more closely what Biomass Succession was generating for the previous version of the model
                                 // This gets us site ANPP within 10% of what NECN produces, at least for the handful of "typical" sites I tested -- SF
 
-                                //because ANPP is not communicated from the succession extension, we need to reduce ANPP here as well:
-                                double growthReduction  = GrowthReduction.ReduceCohortGrowth(cohort, site); //RMS_calibrate_log
+                                
+                                double growthReduction  = GrowthReduction.ReduceCohortGrowth(cohort, site);
                                 if(PlugIn.Calibrate)
                                     CalibrateLog.SetCalibrateData(cohort, 0, growthReduction);
-                                newForage = (cohort.Biomass * 0.04) * parameters.ANPPForageProp * (1-growthReduction); //RMS_calibrate_log
+                                newForage = (cohort.Biomass * 0.04) * parameters.ANPPForageProp * (1-growthReduction);
+
+                                newForage = cohort.Biomass * 0.04;
 
                                 //PlugIn.ModelCore.UI.WriteLine("New Forage estimated as {0}", newForage);//debug
 
