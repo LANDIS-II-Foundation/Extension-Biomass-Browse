@@ -105,17 +105,52 @@ namespace Landis.Extension.Browse
             ReadVar(zoneMapFile);
             parameters.ZoneMapFileName = zoneMapFile.Value;
 
-            //TODO add max biomass as a raster for each species?
+            InputVar<string> browseMethod = new InputVar<string>("BrowseMethod");
+            ReadVar(browseMethod);
+            parameters.BrowseMethod = browseMethod.Value;
+            if(parameters.BrowseMethod == "BDI") PlugIn.UseBDI = true; //UseBDI is false by default
 
-            InputVar<string> populationFile = new InputVar<string>("PopulationFile");
+            InputVar<string> populationFile = new InputVar<string>("DefinedPopulationFile");
             ReadVar(populationFile);
             parameters.PopulationFileName = populationFile.Value;
+            
+            if (ReadOptionalName("DynamicPopulation"))
+            {
+                if(!PlugIn.UseBDI) PlugIn.DynamicPopulation = true; //only change to true if we're in "population mode"
 
-            InputVar<string> dynamicPopulationFile = new InputVar<string>("DynamicPopulationFile");
-            if (ReadOptionalVar(dynamicPopulationFile))
-                parameters.DynamicPopulationFileName = dynamicPopulationFile.Value;
-            else
-                parameters.DynamicPopulationFileName = null;
+                //ReadName("DynamicPopulation");
+                InputVar<double> rmin = new InputVar<double>("RMin");
+                    ReadVar(rmin);
+                    PlugIn.PopRMin = (double) rmin.Value;
+
+                    InputVar<double> rmax = new InputVar<double>("RMax");
+                    ReadVar(rmax);
+                    PlugIn.PopRMax = rmax.Value;
+
+                    InputVar<double> mmin = new InputVar<double>("MortalityMin");
+                    ReadVar(mmin);
+                    PlugIn.PopMortalityMin = mmin.Value;
+
+                    InputVar<double> mmax = new InputVar<double>("MortalityMax");
+                    ReadVar(mmax);
+                    PlugIn.PopMortalityMax = mmax.Value;
+
+                    InputVar<double> pmin = new InputVar<double>("PredationMin");
+                    ReadVar(pmin);
+                    PlugIn.PopPredationMin = pmin.Value;
+
+                    InputVar<double> pmax = new InputVar<double>("PredationMax");
+                    ReadVar(pmax);
+                    PlugIn.PopPredationMax = pmax.Value;
+
+                    InputVar<double> hmin = new InputVar<double>("HarvestMin");
+                    ReadVar(hmin);
+                    PlugIn.PopHarvestMin = hmin.Value;
+
+                    InputVar<double> hmax = new InputVar<double>("HarvestMax");
+                    ReadVar(hmax);
+                    PlugIn.PopHarvestMax = hmax.Value;
+            }
 
             InputVar<double> consumptionRate = new InputVar<double>("ConsumptionRate");
             ReadVar(consumptionRate);
@@ -129,14 +164,27 @@ namespace Landis.Extension.Browse
             ReadVar(minBrowsePropinReach);
             parameters.MinBrowsePropinReach = minBrowsePropinReach.Value;
 
-            InputVar<double> browseBiomassThresh = new InputVar<double>("BrowseBiomassThreshold");
-            ReadVar(browseBiomassThresh);
-            parameters.BrowseBiomassThresh = browseBiomassThresh.Value;
+            InputVar<double> browseBiomassThreshMin = new InputVar<double>("BrowseBiomassThresholdMin");
+            ReadVar(browseBiomassThreshMin);
+            parameters.BrowseBiomassThreshMin = browseBiomassThreshMin.Value;
+
+            InputVar<double> browseBiomassThreshMax = new InputVar<double>("BrowseBiomassThresholdMax");
+            ReadVar(browseBiomassThreshMax);
+            parameters.BrowseBiomassThreshMax = browseBiomassThreshMax.Value;
 
             InputVar<double> escapeBrowsePropLong = new InputVar<double>("EscapeBrowsePropLong");
             ReadVar(escapeBrowsePropLong);
             parameters.EscapeBrowsePropLong= escapeBrowsePropLong.Value;
-            
+
+            InputVar<string> calibrateMode = new InputVar<string>("CalibrateMode");
+            if (ReadOptionalVar(calibrateMode))
+                if (calibrateMode.Value.ToString().ToUpper() == "ON")
+                {
+                    parameters.CalibrateMode = true;
+                    PlugIn.Calibrate = true;
+                    PlugIn.ModelCore.UI.WriteLine("Running in Calibration Mode!");
+                }
+
             InputVar<string> growthReduction = new InputVar<string>("GrowthReduction");
             if (ReadOptionalVar(growthReduction))
                 if (growthReduction.Value.ToString().ToUpper() == "OFF")
@@ -180,6 +228,33 @@ namespace Landis.Extension.Browse
                     parameters.UseInitBiomass = false;
             else
                 parameters.UseInitBiomass = false;
+
+            InputVar<string> forageInReachMethod = new InputVar<string>("ForageInReachMethod");
+            if (ReadOptionalVar(forageInReachMethod))
+            {
+                //PlugIn.ModelCore.UI.WriteLine("forageInReachMethod is {0}", forageInReachMethod.Value); //debug
+                if (forageInReachMethod.Value == "LinearEachCohort")
+                {
+                    PlugIn.PropInReachMethod = "LinearEachCohort";
+                    PlugIn.ModelCore.UI.WriteLine("Using linear each cohort method");
+                }
+                else if (forageInReachMethod.Value == "Ordered")
+                {
+                    PlugIn.PropInReachMethod = "Ordered";
+                    PlugIn.ModelCore.UI.WriteLine("Using ordered cohorts method");
+                } 
+                else
+                {
+                    PlugIn.PropInReachMethod = "Ordered";
+                    PlugIn.ModelCore.UI.WriteLine("ForageInReachMethod not recognized: Using ordered cohorts method");
+                }
+
+            }
+            else
+            {
+                PlugIn.PropInReachMethod = "Ordered";
+                PlugIn.ModelCore.UI.WriteLine("Using ordered method by default");
+            }
 
             InputVar<double> forageQuantityNbrRad = new InputVar<double>("ForageQuantity");
             if (ReadOptionalVar(forageQuantityNbrRad))

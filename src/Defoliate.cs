@@ -7,7 +7,6 @@ using Landis.Library.Biomass;
 using Landis.SpatialModeling;
 using Landis.Library.BiomassCohorts;
 
-
 namespace Landis.Extension.Browse
 {
     
@@ -18,27 +17,37 @@ namespace Landis.Extension.Browse
 
         public static void Initialize(IInputParameters parameters)
         {
-            // Assign the method below to the CohortDefoliation delegate in
+            // Assign the method below to the CohortDefoliation delegate in BiomassCohorts
             IInputParameters browseParameters = parameters;
+            Landis.Library.BiomassCohorts.CohortDefoliation.Compute = DefoliateCohort;
+
         }
 
-        //---------------------------------------------------------------------
-        // This method replaces the delegate method.  It is called every year when
-        // ACT_ANPP is calculated, for each cohort.  Therefore, this method is operating at
-        // an ANNUAL time step and separate from the normal extension time step.
-
-        public static double DefoliateCohort(ActiveSite site, ISpecies species, int cohortBiomass, int siteBiomass, int ANPP = 0)
+        public static double DefoliateCohort(ICohort cohort, ActiveSite site, int siteBiomass)
         {
-            //PlugIn.ModelCore.UI.WriteLine("   Calculating browse...");
-            double defoliation = 0.0;
-            double currentForage = ANPP * browseParameters.ANPPForageProp;
 
-            return defoliation;  // Cohort total defoliation proportion (summed across insects)
+            PlugIn.ModelCore.UI.WriteLine("   Calculating defoliation proportion...");
+
+            double forage = SiteVars.GetForage(cohort, site);
+
+            double propBrowse = SiteVars.GetLastBrowseProportion(cohort, site);
+
+            double amountForaged = forage * propBrowse;
+
+            // Estimate leaf biomass from total cohort biomass
+            // see Poorter, H., A. M. Jagodzinski, R. Ruiz-Peinado, S. Kuyah, Y. Luo, J. Oleksyn, V. A. Usoltsev, T. N. Buckley, P. B. Reich, and L. Sack. 2015. How does biomass distribution change with size and differ among species? An analysis for 1200 plant species from five continents. New Phytologist 208:736–749.
+            // SF TODO check how NECN and PnET are doing this calculation
+            // Could allow to use leaf biomass directly from NECN or PnET?
+            double leafBiomass = Math.Pow(10, 0.113 + 0.74 * Math.Log10(cohort.Biomass));
+
+            double defoliation = amountForaged / (double)leafBiomass;
+
+            //PlugIn.ModelCore.UI.WriteLine("   Defoliation proportion is {0}. Estimated leafBiomass is {1}; total biomass is {2}", defoliation, leafBiomass, cohort.Biomass); //debug
+
+            return defoliation;  // Cohort total defoliation proportion
 
         }
 
-
-
-    }
+        }
 
 }

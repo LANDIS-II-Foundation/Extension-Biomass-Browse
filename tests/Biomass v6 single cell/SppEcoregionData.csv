@@ -1,0 +1,17 @@
+Year,EcoregionName,SpeciesCode,ProbEstablish,ProbMortality,ANPPmax,BiomassMax
+0,eco3,abiebals,0.9,0.95,886,26000
+0,eco3,acerrubr,1,0.95,1175,26000
+0,eco3,acersacc,0.82,0.95,1106,26000
+0,eco3,betualle,0.64,0.95,1202,26000
+0,eco3,betupapy,1,0.95,1202,26000
+0,eco3,fraxamer,0.18,0.95,1202,26000
+0,eco3,piceglau,0.58,0.95,969,26000
+0,eco3,pinubank,1,0.95,1130,26000
+0,eco3,pinuresi,0.56,0.95,1017,26000
+0,eco3,pinustro,0.72,0.95,1090,26000
+0,eco3,poputrem,1,0.95,1078,26000
+0,eco3,querelli,0.96,0.95,1096,26000
+0,eco3,querrubr,0.66,0.95,1017,26000
+0,eco3,thujocci,0.76,0.95,1090,26000
+0,eco3,tiliamer,0.54,0.95,1078,26000
+0,eco3,tsugcana,0.54,0.95,1078,26000

@@ -23,7 +23,7 @@ namespace Landis.Extension.Browse
         private static ISiteVar<double> cappedBrowse;  
         private static ISiteVar<double> remainBrowse;
         private static ISiteVar<double> totalBrowse;
-        private static ISiteVar<int> biomassRemoved;
+        private static ISiteVar<double> biomassRemoved;
         private static ISiteVar<int> cohortsDamaged;
         //private static ISiteVar<int> ecoMaxBiomass;
         private static ISiteVar<List<Landis.Library.BiomassCohorts.ICohort>> siteCohortList;
@@ -52,11 +52,11 @@ namespace Landis.Extension.Browse
             cappedBrowse = PlugIn.ModelCore.Landscape.NewSiteVar<double>();
             remainBrowse = PlugIn.ModelCore.Landscape.NewSiteVar<double>();
             totalBrowse = PlugIn.ModelCore.Landscape.NewSiteVar<double>();
-            biomassRemoved = PlugIn.ModelCore.Landscape.NewSiteVar<int>();
+            biomassRemoved = PlugIn.ModelCore.Landscape.NewSiteVar<double>();
             cohortsDamaged = PlugIn.ModelCore.Landscape.NewSiteVar<int>();
             //youngCohortCount = PlugIn.ModelCore.Landscape.NewSiteVar<int>();
             //ecoMaxBiomass = PlugIn.ModelCore.GetSiteVar<int>("Succession.MaxBiomass");
-            siteCohortList = PlugIn.ModelCore.Landscape.NewSiteVar<List<ICohort>>();
+            siteCohortList = PlugIn.ModelCore.Landscape.NewSiteVar<List<ICohort>>(); // SF can probably remove
 
             Forage = PlugIn.ModelCore.Landscape.NewSiteVar<Dictionary<int, Dictionary<int, double>>>();
             ForageInReach = PlugIn.ModelCore.Landscape.NewSiteVar<Dictionary<int, Dictionary<int, double>>>();
@@ -71,16 +71,11 @@ namespace Landis.Extension.Browse
 
             biomassCohorts = PlugIn.ModelCore.GetSiteVar<Landis.Library.BiomassCohorts.ISiteCohorts>("Succession.BiomassCohorts");
 
-            //if (biomassCohorts == null)
-            //{
-            //    //ageCohorts = PlugIn.ModelCore.GetSiteVar<Landis.Library.AgeOnlyCohorts.ISiteCohorts>("Succession.AgeCohorts");
-            //    return "AgeOnly";
-            //}
-            //else
-            //{
-            //    return "Biomass";
-            //}
-          
+            if (biomassCohorts == null)
+            {
+                //SF TODO throw exception if missing?
+                PlugIn.ModelCore.UI.WriteLine("Problem getting biomassCohorts");
+            }
 
         }
         ////---------------------------------------------------------------------
@@ -130,7 +125,8 @@ namespace Landis.Extension.Browse
             if (ForageInReach[site].TryGetValue(cohort.Species.Index, out cohortDict))
                 if (cohortDict.TryGetValue(cohortAddYear, out oldForageInReach))
                 {
-                    ForageInReach[site][cohort.Species.Index][cohortAddYear] = forageInReach;
+                    //PlugIn.ModelCore.UI.WriteLine("Overwriting old forageInReach value for cohort");
+                    ForageInReach[site][cohort.Species.Index][cohortAddYear] = forageInReach; 
                     return;
                 }
 
@@ -141,9 +137,11 @@ namespace Landis.Extension.Browse
             if (ForageInReach[site].ContainsKey(cohort.Species.Index))
             {
                 ForageInReach[site][cohort.Species.Index].Add(cohortAddYear, forageInReach);
+                //PlugIn.ModelCore.UI.WriteLine("Adding new cohort"); //debug
             }
             else
             {
+                //PlugIn.ModelCore.UI.WriteLine("Adding new cohort"); //debug
                 ForageInReach[site].Add(cohort.Species.Index, newEntry);
             }
         }
@@ -153,7 +151,6 @@ namespace Landis.Extension.Browse
             int cohortAddYear = GetAddYear(cohort);
             Dictionary<int, double> cohortDict;
             double oldValue;
-
 
             // If the dictionary entry exists for the cohort, overwrite it:
             if (LastBrowseProportion[site].TryGetValue(cohort.Species.Index, out cohortDict))
@@ -329,7 +326,7 @@ namespace Landis.Extension.Browse
             }
         }
         //---------------------------------------------------------------------
-        public static ISiteVar<int> BiomassRemoved
+        public static ISiteVar<double> BiomassRemoved
         {
             get
             {
@@ -362,7 +359,7 @@ namespace Landis.Extension.Browse
         //    }
         //}
         //---------------------------------------------------------------------
-        private static int GetAddYear(ICohort cohort)
+        public static int GetAddYear(ICohort cohort)
         {
             int currentYear = PlugIn.ModelCore.CurrentTime;
             int cohortAddYear = currentYear - cohort.Age;

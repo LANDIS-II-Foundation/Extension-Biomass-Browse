@@ -16,17 +16,20 @@ namespace Landis.Extension.Browse
         private int timestep;
         private ISppParameters[] sppParameters;
         private string zoneMapFileName;
+        private string browseMethod;
         private string populationFileName;
-        private string dynamicPopulationFileName;
         private double consumptionRate;
         private static double anppForageProp;
         private double minBrowseinReach;
-        private double browseBiomassThresh;
+        private double browseBiomassThreshMin;
+        private double browseBiomassThreshMax;
         private double escapeBrowsePropLong;
+        private bool calibrateMode;
         private bool growthReduction;
         private bool mortality;
         private bool countNonForage;
         private bool useInitBiomass;
+        private string forageInReachMethod;
         private double forageQuantityNbrRad;
         private double sitePrefNbrRad;
         private string sitePrefMapNamesTemplate;
@@ -42,9 +45,11 @@ namespace Landis.Extension.Browse
         private IEnumerable<RelativeLocationWeighted> forageNeighbors;
         private IEnumerable<RelativeLocationWeighted> sitePrefNeighbors;
         private List<double> preferenceList;
-     
 
- 
+        private Dictionary<int, IDynamicInputRecord[]> temporalData;
+
+
+
 
         //---------------------------------------------------------------------
 
@@ -79,6 +84,18 @@ namespace Landis.Extension.Browse
             }
         }
         //---------------------------------------------------------------------
+        public Dictionary<int, IDynamicInputRecord[]> TemporalData
+        {
+            get
+            {
+                return temporalData;
+            }
+            set
+            {
+                temporalData = value;
+            }
+        }
+        //---------------------------------------------------------------------
         /// <summary>
         /// Name of zone map file.
         /// </summary>
@@ -96,6 +113,26 @@ namespace Landis.Extension.Browse
             }
         }
         //---------------------------------------------------------------------
+        /// <summary>
+        /// What method of browsing is being used -- population-based or browse density index-based?
+        /// </summary>
+        public string BrowseMethod
+        {
+            get
+            {
+                return browseMethod;
+            }
+            set
+            {
+                if (value == null)
+                    throw new InputValueException(value.ToString(), "Browse method must be provided (either 'Population' or 'BDI'");
+                if( value == "Population")
+                    browseMethod = "Population";
+                if (value == "BDI")
+                    browseMethod = "BDI";
+            }
+        }
+        //---------------------------------------------------------------------
         public string PopulationFileName
         {
             get
@@ -109,20 +146,7 @@ namespace Landis.Extension.Browse
                 populationFileName = value;
             }
         }
-        //---------------------------------------------------------------------
-        public string DynamicPopulationFileName
-        {
-            get
-            {
-                return dynamicPopulationFileName;
-            }
-            set
-            {
-                if (value == null)
-                    PlugIn.ModelCore.UI.WriteLine("   DynamicPopulationFile could not be found.  Population will be based on PopulationFile");
-                dynamicPopulationFileName = value;
-            }
-        }
+
         //---------------------------------------------------------------------
         public double ConsumptionRate
         {
@@ -160,15 +184,27 @@ namespace Landis.Extension.Browse
             }
         }
         //---------------------------------------------------------------------
-        public double BrowseBiomassThresh
+        public double BrowseBiomassThreshMin
         {
             get
             {
-                return browseBiomassThresh;
+                return browseBiomassThreshMin;
             }
             set
             {
-                browseBiomassThresh = value;
+                browseBiomassThreshMin = value;
+            }
+        }
+        //---------------------------------------------------------------------
+        public double BrowseBiomassThreshMax
+        {
+            get
+            {
+                return browseBiomassThreshMax;
+            }
+            set
+            {
+                browseBiomassThreshMax = value;
             }
         }
         //---------------------------------------------------------------------
@@ -181,6 +217,18 @@ namespace Landis.Extension.Browse
             set
             {
                 escapeBrowsePropLong = value;
+            }
+        }
+        //---------------------------------------------------------------------
+        public bool CalibrateMode
+        {
+            get
+            {
+                return calibrateMode;
+            }
+            set
+            {
+                calibrateMode = value;
             }
         }
         //---------------------------------------------------------------------
@@ -229,6 +277,18 @@ namespace Landis.Extension.Browse
             set
             {
                 useInitBiomass = value;
+            }
+        }
+        //---------------------------------------------------------------------
+        public string ForageInReachMethod
+        {
+            get
+            {
+                return forageInReachMethod;
+            }
+            set
+            {
+                forageInReachMethod = value;
             }
         }
         //---------------------------------------------------------------------
@@ -466,21 +526,24 @@ namespace Landis.Extension.Browse
     /// </summary>
     public interface IInputParameters
     {
-
+        Dictionary<int, IDynamicInputRecord[]> TemporalData { get; set; }
         int Timestep { get; set; }
         ISppParameters[] SppParameters { get; set; }
         string ZoneMapFileName { get; set; }
+        string BrowseMethod { get; set; }
         string PopulationFileName { get; set; }
-        string DynamicPopulationFileName { get; set; }
         double ConsumptionRate { get; set; }
         double ANPPForageProp { get; set; }
         double MinBrowsePropinReach { get; set; }
-        double BrowseBiomassThresh { get; set; }
+        double BrowseBiomassThreshMin { get; set; }
+        double BrowseBiomassThreshMax { get; set; }
         double EscapeBrowsePropLong { get; set; }
+        bool CalibrateMode { get; set; }
         bool GrowthReduction { get; set; }
         bool Mortality { get; set; }
         bool CountNonForage { get; set; }
         bool UseInitBiomass { get; set; }
+        string ForageInReachMethod { get; set; }
         double ForageQuantityNbrRad { get; set; }
         double SitePrefNbrRad { get; set; }
         string SitePrefMapNamesTemplate { get; set; }

@@ -1,0 +1,72 @@
+LandisData  "Biomass Browse"
+
+Timestep 1
+
+
+<< Species Inputs >>
+SpeciesTable
+>>				--GrowthReduction--	----Mortality-----	-----Biomass-----
+>> Name		Preference	Threshold	Max	Threshold	Max	    Max
+>> --------	----------	---------	---	---------	---	    -----
+   abiebals     0.0		0.5		0.4	0.5		0.1		5000
+   acerrubr     0.3		0.5		0.4	0.5		0.1		5000
+   acersacc     0.5		0.5		0.4	0.5		0.1		5000
+   betualle     0.3		0.5		0.4	0.5		0.1		5000
+   betupapy     0.6		0.5		0.4	0.5		0.1		5000
+   fraxamer     0.6		0.5		0.4	0.5		0.1		5000
+   piceglau     0.0		0.5		0.4	0.5		0.1		5000
+   pinubank     0.0		0.5		0.4	0.5		0.1		5000
+   pinuresi     0.0		0.5		0.4	0.5		0.1		5000
+   pinustro     0.0		0.5		0.4	0.5		0.1		5000
+   poputrem     0.4		0.5		0.4	0.5		0.1		5000
+   querelli     0.0		0.5		0.4	0.5		0.1		5000
+   querrubr     0.0		0.5		0.4	0.5		0.1		5000
+   thujocci     0.5		0.5		0.4	0.5		0.1		5000
+   tiliamer     0.4		0.5		0.4	0.5		0.1		5000
+   tsugcana     0.5		0.5		0.4	0.5		0.1		5000
+
+<< Browser population Inputs >>
+ZoneMap  "ecoregions.gis" <<same as ecoregions right now; every active cell can be browsed. sf 2021-12-20
+DefinedPopulationFile	"DefinedPopulation.txt"  << User-defined population
+DynamicPopulation  << Optional.  If exists, then the next 8 parameters must be input
+RMin 0.15
+RMax 0.25		
+MortalityMin 0.15
+MortalityMax 0.25
+PredationMin 0.0
+PredationMax 0.0
+HarvestMin 0.0
+HarvestMax 0.0
+
+ConsumptionRate  2738  << kg/yr/individual
+
+<< Forage Inputs >>
+ANPPForageProp		0.66	<<Prop of ANPP that counts as forage
+MinBrowsePropinReach	0.2	<<Min prop of browse within reach for a cohort to be browsed. Prevents larger cohorts from being browsed
+BrowseBiomassThresholdMin	0.05	<<Proportion of ecoregion max biomass when cohort begins to escape browse; cohorts smaller than this threshold are completely reachable as forage
+BrowseBiomassThresholdMax	0.1	<<Proportion of ecoregion max biomass above which cohorts completely escape browse; also controls maximum forage possible per cell
+EscapeBrowsePropLong	0.57	<<Prop of longevity when browse is escaped
+
+
+<< Options >>
+<<GrowthReduction	OFF  << Default is ON
+<<Mortality	OFF  << Default is ON
+<<CountNonForageinSitePref	TRUE	<< Default is FALSE
+<<UseInitBiomassAsForage		TRUE	<< Default is FALSE
+
+<< HSI Inputs >>
+<< Component		Neighborhood >>
+<< ---------		------------
+ForageQuantity		0		<< ForageQuantity and/or SitePreference
+SitePreference		0
+
+
+<< Output Maps >>
+SitePrefMapNames  		browse/SitePref_{timestep}.gis
+SiteForageMapNames  		browse/SiteForage_{timestep}.gis
+SiteHSIMapNames			browse/HSI_{timestep}.gis
+SitePopulationMapNames		browse/Pop_{timestep}.gis
+BiomassRemovedMapNames  	browse/BioRemoved_{timestep}.gis
+
+<< Output Logs >>
+LogFile  browse/browse_log.csv

@@ -1,0 +1,838 @@
+2022-10-18 16:47:24,695 - LANDIS-II 7.0 (7)
+2022-10-18 16:47:24,707 - 
+2022-10-18 16:47:24,796 - Loading scenario from file "Scenario1_BDI_linear.txt" ...
+2022-10-18 16:47:24,867 - Initialized random number generator with seed = 1,451,174,980
+2022-10-18 16:47:24,869 - Loading species data from file "species.txt" ...
+2022-10-18 16:47:24,897 - Loading ecoregions from file "ecoregions_one_cell.txt" ...
+2022-10-18 16:47:24,916 - Initializing landscape from ecoregions map "./rasters/single3.tif" ...
+2022-10-18 16:47:24,932 - Cell length = 1000 m, cell area = 100 ha
+2022-10-18 16:47:24,937 - Map dimensions: 1 row by 1 column = 1 cell
+2022-10-18 16:47:24,945 - Sites: 1 active (100.0%), 0 inactive (0.0%)
+2022-10-18 16:47:24,957 - Loading NECN Succession extension ...
+2022-10-18 16:47:24,996 -    Begin parsing NECN SPECIES table.
+2022-10-18 16:47:25,024 -    Begin parsing FUNCTIONAL GROUP table.
+2022-10-18 16:47:25,030 -    Begin reading FIRE REDUCTION parameters.
+2022-10-18 16:47:25,031 -    Begin reading HARVEST REDUCTION parameters.
+2022-10-18 16:47:25,040 - Initializing NECN Succession ...
+2022-10-18 16:47:25,104 -    Registering Data:  Succession.LeafBiomassCohorts.
+2022-10-18 16:47:25,105 -    Registering Data:  Succession.AgeCohorts.
+2022-10-18 16:47:25,105 -    Registering Data:  Succession.BiomassCohorts.
+2022-10-18 16:47:25,105 -    Registering Data:  Succession.FineFuels.
+2022-10-18 16:47:25,105 -    Registering Data:  Succession.SmolderConsumption.
+2022-10-18 16:47:25,105 -    Registering Data:  Succession.FlamingConsumption.
+2022-10-18 16:47:25,105 -    Registering Data:  Succession.CWD.
+2022-10-18 16:47:25,105 -    Registering Data:  Succession.PET.
+2022-10-18 16:47:25,107 -   Read in data from ./rasters/soil_depth.tif
+2022-10-18 16:47:25,116 -   Read in data from ./rasters/soil_drain.tif
+2022-10-18 16:47:25,120 -   Read in data from ./rasters/baseflow.tif
+2022-10-18 16:47:25,122 -   Read in data from ./rasters/stormflow.tif
+2022-10-18 16:47:25,124 -   Read in data from ./rasters/field_capacity.tif
+2022-10-18 16:47:25,128 -   Read in data from ./rasters/wilt_point.tif
+2022-10-18 16:47:25,130 -   Read in data from ./rasters/sand.tif
+2022-10-18 16:47:25,132 -   Read in data from ./rasters/clay.tif
+2022-10-18 16:47:25,139 -   Read in data from ./rasters/SOM1surfC.tif
+2022-10-18 16:47:25,141 -   Read in data from ./rasters/SOM1surfN.tif
+2022-10-18 16:47:25,143 -   Read in data from ./rasters/SOM1soilC.tif
+2022-10-18 16:47:25,144 -   Read in data from ./rasters/SOM1soilN.tif
+2022-10-18 16:47:25,145 -   Read in data from ./rasters/SOM2C.tif
+2022-10-18 16:47:25,146 -   Read in data from ./rasters/SOM2N.tif
+2022-10-18 16:47:25,147 -   Read in data from ./rasters/SOM3C.tif
+2022-10-18 16:47:25,148 -   Read in data from ./rasters/SOM3N.tif
+2022-10-18 16:47:25,153 -   Read in data from ./rasters/dead_wood.tif
+2022-10-18 16:47:25,155 -   Read in data from ./rasters/coarse_roots.tif
+2022-10-18 16:47:25,178 -    Loading weather data ...
+2022-10-18 16:47:28,147 -    Registering Data:  TimeOfLastSuccession.
+2022-10-18 16:47:28,148 -    Registering Data:  Shade.
+2022-10-18 16:47:28,150 -    Creating Dispersal Neighborhood List.
+2022-10-18 16:47:28,150 -    Dispersal:  NeighborRadius=5500, CellLength=1000, numCellRadius=5
+2022-10-18 16:47:28,159 -    Loading initial communities from file "initial_communities_pointer.txt" ...
+2022-10-18 16:47:28,187 -    Reading initial communities map "./rasters/initial_communities.tif" ...
+2022-10-18 16:47:28,237 - Loading Biomass Browse extension ...
+2022-10-18 16:47:28,325 -    Begin parsing SPECIES table.
+2022-10-18 16:47:28,329 - Running in Calibration Mode!
+2022-10-18 16:47:28,330 - forageInReachMethod is "LinearEachCohort"
+2022-10-18 16:47:28,331 - Using linear each cohort method
+2022-10-18 16:47:28,348 -    Loading dynamic input data from file "DefinedUngulateBDI.txt" ...
+2022-10-18 16:47:28,354 -   Dynamic Input Parser:  Add new year = 0.
+2022-10-18 16:47:28,355 -   Dynamic Input Parser:  Add new year = 1.
+2022-10-18 16:47:28,356 -   Dynamic Input Parser:  Add new year = 2.
+2022-10-18 16:47:28,356 -   Dynamic Input Parser:  Add new year = 3.
+2022-10-18 16:47:28,357 -   Dynamic Input Parser:  Add new year = 4.
+2022-10-18 16:47:28,370 -      Calculating carrying capacity
+2022-10-18 16:47:28,373 - Creating Neighborhood List.
+2022-10-18 16:47:28,373 - NeighborRadius=500, CellLength=1000, numCellRadius=0
+2022-10-18 16:47:28,374 - Creating Neighborhood List.
+2022-10-18 16:47:28,374 - NeighborRadius=500, CellLength=1000, numCellRadius=0
+2022-10-18 16:47:28,375 -    Opening browse log files "browse/browse_log.csv" ...
+2022-10-18 16:47:28,386 -    Generating summary table...
+2022-10-18 16:47:28,387 -    Generating summary table...
+2022-10-18 16:47:28,387 -    Generating calibration table...
+2022-10-18 16:47:28,400 - Using the following extensions ...
+   Extension Name            Extension Filename       
+   --------------            ------------------       
+   NECN Succession           NECN_Succession.txt      
+   Biomass Browse            DynamicUngulateBrowse_1_cell_BDI_linear.txt
+
+2022-10-18 16:47:28,402 - Current time: 1
+2022-10-18 16:47:28,402 - Running Biomass Browse ...
+2022-10-18 16:47:28,405 - Processing landscape for ungulate browse events ...
+2022-10-18 16:47:28,411 -    Calculating Site Preference & Forage.
+2022-10-18 16:47:28,431 -    Estimating effective Zone Population from Browse Density Index.
+2022-10-18 16:47:28,432 -      Defined browse density index being loaded for current timestep
+2022-10-18 16:47:28,432 -      Calculating carrying capacity
+2022-10-18 16:47:28,433 -    Calculating HSI.
+2022-10-18 16:47:28,440 -    Calculating Local Population.
+2022-10-18 16:47:28,445 -    Disturbing Sites
+2022-10-18 16:47:28,446 - BEPA/60.0. adjusted firstPassRemoval = 1.6203726, secondPassRemoval = 4.8611178, finalRemoval = 6.4814904
+2022-10-18 16:47:28,446 - Setting LastBrowseProportion :  BEPA/60.0/0.433.
+2022-10-18 16:47:28,453 - BEPA/30.0. adjusted firstPassRemoval = 1.6000446, secondPassRemoval = 4.8001338, finalRemoval = 6.4001784
+2022-10-18 16:47:28,454 - Setting LastBrowseProportion :  BEPA/30.0/0.587.
+2022-10-18 16:47:28,454 - BEPA/10.0. adjusted firstPassRemoval = 1.4570094, secondPassRemoval = 4.3710282, finalRemoval = 5.8280376
+2022-10-18 16:47:28,455 - Setting LastBrowseProportion :  BEPA/10.0/0.671.
+2022-10-18 16:47:28,455 - THOC2/60.0. adjusted firstPassRemoval = 0.31858332, secondPassRemoval = 5.7896507131679, finalRemoval = 6.1082340331679
+2022-10-18 16:47:28,455 - Setting LastBrowseProportion :  THOC2/60.0/0.56848280406968.
+2022-10-18 16:47:28,457 - THOC2/30.0. adjusted firstPassRemoval = 0.29362608, secondPassRemoval = 5.33609996743299, finalRemoval = 5.62972604743299
+2022-10-18 16:47:28,458 - Setting LastBrowseProportion :  THOC2/30.0/0.638464666965273.
+2022-10-18 16:47:28,459 - THOC2/10.0. adjusted firstPassRemoval = 0.26841408, secondPassRemoval = 4.8779194393991, finalRemoval = 5.14633351939911
+2022-10-18 16:47:28,459 - Setting LastBrowseProportion :  THOC2/10.0/0.686397449770474.
+2022-10-18 16:47:28,762 - Running NECN Succession ...
+2022-10-18 16:47:29,329 - Current time: 2
+2022-10-18 16:47:29,331 - Running Biomass Browse ...
+2022-10-18 16:47:29,331 - Processing landscape for ungulate browse events ...
+2022-10-18 16:47:29,332 -    Calculating Site Preference & Forage.
+2022-10-18 16:47:29,337 -    Estimating effective Zone Population from Browse Density Index.
+2022-10-18 16:47:29,338 -      Defined browse density index being loaded for current timestep
+2022-10-18 16:47:29,338 -      Calculating carrying capacity
+2022-10-18 16:47:29,339 -    Calculating HSI.
+2022-10-18 16:47:29,339 -    Calculating Local Population.
+2022-10-18 16:47:29,340 -    Disturbing Sites
+2022-10-18 16:47:29,341 - BEPA/61.0. adjusted firstPassRemoval = 1.60654725, secondPassRemoval = 3.26518288623811, finalRemoval = 4.87173013623811
+2022-10-18 16:47:29,341 - Setting LastBrowseProportion :  BEPA/61.0/0.341147538814552.
+2022-10-18 16:47:29,342 - BEPA/31.0. adjusted firstPassRemoval = 1.435896, secondPassRemoval = 2.91834743461031, finalRemoval = 4.35424343461031
+2022-10-18 16:47:29,343 - Setting LastBrowseProportion :  BEPA/31.0/0.45486338508607.
+2022-10-18 16:47:29,346 - BEPA/11.0. adjusted firstPassRemoval = 1.2374293932, secondPassRemoval = 2.51497942410635, finalRemoval = 3.75240881730635
+2022-10-18 16:47:29,346 - Setting LastBrowseProportion :  BEPA/11.0/0.517028047714499.
+2022-10-18 16:47:29,347 - Setting LastBrowseProportion :  THOC2/61.0/0.02985.
+2022-10-18 16:47:29,348 - Setting LastBrowseProportion :  THOC2/31.0/0.0335.
+2022-10-18 16:47:29,348 - Setting LastBrowseProportion :  THOC2/11.0/0.036.
+2022-10-18 16:47:29,431 - Running NECN Succession ...
+2022-10-18 16:47:29,909 - Current time: 3
+2022-10-18 16:47:29,911 - Running Biomass Browse ...
+2022-10-18 16:47:29,912 - Processing landscape for ungulate browse events ...
+2022-10-18 16:47:29,912 -    Calculating Site Preference & Forage.
+2022-10-18 16:47:29,913 -    Estimating effective Zone Population from Browse Density Index.
+2022-10-18 16:47:29,922 -      Defined browse density index being loaded for current timestep
+2022-10-18 16:47:29,924 -      Calculating carrying capacity
+2022-10-18 16:47:29,925 -    Calculating HSI.
+2022-10-18 16:47:29,926 -    Calculating Local Population.
+2022-10-18 16:47:29,927 -    Disturbing Sites
+2022-10-18 16:47:29,928 - Setting LastBrowseProportion :  BEPA/62.0/0.0591426429971209.
+2022-10-18 16:47:29,930 - Setting LastBrowseProportion :  BEPA/32.0/0.0780071067117197.
+2022-10-18 16:47:29,936 - Setting LastBrowseProportion :  BEPA/12.0/0.0880766515323503.
+2022-10-18 16:47:29,938 - Setting LastBrowseProportion :  THOC2/62.0/0.0151425560087456.
+2022-10-18 16:47:29,939 - Setting LastBrowseProportion :  THOC2/32.0/0.0170290023802055.
+2022-10-18 16:47:29,940 - Setting LastBrowseProportion :  THOC2/12.0/0.0183291208254008.
+2022-10-18 16:47:30,131 - Running NECN Succession ...
+2022-10-18 16:47:30,542 - Current time: 4
+2022-10-18 16:47:30,543 - Running Biomass Browse ...
+2022-10-18 16:47:30,543 - Processing landscape for ungulate browse events ...
+2022-10-18 16:47:30,544 -    Calculating Site Preference & Forage.
+2022-10-18 16:47:30,545 -    Estimating effective Zone Population from Browse Density Index.
+2022-10-18 16:47:30,545 -      Defined browse density index being loaded for current timestep
+2022-10-18 16:47:30,546 -      Calculating carrying capacity
+2022-10-18 16:47:30,546 -    Calculating HSI.
+2022-10-18 16:47:30,547 -    Calculating Local Population.
+2022-10-18 16:47:30,548 -    Disturbing Sites
+2022-10-18 16:47:30,548 - BEPA/63.0. adjusted firstPassRemoval = 1.6455384, secondPassRemoval = 4.9366152, finalRemoval = 6.5821536
+2022-10-18 16:47:30,549 - Setting LastBrowseProportion :  BEPA/63.0/0.474.
+2022-10-18 16:47:30,549 - BEPA/33.0. adjusted firstPassRemoval = 1.5565374, secondPassRemoval = 4.6696122, finalRemoval = 6.2261496
+2022-10-18 16:47:30,550 - Setting LastBrowseProportion :  BEPA/33.0/0.619.
+2022-10-18 16:47:30,553 - BEPA/13.0. adjusted firstPassRemoval = 1.3964544, secondPassRemoval = 4.1893632, finalRemoval = 5.5858176
+2022-10-18 16:47:30,554 - Setting LastBrowseProportion :  BEPA/13.0/0.696.
+2022-10-18 16:47:30,554 - THOC2/63.0. adjusted firstPassRemoval = 0.31882752, secondPassRemoval = 2.93944958265401, finalRemoval = 3.25827710265401
+2022-10-18 16:47:30,555 - Setting LastBrowseProportion :  THOC2/63.0/0.302498988288586.
+2022-10-18 16:47:30,555 - THOC2/33.0. adjusted firstPassRemoval = 0.29318652, secondPassRemoval = 2.70305083404903, finalRemoval = 2.99623735404903
+2022-10-18 16:47:30,556 - Setting LastBrowseProportion :  THOC2/33.0/0.340822339845416.
+2022-10-18 16:47:30,556 - THOC2/13.0. adjusted firstPassRemoval = 0.26726832, secondPassRemoval = 2.46409642329696, finalRemoval = 2.73136474329696
+2022-10-18 16:47:30,557 - Setting LastBrowseProportion :  THOC2/13.0/0.366882218904061.
+2022-10-18 16:47:30,625 - Running NECN Succession ...
+2022-10-18 16:47:30,937 - Current time: 5
+2022-10-18 16:47:30,937 - Running Biomass Browse ...
+2022-10-18 16:47:30,939 - Processing landscape for ungulate browse events ...
+2022-10-18 16:47:30,940 -    Calculating Site Preference & Forage.
+2022-10-18 16:47:30,940 -    Estimating effective Zone Population from Browse Density Index.
+2022-10-18 16:47:30,941 -      Calculating carrying capacity
+2022-10-18 16:47:30,941 -    Calculating HSI.
+2022-10-18 16:47:30,942 -    Calculating Local Population.
+2022-10-18 16:47:30,943 -    Disturbing Sites
+2022-10-18 16:47:30,944 - BEPA/64.0. adjusted firstPassRemoval = 1.58831442, secondPassRemoval = 4.76494326, finalRemoval = 6.35325768
+2022-10-18 16:47:30,944 - Setting LastBrowseProportion :  BEPA/64.0/0.49.
+2022-10-18 16:47:30,945 - BEPA/34.0. adjusted firstPassRemoval = 1.3669189248, secondPassRemoval = 4.1007567744, finalRemoval = 5.4676756992
+2022-10-18 16:47:30,945 - Setting LastBrowseProportion :  BEPA/34.0/0.632.
+2022-10-18 16:47:30,946 - BEPA/14.0. adjusted firstPassRemoval = 1.1648515032, secondPassRemoval = 3.4945545096, finalRemoval = 4.6594060128
+2022-10-18 16:47:30,946 - Setting LastBrowseProportion :  BEPA/14.0/0.707.
+2022-10-18 16:47:30,946 - THOC2/64.0. adjusted firstPassRemoval = 0.318128385151075, secondPassRemoval = 2.70105741871794, finalRemoval = 3.01918580386901
+2022-10-18 16:47:30,947 - Setting LastBrowseProportion :  THOC2/64.0/0.281392240564151.
+2022-10-18 16:47:30,947 - THOC2/34.0. adjusted firstPassRemoval = 0.285915458217797, secondPassRemoval = 2.42755474076473, finalRemoval = 2.71347019898252
+2022-10-18 16:47:30,948 - Setting LastBrowseProportion :  THOC2/34.0/0.316981478409533.
+2022-10-18 16:47:30,948 - THOC2/14.0. adjusted firstPassRemoval = 0.255941622264573, secondPassRemoval = 2.17306298288389, finalRemoval = 2.42900460514846
+2022-10-18 16:47:30,948 - Setting LastBrowseProportion :  THOC2/14.0/0.341656683315664.
+2022-10-18 16:47:30,949 - PIGL/94.0. adjusted firstPassRemoval = 0, secondPassRemoval = 0, finalRemoval = 0
+2022-10-18 16:47:30,953 - PIGL/14.0. adjusted firstPassRemoval = 0, secondPassRemoval = 0, finalRemoval = 0
+2022-10-18 16:47:31,021 - Running NECN Succession ...
+2022-10-18 16:47:31,364 - Current time: 6
+2022-10-18 16:47:31,365 - Running Biomass Browse ...
+2022-10-18 16:47:31,366 - Processing landscape for ungulate browse events ...
+2022-10-18 16:47:31,366 -    Calculating Site Preference & Forage.
+2022-10-18 16:47:31,367 -    Estimating effective Zone Population from Browse Density Index.
+2022-10-18 16:47:31,369 -      Calculating carrying capacity
+2022-10-18 16:47:31,369 -    Calculating HSI.
+2022-10-18 16:47:31,370 -    Calculating Local Population.
+2022-10-18 16:47:31,370 -    Disturbing Sites
+2022-10-18 16:47:31,371 - BEPA/65.0. adjusted firstPassRemoval = 1.575523092, secondPassRemoval = 4.726569276, finalRemoval = 6.302092368
+2022-10-18 16:47:31,371 - Setting LastBrowseProportion :  BEPA/65.0/0.506.
+2022-10-18 16:47:31,372 - BEPA/35.0. adjusted firstPassRemoval = 1.3392923544, secondPassRemoval = 4.0178770632, finalRemoval = 5.3571694176
+2022-10-18 16:47:31,372 - Setting LastBrowseProportion :  BEPA/35.0/0.643.
+2022-10-18 16:47:31,372 - BEPA/15.0. adjusted firstPassRemoval = 1.1360625936, secondPassRemoval = 3.4081877808, finalRemoval = 4.5442503744
+2022-10-18 16:47:31,373 - Setting LastBrowseProportion :  BEPA/15.0/0.716.
+2022-10-18 16:47:31,373 - THOC2/65.0. adjusted firstPassRemoval = 0.318087, secondPassRemoval = 2.77870484714639, finalRemoval = 3.09679184714639
+2022-10-18 16:47:31,373 - Setting LastBrowseProportion :  THOC2/65.0/0.289636349340291.
+2022-10-18 16:47:31,374 - THOC2/35.0. adjusted firstPassRemoval = 0.289463092966436, secondPassRemoval = 2.52865568066542, finalRemoval = 2.81811877363185
+2022-10-18 16:47:31,374 - Setting LastBrowseProportion :  THOC2/35.0/0.325658349090176.
+2022-10-18 16:47:31,375 - THOC2/15.0. adjusted firstPassRemoval = 0.259209254787425, secondPassRemoval = 2.26436796443433, finalRemoval = 2.52357721922175
+2022-10-18 16:47:31,375 - Setting LastBrowseProportion :  THOC2/15.0/0.350971105671176.
+2022-10-18 16:47:31,442 - Running NECN Succession ...
+2022-10-18 16:47:31,770 - Current time: 7
+2022-10-18 16:47:31,771 - Running Biomass Browse ...
+2022-10-18 16:47:31,771 - Processing landscape for ungulate browse events ...
+2022-10-18 16:47:31,772 -    Calculating Site Preference & Forage.
+2022-10-18 16:47:31,773 -    Estimating effective Zone Population from Browse Density Index.
+2022-10-18 16:47:31,773 -      Calculating carrying capacity
+2022-10-18 16:47:31,773 -    Calculating HSI.
+2022-10-18 16:47:31,776 -    Calculating Local Population.
+2022-10-18 16:47:31,777 -    Disturbing Sites
+2022-10-18 16:47:31,777 - BEPA/66.0. adjusted firstPassRemoval = 1.5597936618, secondPassRemoval = 4.6793809854, finalRemoval = 6.2391746472
+2022-10-18 16:47:31,778 - Setting LastBrowseProportion :  BEPA/66.0/0.521.
+2022-10-18 16:47:31,779 - BEPA/36.0. adjusted firstPassRemoval = 1.3120172604, secondPassRemoval = 3.9360517812, finalRemoval = 5.2480690416
+2022-10-18 16:47:31,780 - Setting LastBrowseProportion :  BEPA/36.0/0.654.
+2022-10-18 16:47:31,780 - BEPA/16.0. adjusted firstPassRemoval = 1.10796675, secondPassRemoval = 3.32390025, finalRemoval = 4.431867
+2022-10-18 16:47:31,781 - Setting LastBrowseProportion :  BEPA/16.0/0.725.
+2022-10-18 16:47:31,781 - THOC2/66.0. adjusted firstPassRemoval = 0.31783488, secondPassRemoval = 3.5757340655279, finalRemoval = 3.8935689455279
+2022-10-18 16:47:31,782 - Setting LastBrowseProportion :  THOC2/66.0/0.365058594502691.
+2022-10-18 16:47:31,782 - THOC2/36.0. adjusted firstPassRemoval = 0.287572891143619, secondPassRemoval = 3.23527796315051, finalRemoval = 3.52285085429413
+2022-10-18 16:47:31,783 - Setting LastBrowseProportion :  THOC2/36.0/0.410384661605374.
+2022-10-18 16:47:31,783 - THOC2/16.0. adjusted firstPassRemoval = 0.256657945553651, secondPassRemoval = 2.88747590920353, finalRemoval = 3.14413385475718
+2022-10-18 16:47:31,785 - Setting LastBrowseProportion :  THOC2/16.0/0.44284792588162.
+2022-10-18 16:47:31,785 - THOC2/1.0. adjusted firstPassRemoval = 0.297, secondPassRemoval = 3.34133565662078, finalRemoval = 3.63833565662078
+2022-10-18 16:47:31,786 - Setting LastBrowseProportion :  THOC2/1.0/0.612514420306529.
+2022-10-18 16:47:31,881 - Running NECN Succession ...
+2022-10-18 16:47:32,259 - Current time: 8
+2022-10-18 16:47:32,262 - Running Biomass Browse ...
+2022-10-18 16:47:32,262 - Processing landscape for ungulate browse events ...
+2022-10-18 16:47:32,264 -    Calculating Site Preference & Forage.
+2022-10-18 16:47:32,265 -    Estimating effective Zone Population from Browse Density Index.
+2022-10-18 16:47:32,276 -      Calculating carrying capacity
+2022-10-18 16:47:32,276 -    Calculating HSI.
+2022-10-18 16:47:32,277 -    Calculating Local Population.
+2022-10-18 16:47:32,279 -    Disturbing Sites
+2022-10-18 16:47:32,280 - BEPA/67.0. adjusted firstPassRemoval = 1.5421388928, secondPassRemoval = 4.6264166784, finalRemoval = 6.1685555712
+2022-10-18 16:47:32,281 - Setting LastBrowseProportion :  BEPA/67.0/0.536.
+2022-10-18 16:47:32,283 - BEPA/37.0. adjusted firstPassRemoval = 1.2816778392, secondPassRemoval = 3.8450335176, finalRemoval = 5.1267113568
+2022-10-18 16:47:32,288 - Setting LastBrowseProportion :  BEPA/37.0/0.666.
+2022-10-18 16:47:32,289 - BEPA/17.0. adjusted firstPassRemoval = 1.07921121, secondPassRemoval = 3.23763363, finalRemoval = 4.31684484
+2022-10-18 16:47:32,290 - Setting LastBrowseProportion :  BEPA/17.0/0.734.
+2022-10-18 16:47:32,290 - THOC2/67.0. adjusted firstPassRemoval = 0.305773653571888, secondPassRemoval = 3.03028766483399, finalRemoval = 3.33606131840588
+2022-10-18 16:47:32,291 - Setting LastBrowseProportion :  THOC2/67.0/0.325670407476764.
+2022-10-18 16:47:32,291 - THOC2/37.0. adjusted firstPassRemoval = 0.272596937053953, secondPassRemoval = 2.70149872684148, finalRemoval = 2.97409566389543
+2022-10-18 16:47:32,292 - Setting LastBrowseProportion :  THOC2/37.0/0.366583775250226.
+2022-10-18 16:47:32,292 - THOC2/17.0. adjusted firstPassRemoval = 0.24169271263206, secondPassRemoval = 2.39523071138962, finalRemoval = 2.63692342402168
+2022-10-18 16:47:32,293 - Setting LastBrowseProportion :  THOC2/17.0/0.395495888476807.
+2022-10-18 16:47:32,293 - THOC2/2.0. adjusted firstPassRemoval = 0.00758992386078153, secondPassRemoval = 0.0752179018162145, finalRemoval = 0.082807825676996
+2022-10-18 16:47:32,294 - Setting LastBrowseProportion :  THOC2/2.0/0.545511570312837.
+2022-10-18 16:47:32,448 - Running NECN Succession ...
+2022-10-18 16:47:32,962 - Current time: 9
+2022-10-18 16:47:32,963 - Running Biomass Browse ...
+2022-10-18 16:47:32,963 - Processing landscape for ungulate browse events ...
+2022-10-18 16:47:32,964 -    Calculating Site Preference & Forage.
+2022-10-18 16:47:32,964 -    Estimating effective Zone Population from Browse Density Index.
+2022-10-18 16:47:32,969 -      Calculating carrying capacity
+2022-10-18 16:47:32,969 -    Calculating HSI.
+2022-10-18 16:47:32,970 -    Calculating Local Population.
+2022-10-18 16:47:32,971 -    Disturbing Sites
+2022-10-18 16:47:32,971 - BEPA/68.0. adjusted firstPassRemoval = 1.522422, secondPassRemoval = 4.567266, finalRemoval = 6.089688
+2022-10-18 16:47:32,972 - Setting LastBrowseProportion :  BEPA/68.0/0.55.
+2022-10-18 16:47:32,972 - BEPA/38.0. adjusted firstPassRemoval = 1.2532991328, secondPassRemoval = 3.7598973984, finalRemoval = 5.0131965312
+2022-10-18 16:47:32,973 - Setting LastBrowseProportion :  BEPA/38.0/0.676.
+2022-10-18 16:47:32,974 - BEPA/18.0. adjusted firstPassRemoval = 1.0498104078, secondPassRemoval = 3.1494312234, finalRemoval = 4.1992416312
+2022-10-18 16:47:32,974 - Setting LastBrowseProportion :  BEPA/18.0/0.743.
+2022-10-18 16:47:32,975 - THOC2/68.0. adjusted firstPassRemoval = 0.312411749604986, secondPassRemoval = 3.12777663340142, finalRemoval = 3.44018838300641
+2022-10-18 16:47:32,975 - Setting LastBrowseProportion :  THOC2/68.0/0.329800790787535.
+2022-10-18 16:47:32,976 - THOC2/38.0. adjusted firstPassRemoval = 0.27900043969619, secondPassRemoval = 2.79327220277038, finalRemoval = 3.07227264246657
+2022-10-18 16:47:32,977 - Setting LastBrowseProportion :  THOC2/38.0/0.371094712839397.
+2022-10-18 16:47:32,977 - THOC2/18.0. adjusted firstPassRemoval = 0.24768561879081, secondPassRemoval = 2.47975721739982, finalRemoval = 2.72744283619063
+2022-10-18 16:47:32,978 - Setting LastBrowseProportion :  THOC2/18.0/0.40027575108938.
+2022-10-18 16:47:32,979 - THOC2/3.0. adjusted firstPassRemoval = 0.0090785130385694, secondPassRemoval = 0.0908914628978292, finalRemoval = 0.0999699759363986
+2022-10-18 16:47:32,979 - Setting LastBrowseProportion :  THOC2/3.0/0.550585627358156.
+2022-10-18 16:47:33,109 - Running NECN Succession ...
+2022-10-18 16:47:33,513 - Current time: 10
+2022-10-18 16:47:33,513 - Running Biomass Browse ...
+2022-10-18 16:47:33,514 - Processing landscape for ungulate browse events ...
+2022-10-18 16:47:33,514 -    Calculating Site Preference & Forage.
+2022-10-18 16:47:33,515 -    Estimating effective Zone Population from Browse Density Index.
+2022-10-18 16:47:33,515 -      Calculating carrying capacity
+2022-10-18 16:47:33,515 -    Calculating HSI.
+2022-10-18 16:47:33,516 -    Calculating Local Population.
+2022-10-18 16:47:33,516 -    Disturbing Sites
+2022-10-18 16:47:33,517 - BEPA/69.0. adjusted firstPassRemoval = 1.50124392, secondPassRemoval = 4.50373176, finalRemoval = 6.00497568
+2022-10-18 16:47:33,518 - Setting LastBrowseProportion :  BEPA/69.0/0.564.
+2022-10-18 16:47:33,519 - BEPA/39.0. adjusted firstPassRemoval = 1.2233543652, secondPassRemoval = 3.6700630956, finalRemoval = 4.8934174608
+2022-10-18 16:47:33,521 - Setting LastBrowseProportion :  BEPA/39.0/0.687.
+2022-10-18 16:47:33,524 - BEPA/19.0. adjusted firstPassRemoval = 1.0225292319, secondPassRemoval = 3.0675876957, finalRemoval = 4.0901169276
+2022-10-18 16:47:33,525 - Setting LastBrowseProportion :  BEPA/19.0/0.751.
+2022-10-18 16:47:33,526 - THOC2/69.0. adjusted firstPassRemoval = 0.311144403556755, secondPassRemoval = 3.24544650547259, finalRemoval = 3.55659090902935
+2022-10-18 16:47:33,527 - Setting LastBrowseProportion :  THOC2/69.0/0.343491817929603.
+2022-10-18 16:47:33,527 - THOC2/39.0. adjusted firstPassRemoval = 0.277366358932505, secondPassRemoval = 2.89311866144158, finalRemoval = 3.17048502037408
+2022-10-18 16:47:33,528 - Setting LastBrowseProportion :  THOC2/39.0/0.386356853444945.
+2022-10-18 16:47:33,529 - THOC2/19.0. adjusted firstPassRemoval = 0.245835195551717, secondPassRemoval = 2.56422730798035, finalRemoval = 2.81006250353207
+2022-10-18 16:47:33,530 - Setting LastBrowseProportion :  THOC2/19.0/0.41664814520912.
+2022-10-18 16:47:33,530 - THOC2/4.0. adjusted firstPassRemoval = 0.0101788815697058, secondPassRemoval = 0.106172617094799, finalRemoval = 0.116351498664505
+2022-10-18 16:47:33,531 - Setting LastBrowseProportion :  THOC2/4.0/0.57153380687122.
+2022-10-18 16:47:33,642 - Running NECN Succession ...
+2022-10-18 16:47:33,992 - Current time: 11
+2022-10-18 16:47:33,993 - Running Biomass Browse ...
+2022-10-18 16:47:33,993 - Processing landscape for ungulate browse events ...
+2022-10-18 16:47:33,993 -    Calculating Site Preference & Forage.
+2022-10-18 16:47:33,994 -    Estimating effective Zone Population from Browse Density Index.
+2022-10-18 16:47:33,995 -      Calculating carrying capacity
+2022-10-18 16:47:33,996 -    Calculating HSI.
+2022-10-18 16:47:33,997 -    Calculating Local Population.
+2022-10-18 16:47:33,997 -    Disturbing Sites
+2022-10-18 16:47:33,997 - BEPA/70.0. adjusted firstPassRemoval = 1.4778382608, secondPassRemoval = 4.4335147824, finalRemoval = 5.9113530432
+2022-10-18 16:47:33,998 - Setting LastBrowseProportion :  BEPA/70.0/0.578.
+2022-10-18 16:47:33,998 - BEPA/40.0. adjusted firstPassRemoval = 1.1960631936, secondPassRemoval = 3.5881895808, finalRemoval = 4.7842527744
+2022-10-18 16:47:33,998 - Setting LastBrowseProportion :  BEPA/40.0/0.696.
+2022-10-18 16:47:33,999 - BEPA/20.0. adjusted firstPassRemoval = 0.99256608, secondPassRemoval = 2.97769824, finalRemoval = 3.97026432
+2022-10-18 16:47:33,999 - Setting LastBrowseProportion :  BEPA/20.0/0.76.
+2022-10-18 16:47:34,000 - THOC2/70.0. adjusted firstPassRemoval = 0.308142836732857, secondPassRemoval = 3.37801682615131, finalRemoval = 3.68615966288417
+2022-10-18 16:47:34,001 - Setting LastBrowseProportion :  THOC2/70.0/0.360669470737391.
+2022-10-18 16:47:34,002 - THOC2/40.0. adjusted firstPassRemoval = 0.273508523134624, secondPassRemoval = 2.99833805335394, finalRemoval = 3.27184657648856
+2022-10-18 16:47:34,002 - Setting LastBrowseProportion :  THOC2/40.0/0.406126982803796.
+2022-10-18 16:47:34,003 - THOC2/20.0. adjusted firstPassRemoval = 0.242261995139415, secondPassRemoval = 2.65579789098719, finalRemoval = 2.8980598861266
+2022-10-18 16:47:34,004 - Setting LastBrowseProportion :  THOC2/20.0/0.437229491059756.
+2022-10-18 16:47:34,004 - THOC2/5.0. adjusted firstPassRemoval = 0.0100366733567828, secondPassRemoval = 0.110027063543878, finalRemoval = 0.120063736900661
+2022-10-18 16:47:34,004 - Setting LastBrowseProportion :  THOC2/5.0/0.598125158768476.
+2022-10-18 16:47:34,077 - Running NECN Succession ...
+2022-10-18 16:47:34,400 - Current time: 12
+2022-10-18 16:47:34,401 - Running Biomass Browse ...
+2022-10-18 16:47:34,402 - Processing landscape for ungulate browse events ...
+2022-10-18 16:47:34,402 -    Calculating Site Preference & Forage.
+2022-10-18 16:47:34,403 -    Estimating effective Zone Population from Browse Density Index.
+2022-10-18 16:47:34,403 -      Calculating carrying capacity
+2022-10-18 16:47:34,404 -    Calculating HSI.
+2022-10-18 16:47:34,404 -    Calculating Local Population.
+2022-10-18 16:47:34,405 -    Disturbing Sites
+2022-10-18 16:47:34,405 - BEPA/71.0. adjusted firstPassRemoval = 1.4533596594, secondPassRemoval = 4.3600789782, finalRemoval = 5.8134386376
+2022-10-18 16:47:34,405 - Setting LastBrowseProportion :  BEPA/71.0/0.591.
+2022-10-18 16:47:34,406 - BEPA/41.0. adjusted firstPassRemoval = 1.1671738848, secondPassRemoval = 3.5015216544, finalRemoval = 4.6686955392
+2022-10-18 16:47:34,406 - Setting LastBrowseProportion :  BEPA/41.0/0.706.
+2022-10-18 16:47:34,407 - BEPA/21.0. adjusted firstPassRemoval = 0.967183932, secondPassRemoval = 2.901551796, finalRemoval = 3.868735728
+2022-10-18 16:47:34,407 - Setting LastBrowseProportion :  BEPA/21.0/0.767.
+2022-10-18 16:47:34,408 - THOC2/71.0. adjusted firstPassRemoval = 0.30451099855103, secondPassRemoval = 3.138142097229, finalRemoval = 3.44265309578003
+2022-10-18 16:47:34,408 - Setting LastBrowseProportion :  THOC2/71.0/0.341991772523428.
+2022-10-18 16:47:34,410 - THOC2/41.0. adjusted firstPassRemoval = 0.268915381662986, secondPassRemoval = 2.77131099961764, finalRemoval = 3.04022638128063
+2022-10-18 16:47:34,412 - Setting LastBrowseProportion :  THOC2/41.0/0.385517998117319.
+2022-10-18 16:47:34,412 - THOC2/21.0. adjusted firstPassRemoval = 0.23808042650244, secondPassRemoval = 2.45354096400014, finalRemoval = 2.69162139050258
+2022-10-18 16:47:34,413 - Setting LastBrowseProportion :  THOC2/21.0/0.414347056627559.
+2022-10-18 16:47:34,413 - THOC2/6.0. adjusted firstPassRemoval = 0.0109512845167178, secondPassRemoval = 0.112858606500826, finalRemoval = 0.123809891017543
+2022-10-18 16:47:34,413 - Setting LastBrowseProportion :  THOC2/6.0/0.565275657063518.
+2022-10-18 16:47:34,414 - THOC2/1.0. adjusted firstPassRemoval = 0.33, secondPassRemoval = 3.40081933661922, finalRemoval = 3.73081933661922
+2022-10-18 16:47:34,414 - Setting LastBrowseProportion :  THOC2/1.0/0.565275657063518.
+2022-10-18 16:47:34,499 - Running NECN Succession ...
+2022-10-18 16:47:34,868 - Current time: 13
+2022-10-18 16:47:34,869 - Running Biomass Browse ...
+2022-10-18 16:47:34,870 - Processing landscape for ungulate browse events ...
+2022-10-18 16:47:34,871 -    Calculating Site Preference & Forage.
+2022-10-18 16:47:34,871 -    Estimating effective Zone Population from Browse Density Index.
+2022-10-18 16:47:34,872 -      Calculating carrying capacity
+2022-10-18 16:47:34,874 -    Calculating HSI.
+2022-10-18 16:47:34,875 -    Calculating Local Population.
+2022-10-18 16:47:34,875 -    Disturbing Sites
+2022-10-18 16:47:34,876 - BEPA/72.0. adjusted firstPassRemoval = 1.4290924527, secondPassRemoval = 4.2872773581, finalRemoval = 5.7163698108
+2022-10-18 16:47:34,876 - Setting LastBrowseProportion :  BEPA/72.0/0.603.
+2022-10-18 16:47:34,877 - BEPA/42.0. adjusted firstPassRemoval = 1.1415412008, secondPassRemoval = 3.4246236024, finalRemoval = 4.5661648032
+2022-10-18 16:47:34,877 - Setting LastBrowseProportion :  BEPA/42.0/0.714.
+2022-10-18 16:47:34,878 - BEPA/22.0. adjusted firstPassRemoval = 0.9426479436, secondPassRemoval = 2.8279438308, finalRemoval = 3.7705917744
+2022-10-18 16:47:34,878 - Setting LastBrowseProportion :  BEPA/22.0/0.774.
+2022-10-18 16:47:34,879 - THOC2/72.0. adjusted firstPassRemoval = 0.307605918217877, secondPassRemoval = 3.19613389639535, finalRemoval = 3.50373981461323
+2022-10-18 16:47:34,879 - Setting LastBrowseProportion :  THOC2/72.0/0.345127678289939.
+2022-10-18 16:47:34,880 - THOC2/42.0. adjusted firstPassRemoval = 0.271367710351833, secondPassRemoval = 2.81960614564107, finalRemoval = 3.0909738559929
+2022-10-18 16:47:34,880 - Setting LastBrowseProportion :  THOC2/42.0/0.389550052723298.
+2022-10-18 16:47:34,881 - THOC2/22.0. adjusted firstPassRemoval = 0.240882216413753, secondPassRemoval = 2.50285111996292, finalRemoval = 2.74373333637668
+2022-10-18 16:47:34,882 - Setting LastBrowseProportion :  THOC2/22.0/0.418025933770323.
+2022-10-18 16:47:34,882 - THOC2/7.0. adjusted firstPassRemoval = 0.0123189699768216, secondPassRemoval = 0.127998439495914, finalRemoval = 0.140317409472736
+2022-10-18 16:47:34,883 - Setting LastBrowseProportion :  THOC2/7.0/0.569517620940494.
+2022-10-18 16:47:34,886 - THOC2/2.0. adjusted firstPassRemoval = 0.00783934453070463, secondPassRemoval = 0.0814535524064908, finalRemoval = 0.0892928969371954
+2022-10-18 16:47:34,886 - Setting LastBrowseProportion :  THOC2/2.0/0.569517620940494.
+2022-10-18 16:47:34,887 - THOC2/1.0. adjusted firstPassRemoval = 0.33, secondPassRemoval = 3.42881629820726, finalRemoval = 3.75881629820726
+2022-10-18 16:47:34,888 - Setting LastBrowseProportion :  THOC2/1.0/0.569517620940494.
+2022-10-18 16:47:34,974 - Running NECN Succession ...
+2022-10-18 16:47:35,297 - Current time: 14
+2022-10-18 16:47:35,298 - Running Biomass Browse ...
+2022-10-18 16:47:35,298 - Processing landscape for ungulate browse events ...
+2022-10-18 16:47:35,299 -    Calculating Site Preference & Forage.
+2022-10-18 16:47:35,299 -    Estimating effective Zone Population from Browse Density Index.
+2022-10-18 16:47:35,300 -      Calculating carrying capacity
+2022-10-18 16:47:35,300 -    Calculating HSI.
+2022-10-18 16:47:35,301 -    Calculating Local Population.
+2022-10-18 16:47:35,303 -    Disturbing Sites
+2022-10-18 16:47:35,305 - BEPA/73.0. adjusted firstPassRemoval = 1.4040994275, secondPassRemoval = 4.2122982825, finalRemoval = 5.61639771
+2022-10-18 16:47:35,305 - Setting LastBrowseProportion :  BEPA/73.0/0.615.
+2022-10-18 16:47:35,305 - BEPA/43.0. adjusted firstPassRemoval = 1.1142677898, secondPassRemoval = 3.3428033694, finalRemoval = 4.4570711592
+2022-10-18 16:47:35,306 - Setting LastBrowseProportion :  BEPA/43.0/0.723.
+2022-10-18 16:47:35,306 - BEPA/23.0. adjusted firstPassRemoval = 0.9177610662, secondPassRemoval = 2.7532831986, finalRemoval = 3.6710442648
+2022-10-18 16:47:35,307 - Setting LastBrowseProportion :  BEPA/23.0/0.781.
+2022-10-18 16:47:35,307 - THOC2/73.0. adjusted firstPassRemoval = 0.306490762034604, secondPassRemoval = 3.24839174728427, finalRemoval = 3.55488250931887
+2022-10-18 16:47:35,307 - Setting LastBrowseProportion :  THOC2/73.0/0.352599300435333.
+2022-10-18 16:47:35,308 - THOC2/43.0. adjusted firstPassRemoval = 0.269783531305721, secondPassRemoval = 2.85934424525254, finalRemoval = 3.12912777655826
+2022-10-18 16:47:35,308 - Setting LastBrowseProportion :  THOC2/43.0/0.397834079109603.
+2022-10-18 16:47:35,308 - THOC2/23.0. adjusted firstPassRemoval = 0.239183312819081, secondPassRemoval = 2.53502289691163, finalRemoval = 2.77420620973071
+2022-10-18 16:47:35,309 - Setting LastBrowseProportion :  THOC2/23.0/0.42683073210593.
+2022-10-18 16:47:35,309 - THOC2/8.0. adjusted firstPassRemoval = 0.0134004805053158, secondPassRemoval = 0.142027152773357, finalRemoval = 0.155427633278673
+2022-10-18 16:47:35,309 - Setting LastBrowseProportion :  THOC2/8.0/0.579933059926535.
+2022-10-18 16:47:35,310 - THOC2/3.0. adjusted firstPassRemoval = 0.00893365367021051, secondPassRemoval = 0.0946847685155715, finalRemoval = 0.103618422185782
+2022-10-18 16:47:35,310 - Setting LastBrowseProportion :  THOC2/3.0/0.579933059926535.
+2022-10-18 16:47:35,311 - THOC2/2.0. adjusted firstPassRemoval = 0.00781694696143419, secondPassRemoval = 0.0828491724511251, finalRemoval = 0.0906661194125593
+2022-10-18 16:47:35,311 - Setting LastBrowseProportion :  THOC2/2.0/0.579933059926535.
+2022-10-18 16:47:35,311 - THOC2/1.0. adjusted firstPassRemoval = 0.33, secondPassRemoval = 3.49755819551513, finalRemoval = 3.82755819551513
+2022-10-18 16:47:35,312 - Setting LastBrowseProportion :  THOC2/1.0/0.579933059926536.
+2022-10-18 16:47:35,391 - Running NECN Succession ...
+2022-10-18 16:47:35,764 - Current time: 15
+2022-10-18 16:47:35,768 - Running Biomass Browse ...
+2022-10-18 16:47:35,769 - Processing landscape for ungulate browse events ...
+2022-10-18 16:47:35,770 -    Calculating Site Preference & Forage.
+2022-10-18 16:47:35,772 -    Estimating effective Zone Population from Browse Density Index.
+2022-10-18 16:47:35,773 -      Calculating carrying capacity
+2022-10-18 16:47:35,773 -    Calculating HSI.
+2022-10-18 16:47:35,774 -    Calculating Local Population.
+2022-10-18 16:47:35,776 -    Disturbing Sites
+2022-10-18 16:47:35,778 - BEPA/74.0. adjusted firstPassRemoval = 1.3776171255, secondPassRemoval = 4.1328513765, finalRemoval = 5.510468502
+2022-10-18 16:47:35,780 - Setting LastBrowseProportion :  BEPA/74.0/0.627.
+2022-10-18 16:47:35,783 - BEPA/44.0. adjusted firstPassRemoval = 1.0856576016, secondPassRemoval = 3.2569728048, finalRemoval = 4.3426304064
+2022-10-18 16:47:35,796 - Setting LastBrowseProportion :  BEPA/44.0/0.732.
+2022-10-18 16:47:35,799 - BEPA/24.0. adjusted firstPassRemoval = 0.8956021437, secondPassRemoval = 2.6868064311, finalRemoval = 3.5824085748
+2022-10-18 16:47:35,799 - Setting LastBrowseProportion :  BEPA/24.0/0.787.
+2022-10-18 16:47:35,804 - THOC2/74.0. adjusted firstPassRemoval = 0.304589341075939, secondPassRemoval = 2.73221227389641, finalRemoval = 3.03680161497235
+2022-10-18 16:47:35,804 - Setting LastBrowseProportion :  THOC2/74.0/0.30408959463084.
+2022-10-18 16:47:35,806 - THOC2/44.0. adjusted firstPassRemoval = 0.267035593713409, secondPassRemoval = 2.39534950282154, finalRemoval = 2.66238509653495
+2022-10-18 16:47:35,807 - Setting LastBrowseProportion :  THOC2/44.0/0.343471689673194.
+2022-10-18 16:47:35,808 - THOC2/24.0. adjusted firstPassRemoval = 0.236732207080607, secondPassRemoval = 2.12352355971302, finalRemoval = 2.36025576679363
+2022-10-18 16:47:35,815 - Setting LastBrowseProportion :  THOC2/24.0/0.367898558750098.
+2022-10-18 16:47:35,815 - THOC2/9.0. adjusted firstPassRemoval = 0.0144150563952347, secondPassRemoval = 0.129305227401736, finalRemoval = 0.14372028379697
+2022-10-18 16:47:35,847 - Setting LastBrowseProportion :  THOC2/9.0/0.498507532181704.
+2022-10-18 16:47:35,848 - THOC2/4.0. adjusted firstPassRemoval = 0.00997965442747015, secondPassRemoval = 0.0895190035858171, finalRemoval = 0.0994986580132872
+2022-10-18 16:47:35,853 - Setting LastBrowseProportion :  THOC2/4.0/0.498507532181704.
+2022-10-18 16:47:35,857 - THOC2/3.0. adjusted firstPassRemoval = 0.00887080393552902, secondPassRemoval = 0.0795724476318374, finalRemoval = 0.0884432515673664
+2022-10-18 16:47:35,858 - Setting LastBrowseProportion :  THOC2/3.0/0.498507532181704.
+2022-10-18 16:47:35,894 - THOC2/2.0. adjusted firstPassRemoval = 0.00776195344358789, secondPassRemoval = 0.0696258916778577, finalRemoval = 0.0773878451214456
+2022-10-18 16:47:35,897 - Setting LastBrowseProportion :  THOC2/2.0/0.498507532181704.
+2022-10-18 16:47:36,043 - Running NECN Succession ...
+2022-10-18 16:47:36,579 - Current time: 16
+2022-10-18 16:47:36,580 - Running Biomass Browse ...
+2022-10-18 16:47:36,581 - Processing landscape for ungulate browse events ...
+2022-10-18 16:47:36,582 -    Calculating Site Preference & Forage.
+2022-10-18 16:47:36,583 -    Estimating effective Zone Population from Browse Density Index.
+2022-10-18 16:47:36,586 -      Calculating carrying capacity
+2022-10-18 16:47:36,594 -    Calculating HSI.
+2022-10-18 16:47:36,595 -    Calculating Local Population.
+2022-10-18 16:47:36,596 -    Disturbing Sites
+2022-10-18 16:47:36,597 - BEPA/75.0. adjusted firstPassRemoval = 1.3496797611, secondPassRemoval = 4.0490392833, finalRemoval = 5.3987190444
+2022-10-18 16:47:36,597 - Setting LastBrowseProportion :  BEPA/75.0/0.639.
+2022-10-18 16:47:36,598 - BEPA/45.0. adjusted firstPassRemoval = 1.05904656, secondPassRemoval = 3.17713968, finalRemoval = 4.23618624
+2022-10-18 16:47:36,599 - Setting LastBrowseProportion :  BEPA/45.0/0.74.
+2022-10-18 16:47:36,601 - BEPA/25.0. adjusted firstPassRemoval = 0.8706348156, secondPassRemoval = 2.6119044468, finalRemoval = 3.4825392624
+2022-10-18 16:47:36,602 - Setting LastBrowseProportion :  BEPA/25.0/0.794.
+2022-10-18 16:47:36,603 - THOC2/75.0. adjusted firstPassRemoval = 0.313294144444152, secondPassRemoval = 3.37759835904365, finalRemoval = 3.6908925034878
+2022-10-18 16:47:36,607 - Setting LastBrowseProportion :  THOC2/75.0/0.359317987114326.
+2022-10-18 16:47:36,608 - THOC2/45.0. adjusted firstPassRemoval = 0.275822055626996, secondPassRemoval = 2.97361485681982, finalRemoval = 3.24943691244682
+2022-10-18 16:47:36,608 - Setting LastBrowseProportion :  THOC2/45.0/0.405852611675034.
+2022-10-18 16:47:36,609 - THOC2/25.0. adjusted firstPassRemoval = 0.244721998817502, secondPassRemoval = 2.63832770668084, finalRemoval = 2.88304970549834
+2022-10-18 16:47:36,610 - Setting LastBrowseProportion :  THOC2/25.0/0.435304905700799.
+2022-10-18 16:47:36,611 - THOC2/10.0. adjusted firstPassRemoval = 0.015213491855864, secondPassRemoval = 0.164015402263128, finalRemoval = 0.179228894118992
+2022-10-18 16:47:36,611 - Setting LastBrowseProportion :  THOC2/10.0/0.589045880515289.
+2022-10-18 16:47:36,613 - THOC2/5.0. adjusted firstPassRemoval = 0.0117026860429723, secondPassRemoval = 0.12616569404856, finalRemoval = 0.137868380091532
+2022-10-18 16:47:36,613 - Setting LastBrowseProportion :  THOC2/5.0/0.589045880515289.
+2022-10-18 16:47:36,614 - THOC2/4.0. adjusted firstPassRemoval = 0.0105324174386751, secondPassRemoval = 0.113549124643704, finalRemoval = 0.124081542082379
+2022-10-18 16:47:36,615 - Setting LastBrowseProportion :  THOC2/4.0/0.589045880515289.
+2022-10-18 16:47:36,616 - THOC2/3.0. adjusted firstPassRemoval = 0.00936214883437783, secondPassRemoval = 0.100932555238848, finalRemoval = 0.110294704073226
+2022-10-18 16:47:36,624 - Setting LastBrowseProportion :  THOC2/3.0/0.589045880515289.
+2022-10-18 16:47:36,625 - THOC2/1.0. adjusted firstPassRemoval = 0.33, secondPassRemoval = 3.55770281140091, finalRemoval = 3.88770281140091
+2022-10-18 16:47:36,626 - Setting LastBrowseProportion :  THOC2/1.0/0.589045880515289.
+2022-10-18 16:47:36,692 - Running NECN Succession ...
+2022-10-18 16:47:36,991 - Current time: 17
+2022-10-18 16:47:36,994 - Running Biomass Browse ...
+2022-10-18 16:47:36,994 - Processing landscape for ungulate browse events ...
+2022-10-18 16:47:36,995 -    Calculating Site Preference & Forage.
+2022-10-18 16:47:36,995 -    Estimating effective Zone Population from Browse Density Index.
+2022-10-18 16:47:36,996 -      Calculating carrying capacity
+2022-10-18 16:47:36,996 -    Calculating HSI.
+2022-10-18 16:47:36,997 -    Calculating Local Population.
+2022-10-18 16:47:36,997 -    Disturbing Sites
+2022-10-18 16:47:36,998 - BEPA/76.0. adjusted firstPassRemoval = 1.32207075, secondPassRemoval = 3.96621225, finalRemoval = 5.288283
+2022-10-18 16:47:36,998 - Setting LastBrowseProportion :  BEPA/76.0/0.65.
+2022-10-18 16:47:36,999 - BEPA/46.0. adjusted firstPassRemoval = 1.032581088, secondPassRemoval = 3.097743264, finalRemoval = 4.130324352
+2022-10-18 16:47:37,006 - Setting LastBrowseProportion :  BEPA/46.0/0.748.
+2022-10-18 16:47:37,007 - BEPA/26.0. adjusted firstPassRemoval = 0.847968, secondPassRemoval = 2.543904, finalRemoval = 3.391872
+2022-10-18 16:47:37,008 - Setting LastBrowseProportion :  BEPA/26.0/0.8.
+2022-10-18 16:47:37,009 - THOC2/76.0. adjusted firstPassRemoval = 0.303101877363236, secondPassRemoval = 2.90359414351298, finalRemoval = 3.20669602087622
+2022-10-18 16:47:37,010 - Setting LastBrowseProportion :  THOC2/76.0/0.323206719437003.
+2022-10-18 16:47:37,012 - THOC2/46.0. adjusted firstPassRemoval = 0.264797058396709, secondPassRemoval = 2.53664937567756, finalRemoval = 2.80144643407427
+2022-10-18 16:47:37,013 - Setting LastBrowseProportion :  THOC2/46.0/0.365525111507315.
+2022-10-18 16:47:37,013 - THOC2/26.0. adjusted firstPassRemoval = 0.234331933547988, secondPassRemoval = 2.24480572607149, finalRemoval = 2.47913765961948
+2022-10-18 16:47:37,015 - Setting LastBrowseProportion :  THOC2/26.0/0.39144512665038.
+2022-10-18 16:47:37,024 - THOC2/11.0. adjusted firstPassRemoval = 0.0154276755017585, secondPassRemoval = 0.14779092965248, finalRemoval = 0.163218605154239
+2022-10-18 16:47:37,024 - Setting LastBrowseProportion :  THOC2/11.0/0.528979900878892.
+2022-10-18 16:47:37,026 - THOC2/6.0. adjusted firstPassRemoval = 0.012121745037096, secondPassRemoval = 0.116121444726949, finalRemoval = 0.128243189764045
+2022-10-18 16:47:37,027 - Setting LastBrowseProportion :  THOC2/6.0/0.528979900878892.
+2022-10-18 16:47:37,027 - THOC2/5.0. adjusted firstPassRemoval = 0.0110197682155418, secondPassRemoval = 0.105564949751772, finalRemoval = 0.116584717967314
+2022-10-18 16:47:37,027 - Setting LastBrowseProportion :  THOC2/5.0/0.528979900878892.
+2022-10-18 16:47:37,028 - THOC2/4.0. adjusted firstPassRemoval = 0.00991779139398764, secondPassRemoval = 0.0950084547765946, finalRemoval = 0.104926246170582
+2022-10-18 16:47:37,029 - Setting LastBrowseProportion :  THOC2/4.0/0.528979900878892.
+2022-10-18 16:47:37,030 - THOC2/2.0. adjusted firstPassRemoval = 0.00881581457243346, secondPassRemoval = 0.0844519598014174, finalRemoval = 0.0932677743738509
+2022-10-18 16:47:37,031 - Setting LastBrowseProportion :  THOC2/2.0/0.528979900878892.
+2022-10-18 16:47:37,038 - PIGL/106.0. adjusted firstPassRemoval = 0, secondPassRemoval = 0, finalRemoval = 0
+2022-10-18 16:47:37,039 - PIGL/26.0. adjusted firstPassRemoval = 0, secondPassRemoval = -1.54400233309547E-15, finalRemoval = -1.54400233309547E-15
+2022-10-18 16:47:37,039 -    Browse Proportion not between 0 and 1: -7.94632294289087E-17. finalRemoval = -1.54400233309547E-15,total forage = 19.4304
+2022-10-18 16:47:37,041 - PIGL/11.0. adjusted firstPassRemoval = 0, secondPassRemoval = -1.02899852792118E-16, finalRemoval = -1.02899852792118E-16
+2022-10-18 16:47:37,041 -    Browse Proportion not between 0 and 1: -1.25732957957134E-16. finalRemoval = -1.02899852792118E-16,total forage = 0.8184
+2022-10-18 16:47:37,042 - PIGL/3.0. adjusted firstPassRemoval = 0, secondPassRemoval = -6.63870018013667E-17, finalRemoval = -6.63870018013667E-17
+2022-10-18 16:47:37,043 -    Browse Proportion not between 0 and 1: -1.25732957957134E-16. finalRemoval = -6.63870018013667E-17,total forage = 0.528
+2022-10-18 16:47:37,044 - PIGL/2.0. adjusted firstPassRemoval = 0, secondPassRemoval = -6.30676517112984E-17, finalRemoval = -6.30676517112984E-17
+2022-10-18 16:47:37,044 -    Browse Proportion not between 0 and 1: -1.25732957957134E-16. finalRemoval = -6.30676517112984E-17,total forage = 0.5016
+2022-10-18 16:47:37,144 - Running NECN Succession ...
+2022-10-18 16:47:37,391 - Current time: 18
+2022-10-18 16:47:37,391 - Running Biomass Browse ...
+2022-10-18 16:47:37,392 - Processing landscape for ungulate browse events ...
+2022-10-18 16:47:37,392 -    Calculating Site Preference & Forage.
+2022-10-18 16:47:37,392 -    Estimating effective Zone Population from Browse Density Index.
+2022-10-18 16:47:37,393 -      Calculating carrying capacity
+2022-10-18 16:47:37,393 -    Calculating HSI.
+2022-10-18 16:47:37,394 -    Calculating Local Population.
+2022-10-18 16:47:37,394 -    Disturbing Sites
+2022-10-18 16:47:37,394 - BEPA/77.0. adjusted firstPassRemoval = 1.294056225, secondPassRemoval = 3.882168675, finalRemoval = 5.1762249
+2022-10-18 16:47:37,395 - Setting LastBrowseProportion :  BEPA/77.0/0.661.
+2022-10-18 16:47:37,395 - BEPA/47.0. adjusted firstPassRemoval = 1.0056239424, secondPassRemoval = 3.0168718272, finalRemoval = 4.0224957696
+2022-10-18 16:47:37,396 - Setting LastBrowseProportion :  BEPA/47.0/0.756.
+2022-10-18 16:47:37,396 - BEPA/27.0. adjusted firstPassRemoval = 0.82236528, secondPassRemoval = 2.46709584, finalRemoval = 3.28946112
+2022-10-18 16:47:37,396 - Setting LastBrowseProportion :  BEPA/27.0/0.807.
+2022-10-18 16:47:37,397 - THOC2/77.0. adjusted firstPassRemoval = 0.308992310684821, secondPassRemoval = 2.99433541601772, finalRemoval = 3.30332772670254
+2022-10-18 16:47:37,397 - Setting LastBrowseProportion :  THOC2/77.0/0.327668331289664.
+2022-10-18 16:47:37,397 - THOC2/47.0. adjusted firstPassRemoval = 0.270316175109859, secondPassRemoval = 2.61953863790326, finalRemoval = 2.88985481301312
+2022-10-18 16:47:37,398 - Setting LastBrowseProportion :  THOC2/47.0/0.370430919386195.
+2022-10-18 16:47:37,398 - THOC2/27.0. adjusted firstPassRemoval = 0.239491077811209, secondPassRemoval = 2.3208235004975, finalRemoval = 2.56031457830871
+2022-10-18 16:47:37,398 - Setting LastBrowseProportion :  THOC2/27.0/0.396623004595319.
+2022-10-18 16:47:37,399 - THOC2/12.0. adjusted firstPassRemoval = 0.0172092559786274, secondPassRemoval = 0.166768825236822, finalRemoval = 0.183978081215449
+2022-10-18 16:47:37,399 - Setting LastBrowseProportion :  THOC2/12.0/0.53453235120663.
+2022-10-18 16:47:37,400 - THOC2/7.0. adjusted firstPassRemoval = 0.0126201210509934, secondPassRemoval = 0.122297138507003, finalRemoval = 0.134917259557996
+2022-10-18 16:47:37,401 - Setting LastBrowseProportion :  THOC2/7.0/0.53453235120663.
+2022-10-18 16:47:37,401 - THOC2/6.0. adjusted firstPassRemoval = 0.0114728373190849, secondPassRemoval = 0.111179216824548, finalRemoval = 0.122652054143633
+2022-10-18 16:47:37,402 - Setting LastBrowseProportion :  THOC2/6.0/0.53453235120663.
+2022-10-18 16:47:37,402 - THOC2/5.0. adjusted firstPassRemoval = 0.0114728373190849, secondPassRemoval = 0.111179216824548, finalRemoval = 0.122652054143633
+2022-10-18 16:47:37,403 - Setting LastBrowseProportion :  THOC2/5.0/0.53453235120663.
+2022-10-18 16:47:37,403 - THOC2/3.0. adjusted firstPassRemoval = 0.00917826985526794, secondPassRemoval = 0.0889433734596383, finalRemoval = 0.0981216433149062
+2022-10-18 16:47:37,403 - Setting LastBrowseProportion :  THOC2/3.0/0.53453235120663.
+2022-10-18 16:47:37,404 - PIGL/107.0. adjusted firstPassRemoval = 0, secondPassRemoval = 0, finalRemoval = 0
+2022-10-18 16:47:37,404 - PIGL/27.0. adjusted firstPassRemoval = 0, secondPassRemoval = 1.5359791108104E-15, finalRemoval = 1.5359791108104E-15
+2022-10-18 16:47:37,405 - Setting LastBrowseProportion :  PIGL/27.0/7.8516905431358E-17.
+2022-10-18 16:47:37,405 - PIGL/12.0. adjusted firstPassRemoval = 0, secondPassRemoval = 1.05371059107881E-16, finalRemoval = 1.05371059107881E-16
+2022-10-18 16:47:37,405 - Setting LastBrowseProportion :  PIGL/12.0/1.24728999890958E-16.
+2022-10-18 16:47:37,407 - PIGL/4.0. adjusted firstPassRemoval = 0, secondPassRemoval = 6.9149757539547E-17, finalRemoval = 6.9149757539547E-17
+2022-10-18 16:47:37,410 - Setting LastBrowseProportion :  PIGL/4.0/1.24728999890958E-16.
+2022-10-18 16:47:37,410 - PIGL/3.0. adjusted firstPassRemoval = 0, secondPassRemoval = 6.58569119424257E-17, finalRemoval = 6.58569119424257E-17
+2022-10-18 16:47:37,411 - Setting LastBrowseProportion :  PIGL/3.0/1.24728999890958E-16.
+2022-10-18 16:47:37,472 - Running NECN Succession ...
+2022-10-18 16:47:37,686 - Current time: 19
+2022-10-18 16:47:37,686 - Running Biomass Browse ...
+2022-10-18 16:47:37,686 - Processing landscape for ungulate browse events ...
+2022-10-18 16:47:37,687 -    Calculating Site Preference & Forage.
+2022-10-18 16:47:37,688 -    Estimating effective Zone Population from Browse Density Index.
+2022-10-18 16:47:37,688 -      Calculating carrying capacity
+2022-10-18 16:47:37,689 -    Calculating HSI.
+2022-10-18 16:47:37,690 -    Calculating Local Population.
+2022-10-18 16:47:37,692 -    Disturbing Sites
+2022-10-18 16:47:37,692 - BEPA/78.0. adjusted firstPassRemoval = 1.2649012992, secondPassRemoval = 3.7947038976, finalRemoval = 5.0596051968
+2022-10-18 16:47:37,693 - Setting LastBrowseProportion :  BEPA/78.0/0.672.
+2022-10-18 16:47:37,693 - BEPA/48.0. adjusted firstPassRemoval = 0.9781852608, secondPassRemoval = 2.9345557824, finalRemoval = 3.9127410432
+2022-10-18 16:47:37,694 - Setting LastBrowseProportion :  BEPA/48.0/0.764.
+2022-10-18 16:47:37,694 - BEPA/28.0. adjusted firstPassRemoval = 0.7992117639, secondPassRemoval = 2.3976352917, finalRemoval = 3.1968470556
+2022-10-18 16:47:37,695 - Setting LastBrowseProportion :  BEPA/28.0/0.813.
+2022-10-18 16:47:37,695 - THOC2/78.0. adjusted firstPassRemoval = 0.308193950063866, secondPassRemoval = 3.08838110451802, finalRemoval = 3.39657505458188
+2022-10-18 16:47:37,696 - Setting LastBrowseProportion :  THOC2/78.0/0.337790619839752.
+2022-10-18 16:47:37,696 - THOC2/48.0. adjusted firstPassRemoval = 0.269528915394264, secondPassRemoval = 2.70092261464699, finalRemoval = 2.97045153004125
+2022-10-18 16:47:37,697 - Setting LastBrowseProportion :  THOC2/48.0/0.381874224386539.
+2022-10-18 16:47:37,697 - THOC2/28.0. adjusted firstPassRemoval = 0.238138552947066, secondPassRemoval = 2.38636289591854, finalRemoval = 2.62450144886561
+2022-10-18 16:47:37,698 - Setting LastBrowseProportion :  THOC2/28.0/0.40942647722828.
+2022-10-18 16:47:37,698 - THOC2/13.0. adjusted firstPassRemoval = 0.018289529567152, secondPassRemoval = 0.18327756762912, finalRemoval = 0.201567097196272
+2022-10-18 16:47:37,699 - Setting LastBrowseProportion :  THOC2/13.0/0.551045056834832.
+2022-10-18 16:47:37,699 - THOC2/8.0. adjusted firstPassRemoval = 0.013717147175364, secondPassRemoval = 0.13745817572184, finalRemoval = 0.151175322897204
+2022-10-18 16:47:37,700 - Setting LastBrowseProportion :  THOC2/8.0/0.551045056834832.
+2022-10-18 16:47:37,704 - THOC2/7.0. adjusted firstPassRemoval = 0.012574051577417, secondPassRemoval = 0.12600332774502, finalRemoval = 0.138577379322437
+2022-10-18 16:47:37,704 - Setting LastBrowseProportion :  THOC2/7.0/0.551045056834832.
+2022-10-18 16:47:37,705 - THOC2/6.0. adjusted firstPassRemoval = 0.012574051577417, secondPassRemoval = 0.12600332774502, finalRemoval = 0.138577379322437
+2022-10-18 16:47:37,709 - Setting LastBrowseProportion :  THOC2/6.0/0.551045056834832.
+2022-10-18 16:47:37,709 - THOC2/4.0. adjusted firstPassRemoval = 0.010287860381523, secondPassRemoval = 0.10309363179138, finalRemoval = 0.113381492172903
+2022-10-18 16:47:37,710 - Setting LastBrowseProportion :  THOC2/4.0/0.551045056834832.
+2022-10-18 16:47:37,710 - PIGL/108.0. adjusted firstPassRemoval = 0, secondPassRemoval = 0, finalRemoval = 0
+2022-10-18 16:47:37,711 - PIGL/28.0. adjusted firstPassRemoval = 0, secondPassRemoval = 3.05076650076391E-15, finalRemoval = 3.05076650076391E-15
+2022-10-18 16:47:37,711 - Setting LastBrowseProportion :  PIGL/28.0/1.54697907831524E-16.
+2022-10-18 16:47:37,764 - Running NECN Succession ...
+2022-10-18 16:47:37,979 - Current time: 20
+2022-10-18 16:47:37,980 - Running Biomass Browse ...
+2022-10-18 16:47:37,980 - Processing landscape for ungulate browse events ...
+2022-10-18 16:47:37,981 -    Calculating Site Preference & Forage.
+2022-10-18 16:47:37,982 -    Estimating effective Zone Population from Browse Density Index.
+2022-10-18 16:47:37,982 -      Calculating carrying capacity
+2022-10-18 16:47:37,982 -    Calculating HSI.
+2022-10-18 16:47:37,983 -    Calculating Local Population.
+2022-10-18 16:47:37,984 -    Disturbing Sites
+2022-10-18 16:47:37,988 - BEPA/79.0. adjusted firstPassRemoval = 1.2367137024, secondPassRemoval = 3.7101411072, finalRemoval = 4.9468548096
+2022-10-18 16:47:37,988 - Setting LastBrowseProportion :  BEPA/79.0/0.682.
+2022-10-18 16:47:37,989 - BEPA/49.0. adjusted firstPassRemoval = 0.9532067292, secondPassRemoval = 2.8596201876, finalRemoval = 3.8128269168
+2022-10-18 16:47:37,989 - Setting LastBrowseProportion :  BEPA/49.0/0.771.
+2022-10-18 16:47:37,990 - BEPA/29.0. adjusted firstPassRemoval = 0.7763424669, secondPassRemoval = 2.3290274007, finalRemoval = 3.1053698676
+2022-10-18 16:47:37,990 - Setting LastBrowseProportion :  BEPA/29.0/0.819.
+2022-10-18 16:47:37,990 - THOC2/79.0. adjusted firstPassRemoval = 0.3057937464591, secondPassRemoval = 3.1829806983339, finalRemoval = 3.488774444793
+2022-10-18 16:47:37,991 - Setting LastBrowseProportion :  THOC2/79.0/0.350824094408789.
+2022-10-18 16:47:37,991 - THOC2/49.0. adjusted firstPassRemoval = 0.267205610354479, secondPassRemoval = 2.78132012211895, finalRemoval = 3.04852573247343
+2022-10-18 16:47:37,991 - Setting LastBrowseProportion :  THOC2/49.0/0.395889303284065.
+2022-10-18 16:47:37,992 - THOC2/29.0. adjusted firstPassRemoval = 0.235691804561357, secondPassRemoval = 2.45329563917235, finalRemoval = 2.6889874437337
+2022-10-18 16:47:37,992 - Setting LastBrowseProportion :  THOC2/29.0/0.42441158738234.
+2022-10-18 16:47:37,992 - THOC2/14.0. adjusted firstPassRemoval = 0.0192208850997865, secondPassRemoval = 0.200068533074782, finalRemoval = 0.219289418174569
+2022-10-18 16:47:37,993 - Setting LastBrowseProportion :  THOC2/14.0/0.570445681965511.
+2022-10-18 16:47:37,993 - THOC2/9.0. adjusted firstPassRemoval = 0.0146983238998367, secondPassRemoval = 0.15299358411601, finalRemoval = 0.167691908015847
+2022-10-18 16:47:37,994 - Setting LastBrowseProportion :  THOC2/9.0/0.570445681965511.
+2022-10-18 16:47:37,994 - THOC2/8.0. adjusted firstPassRemoval = 0.0135676835998493, secondPassRemoval = 0.141224846876317, finalRemoval = 0.154792530476166
+2022-10-18 16:47:37,994 - Setting LastBrowseProportion :  THOC2/8.0/0.570445681965511.
+2022-10-18 16:47:37,995 - THOC2/7.0. adjusted firstPassRemoval = 0.0124370432998619, secondPassRemoval = 0.129456109636624, finalRemoval = 0.141893152936486
+2022-10-18 16:47:37,995 - Setting LastBrowseProportion :  THOC2/7.0/0.570445681965511.
+2022-10-18 16:47:37,996 - THOC2/5.0. adjusted firstPassRemoval = 0.0113064029998744, secondPassRemoval = 0.117687372396931, finalRemoval = 0.128993775396805
+2022-10-18 16:47:37,996 - Setting LastBrowseProportion :  THOC2/5.0/0.570445681965511.
+2022-10-18 16:47:37,996 - PIGL/109.0. adjusted firstPassRemoval = 0, secondPassRemoval = 0, finalRemoval = 0
+2022-10-18 16:47:37,997 - PIGL/29.0. adjusted firstPassRemoval = 0, secondPassRemoval = -1.51486583172477E-15, finalRemoval = -1.51486583172477E-15
+2022-10-18 16:47:37,997 -    Browse Proportion not between 0 and 1: -7.63048956179867E-17. finalRemoval = -1.51486583172477E-15,total forage = 19.8528
+2022-10-18 16:47:37,997 - PIGL/14.0. adjusted firstPassRemoval = 0, secondPassRemoval = -1.12989941588173E-16, finalRemoval = -1.12989941588173E-16
+2022-10-18 16:47:37,998 -    Browse Proportion not between 0 and 1: -1.22283486567286E-16. finalRemoval = -1.12989941588173E-16,total forage = 0.924
+2022-10-18 16:47:37,998 - PIGL/6.0. adjusted firstPassRemoval = 0, secondPassRemoval = -7.74788170890326E-17, finalRemoval = -7.74788170890326E-17
+2022-10-18 16:47:37,999 -    Browse Proportion not between 0 and 1: -1.22283486567286E-16. finalRemoval = -7.74788170890326E-17,total forage = 0.6336
+2022-10-18 16:47:37,999 - PIGL/5.0. adjusted firstPassRemoval = 0, secondPassRemoval = -7.10222489982799E-17, finalRemoval = -7.10222489982799E-17
+2022-10-18 16:47:37,999 -    Browse Proportion not between 0 and 1: -1.22283486567286E-16. finalRemoval = -7.10222489982799E-17,total forage = 0.5808
+2022-10-18 16:47:38,061 - Running NECN Succession ...
+2022-10-18 16:47:38,267 - Current time: 21
+2022-10-18 16:47:38,268 - Running Biomass Browse ...
+2022-10-18 16:47:38,268 - Processing landscape for ungulate browse events ...
+2022-10-18 16:47:38,269 -    Calculating Site Preference & Forage.
+2022-10-18 16:47:38,269 -    Estimating effective Zone Population from Browse Density Index.
+2022-10-18 16:47:38,270 -      Calculating carrying capacity
+2022-10-18 16:47:38,270 -    Calculating HSI.
+2022-10-18 16:47:38,271 -    Calculating Local Population.
+2022-10-18 16:47:38,271 -    Disturbing Sites
+2022-10-18 16:47:38,272 - BEPA/80.0. adjusted firstPassRemoval = 1.2105246186, secondPassRemoval = 3.6315738558, finalRemoval = 4.8420984744
+2022-10-18 16:47:38,272 - Setting LastBrowseProportion :  BEPA/80.0/0.691.
+2022-10-18 16:47:38,272 - BEPA/50.0. adjusted firstPassRemoval = 0.9314529147, secondPassRemoval = 2.7943587441, finalRemoval = 3.7258116588
+2022-10-18 16:47:38,273 - Setting LastBrowseProportion :  BEPA/50.0/0.777.
+2022-10-18 16:47:38,273 - BEPA/30.0. adjusted firstPassRemoval = 0.7566337152, secondPassRemoval = 2.2699011456, finalRemoval = 3.0265348608
+2022-10-18 16:47:38,275 - Setting LastBrowseProportion :  BEPA/30.0/0.824.
+2022-10-18 16:47:38,276 - THOC2/80.0. adjusted firstPassRemoval = 0.303466020034968, secondPassRemoval = 3.26684820540205, finalRemoval = 3.57031422543702
+2022-10-18 16:47:38,276 - Setting LastBrowseProportion :  THOC2/80.0/0.361777448491722.
+2022-10-18 16:47:38,277 - THOC2/50.0. adjusted firstPassRemoval = 0.263987446916118, secondPassRemoval = 2.84185661744671, finalRemoval = 3.10584406436283
+2022-10-18 16:47:38,277 - Setting LastBrowseProportion :  THOC2/50.0/0.409426185610144.
+2022-10-18 16:47:38,277 - THOC2/30.0. adjusted firstPassRemoval = 0.232939388266796, secondPassRemoval = 2.50762053174569, finalRemoval = 2.74055992001249
+2022-10-18 16:47:38,278 - Setting LastBrowseProportion :  THOC2/30.0/0.43825073028672.
+2022-10-18 16:47:38,278 - THOC2/15.0. adjusted firstPassRemoval = 0.0200881203408568, secondPassRemoval = 0.216251031591171, finalRemoval = 0.236339151932027
+2022-10-18 16:47:38,279 - Setting LastBrowseProportion :  THOC2/15.0/0.588256013807678.
+2022-10-18 16:47:38,279 - THOC2/10.0. adjusted firstPassRemoval = 0.0156240935984442, secondPassRemoval = 0.168195246793133, finalRemoval = 0.183819340391577
+2022-10-18 16:47:38,279 - Setting LastBrowseProportion :  THOC2/10.0/0.588256013807678.
+2022-10-18 16:47:38,280 - THOC2/9.0. adjusted firstPassRemoval = 0.014508086912841, secondPassRemoval = 0.156181300593623, finalRemoval = 0.170689387506464
+2022-10-18 16:47:38,280 - Setting LastBrowseProportion :  THOC2/9.0/0.588256013807678.
+2022-10-18 16:47:38,281 - THOC2/8.0. adjusted firstPassRemoval = 0.0133920802272379, secondPassRemoval = 0.144167354394114, finalRemoval = 0.157559434621352
+2022-10-18 16:47:38,281 - Setting LastBrowseProportion :  THOC2/8.0/0.588256013807678.
+2022-10-18 16:47:38,281 - THOC2/6.0. adjusted firstPassRemoval = 0.0122760735416347, secondPassRemoval = 0.132153408194604, finalRemoval = 0.144429481736239
+2022-10-18 16:47:38,282 - Setting LastBrowseProportion :  THOC2/6.0/0.588256013807678.
+2022-10-18 16:47:38,282 - PIGL/110.0. adjusted firstPassRemoval = 0, secondPassRemoval = 0, finalRemoval = 0
+2022-10-18 16:47:38,282 - PIGL/30.0. adjusted firstPassRemoval = 0, secondPassRemoval = 0, finalRemoval = 0
+2022-10-18 16:47:38,283 - PIGL/15.0. adjusted firstPassRemoval = 0, secondPassRemoval = 0, finalRemoval = 0
+2022-10-18 16:47:38,283 - PIGL/7.0. adjusted firstPassRemoval = 0, secondPassRemoval = 0, finalRemoval = 0
+2022-10-18 16:47:38,284 - PIGL/6.0. adjusted firstPassRemoval = 0, secondPassRemoval = 0, finalRemoval = 0
+2022-10-18 16:47:38,346 - Running NECN Succession ...
+2022-10-18 16:47:38,592 - Current time: 22
+2022-10-18 16:47:38,593 - Running Biomass Browse ...
+2022-10-18 16:47:38,594 - Processing landscape for ungulate browse events ...
+2022-10-18 16:47:38,596 -    Calculating Site Preference & Forage.
+2022-10-18 16:47:38,596 -    Estimating effective Zone Population from Browse Density Index.
+2022-10-18 16:47:38,597 -      Calculating carrying capacity
+2022-10-18 16:47:38,597 -    Calculating HSI.
+2022-10-18 16:47:38,598 -    Calculating Local Population.
+2022-10-18 16:47:38,598 -    Disturbing Sites
+2022-10-18 16:47:38,598 - BEPA/81.0. adjusted firstPassRemoval = 1.1820754803, secondPassRemoval = 3.5462264409, finalRemoval = 4.7283019212
+2022-10-18 16:47:38,599 - Setting LastBrowseProportion :  BEPA/81.0/0.701.
+2022-10-18 16:47:38,599 - BEPA/51.0. adjusted firstPassRemoval = 0.9100263249, secondPassRemoval = 2.7300789747, finalRemoval = 3.6401052996
+2022-10-18 16:47:38,599 - Setting LastBrowseProportion :  BEPA/51.0/0.783.
+2022-10-18 16:47:38,601 - BEPA/31.0. adjusted firstPassRemoval = 0.73383288, secondPassRemoval = 2.20149864, finalRemoval = 2.93533152
+2022-10-18 16:47:38,601 - Setting LastBrowseProportion :  BEPA/31.0/0.83.
+2022-10-18 16:47:38,601 - THOC2/81.0. adjusted firstPassRemoval = 0.301215638911798, secondPassRemoval = 3.35911699125297, finalRemoval = 3.66033263016476
+2022-10-18 16:47:38,602 - Setting LastBrowseProportion :  THOC2/81.0/0.374277528936958.
+2022-10-18 16:47:38,602 - THOC2/51.0. adjusted firstPassRemoval = 0.260851911466928, secondPassRemoval = 2.90898603795918, finalRemoval = 3.1698379494261
+2022-10-18 16:47:38,603 - Setting LastBrowseProportion :  THOC2/51.0/0.424100187009735.
+2022-10-18 16:47:38,603 - THOC2/31.0. adjusted firstPassRemoval = 0.229760034415283, secondPassRemoval = 2.56225353472181, finalRemoval = 2.7920135691371
+2022-10-18 16:47:38,604 - Setting LastBrowseProportion :  THOC2/31.0/0.453872263175175.
+2022-10-18 16:47:38,604 - THOC2/16.0. adjusted firstPassRemoval = 0.0209488795278305, secondPassRemoval = 0.233619135526535, finalRemoval = 0.254568015054365
+2022-10-18 16:47:38,604 - Setting LastBrowseProportion :  THOC2/16.0/0.607593391131426.
+2022-10-18 16:47:38,605 - THOC2/11.0. adjusted firstPassRemoval = 0.0165385891009188, secondPassRemoval = 0.184436159626212, finalRemoval = 0.20097474872713
+2022-10-18 16:47:38,605 - Setting LastBrowseProportion :  THOC2/11.0/0.607593391131426.
+2022-10-18 16:47:38,605 - THOC2/10.0. adjusted firstPassRemoval = 0.0154360164941909, secondPassRemoval = 0.172140415651131, finalRemoval = 0.187576432145322
+2022-10-18 16:47:38,606 - Setting LastBrowseProportion :  THOC2/10.0/0.607593391131426.
+2022-10-18 16:47:38,606 - THOC2/9.0. adjusted firstPassRemoval = 0.014333443887463, secondPassRemoval = 0.15984467167605, finalRemoval = 0.174178115563513
+2022-10-18 16:47:38,607 - Setting LastBrowseProportion :  THOC2/9.0/0.607593391131426.
+2022-10-18 16:47:38,607 - THOC2/7.0. adjusted firstPassRemoval = 0.0132308712807351, secondPassRemoval = 0.147548927700969, finalRemoval = 0.160779798981704
+2022-10-18 16:47:38,607 - Setting LastBrowseProportion :  THOC2/7.0/0.607593391131426.
+2022-10-18 16:47:38,680 - Running NECN Succession ...
+2022-10-18 16:47:38,907 - Current time: 23
+2022-10-18 16:47:38,909 - Running Biomass Browse ...
+2022-10-18 16:47:38,909 - Processing landscape for ungulate browse events ...
+2022-10-18 16:47:38,909 -    Calculating Site Preference & Forage.
+2022-10-18 16:47:38,910 -    Estimating effective Zone Population from Browse Density Index.
+2022-10-18 16:47:38,910 -      Calculating carrying capacity
+2022-10-18 16:47:38,912 -    Calculating HSI.
+2022-10-18 16:47:38,912 -    Calculating Local Population.
+2022-10-18 16:47:38,913 -    Disturbing Sites
+2022-10-18 16:47:38,913 - BEPA/82.0. adjusted firstPassRemoval = 1.15441953, secondPassRemoval = 3.46325859, finalRemoval = 4.61767812
+2022-10-18 16:47:38,914 - Setting LastBrowseProportion :  BEPA/82.0/0.71.
+2022-10-18 16:47:38,914 - BEPA/52.0. adjusted firstPassRemoval = 0.88525899, secondPassRemoval = 2.65577697, finalRemoval = 3.54103596
+2022-10-18 16:47:38,914 - Setting LastBrowseProportion :  BEPA/52.0/0.79.
+2022-10-18 16:47:38,915 - BEPA/32.0. adjusted firstPassRemoval = 0.713812275, secondPassRemoval = 2.141436825, finalRemoval = 2.8552491
+2022-10-18 16:47:38,915 - Setting LastBrowseProportion :  BEPA/32.0/0.835.
+2022-10-18 16:47:38,916 - THOC2/82.0. adjusted firstPassRemoval = 0.298690846728217, secondPassRemoval = 3.46272080250014, finalRemoval = 3.76141164922836
+2022-10-18 16:47:38,916 - Setting LastBrowseProportion :  THOC2/82.0/0.388493824466877.
+2022-10-18 16:47:38,916 - THOC2/52.0. adjusted firstPassRemoval = 0.257542530377658, secondPassRemoval = 2.98568867186848, finalRemoval = 3.24323120224614
+2022-10-18 16:47:38,918 - Setting LastBrowseProportion :  THOC2/52.0/0.440754744127738.
+2022-10-18 16:47:38,919 - THOC2/32.0. adjusted firstPassRemoval = 0.226937186241316, secondPassRemoval = 2.63088114104039, finalRemoval = 2.85781832728171
+2022-10-18 16:47:38,919 - Setting LastBrowseProportion :  THOC2/32.0/0.470977926582211.
+2022-10-18 16:47:38,920 - THOC2/17.0. adjusted firstPassRemoval = 0.0206717472859565, secondPassRemoval = 0.239647415162472, finalRemoval = 0.260319162448429
+2022-10-18 16:47:38,921 - Setting LastBrowseProportion :  THOC2/17.0/0.629649634468197.
+2022-10-18 16:47:38,921 - THOC2/12.0. adjusted firstPassRemoval = 0.0174077871881739, secondPassRemoval = 0.201808349610503, finalRemoval = 0.219216136798677
+2022-10-18 16:47:38,921 - Setting LastBrowseProportion :  THOC2/12.0/0.629649634468197.
+2022-10-18 16:47:38,922 - THOC2/11.0. adjusted firstPassRemoval = 0.0152318137896521, secondPassRemoval = 0.17658230590919, finalRemoval = 0.191814119698842
+2022-10-18 16:47:38,922 - Setting LastBrowseProportion :  THOC2/11.0/0.629649634468197.
+2022-10-18 16:47:38,923 - THOC2/10.0. adjusted firstPassRemoval = 0.0152318137896521, secondPassRemoval = 0.17658230590919, finalRemoval = 0.191814119698842
+2022-10-18 16:47:38,923 - Setting LastBrowseProportion :  THOC2/10.0/0.629649634468197.
+2022-10-18 16:47:38,923 - THOC2/8.0. adjusted firstPassRemoval = 0.0130558403911304, secondPassRemoval = 0.151356262207877, finalRemoval = 0.164412102599008
+2022-10-18 16:47:38,924 - Setting LastBrowseProportion :  THOC2/8.0/0.629649634468197.
+2022-10-18 16:47:38,988 - Running NECN Succession ...
+2022-10-18 16:47:39,194 - Current time: 24
+2022-10-18 16:47:39,194 - Running Biomass Browse ...
+2022-10-18 16:47:39,195 - Processing landscape for ungulate browse events ...
+2022-10-18 16:47:39,196 -    Calculating Site Preference & Forage.
+2022-10-18 16:47:39,197 -    Estimating effective Zone Population from Browse Density Index.
+2022-10-18 16:47:39,197 -      Calculating carrying capacity
+2022-10-18 16:47:39,198 -    Calculating HSI.
+2022-10-18 16:47:39,198 -    Calculating Local Population.
+2022-10-18 16:47:39,199 -    Disturbing Sites
+2022-10-18 16:47:39,199 - BEPA/83.0. adjusted firstPassRemoval = 1.129208652, secondPassRemoval = 3.387625956, finalRemoval = 4.516834608
+2022-10-18 16:47:39,200 - Setting LastBrowseProportion :  BEPA/83.0/0.718.
+2022-10-18 16:47:39,200 - BEPA/53.0. adjusted firstPassRemoval = 0.862746192, secondPassRemoval = 2.588238576, finalRemoval = 3.450984768
+2022-10-18 16:47:39,202 - Setting LastBrowseProportion :  BEPA/53.0/0.796.
+2022-10-18 16:47:39,203 - BEPA/33.0. adjusted firstPassRemoval = 0.6976154955, secondPassRemoval = 2.0928464865, finalRemoval = 2.790461982
+2022-10-18 16:47:39,203 - Setting LastBrowseProportion :  BEPA/33.0/0.839.
+2022-10-18 16:47:39,204 - THOC2/83.0. adjusted firstPassRemoval = 0.295565314576945, secondPassRemoval = 3.55120319089041, finalRemoval = 3.84676850546735
+2022-10-18 16:47:39,204 - Setting LastBrowseProportion :  THOC2/83.0/0.402812777320053.
+2022-10-18 16:47:39,205 - THOC2/53.0. adjusted firstPassRemoval = 0.253928528641508, secondPassRemoval = 3.05093918906061, finalRemoval = 3.30486771770212
+2022-10-18 16:47:39,205 - Setting LastBrowseProportion :  THOC2/53.0/0.456824829852468.
+2022-10-18 16:47:39,205 - THOC2/33.0. adjusted firstPassRemoval = 0.223318836097659, secondPassRemoval = 2.68316518963351, finalRemoval = 2.90648402573117
+2022-10-18 16:47:39,206 - Setting LastBrowseProportion :  THOC2/33.0/0.488060715654346.
+2022-10-18 16:47:39,206 - THOC2/18.0. adjusted firstPassRemoval = 0.0214269998000226, secondPassRemoval = 0.257444383045966, finalRemoval = 0.278871382845989
+2022-10-18 16:47:39,207 - Setting LastBrowseProportion :  THOC2/18.0/0.650747620872461.
+2022-10-18 16:47:39,207 - THOC2/13.0. adjusted firstPassRemoval = 0.0171415998400181, secondPassRemoval = 0.205955506436773, finalRemoval = 0.223097106276791
+2022-10-18 16:47:39,207 - Setting LastBrowseProportion :  THOC2/13.0/0.650747620872461.
+2022-10-18 16:47:39,208 - THOC2/12.0. adjusted firstPassRemoval = 0.016070249850017, secondPassRemoval = 0.193083287284475, finalRemoval = 0.209153537134492
+2022-10-18 16:47:39,208 - Setting LastBrowseProportion :  THOC2/12.0/0.650747620872461.
+2022-10-18 16:47:39,208 - THOC2/11.0. adjusted firstPassRemoval = 0.0149988998600158, secondPassRemoval = 0.180211068132176, finalRemoval = 0.195209967992192
+2022-10-18 16:47:39,209 - Setting LastBrowseProportion :  THOC2/11.0/0.650747620872461.
+2022-10-18 16:47:39,209 - THOC2/9.0. adjusted firstPassRemoval = 0.0139275498700147, secondPassRemoval = 0.167338848979878, finalRemoval = 0.181266398849893
+2022-10-18 16:47:39,210 - Setting LastBrowseProportion :  THOC2/9.0/0.650747620872461.
+2022-10-18 16:47:39,303 - Running NECN Succession ...
+2022-10-18 16:47:39,660 - Current time: 25
+2022-10-18 16:47:39,660 - Running Biomass Browse ...
+2022-10-18 16:47:39,661 - Processing landscape for ungulate browse events ...
+2022-10-18 16:47:39,662 -    Calculating Site Preference & Forage.
+2022-10-18 16:47:39,662 -    Estimating effective Zone Population from Browse Density Index.
+2022-10-18 16:47:39,663 -      Calculating carrying capacity
+2022-10-18 16:47:39,663 -    Calculating HSI.
+2022-10-18 16:47:39,665 -    Calculating Local Population.
+2022-10-18 16:47:39,665 -    Disturbing Sites
+2022-10-18 16:47:39,666 - BEPA/84.0. adjusted firstPassRemoval = 1.1016331326, secondPassRemoval = 3.3048993978, finalRemoval = 4.4065325304
+2022-10-18 16:47:39,671 - Setting LastBrowseProportion :  BEPA/84.0/0.727.
+2022-10-18 16:47:39,673 - BEPA/54.0. adjusted firstPassRemoval = 0.8405389872, secondPassRemoval = 2.5216169616, finalRemoval = 3.3621559488
+2022-10-18 16:47:39,673 - Setting LastBrowseProportion :  BEPA/54.0/0.802.
+2022-10-18 16:47:39,675 - BEPA/34.0. adjusted firstPassRemoval = 0.6817797063, secondPassRemoval = 2.0453391189, finalRemoval = 2.7271188252
+2022-10-18 16:47:39,676 - Setting LastBrowseProportion :  BEPA/34.0/0.843.
+2022-10-18 16:47:39,676 - THOC2/84.0. adjusted firstPassRemoval = 0.293018116217539, secondPassRemoval = 3.63346512985031, finalRemoval = 3.92648324606785
+2022-10-18 16:47:39,676 - Setting LastBrowseProportion :  THOC2/84.0/0.414734276619194.
+2022-10-18 16:47:39,677 - THOC2/54.0. adjusted firstPassRemoval = 0.250416984769115, secondPassRemoval = 3.10520521333681, finalRemoval = 3.35562219810593
+2022-10-18 16:47:39,678 - Setting LastBrowseProportion :  THOC2/54.0/0.47168486387708.
+2022-10-18 16:47:39,679 - THOC2/34.0. adjusted firstPassRemoval = 0.220312589250301, secondPassRemoval = 2.73190654912853, finalRemoval = 2.95221913837883
+2022-10-18 16:47:39,679 - Setting LastBrowseProportion :  THOC2/34.0/0.503175188596146.
+2022-10-18 16:47:39,680 - THOC2/19.0. adjusted firstPassRemoval = 0.0221641576853802, secondPassRemoval = 0.274838617904924, finalRemoval = 0.297002775590304
+2022-10-18 16:47:39,680 - Setting LastBrowseProportion :  THOC2/19.0/0.670006908916306.
+2022-10-18 16:47:39,681 - THOC2/14.0. adjusted firstPassRemoval = 0.0179424133643554, secondPassRemoval = 0.222488404970652, finalRemoval = 0.240430818335008
+2022-10-18 16:47:39,681 - Setting LastBrowseProportion :  THOC2/14.0/0.670006908916306.
+2022-10-18 16:47:39,682 - THOC2/13.0. adjusted firstPassRemoval = 0.0168869772840992, secondPassRemoval = 0.209400851737085, finalRemoval = 0.226287829021184
+2022-10-18 16:47:39,682 - Setting LastBrowseProportion :  THOC2/13.0/0.670006908916306.
+2022-10-18 16:47:39,687 - THOC2/12.0. adjusted firstPassRemoval = 0.015831541203843, secondPassRemoval = 0.196313298503517, finalRemoval = 0.21214483970736
+2022-10-18 16:47:39,689 - Setting LastBrowseProportion :  THOC2/12.0/0.670006908916306.
+2022-10-18 16:47:39,690 - THOC2/10.0. adjusted firstPassRemoval = 0.0147761051235868, secondPassRemoval = 0.183225745269949, finalRemoval = 0.198001850393536
+2022-10-18 16:47:39,692 - Setting LastBrowseProportion :  THOC2/10.0/0.670006908916307.
+2022-10-18 16:47:39,694 - PIGL/114.0. adjusted firstPassRemoval = 0, secondPassRemoval = 0, finalRemoval = 0
+2022-10-18 16:47:39,695 - PIGL/34.0. adjusted firstPassRemoval = 0, secondPassRemoval = -8.0570284614138E-16, finalRemoval = -8.0570284614138E-16
+2022-10-18 16:47:39,696 -    Browse Proportion not between 0 and 1: -3.89770717781928E-17. finalRemoval = -8.0570284614138E-16,total forage = 20.6712
+2022-10-18 16:47:39,697 - PIGL/19.0. adjusted firstPassRemoval = 0, secondPassRemoval = -7.27144977528422E-17, finalRemoval = -7.27144977528422E-17
+2022-10-18 16:47:39,697 -    Browse Proportion not between 0 and 1: -6.405434967657E-17. finalRemoval = -7.27144977528422E-17,total forage = 1.1352
+2022-10-18 16:47:39,698 - PIGL/11.0. adjusted firstPassRemoval = 0, secondPassRemoval = -5.24220797753049E-17, finalRemoval = -5.24220797753049E-17
+2022-10-18 16:47:39,703 -    Browse Proportion not between 0 and 1: -6.405434967657E-17. finalRemoval = -5.24220797753049E-17,total forage = 0.8184
+2022-10-18 16:47:39,704 - PIGL/10.0. adjusted firstPassRemoval = 0, secondPassRemoval = -4.9040010112382E-17, finalRemoval = -4.9040010112382E-17
+2022-10-18 16:47:39,705 -    Browse Proportion not between 0 and 1: -6.405434967657E-17. finalRemoval = -4.9040010112382E-17,total forage = 0.7656
+2022-10-18 16:47:39,706 - PIGL/4.0. adjusted firstPassRemoval = 0, secondPassRemoval = -3.55117314606904E-17, finalRemoval = -3.55117314606904E-17
+2022-10-18 16:47:39,707 -    Browse Proportion not between 0 and 1: -6.405434967657E-17. finalRemoval = -3.55117314606904E-17,total forage = 0.5544
+2022-10-18 16:47:39,707 - PIGL/1.0. adjusted firstPassRemoval = 0, secondPassRemoval = -7.60965674157651E-16, finalRemoval = -7.60965674157651E-16
+2022-10-18 16:47:39,708 -    Browse Proportion not between 0 and 1: -6.405434967657E-17. finalRemoval = -7.60965674157651E-16,total forage = 11.88
+2022-10-18 16:47:39,871 - Running NECN Succession ...
+2022-10-18 16:47:40,263 - Current time: 26
+2022-10-18 16:47:40,264 - Running Biomass Browse ...
+2022-10-18 16:47:40,264 - Processing landscape for ungulate browse events ...
+2022-10-18 16:47:40,264 -    Calculating Site Preference & Forage.
+2022-10-18 16:47:40,264 -    Estimating effective Zone Population from Browse Density Index.
+2022-10-18 16:47:40,264 -      Calculating carrying capacity
+2022-10-18 16:47:40,264 -    Calculating HSI.
+2022-10-18 16:47:40,265 -    Calculating Local Population.
+2022-10-18 16:47:40,265 -    Disturbing Sites
+2022-10-18 16:47:40,265 - BEPA/85.0. adjusted firstPassRemoval = 1.0753332975, secondPassRemoval = 3.2259998925, finalRemoval = 4.30133319
+2022-10-18 16:47:40,265 - Setting LastBrowseProportion :  BEPA/85.0/0.735.
+2022-10-18 16:47:40,265 - BEPA/55.0. adjusted firstPassRemoval = 0.8213373234, secondPassRemoval = 2.4640119702, finalRemoval = 3.2853492936
+2022-10-18 16:47:40,266 - Setting LastBrowseProportion :  BEPA/55.0/0.807.
+2022-10-18 16:47:40,267 - BEPA/35.0. adjusted firstPassRemoval = 0.6622805376, secondPassRemoval = 1.9868416128, finalRemoval = 2.6491221504
+2022-10-18 16:47:40,268 - Setting LastBrowseProportion :  BEPA/35.0/0.848.
+2022-10-18 16:47:40,268 - THOC2/85.0. adjusted firstPassRemoval = 0.290602604483225, secondPassRemoval = 2.77566840908255, finalRemoval = 3.06627101356577
+2022-10-18 16:47:40,268 - Setting LastBrowseProportion :  THOC2/85.0/0.327094113934639.
+2022-10-18 16:47:40,268 - THOC2/55.0. adjusted firstPassRemoval = 0.247594353928238, secondPassRemoval = 2.3648784142452, finalRemoval = 2.61247276817344
+2022-10-18 16:47:40,268 - Setting LastBrowseProportion :  THOC2/55.0/0.371937661812775.
+2022-10-18 16:47:40,268 - THOC2/35.0. adjusted firstPassRemoval = 0.217593808477941, secondPassRemoval = 2.07833051351418, finalRemoval = 2.29592432199212
+2022-10-18 16:47:40,268 - Setting LastBrowseProportion :  THOC2/35.0/0.396733505933627.
+2022-10-18 16:47:40,269 - THOC2/20.0. adjusted firstPassRemoval = 0.0218590905627657, secondPassRemoval = 0.208785421019327, finalRemoval = 0.230644511582093
+2022-10-18 16:47:40,269 - Setting LastBrowseProportion :  THOC2/20.0/0.527571151507483.
+2022-10-18 16:47:40,269 - THOC2/15.0. adjusted firstPassRemoval = 0.0187363633395135, secondPassRemoval = 0.178958932302281, finalRemoval = 0.197695295641794
+2022-10-18 16:47:40,269 - Setting LastBrowseProportion :  THOC2/15.0/0.527571151507483.
+2022-10-18 16:47:40,269 - THOC2/14.0. adjusted firstPassRemoval = 0.017695454265096, secondPassRemoval = 0.169016769396598, finalRemoval = 0.186712223661694
+2022-10-18 16:47:40,269 - Setting LastBrowseProportion :  THOC2/14.0/0.527571151507483.
+2022-10-18 16:47:40,269 - THOC2/13.0. adjusted firstPassRemoval = 0.0166545451906786, secondPassRemoval = 0.159074606490916, finalRemoval = 0.175729151681595
+2022-10-18 16:47:40,269 - Setting LastBrowseProportion :  THOC2/13.0/0.527571151507483.
+2022-10-18 16:47:40,269 - THOC2/11.0. adjusted firstPassRemoval = 0.0156136361162612, secondPassRemoval = 0.149132443585234, finalRemoval = 0.164746079701495
+2022-10-18 16:47:40,269 - Setting LastBrowseProportion :  THOC2/11.0/0.527571151507483.
+2022-10-18 16:47:40,341 - Running NECN Succession ...

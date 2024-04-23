@@ -5,6 +5,9 @@ using Landis.Core;
 using System.Collections.Generic;
 using System.IO;
 using Landis.Library.BiomassCohorts;
+using Landis.Library.Metadata;
+using System;
+
 
 namespace Landis.Extension.Browse
 {
@@ -17,17 +20,37 @@ namespace Landis.Extension.Browse
     {
         public static readonly ExtensionType ExtType = new ExtensionType("disturbance:browse");
         public static readonly string ExtensionName = "Biomass Browse";
-        
+
+        public static MetadataTable<EventsLog> eventLog;
+        public static MetadataTable<SummaryLog> summaryLog;
+        public static MetadataTable<CalibrateLog> calibrateLog;
+        public static MetadataTable<EventsSpeciesLog> eventSpeciesLog;
+        public static bool Calibrate = false;
+
         private string sitePrefMapNameTemplate;
         private string siteForageMapNameTemplate;
         private string siteHSIMapNameTemplate;
         private string sitePopMapNamesTemplate;
         private string biomassRemovedMapNameTemplate;
-        private StreamWriter eventLog;
-        //private StreamWriter summaryLog;
         private IInputParameters parameters;
         private static ICore modelCore;
         private bool running;
+
+        //Which version of the population model to use? Static population, dynamic population, or BDI
+        public static bool DynamicPopulation = false; //SF changed this so that static population can happen -- otherwise
+                                                      //dynamic is always used
+        public static bool UseBDI = false;
+        public static string PropInReachMethod = "Ordered";
+
+        //Dynamic Population Parameters
+        public static double PopRMin;
+        public static double PopRMax;
+        public static double PopMortalityMin;
+        public static double PopMortalityMax;
+        public static double PopHarvestMin;
+        public static double PopHarvestMax;
+        public static double PopPredationMin;
+        public static double PopPredationMax;
 
 
         //---------------------------------------------------------------------
@@ -79,35 +102,27 @@ namespace Landis.Extension.Browse
             sitePopMapNamesTemplate = parameters.SitePopMapNamesTemplate;
             biomassRemovedMapNameTemplate = parameters.BiomassRemovedMapNamesTemplate;
 
+            //Set up empty siteVars and dictionaries for Forage, ForageInReach, and LastBrowseProportion
             SiteVars.Initialize();
 
             PopulationZones.ReadMap(parameters.ZoneMapFileName);
 
             DynamicInputs.Initialize(parameters.PopulationFileName, false, parameters);
 
-            DynamicPopulation.Initialize(parameters.DynamicPopulationFileName, false);
-
             parameters.PreferenceList =  PreferenceList.Initialize(parameters.SppParameters);
 
             PartialDisturbance.Initialize();
             GrowthReduction.Initialize(parameters);
-
+            //Defoliate.Initialize(parameters); //SF be careful if using defoliate -- forage could be greater than available leaf biomass, and browsing
+                                                // could be double-counted if using both defoliate and BiomassCohorts.ReduceOrKillMarkedCohorts
+            PopulationZones.Initialize(parameters);
+            
+            //This is used when calculating habitat suitability
             parameters.ForageNeighbors = GetResourceNeighborhood(parameters.ForageQuantityNbrRad);
             parameters.SitePrefNeighbors = GetResourceNeighborhood(parameters.SitePrefNbrRad);
-            
-            ModelCore.UI.WriteLine("   Opening browse log files \"{0}\" ...", parameters.LogFileName);
-            eventLog = Landis.Data.CreateTextFile(parameters.LogFileName);
-            eventLog.AutoFlush = true;
-            eventLog.Write("Time, Zone, Population, TotalForage(kg), K, EffectivePop, DamagedSites, BiomassRemoved(g/m2), BiomassMortality(g/m2), CohortsKilled");
-            foreach (ISpecies species in PlugIn.ModelCore.Species)
-            {
-                eventLog.Write(", BiomassRemoved_{0}", species.Name);
-            }
-            foreach (ISpecies species in PlugIn.ModelCore.Species)
-            {
-                eventLog.Write(", CohortsKilled_{0}", species.Name);
-            }
-            eventLog.WriteLine("");
+                     
+            ModelCore.UI.WriteLine("   Opening browse log files \"{0}\" ...", parameters.LogFileName); //TODO SF this filename isn't used
+            MetadataHandler.InitializeMetadata(Timestep);
         }
 
         //---------------------------------------------------------------------
@@ -120,10 +135,15 @@ namespace Landis.Extension.Browse
             running = true;
             ModelCore.UI.WriteLine("Processing landscape for ungulate browse events ...");
 
+            //This does everything -- calculates forage and disturbs sites
             Event browseEvent = Event.Initiate(parameters);
 
             if (browseEvent != null)
-                LogEvent(PlugIn.ModelCore.CurrentTime, browseEvent);
+                LogBrowseEvent(browseEvent);
+
+            //calibrate log write
+            if(PlugIn.Calibrate)
+                CalibrateLog.WriteLogFile(PlugIn.ModelCore.CurrentTime);
             
             //  Write site preference map 
             string path = MapNames.ReplaceTemplateVars(sitePrefMapNameTemplate, PlugIn.modelCore.CurrentTime);
@@ -187,16 +207,7 @@ namespace Landis.Extension.Browse
             //  Write site population
             path = MapNames.ReplaceTemplateVars(sitePopMapNamesTemplate, PlugIn.modelCore.CurrentTime);
             dimensions = new Dimensions(modelCore.Landscape.Rows, modelCore.Landscape.Columns);
-            /*// Debugging
-            StreamWriter outputCellLog;
-            outputCellLog = Landis.Data.CreateTextFile("J:/LANDIS_II/code/deer-browse/trunk/tests/biomass/browse/outputCellLog.csv");
-            outputCellLog.AutoFlush = true;
-            outputCellLog.Write("Cell, Zone, Population");
-            outputCellLog.WriteLine("");
-            double totalPop = 0;
-            double totalMapValues = 0;
-            int totalSites = 0;
-             * */
+            
             using (IOutputRaster<ShortPixel> outputRaster = modelCore.CreateRaster<ShortPixel>(path, dimensions))
             {
                 ShortPixel pixel = outputRaster.BufferPixel;
@@ -204,34 +215,14 @@ namespace Landis.Extension.Browse
                 {
                     if (site.IsActive)
                     {
-                        /*double numCells = 1;
-                        if (parameters.DynamicPopulationFileName == null)
-                        {
-                            foreach (PopulationZone popZone in PopulationZones.Dataset)
-                            {
-                                if (popZone.PopulationZoneSites.Contains(site.Location))
-                                {
-                                    numCells = popZone.PopulationZoneSites.Count;
-                                }
-                            }
-                        }
-                         * */
-                        //pixel.MapCode.Value = (short)(SiteVars.LocalPopulation[site]/numCells * 100);
-                        //pixel.MapCode.Value = (short)(SiteVars.LocalPopulation[site]  * 100);
-                        //totalPop += SiteVars.LocalPopulation[site];
-                        // Convert to density (#/km2)
+                        //LocalPopulation is #of deer not density; need to convert to density to map
                         double popDens = SiteVars.LocalPopulation[site] / (ModelCore.CellLength * ModelCore.CellLength) * 1000 * 1000;
+
+                        //PlugIn.ModelCore.UI.WriteLine("popDens is {0} individuals per square km.", popDens);//debug
+
                         // Mult by 100 and round to integer for mapping
                         pixel.MapCode.Value = (short)(popDens * 100);
 
-                        //totalMapValues += pixel.MapCode.Value;
-                        //totalSites++;
-                        /*outputCellLog.Write("{0},{1},{2}",
-                                   site.Location.ToString(),
-                                   SiteVars.PopulationZone[site],
-                                   SiteVars.LocalPopulation[site]);
-                        outputCellLog.WriteLine("");
-                        */
                     }
                     else
                     {
@@ -241,6 +232,7 @@ namespace Landis.Extension.Browse
                     outputRaster.WriteBufferPixel();
                 }
             }
+
             //  Write site HSI
             path = MapNames.ReplaceTemplateVars(siteHSIMapNameTemplate, PlugIn.modelCore.CurrentTime);
             dimensions = new Dimensions(modelCore.Landscape.Rows, modelCore.Landscape.Columns);
@@ -264,108 +256,110 @@ namespace Landis.Extension.Browse
         }
 
         //---------------------------------------------------------------------
-
-        private void LogEvent(int   currentTime,
-                              Event browseEvent)
+        private void LogBrowseEvent(Event browseEvent)
         {
-            //("Time, Zone, Population, DamagedSites,BiomassRemoved,CohortsKilled,BiomassRemoved_spp,CohortsKilled_spp)
+            //calculate totals for entire landscape
+            int totalPopulation = 0;
+            int totalK = 0;
+            int totalEffPop = 0;
+            long totalForage = 0;
+            int totalSitesDamaged = 0;
+            int totalBiomassRemoved = 0;
+            int totalBiomassKilled = 0;
+            int totalCohortsKilled = 0;
+            int totalSites = 0;
 
-            double totalPopulation = 0;
-            double totalK = 0;
-            double totalEffPop = 0;
-            double totalForage = 0;
-            if (parameters.DynamicPopulationFileName == null)
+            foreach (PopulationZone popZone in PopulationZones.Dataset)
             {
-                int landscapeCells = PlugIn.ModelCore.Landscape.ActiveSiteCount;
-                foreach (PopulationZone popZone in PopulationZones.Dataset)
-                {
-                    totalPopulation += popZone.Population;
-                    totalK += popZone.K;
-                    totalEffPop += popZone.EffectivePop;
-                    totalForage += popZone.TotalForage;
-                }
-                totalPopulation = totalPopulation / landscapeCells;
-                totalEffPop = totalEffPop / landscapeCells;
+                totalPopulation += (int)popZone.Population;
+                totalK += (int) popZone.K;
+                totalEffPop += (int) popZone.EffectivePop;
+                totalForage += (int) popZone.TotalForage;
+                totalSitesDamaged += browseEvent.ZoneSitesDamaged[popZone.Index];
+                totalBiomassRemoved += (int) browseEvent.ZoneBiomassRemoved[popZone.Index];
+                totalBiomassKilled += (int) browseEvent.ZoneBiomassKilled[popZone.Index];
+                totalCohortsKilled += browseEvent.ZoneCohortsKilled[popZone.Index];
+                totalSites += PopulationZones.Dataset[popZone.Index].PopulationZoneSites.Count;
             }
-            else
-            {
-                foreach (PopulationZone popZone in PopulationZones.Dataset)
-                {
-                    totalPopulation += popZone.Population;
-                    totalK += popZone.K;
-                    totalEffPop += popZone.EffectivePop;
-                    totalForage += popZone.TotalForage;
-                }
-            }
+
+            PlugIn.summaryLog.Clear();
+            SummaryLog sl = new SummaryLog();
+            sl.Time = ModelCore.CurrentTime;
+            sl.TotalSites = totalSites;
+            sl.TotalPopulation = totalPopulation;
+            sl.TotalSitesDamaged = totalSitesDamaged;
+            sl.PopulationDensity = (double) ((double) totalPopulation / (double) totalSites / Math.Pow(PlugIn.ModelCore.CellLength, 2.0) * 1000000.0); //population density (km-2)
+            sl.TotalForage = totalForage; //kg
+            sl.MeanForage = (int)((totalForage * 1000) / (totalSites * Math.Pow(PlugIn.ModelCore.CellLength, 2.0))); //g/m2
+            sl.TotalK = totalK;
+            sl.TotalEffectivePopulation = totalEffPop;
+            sl.AverageBiomassRemoved = totalBiomassRemoved / totalSites; //site mean biomass in g/m2
+            sl.AverageBiomassKilled = totalBiomassKilled / totalSites; //site mean biomass in g/m2
+            sl.TotalCohortsKilled = totalCohortsKilled;
+            sl.BDI = (totalBiomassRemoved * Math.Pow(PlugIn.ModelCore.CellLength, 2.0)) / (totalForage*1000);
+
+            summaryLog.AddObject(sl);
+            summaryLog.WriteToFile();
 
 
             foreach (IPopulationZone popZone in PopulationZones.Dataset)
-             //   for (int i = -1; i <= (PopulationZones.Dataset.Count-1); i++)
             {
-                eventLog.Write("{0},",
-                             currentTime);
-                if (popZone.Index < 0)
-                {
-                    eventLog.Write("{0},{1},{2},{3},{4},{5},{6},{7},{8}",
-                                   "-1",
-                                   totalPopulation,
-                                   totalForage,
-                                   totalK,
-                                   totalEffPop,
-                                   browseEvent.SitesDamaged,
-                                   browseEvent.BiomassRemoved,
-                                   browseEvent.BiomassKilled,
-                                   browseEvent.CohortsKilled);
-                    foreach (ISpecies species in PlugIn.ModelCore.Species)
-                    {
-                        eventLog.Write(",{0}", browseEvent.BiomassRemovedSpp[species.Index]);
-                    }
-                    foreach (ISpecies species in PlugIn.ModelCore.Species)
-                    {
-                        eventLog.Write(",{0}", browseEvent.CohortsKilledSpp[species.Index]);
-                    }
-                }
-                else
-                {
-                    if (parameters.DynamicPopulationFileName == null)
-                    {
-                        eventLog.Write("{0},{1},{2},{3},{4},{5},{6},{7},{8}",
-                                       PopulationZones.Dataset[popZone.Index].MapCode,
-                                       (double)PopulationZones.Dataset[popZone.Index].Population / (double)PopulationZones.Dataset[popZone.Index].PopulationZoneSites.Count,
-                                       PopulationZones.Dataset[popZone.Index].TotalForage,
-                                       PopulationZones.Dataset[popZone.Index].K,
-                                       PopulationZones.Dataset[popZone.Index].EffectivePop,
-                                       browseEvent.ZoneSitesDamaged[popZone.Index],
-                                       browseEvent.ZoneBiomassRemoved[popZone.Index],
-                                       browseEvent.ZoneBiomassKilled[popZone.Index],
-                                       browseEvent.ZoneCohortsKilled[popZone.Index]);
-                    }
-                    else
-                    {
-                        eventLog.Write("{0},{1},{2},{3},{4},{5},{6},{7},{8}",
-                                       PopulationZones.Dataset[popZone.Index].MapCode,
-                                       PopulationZones.Dataset[popZone.Index].Population,
-                                       PopulationZones.Dataset[popZone.Index].TotalForage,
-                                       PopulationZones.Dataset[popZone.Index].K,
-                                       PopulationZones.Dataset[popZone.Index].EffectivePop,
-                                       browseEvent.ZoneSitesDamaged[popZone.Index],
-                                       browseEvent.ZoneBiomassRemoved[popZone.Index],
-                                       browseEvent.ZoneBiomassKilled[popZone.Index],
-                                       browseEvent.ZoneCohortsKilled[popZone.Index]);
-                    }
-                    foreach (ISpecies species in PlugIn.ModelCore.Species)
-                    {
-                        eventLog.Write(",{0}", browseEvent.ZoneBiomassRemovedSpp[popZone.Index][species.Index]);
-                    }
-                    foreach (ISpecies species in PlugIn.ModelCore.Species)
-                    {
-                        eventLog.Write(",{0}", browseEvent.ZoneCohortsKilledSpp[popZone.Index][species.Index]);
-                    }
-                }
-                eventLog.WriteLine("");
+                PlugIn.eventLog.Clear();
+                EventsLog el = new EventsLog();
+
+                el.Time = ModelCore.CurrentTime;
+                el.TotalSites = PopulationZones.Dataset[popZone.Index].PopulationZoneSites.Count;
+                el.PopulationZone = PopulationZones.Dataset[popZone.Index].MapCode;
+                el.TotalPopulation = (int)PopulationZones.Dataset[popZone.Index].Population;
+                el.TotalSitesDamaged = browseEvent.ZoneSitesDamaged[popZone.Index];
+                el.PopulationDensity = (double)((double)PopulationZones.Dataset[popZone.Index].Population / 
+                    (double)PopulationZones.Dataset[popZone.Index].PopulationZoneSites.Count *
+                    (1000000.0 / Math.Pow(PlugIn.ModelCore.CellLength, 2.0))); //population density (km-2)
+                el.TotalForage = (long) PopulationZones.Dataset[popZone.Index].TotalForage; //kg
+                el.MeanForage = (int)((PopulationZones.Dataset[popZone.Index].TotalForage * 1000) / 
+                    (PopulationZones.Dataset[popZone.Index].PopulationZoneSites.Count * Math.Pow(PlugIn.ModelCore.CellLength, 2.0))); //g/m2 
+                el.TotalK = (int) PopulationZones.Dataset[popZone.Index].K;
+                el.TotalEffectivePopulation = (int) PopulationZones.Dataset[popZone.Index].EffectivePop;
+                el.AverageBiomassRemoved = (int) (browseEvent.ZoneBiomassRemoved[popZone.Index] /
+                                    (double)PopulationZones.Dataset[popZone.Index].PopulationZoneSites.Count); //site mean biomass in g/m2
+                el.AverageBiomassKilled = (int) (browseEvent.ZoneBiomassKilled[popZone.Index] /
+                                    (double)PopulationZones.Dataset[popZone.Index].PopulationZoneSites.Count); //site mean biomass in g/m2
+                el.TotalCohortsKilled = browseEvent.ZoneCohortsKilled[popZone.Index];
+                el.BDI = (browseEvent.ZoneBiomassRemoved[popZone.Index] * Math.Pow(PlugIn.ModelCore.CellLength, 2.0)) /(el.TotalForage*1000);
+
+                eventLog.AddObject(el);
+                eventLog.WriteToFile();
             }
+
+            foreach (IPopulationZone popZone in PopulationZones.Dataset)
+            {
+                foreach (ISpecies species in PlugIn.ModelCore.Species)
+                {
+                    PlugIn.eventSpeciesLog.Clear();
+                    EventsSpeciesLog el = new EventsSpeciesLog();
+                    el.Time = ModelCore.CurrentTime;
+                    el.PopulationZone = PopulationZones.Dataset[popZone.Index].MapCode;
+                    el.TotalSites = PopulationZones.Dataset[popZone.Index].PopulationZoneSites.Count;
+                    el.SpeciesName = species.Name;
+                    el.SpeciesIndex = species.Index;
+                    el.AverageForage = browseEvent.ZoneForageSpp[popZone.Index][species.Index] /
+                        (double)PopulationZones.Dataset[popZone.Index].PopulationZoneSites.Count;
+                    el.AverageForageInReach = browseEvent.ZoneForageInReachSpp[popZone.Index][species.Index] /
+                        (double)PopulationZones.Dataset[popZone.Index].PopulationZoneSites.Count;
+                    el.AverageBiomassBrowsed = (double)(browseEvent.ZoneBiomassBrowsedSpp[popZone.Index][species.Index] /
+                       (double)PopulationZones.Dataset[popZone.Index].PopulationZoneSites.Count); //site mean biomass in g/m2
+                    el.AverageBiomassRemoved = (double)(browseEvent.ZoneBiomassRemovedSpp[popZone.Index][species.Index] /
+                        (double)PopulationZones.Dataset[popZone.Index].PopulationZoneSites.Count); //site mean biomass in g/m2
+                    el.TotalCohortsKilled = browseEvent.ZoneCohortsKilledSpp[popZone.Index][species.Index];
+
+                    eventSpeciesLog.AddObject(el);
+                    eventSpeciesLog.WriteToFile();
+
+                }
+            }
+
+
         }
-        
 
         //---------------------------------------------------------------------
         //Generate a Relative Location array (with WEIGHTS) of neighbors.
@@ -374,12 +368,14 @@ namespace Landis.Extension.Browse
         //will need to be later checked to ensure that they are within the landscape
         // and active.
 
+        //TODO SF debug, check that it is working
+
         private static IEnumerable<RelativeLocationWeighted> GetResourceNeighborhood(double neighborRadius)
         {
             float CellLength = PlugIn.ModelCore.CellLength;
-            //PlugIn.ModelCore.UI.WriteLine("Creating Neighborhood List.");
+            PlugIn.ModelCore.UI.WriteLine("Creating Neighborhood List.");
             int numCellRadius = (int)(neighborRadius / CellLength);
-            //PlugIn.ModelCore.UI.WriteLine("NeighborRadius={0}, CellLength={1}, numCellRadius={2}", neighborRadius, CellLength, numCellRadius);
+            PlugIn.ModelCore.UI.WriteLine("NeighborRadius={0}, CellLength={1}, numCellRadius={2}", neighborRadius, CellLength, numCellRadius);
 
             double centroidDistance = 0;
             double cellLength = CellLength;

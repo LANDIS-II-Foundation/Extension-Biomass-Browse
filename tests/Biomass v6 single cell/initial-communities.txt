@@ -1,0 +1,8 @@
+LandisData   "Initial Communities"
+
+>>Old jackpine oak 
+MapCode  3
+   acerrubr 30
+   pinubank 80 90
+   pinuresi 110 140
+   querelli 40 120 240

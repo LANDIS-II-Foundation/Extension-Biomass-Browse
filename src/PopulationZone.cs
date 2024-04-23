@@ -12,12 +12,13 @@ namespace Landis.Extension.Browse
     {
         int MapCode {get;set;}
         int Index {get; set;}
-        int Population  {get;set;}
+        double Population  {get;set;}
         double EffectivePop { get; set; }
         double K { get; set; }
         List<Location> PopulationZoneSites {get;}
         double WeightedBrowse { get; set; }
         double TotalForage { get; set; }
+        double BDI { get; set; }
     }
 }
 
@@ -29,12 +30,13 @@ namespace Landis.Extension.Browse
         private int mapCode;
         private int index;
         
-        private int population;
+        private double population;
         private double effectivePop;
         private double k;
         private List<Location> populationZoneSites;
         private double weightedBrowse;
         private double totalForage;
+        private double bdi;
 
         //---------------------------------------------------------------------
         public int Index
@@ -58,7 +60,7 @@ namespace Landis.Extension.Browse
             }
         }
         //---------------------------------------------------------------------
-        public int Population
+        public double Population
         {
             get
             {
@@ -123,6 +125,18 @@ namespace Landis.Extension.Browse
             set
             {
                 totalForage = value;
+            }
+        }
+        //---------------------------------------------------------------------
+        public double BDI
+        {
+            get
+            {
+                return bdi;
+            }
+            set
+            {
+                bdi = value;
             }
         }
         //---------------------------------------------------------------------

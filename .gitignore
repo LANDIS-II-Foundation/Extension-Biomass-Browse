@@ -210,3 +210,5 @@ src/lib/Landis.Library.Biomass-v2.dll
 src/lib/Landis.Library.BiomassCohorts-v3.dll
 src/lib/Landis.Library.Cohorts-v2.dll
 src/lib/Landis.Library.Metadata-v2.dll
+*.gis
+*.img

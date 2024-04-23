@@ -1,9 +1,0 @@
-LandisData   Extension
-
-Name         "Biomass Browse"
-Version      "1.1"
-Type         disturbance:browse
-Assembly     Landis.Extension.Browse-v1
-Class        Landis.Extension.Browse.PlugIn
-Description  "Biomass Browse Disturbance"
-CoreVersion  7.0
