@@ -1,6 +1,6 @@
 ﻿//  Authors:  Brian Miranda, Nate De Jager, Patrick Drohan, Robert Scheller
 
-using Landis.Library.BiomassCohorts;
+using Landis.Library.UniversalCohorts;
 using Landis.SpatialModeling;
 
 namespace Landis.Extension.Browse

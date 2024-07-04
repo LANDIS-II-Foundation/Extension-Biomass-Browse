@@ -4,7 +4,7 @@ using Landis.SpatialModeling;
 using Landis.Core;
 using System.Collections.Generic;
 using System.IO;
-using Landis.Library.BiomassCohorts;
+using Landis.Library.UniversalCohorts;
 using Landis.Library.Metadata;
 using System;
 
@@ -33,7 +33,6 @@ namespace Landis.Extension.Browse
         private string sitePopMapNamesTemplate;
         private string biomassRemovedMapNameTemplate;
         private IInputParameters parameters;
-        private static ICore modelCore;
         private bool running;
 
         //Which version of the population model to use? Static population, dynamic population, or BDI
@@ -62,18 +61,17 @@ namespace Landis.Extension.Browse
 
         //---------------------------------------------------------------------
 
-        public static ICore ModelCore
+        public static ICore ModelCore { get; private set; }
+        public override void AddCohortData()
         {
-            get
-            {
-                return modelCore;
-            }
+            return;
         }
+
         //---------------------------------------------------------------------
 
         public override void LoadParameters(string dataFile, ICore mCore)
         {
-            modelCore = mCore;
+            ModelCore = mCore;
             InputParameterParser parser = new InputParameterParser();
             parameters = Landis.Data.Load<IInputParameters>(dataFile, parser);
 
@@ -111,7 +109,7 @@ namespace Landis.Extension.Browse
 
             parameters.PreferenceList =  PreferenceList.Initialize(parameters.SppParameters);
 
-            PartialDisturbance.Initialize();
+            BrowseDisturbance.Initialize();
             GrowthReduction.Initialize(parameters);
             //Defoliate.Initialize(parameters); //SF be careful if using defoliate -- forage could be greater than available leaf biomass, and browsing
                                                 // could be double-counted if using both defoliate and BiomassCohorts.ReduceOrKillMarkedCohorts
@@ -146,9 +144,9 @@ namespace Landis.Extension.Browse
                 CalibrateLog.WriteLogFile(PlugIn.ModelCore.CurrentTime);
             
             //  Write site preference map 
-            string path = MapNames.ReplaceTemplateVars(sitePrefMapNameTemplate, PlugIn.modelCore.CurrentTime);
-            Dimensions dimensions = new Dimensions(modelCore.Landscape.Rows, modelCore.Landscape.Columns);
-            using (IOutputRaster<ShortPixel> outputRaster = modelCore.CreateRaster<ShortPixel>(path, dimensions))
+            string path = MapNames.ReplaceTemplateVars(sitePrefMapNameTemplate, PlugIn.ModelCore.CurrentTime);
+            Dimensions dimensions = new Dimensions(ModelCore.Landscape.Rows, ModelCore.Landscape.Columns);
+            using (IOutputRaster<ShortPixel> outputRaster = ModelCore.CreateRaster<ShortPixel>(path, dimensions))
             {
                 ShortPixel pixel = outputRaster.BufferPixel;
                 foreach (Site site in PlugIn.ModelCore.Landscape.AllSites) {
@@ -164,9 +162,9 @@ namespace Landis.Extension.Browse
             }
 
             //  Write site forage map 
-            path = MapNames.ReplaceTemplateVars(siteForageMapNameTemplate, PlugIn.modelCore.CurrentTime);
-            dimensions = new Dimensions(modelCore.Landscape.Rows, modelCore.Landscape.Columns);
-            using (IOutputRaster<ShortPixel> outputRaster = modelCore.CreateRaster<ShortPixel>(path, dimensions))
+            path = MapNames.ReplaceTemplateVars(siteForageMapNameTemplate, PlugIn.ModelCore.CurrentTime);
+            dimensions = new Dimensions(ModelCore.Landscape.Rows, ModelCore.Landscape.Columns);
+            using (IOutputRaster<ShortPixel> outputRaster = ModelCore.CreateRaster<ShortPixel>(path, dimensions))
             {
                 ShortPixel pixel = outputRaster.BufferPixel;
                 foreach (Site site in PlugIn.ModelCore.Landscape.AllSites)
@@ -185,9 +183,9 @@ namespace Landis.Extension.Browse
             }
 
             //  Write browse removed map 
-            path = MapNames.ReplaceTemplateVars(biomassRemovedMapNameTemplate, PlugIn.modelCore.CurrentTime);
-            dimensions = new Dimensions(modelCore.Landscape.Rows, modelCore.Landscape.Columns);
-            using (IOutputRaster<ShortPixel> outputRaster = modelCore.CreateRaster<ShortPixel>(path, dimensions))
+            path = MapNames.ReplaceTemplateVars(biomassRemovedMapNameTemplate, PlugIn.ModelCore.CurrentTime);
+            dimensions = new Dimensions(ModelCore.Landscape.Rows, ModelCore.Landscape.Columns);
+            using (IOutputRaster<ShortPixel> outputRaster = ModelCore.CreateRaster<ShortPixel>(path, dimensions))
             {
                 ShortPixel pixel = outputRaster.BufferPixel;
                 foreach (Site site in PlugIn.ModelCore.Landscape.AllSites)
@@ -205,10 +203,10 @@ namespace Landis.Extension.Browse
                 }
             }
             //  Write site population
-            path = MapNames.ReplaceTemplateVars(sitePopMapNamesTemplate, PlugIn.modelCore.CurrentTime);
-            dimensions = new Dimensions(modelCore.Landscape.Rows, modelCore.Landscape.Columns);
+            path = MapNames.ReplaceTemplateVars(sitePopMapNamesTemplate, PlugIn.ModelCore.CurrentTime);
+            dimensions = new Dimensions(ModelCore.Landscape.Rows, ModelCore.Landscape.Columns);
             
-            using (IOutputRaster<ShortPixel> outputRaster = modelCore.CreateRaster<ShortPixel>(path, dimensions))
+            using (IOutputRaster<ShortPixel> outputRaster = ModelCore.CreateRaster<ShortPixel>(path, dimensions))
             {
                 ShortPixel pixel = outputRaster.BufferPixel;
                 foreach (Site site in PlugIn.ModelCore.Landscape.AllSites)
@@ -234,9 +232,9 @@ namespace Landis.Extension.Browse
             }
 
             //  Write site HSI
-            path = MapNames.ReplaceTemplateVars(siteHSIMapNameTemplate, PlugIn.modelCore.CurrentTime);
-            dimensions = new Dimensions(modelCore.Landscape.Rows, modelCore.Landscape.Columns);
-            using (IOutputRaster<ShortPixel> outputRaster = modelCore.CreateRaster<ShortPixel>(path, dimensions))
+            path = MapNames.ReplaceTemplateVars(siteHSIMapNameTemplate, PlugIn.ModelCore.CurrentTime);
+            dimensions = new Dimensions(ModelCore.Landscape.Rows, ModelCore.Landscape.Columns);
+            using (IOutputRaster<ShortPixel> outputRaster = ModelCore.CreateRaster<ShortPixel>(path, dimensions))
             {
                 ShortPixel pixel = outputRaster.BufferPixel;
                 foreach (Site site in PlugIn.ModelCore.Landscape.AllSites)

@@ -212,3 +212,4 @@ src/lib/Landis.Library.Cohorts-v2.dll
 src/lib/Landis.Library.Metadata-v2.dll
 *.gis
 *.img
+src/lib/Landis.Library.UniversalCohorts-v1.dll

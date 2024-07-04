@@ -1,11 +1,8 @@
 //  Authors:  Jane Foster, Robert M. Scheller, Brian Miranda
 
 using System;
-using System.Collections.Generic;
-using Landis.Core;
-using Landis.Library.Biomass;
 using Landis.SpatialModeling;
-using Landis.Library.BiomassCohorts;
+using Landis.Library.UniversalCohorts;
 
 namespace Landis.Extension.Browse
 {
@@ -19,11 +16,11 @@ namespace Landis.Extension.Browse
         {
             // Assign the method below to the CohortDefoliation delegate in BiomassCohorts
             IInputParameters browseParameters = parameters;
-            Landis.Library.BiomassCohorts.CohortDefoliation.Compute = DefoliateCohort;
+            Landis.Library.UniversalCohorts.CohortDefoliation.Compute = DefoliateCohort;
 
         }
 
-        public static double DefoliateCohort(ICohort cohort, ActiveSite site, int siteBiomass)
+        public static double DefoliateCohort(ActiveSite site, ICohort cohort, int cohortBiomass, int siteBiomass)
         {
 
             PlugIn.ModelCore.UI.WriteLine("   Calculating defoliation proportion...");
@@ -38,7 +35,7 @@ namespace Landis.Extension.Browse
             // see Poorter, H., A. M. Jagodzinski, R. Ruiz-Peinado, S. Kuyah, Y. Luo, J. Oleksyn, V. A. Usoltsev, T. N. Buckley, P. B. Reich, and L. Sack. 2015. How does biomass distribution change with size and differ among species? An analysis for 1200 plant species from five continents. New Phytologist 208:736–749.
             // SF TODO check how NECN and PnET are doing this calculation
             // Could allow to use leaf biomass directly from NECN or PnET?
-            double leafBiomass = Math.Pow(10, 0.113 + 0.74 * Math.Log10(cohort.Biomass));
+            double leafBiomass = Math.Pow(10, 0.113 + 0.74 * Math.Log10(cohort.Data.Biomass));
 
             double defoliation = amountForaged / (double)leafBiomass;
 

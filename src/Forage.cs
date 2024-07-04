@@ -3,7 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Landis.Library.BiomassCohorts;
+using Landis.Library.UniversalCohorts;
 
 namespace Landis.Extension.Browse
 {
@@ -26,10 +26,10 @@ namespace Landis.Extension.Browse
         public static void RecordForage(ICohort cohort,
                                                   int forage)
         {
-            forageDictionary[cohort.Species.Index][cohort.Age] = forage;
+            forageDictionary[cohort.Species.Index][cohort.Data.Age] = forage;
         }
         //---------------------------------------------------------------------
-        public static List<double> CalculateCohortPropInReach(List<Landis.Library.BiomassCohorts.ICohort> cohortList, IInputParameters parameters, double siteBiomassMax)
+        public static List<double> CalculateCohortPropInReach(List<ICohort> cohortList, IInputParameters parameters, double siteBiomassMax)
         {
             //PlugIn.ModelCore.UI.WriteLine("   Calculating proportion of browse in reach using method {0}", PlugIn.PropInReachMethod); //debug
 
@@ -43,13 +43,13 @@ namespace Landis.Extension.Browse
 
             // Sort cohorts and loop through them from smallest to largest until 
             // maxThreshold has been reached. 
-            var sortedCohortList = cohortList.OrderBy(cohort => cohort.Biomass).ToList();
+            var sortedCohortList = cohortList.OrderBy(cohort => cohort.Data.Biomass).ToList();
 
             int sortedBioIndex = 0;
 
             if (PlugIn.PropInReachMethod == "LinearEachCohort")
             {
-                foreach (Landis.Library.BiomassCohorts.ICohort cohort in sortedCohortList)
+                foreach (ICohort cohort in sortedCohortList)
                 {
                     ISppParameters sppParms = parameters.SppParameters[cohort.Species.Index];
                     double minThreshold = sppParms.BiomassMax * parameters.BrowseBiomassThreshMin; //below this value, cohort entirely foraged
@@ -61,15 +61,15 @@ namespace Landis.Extension.Browse
 
                     double propInReach = 0;
 
-                    if (cohort.Age < maxBrowseAge)
+                    if (cohort.Data.Age < maxBrowseAge)
                     {
-                        if (cohort.Biomass <= minThreshold)
+                        if (cohort.Data.Biomass <= minThreshold)
                         {
                             //if a cohort is smaller than minThreshold, all of it can be foraged
                             propInReach = 1.0;
                             //PlugIn.ModelCore.UI.WriteLine("Cohort entirely in reach; biomass = {0}, threshold = {1}", cohort.Biomass, minThreshold);//debug
                         }
-                        else if (cohort.Biomass > maxThreshold)
+                        else if (cohort.Data.Biomass > maxThreshold)
                         {
                             // if a cohort is larger than maxThreshold, none of it can be foraged
                             propInReach = 0.0;
@@ -83,7 +83,7 @@ namespace Landis.Extension.Browse
                             // E.g., if the maxThreshold was 3,000, and a cohort has a biomass
                             // of 2,000, then 1/3 of the cohort's ANPP should be available for browsing. 
 
-                            double tempPropInReach = Math.Min(1, (1 - (cohort.Biomass / maxThreshold)));
+                            double tempPropInReach = Math.Min(1, (1 - (cohort.Data.Biomass / maxThreshold)));
                             //PlugIn.ModelCore.UI.WriteLine("tempPropInReach = {0}", tempPropInReach);//debug
                             propInReach = tempPropInReach;
 
@@ -114,21 +114,21 @@ namespace Landis.Extension.Browse
                 double remainingThreshold = biomassThreshold;
                 //PlugIn.ModelCore.UI.WriteLine("remainingThreshold = {0}", remainingThreshold); //debug
 
-                foreach (Landis.Library.BiomassCohorts.ICohort cohort in sortedCohortList)
+                foreach (ICohort cohort in sortedCohortList)
                 {
                     double maxBrowseAge = cohort.Species.Longevity * maxBrowseAgeProp;
 
                     double propInReach = 0;
-                    if (cohort.Age < maxBrowseAge)
+                    if (cohort.Data.Age < maxBrowseAge)
                     {
-                        if (cohort.Biomass <= remainingThreshold)
+                        if (cohort.Data.Biomass <= remainingThreshold)
                         {
                             propInReach = 1.0;
-                            remainingThreshold -= cohort.Biomass;
+                            remainingThreshold -= cohort.Data.Biomass;
                         }
                         else
                         {
-                            double tempPropInReach = (remainingThreshold / cohort.Biomass);
+                            double tempPropInReach = (remainingThreshold / cohort.Data.Biomass);
                             //PlugIn.ModelCore.UI.WriteLine("tempPropInReach = {0}.", tempPropInReach); //debug
                             if (tempPropInReach < minBrowseProp)
                             {
@@ -154,12 +154,12 @@ namespace Landis.Extension.Browse
             //SF TODO this seems like a really inefficient way to do this -- looping over all the cohorts
             // just to set values for the handful of cohorts within a site
             int cohortIndex = 0;
-            foreach (Landis.Library.BiomassCohorts.ICohort cohort in cohortList)
+            foreach (ICohort cohort in cohortList)
             {
                 int sortedIndex = 0;
-                foreach (Landis.Library.BiomassCohorts.ICohort xcohort in sortedCohortList)
+                foreach (ICohort xcohort in sortedCohortList)
                 {
-                    if ((xcohort.Species == cohort.Species) && (xcohort.Age == cohort.Age) && (xcohort.Biomass == cohort.Biomass))
+                    if ((xcohort.Species == cohort.Species) && (xcohort.Data.Age == cohort.Data.Age) && (xcohort.Data.Biomass == cohort.Data.Biomass))
                     {
                         propInReachList.Add(sortedProportion[sortedIndex]);
                     }

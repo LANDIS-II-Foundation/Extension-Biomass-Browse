@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using Landis.Core;
 using Landis.SpatialModeling;
-using Landis.Library.BiomassCohorts;
+using Landis.Library.UniversalCohorts;
 
 
 namespace Landis.Extension.Browse
@@ -295,7 +295,7 @@ namespace Landis.Extension.Browse
                         List<ICohort> siteCohortList = new List<ICohort>();
                         foreach (ISpecies species in PlugIn.ModelCore.Species)
                         {
-                            ISpeciesCohorts cohortList = SiteVars.BiomassCohorts[site][species];
+                            ISpeciesCohorts cohortList = SiteVars.Cohorts[site][species];
                             if (cohortList != null)
                             {
                                 foreach (ICohort cohort in cohortList)
@@ -399,7 +399,7 @@ namespace Landis.Extension.Browse
                         { //loop over each preference value
                             cohortLoop = 0;
                             double prefClassRemoved = 0;
-                            foreach (Landis.Library.BiomassCohorts.Cohort cohort in siteCohortList)
+                            foreach (ICohort cohort in siteCohortList)
                             { //loop over cohorts; this loop happens for each preference value
                                 ISppParameters sppParms = parameters.SppParameters[cohort.Species.Index];
                                 double browsePref = sppParms.BrowsePref;
@@ -451,7 +451,7 @@ namespace Landis.Extension.Browse
                                         PlugIn.ModelCore.UI.WriteLine("   Browse Proportion not between 0 and 1: {0}. finalRemoval = {1}," +
                                             "total forage = {2}. \r\n    Error encountered for site {3} (row {4}, column {5}), cohort {6:0.0}/{7:0.0}.",
                                             propBrowse, finalRemoval, SiteVars.GetForage(siteCohortList[cohortLoop], site), site.DataIndex, site.Location.Row, site.Location.Column,
-                                            cohort.Species.Name, cohort.Age); 
+                                            cohort.Species.Name, cohort.Data.Age); 
 
                                     if (propBrowse > 1.0001)
                                         propBrowse = 1;
@@ -480,8 +480,8 @@ namespace Landis.Extension.Browse
                                         if (myRand < mortProb)
                                         {
                                             //int biomassKilled = cohort.Biomass - (int)finalRemoval;
-                                            double biomassKilled = (double)cohort.Biomass - (double)finalRemoval;
-                                            finalRemoval = (double)cohort.Biomass; 
+                                            double biomassKilled = (double)cohort.Data.Biomass - (double)finalRemoval;
+                                            finalRemoval = (double)cohort.Data.Biomass; 
                                             this.biomassKilled += biomassKilled;
                                             //this.zoneBiomassKilled[popZone.Index] += biomassKilled; //duplicated
                                             this.cohortsKilled += 1;
@@ -494,7 +494,7 @@ namespace Landis.Extension.Browse
                                     {
                                         //PlugIn.ModelCore.UI.WriteLine("Recording cohort biomass removal :  {0:0.0}/{1:0.0}/{2}.",
                                         //    cohort.Species.Name, cohort.Age, finalRemoval); //debug
-                                        PartialDisturbance.RecordBiomassReduction(cohort, finalRemoval);
+                                        BrowseDisturbance.RecordBiomassReduction(cohort, finalRemoval);
                                         this.biomassRemovedSpp[cohort.Species.Index] += finalRemoval;
                                         this.zoneBiomassKilled[popZone.Index] += finalRemoval;
                                         this.zoneBiomassRemovedSpp[popZone.Index][cohort.Species.Index] += finalRemoval;
@@ -513,13 +513,13 @@ namespace Landis.Extension.Browse
                     }
 
                     // Send biomass reduction to the succession extensions
-                    PartialDisturbance.ReduceCohortBiomass(site);
+                    BrowseDisturbance.ReduceCohortBiomass(site);
 
                     //add species forage per zone for log file
                     List<ICohort> siteCohortListAll = new List<ICohort>();
                     foreach (ISpecies species in PlugIn.ModelCore.Species)
                     {
-                        ISpeciesCohorts cohortList = SiteVars.BiomassCohorts[site][species];
+                        ISpeciesCohorts cohortList = SiteVars.Cohorts[site][species];
                         if (cohortList != null)
                         {
                             foreach (ICohort cohort in cohortList)
@@ -578,7 +578,7 @@ namespace Landis.Extension.Browse
                     ISppParameters sppParms = parameters.SppParameters[species.Index];
                     double browsePref = sppParms.BrowsePref;
 
-                    ISpeciesCohorts cohortList = SiteVars.BiomassCohorts[site][species];
+                    ISpeciesCohorts cohortList = SiteVars.Cohorts[site][species];
 
                     if (cohortList != null)
                     {
@@ -592,46 +592,23 @@ namespace Landis.Extension.Browse
                             //PlugIn.ModelCore.UI.WriteLine("     browsePref = {0}", browsePref); //debug
                             if ((browsePref > 0) || (parameters.CountNonForage))
                             {
-                                //newForage = (int)Math.Round(cohort.ANPP * parameters.ANPPForageProp);
-                                //newForage = (int)Math.Round((cohort.Biomass * 0.1) * parameters.ANPPForageProp);  // RMS:  Using 10% approximation for now; will update from Keeling curve later.
-                                //newForage = (cohort.Biomass * 0.1) * parameters.ANPPForageProp;  // RMS:  Using 10% approximation for now; will update from Keeling curve later.
 
-                                // SF: using smaller value of 4%, from Hubbard Brook:  https://hubbardbrook.org/online-book/forest-biomass-and-primary-productivity
-                                // This value also matches more closely what Biomass Succession was generating for the previous version of the model
-                                // This gets us site ANPP within 10% of what NECN produces, at least for the handful of "typical" sites I tested -- SF
-
-                                
                                 double growthReduction  = GrowthReduction.ReduceCohortGrowth(cohort, site);
                                 if(PlugIn.Calibrate)
                                     CalibrateLog.SetCalibrateData(cohort, 0, growthReduction);
-                                newForage = (cohort.Biomass * 0.04) * parameters.ANPPForageProp * (1-growthReduction);
 
-                                newForage = cohort.Biomass * 0.04;
+                                newForage = (cohort.Data.ANPP) * parameters.ANPPForageProp * (1-growthReduction);
+                                //newForage = cohort.Data.Biomass * 0.04;
 
-                                //PlugIn.ModelCore.UI.WriteLine("New Forage estimated as {0}", newForage);//debug
-
-                                //Use estimates from Keeling quadratic all-data model, inverted to represent ANPP ~ biomass
-                                // Work in progress -- these curves do not work well for small cohorts
-                                //newForage = (32.61 - Math.Sqrt(1083 - 3.056 * cohort.Biomass/100)) / 1.528;
-                                //newForage *= 100;
-                                //PlugIn.ModelCore.UI.WriteLine("ANPP estimated as {0}", newForage);//debug
-                                //newForage = 19.9539 - 0.0035461 * Math.Sqrt(2.55099e7 - 56400 * cohort.Biomass/100);
-                                //newForage *= 100;
-                                //PlugIn.ModelCore.UI.WriteLine("ANPP estimated as {0}", newForage);//debug
-                                //newForage *= parameters.ANPPForageProp;
-
-                                //PlugIn.ModelCore.UI.WriteLine("     Calculating original newForage = {0}", newForage); //debug
-
-                                if (cohort.Age == 1)
+                                if (cohort.Data.Age == 1)
                                 {
                                     if (parameters.UseInitBiomass)
                                     {
-                                        newForage = cohort.Biomass * parameters.ANPPForageProp; //RMS_calibrate_log //(int)Math.Round(cohort.Biomass * parameters.ANPPForageProp);
+                                        newForage = cohort.Data.ANPP * parameters.ANPPForageProp; 
                                     }
                                     else
                                     {
-                                        newForage = 0; //RMS_calibrate_log
-                                        //PlugIn.ModelCore.UI.WriteLine("     Baby cohort = no forage"); //debug
+                                        newForage = 0; 
                                     }
                                 }
 
@@ -657,7 +634,7 @@ namespace Landis.Extension.Browse
                 foreach (ISpecies species in PlugIn.ModelCore.Species)
                 //Build a list of cohorts at the site
                 {
-                    ISpeciesCohorts cohortList = SiteVars.BiomassCohorts[site][species];
+                    ISpeciesCohorts cohortList = SiteVars.Cohorts[site][species];
 
                     if (cohortList != null)
                     {

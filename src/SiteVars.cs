@@ -1,7 +1,7 @@
 //  Authors:  Brian Miranda, Robert M. Scheller
 
 using Landis.SpatialModeling;
-using Landis.Library.BiomassCohorts;
+using Landis.Library.UniversalCohorts;
 using System.Collections.Generic;
 
 namespace Landis.Extension.Browse
@@ -9,8 +9,7 @@ namespace Landis.Extension.Browse
     public static class SiteVars
     {
         private static ISiteVar<double> sitePreference;
-        //private static ISiteVar<Landis.Library.AgeOnlyCohorts.ISiteCohorts> ageCohorts;
-        private static ISiteVar<ISiteCohorts> biomassCohorts;
+        private static ISiteVar<SiteCohorts> cohorts;
         private static ISiteVar<double> neighborhoodForage;
         private static ISiteVar<double> browseIndex;
         private static ISiteVar<double> browseDisturbance;
@@ -26,7 +25,7 @@ namespace Landis.Extension.Browse
         private static ISiteVar<double> biomassRemoved;
         private static ISiteVar<int> cohortsDamaged;
         //private static ISiteVar<int> ecoMaxBiomass;
-        private static ISiteVar<List<Landis.Library.BiomassCohorts.ICohort>> siteCohortList;
+        //private static ISiteVar<List<Landis.Library.BiomassCohorts.ICohort>> siteCohortList;
 
         public static ISiteVar<Dictionary<int, Dictionary<int, double>>> Forage;
         public static ISiteVar<Dictionary<int, Dictionary<int, double>>> ForageInReach;
@@ -56,7 +55,7 @@ namespace Landis.Extension.Browse
             cohortsDamaged = PlugIn.ModelCore.Landscape.NewSiteVar<int>();
             //youngCohortCount = PlugIn.ModelCore.Landscape.NewSiteVar<int>();
             //ecoMaxBiomass = PlugIn.ModelCore.GetSiteVar<int>("Succession.MaxBiomass");
-            siteCohortList = PlugIn.ModelCore.Landscape.NewSiteVar<List<ICohort>>(); // SF can probably remove
+            //siteCohortList = PlugIn.ModelCore.Landscape.NewSiteVar<List<ICohort>>(); // SF can probably remove
 
             Forage = PlugIn.ModelCore.Landscape.NewSiteVar<Dictionary<int, Dictionary<int, double>>>();
             ForageInReach = PlugIn.ModelCore.Landscape.NewSiteVar<Dictionary<int, Dictionary<int, double>>>();
@@ -69,13 +68,13 @@ namespace Landis.Extension.Browse
                 LastBrowseProportion[site] = new Dictionary<int, Dictionary<int, double>>();
             }
 
-            biomassCohorts = PlugIn.ModelCore.GetSiteVar<Landis.Library.BiomassCohorts.ISiteCohorts>("Succession.BiomassCohorts");
+            cohorts = PlugIn.ModelCore.GetSiteVar<Landis.Library.UniversalCohorts.SiteCohorts>("Succession.UniversalCohorts");
 
-            if (biomassCohorts == null)
-            {
-                //SF TODO throw exception if missing?
-                PlugIn.ModelCore.UI.WriteLine("Problem getting biomassCohorts");
-            }
+            //if (biomassCohorts == null)
+            //{
+            //    //SF TODO throw exception if missing?
+            //    PlugIn.ModelCore.UI.WriteLine("Problem getting biomassCohorts");
+            //}
 
         }
         ////---------------------------------------------------------------------
@@ -212,11 +211,11 @@ namespace Landis.Extension.Browse
 
 
         //---------------------------------------------------------------------
-        public static ISiteVar<ISiteCohorts> BiomassCohorts
+        public static ISiteVar<SiteCohorts> Cohorts
         {
             get
             {
-                return biomassCohorts;
+                return Cohorts;
             }
         }
         //---------------------------------------------------------------------
@@ -362,7 +361,7 @@ namespace Landis.Extension.Browse
         public static int GetAddYear(ICohort cohort)
         {
             int currentYear = PlugIn.ModelCore.CurrentTime;
-            int cohortAddYear = currentYear - cohort.Age;
+            int cohortAddYear = currentYear - cohort.Data.Age;
             return cohortAddYear;
         }
 

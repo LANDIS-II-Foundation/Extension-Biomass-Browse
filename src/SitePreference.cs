@@ -2,7 +2,7 @@
 
 using Landis.Core;
 using Landis.SpatialModeling;
-using Landis.Library.BiomassCohorts;
+using Landis.Library.UniversalCohorts;
 
 namespace Landis.Extension.Browse
 {
@@ -28,7 +28,7 @@ namespace Landis.Extension.Browse
             {
 
                 ISppParameters sppParms = parameters.SppParameters[species.Index];
-                ISpeciesCohorts cohortList = SiteVars.BiomassCohorts[site][species];
+                ISpeciesCohorts cohortList = SiteVars.Cohorts[site][species];
                 if (cohortList != null)
                 {
                     foreach (ICohort cohort in cohortList)
