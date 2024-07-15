@@ -115,6 +115,7 @@ namespace Landis.Extension.Browse
             GrowthReduction.Initialize(parameters);
             //Defoliate.Initialize(parameters); //SF be careful if using defoliate -- forage could be greater than available leaf biomass, and browsing
                                                 // could be double-counted if using both defoliate and BiomassCohorts.ReduceOrKillMarkedCohorts
+                                                // TODO make sure this is fixed for LANDIS-II v8 version
             PopulationZones.Initialize(parameters);
             
             //This is used when calculating habitat suitability

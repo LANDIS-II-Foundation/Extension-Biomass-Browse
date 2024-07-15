@@ -23,7 +23,7 @@ SFTWD		0.15		0.3		0.4	0.8		0.01   25000
 HRDWD		0.15		0.3		0.4	0.8		0.01   25000
 
 << Browser population Inputs >>
-ZoneMap  "./rasters/single3.tif" <<same as ecoregions right now; every active cell can be browsed. sf 2021-12-20
+ZoneMap  "./rasters/single3.tif" <<same as ecoregions right now; every active cell can be browsed
 BrowseMethod "Population"
 DefinedPopulationFile	"DefinedUngulatePopulation.txt"  << User-defined population
 
@@ -37,7 +37,7 @@ BrowseBiomassThresholdMax	0.5	<<Proportion of ecoregion max biomass above which 
 EscapeBrowsePropLong	0.57	<<Prop of longevity when browse is escaped
 
 << Options >>
-CalibrateMode ON <<Default is OFF
+<<CalibrateMode OFF <<Default is OFF
 <<GrowthReduction	ON  << Default is ON
 <<Mortality	ON  << Default is ON
 <<CountNonForageinSitePref	FALSE	<< Default is FALSE
