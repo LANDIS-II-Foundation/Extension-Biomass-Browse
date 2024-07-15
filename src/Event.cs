@@ -313,10 +313,19 @@ namespace Landis.Extension.Browse
                         //Browse - calculate first pass removal
                         // first pass removes forage at rate equal to preference
                         double[] firstPassRemovalList = new double[siteCohortList.Count];
-                        double firstPassRemoval = 0;
+                        double firstPassRemovalSite = 0;
                         int cohortLoop = 0;
                         foreach (ICohort cohort in siteCohortList)
                         {
+                            if (PlugIn.Calibrate)
+                            {
+                                CalibrateLog.SetCalibrateData(cohort, 2, 0); //reset FirstPassRemoval
+                                CalibrateLog.SetCalibrateData(cohort, 3, 0); //reset SecondPassRemoval
+                                CalibrateLog.SetCalibrateData(cohort, 4, 0); //reset FinalRemoval
+                                CalibrateLog.SetCalibrateData(cohort, 7, 0); //reset ProportionBrowsed
+                                CalibrateLog.SetCalibrateData(cohort, 6, SiteVars.GetLastBrowseProportion(cohort, site));
+                            }
+
                             //Calculate how much forage is available using just browse preference and available forage
                             // (without ranking species)
 
@@ -324,15 +333,16 @@ namespace Landis.Extension.Browse
                             double browsePref = sppParms.BrowsePref;
 
                             double availForage = SiteVars.GetForageInReach(cohort, site);
-                            firstPassRemoval += availForage * browsePref; //RMS_calibrate_log
+                            double firstPassRemovalCohort = availForage * browsePref; //RMS_calibrate_log
+                            firstPassRemovalSite += firstPassRemovalCohort;
+
                             if (PlugIn.Calibrate)
-                                CalibrateLog.SetCalibrateData(cohort, 2, firstPassRemoval);
+                                CalibrateLog.SetCalibrateData(cohort, 2, firstPassRemovalCohort);
 
-
-                            //PlugIn.ModelCore.UI.WriteLine("{0:0.0}/{1:0.0}. availForage = {2}, browsePref = {3}, " +
-                            //    "firstPass increment = {4}, firstPassRemoval = {5}",
-                            //    cohort.Species.Name, cohort.Age, availForage, browsePref, availForage * browsePref, firstPassRemoval);//debug
-                            //firstPassRemovalInt += (availForage * browsePref);
+                           // PlugIn.ModelCore.UI.WriteLine("{0:0.0}/{1:0.0}. availForage = {2}, browsePref = {3}, " +
+                             //   "firstPass increment = {4}, firstPassRemoval = {5}",
+                            //    cohort.Species.Name, cohort.Age, availForage, browsePref, availForage * browsePref, firstPassRemovalCohort);//debug
+                          
                             //assign first pass removal to each cohort
                             firstPassRemovalList[cohortLoop] = availForage * browsePref;
 
@@ -356,21 +366,19 @@ namespace Landis.Extension.Browse
                         // if first pass exceeds removal then adjust downward for each cohort
                         double[] adjFirstPassRemovalList = new double[siteCohortList.Count]; //RMS_calibrate_log
                         double[] remainingBrowseList = new double[siteCohortList.Count];
-                        double adjFirstPassRemoval = firstPassRemoval;
-                        //double adjFirstPassRemovalInt = firstPassRemovalInt;
-                        if (firstPassRemoval > siteTotalToBrowse)
+                        double adjFirstPassRemoval = firstPassRemovalSite;
+
+                        if (firstPassRemovalSite > siteTotalToBrowse)
                         {
                             adjFirstPassRemoval = 0;
-                            //adjFirstPassRemovalInt = 0;
                             int removalIndex = 0;
                             foreach (var i in firstPassRemovalList)
                             //loop over cohorts
                             {
                                 double firstRemoval = firstPassRemovalList[removalIndex];
-                                double adjFirstRemoval = firstRemoval * siteTotalToBrowse / firstPassRemoval;
+                                double adjFirstRemoval = firstRemoval * siteTotalToBrowse / firstPassRemovalSite;
                                 adjFirstPassRemovalList[removalIndex] = adjFirstRemoval;
                                 adjFirstPassRemoval += adjFirstRemoval;
-                                //adjFirstPassRemovalInt += adjFirstRemoval; // Math.Round(adjFirstRemoval);
                                 removalIndex++;
 
                             }
@@ -458,11 +466,14 @@ namespace Landis.Extension.Browse
 
                                     //LastBrowseProportion is only used for GrowthReduction
                                     if (propBrowse > 0.0)
+                                    {
                                         //PlugIn.ModelCore.UI.WriteLine("Setting LastBrowseProportion :  {0:0.0}/{1:0.0}/{2}.", cohort.Species.Name, cohort.Age, propBrowse); //debug
                                         SiteVars.SetLastBrowseProportion(cohort, site, propBrowse); //RMS_calibrate_log
+                                    }
+                            
 
                                     if (PlugIn.Calibrate)
-                                        CalibrateLog.SetCalibrateData(cohort, 8, propBrowse);
+                                        CalibrateLog.SetCalibrateData(cohort, 7, propBrowse);
 
 
 
@@ -477,13 +488,14 @@ namespace Landis.Extension.Browse
                                         PlugIn.ModelCore.ContinuousUniformDistribution.Beta = 1.0;
                                         double myRand = PlugIn.ModelCore.ContinuousUniformDistribution.NextDouble();
 
+                                        if (PlugIn.Calibrate)
+                                            CalibrateLog.SetCalibrateData(cohort, 8, mortProb);
+
                                         if (myRand < mortProb)
                                         {
-                                            //int biomassKilled = cohort.Biomass - (int)finalRemoval;
                                             double biomassKilled = (double)cohort.Biomass - (double)finalRemoval;
                                             finalRemoval = (double)cohort.Biomass; 
                                             this.biomassKilled += biomassKilled;
-                                            //this.zoneBiomassKilled[popZone.Index] += biomassKilled; //duplicated
                                             this.cohortsKilled += 1;
                                             this.cohortsKilledSpp[cohort.Species.Index] += 1;
                                             this.zoneCohortsKilled[popZone.Index] += 1;
@@ -589,7 +601,7 @@ namespace Landis.Extension.Browse
                         {
                             //int newForage = 0;
                             double newForage = 0;
-                            //PlugIn.ModelCore.UI.WriteLine("     browsePref = {0}", browsePref); //debug
+
                             if ((browsePref > 0) || (parameters.CountNonForage))
                             {
                                 //newForage = (int)Math.Round(cohort.ANPP * parameters.ANPPForageProp);
@@ -605,8 +617,6 @@ namespace Landis.Extension.Browse
                                 if(PlugIn.Calibrate)
                                     CalibrateLog.SetCalibrateData(cohort, 0, growthReduction);
                                 newForage = (cohort.Biomass * 0.04) * parameters.ANPPForageProp * (1-growthReduction);
-
-                                newForage = cohort.Biomass * 0.04;
 
                                 //PlugIn.ModelCore.UI.WriteLine("New Forage estimated as {0}", newForage);//debug
 
@@ -684,7 +694,10 @@ namespace Landis.Extension.Browse
                     //if (newForageinReach > 0)
                     //SF need to set this every time for each cohort, so that cohorts that escape browse have forageInReach = 0 
                     //instead of staying set at their previous ForageInReach value
-                    SiteVars.SetForageInReach(cohort, site, newForageinReach); 
+                    SiteVars.SetForageInReach(cohort, site, newForageinReach);
+
+                    if (PlugIn.Calibrate)
+                        CalibrateLog.SetCalibrateData(cohort, 1, newForageinReach);
 
                     listCount++;
                 }
