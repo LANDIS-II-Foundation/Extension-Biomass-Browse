@@ -213,3 +213,4 @@ src/lib/Landis.Library.Metadata-v2.dll
 *.gis
 *.img
 src/lib/Landis.Library.UniversalCohorts-v1.dll
+tests/Core8.0-Browse3.0/Landis-log.txt
