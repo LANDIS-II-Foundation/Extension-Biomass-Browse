@@ -25,9 +25,9 @@ namespace Landis.Extension.Browse
 
             PlugIn.ModelCore.UI.WriteLine("   Calculating defoliation proportion...");
 
-            double forage = SiteVars.GetForage(cohort, site);
+            double forage = cohort.Data.AdditionalParameters.Forage; // SiteVars.GetForage(cohort, site);
 
-            double propBrowse = SiteVars.GetLastBrowseProportion(cohort, site);
+            double propBrowse = cohort.Data.AdditionalParameters.LastBrowseProportion; // SiteVars.GetLastBrowseProportion(cohort, site);
 
             double amountForaged = forage * propBrowse;
 

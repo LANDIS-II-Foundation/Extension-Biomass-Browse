@@ -37,14 +37,14 @@ namespace Landis.Extension.Browse
                         if ((browsePref > 0) || (parameters.CountNonForage))
                         {
                             sumPref += browsePref;
-                            weightPref += (browsePref * SiteVars.GetForageInReach(cohort, site));
+                            weightPref += (browsePref * cohort.Data.AdditionalParameters.ForageInReach); // SiteVars.GetForageInReach(cohort, site));
                             countCohorts += 1;
-                            sumWeight += SiteVars.GetForageInReach(cohort, site);
+                            sumWeight += cohort.Data.AdditionalParameters.ForageInReach; // SiteVars.GetForageInReach(cohort, site);
                             //PlugIn.ModelCore.UI.WriteLine("     Adding to sumWeight. sumWeight = {0}", sumWeight); //debug
                         }
                         if (browsePref > 0)
                         {
-                            sumForage += SiteVars.GetForageInReach(cohort, site);
+                            sumForage += cohort.Data.AdditionalParameters.ForageInReach; //  SiteVars.GetForageInReach(cohort, site);
                             //PlugIn.ModelCore.UI.WriteLine("     Adding to sumForage. sumForage = {0}", sumForage); //debug
                         }
                     }

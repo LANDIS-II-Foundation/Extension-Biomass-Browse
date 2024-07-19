@@ -28,7 +28,7 @@ namespace Landis.Extension.Browse
         {
             //PlugIn.ModelCore.UI.WriteLine("   Reducing cohort growth..."); //debug
             double reduction = 0;
-            double propBrowse = SiteVars.GetLastBrowseProportion(cohort, site); 
+            double propBrowse = cohort.Data.AdditionalParameters.LastBrowseProportion;  //SiteVars.GetLastBrowseProportion(cohort, site); 
             double threshold = inputParameters.SppParameters[cohort.Species.Index].GrowthReductThresh;
 
             double max = inputParameters.SppParameters[cohort.Species.Index].GrowthReductMax;

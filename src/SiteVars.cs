@@ -27,9 +27,9 @@ namespace Landis.Extension.Browse
         //private static ISiteVar<int> ecoMaxBiomass;
         //private static ISiteVar<List<Landis.Library.BiomassCohorts.ICohort>> siteCohortList;
 
-        public static ISiteVar<Dictionary<int, Dictionary<int, double>>> Forage;
-        public static ISiteVar<Dictionary<int, Dictionary<int, double>>> ForageInReach;
-        public static ISiteVar<Dictionary<int, Dictionary<int, double>>> LastBrowseProportion;
+        //public static ISiteVar<Dictionary<int, Dictionary<int, double>>> Forage;
+        //public static ISiteVar<Dictionary<int, Dictionary<int, double>>> ForageInReach;
+        //public static ISiteVar<Dictionary<int, Dictionary<int, double>>> LastBrowseProportion;
 
 
         //private static ISiteVar<int> youngCohortCount;
@@ -55,17 +55,16 @@ namespace Landis.Extension.Browse
             cohortsDamaged = PlugIn.ModelCore.Landscape.NewSiteVar<int>();
             //youngCohortCount = PlugIn.ModelCore.Landscape.NewSiteVar<int>();
             //ecoMaxBiomass = PlugIn.ModelCore.GetSiteVar<int>("Succession.MaxBiomass");
-            //siteCohortList = PlugIn.ModelCore.Landscape.NewSiteVar<List<ICohort>>(); // SF can probably remove
 
-            Forage = PlugIn.ModelCore.Landscape.NewSiteVar<Dictionary<int, Dictionary<int, double>>>();
-            ForageInReach = PlugIn.ModelCore.Landscape.NewSiteVar<Dictionary<int, Dictionary<int, double>>>();
-            LastBrowseProportion = PlugIn.ModelCore.Landscape.NewSiteVar<Dictionary<int, Dictionary<int, double>>>();
+            //Forage = PlugIn.ModelCore.Landscape.NewSiteVar<Dictionary<int, Dictionary<int, double>>>();
+            //ForageInReach = PlugIn.ModelCore.Landscape.NewSiteVar<Dictionary<int, Dictionary<int, double>>>();
+            //LastBrowseProportion = PlugIn.ModelCore.Landscape.NewSiteVar<Dictionary<int, Dictionary<int, double>>>();
 
             foreach(ActiveSite site in PlugIn.ModelCore.Landscape.ActiveSites)
             {
-                Forage[site] = new Dictionary<int, Dictionary<int, double>>();
-                ForageInReach[site] = new Dictionary<int, Dictionary<int, double>>();
-                LastBrowseProportion[site] = new Dictionary<int, Dictionary<int, double>>();
+                //Forage[site] = new Dictionary<int, Dictionary<int, double>>();
+                //ForageInReach[site] = new Dictionary<int, Dictionary<int, double>>();
+                //LastBrowseProportion[site] = new Dictionary<int, Dictionary<int, double>>();
             }
 
             cohorts = PlugIn.ModelCore.GetSiteVar<Landis.Library.UniversalCohorts.SiteCohorts>("Succession.UniversalCohorts");
@@ -83,131 +82,131 @@ namespace Landis.Extension.Browse
         //    biomassCohorts = PlugIn.ModelCore.GetSiteVar<Landis.Library.BiomassCohorts.ISiteCohorts>("Succession.BiomassCohorts");
         //}
         //---------------------------------------------------------------------
-        public static void SetForage(ICohort cohort, ActiveSite site, double new_forage)
-        {
+        //public static void SetForage(ICohort cohort, ActiveSite site, double new_forage)
+        //{
 
-            int cohortAddYear = GetAddYear(cohort);
-            Dictionary<int, double> cohortDict;
-            double oldForage;
-
-
-            // If the dictionary entry exists for the cohort, overwrite it:
-            if (Forage[site].TryGetValue(cohort.Species.Index, out cohortDict))
-                if (cohortDict.TryGetValue(cohortAddYear, out oldForage))
-                {
-                    Forage[site][cohort.Species.Index][cohortAddYear] = new_forage;
-                    return;
-                }
-
-            // If the dictionary does not exist for the cohort, create it:
-            Dictionary<int, double> newEntry = new Dictionary<int, double>();
-            newEntry.Add(cohortAddYear, new_forage);
-
-            if (Forage[site].ContainsKey(cohort.Species.Index))
-            {
-                Forage[site][cohort.Species.Index].Add(cohortAddYear, new_forage);
-            }
-            else
-            {
-                Forage[site].Add(cohort.Species.Index, newEntry);
-            }
-        }
-
-        public static void SetForageInReach(ICohort cohort, ActiveSite site, double forageInReach)
-        {
-            int cohortAddYear = GetAddYear(cohort);
-            Dictionary<int, double> cohortDict;
-            double oldForageInReach;
+        //    int cohortAddYear = GetAddYear(cohort);
+        //    Dictionary<int, double> cohortDict;
+        //    double oldForage;
 
 
-            // If the dictionary entry exists for the cohort, overwrite it:
-            if (ForageInReach[site].TryGetValue(cohort.Species.Index, out cohortDict))
-                if (cohortDict.TryGetValue(cohortAddYear, out oldForageInReach))
-                {
-                    //PlugIn.ModelCore.UI.WriteLine("Overwriting old forageInReach value for cohort");
-                    ForageInReach[site][cohort.Species.Index][cohortAddYear] = forageInReach; 
-                    return;
-                }
+        //    // If the dictionary entry exists for the cohort, overwrite it:
+        //    if (Forage[site].TryGetValue(cohort.Species.Index, out cohortDict))
+        //        if (cohortDict.TryGetValue(cohortAddYear, out oldForage))
+        //        {
+        //            Forage[site][cohort.Species.Index][cohortAddYear] = new_forage;
+        //            return;
+        //        }
 
-            // If the dictionary does not exist for the cohort, create it:
-            Dictionary<int, double> newEntry = new Dictionary<int, double>();
-            newEntry.Add(cohortAddYear, forageInReach);
+        //    // If the dictionary does not exist for the cohort, create it:
+        //    Dictionary<int, double> newEntry = new Dictionary<int, double>();
+        //    newEntry.Add(cohortAddYear, new_forage);
 
-            if (ForageInReach[site].ContainsKey(cohort.Species.Index))
-            {
-                ForageInReach[site][cohort.Species.Index].Add(cohortAddYear, forageInReach);
-                //PlugIn.ModelCore.UI.WriteLine("Adding new cohort"); //debug
-            }
-            else
-            {
-                //PlugIn.ModelCore.UI.WriteLine("Adding new cohort"); //debug
-                ForageInReach[site].Add(cohort.Species.Index, newEntry);
-            }
-        }
+        //    if (Forage[site].ContainsKey(cohort.Species.Index))
+        //    {
+        //        Forage[site][cohort.Species.Index].Add(cohortAddYear, new_forage);
+        //    }
+        //    else
+        //    {
+        //        Forage[site].Add(cohort.Species.Index, newEntry);
+        //    }
+        //}
 
-        public static void SetLastBrowseProportion(ICohort cohort, ActiveSite site, double lastBrowseProportion)
-        {
-            int cohortAddYear = GetAddYear(cohort);
-            Dictionary<int, double> cohortDict;
-            double oldValue;
+        //public static void SetForageInReach(ICohort cohort, ActiveSite site, double forageInReach)
+        //{
+        //    int cohortAddYear = GetAddYear(cohort);
+        //    Dictionary<int, double> cohortDict;
+        //    double oldForageInReach;
 
-            // If the dictionary entry exists for the cohort, overwrite it:
-            if (LastBrowseProportion[site].TryGetValue(cohort.Species.Index, out cohortDict))
-                if (cohortDict.TryGetValue(cohortAddYear, out oldValue))
-                {
-                    LastBrowseProportion[site][cohort.Species.Index][cohortAddYear] = lastBrowseProportion;
-                    return;
-                }
 
-            // If the dictionary does not exist for the cohort, create it:
-            Dictionary<int, double> newEntry = new Dictionary<int, double>();
-            newEntry.Add(cohortAddYear, lastBrowseProportion);
+        //    // If the dictionary entry exists for the cohort, overwrite it:
+        //    if (ForageInReach[site].TryGetValue(cohort.Species.Index, out cohortDict))
+        //        if (cohortDict.TryGetValue(cohortAddYear, out oldForageInReach))
+        //        {
+        //            //PlugIn.ModelCore.UI.WriteLine("Overwriting old forageInReach value for cohort");
+        //            ForageInReach[site][cohort.Species.Index][cohortAddYear] = forageInReach; 
+        //            return;
+        //        }
 
-            if (LastBrowseProportion[site].ContainsKey(cohort.Species.Index))
-            {
-                LastBrowseProportion[site][cohort.Species.Index].Add(cohortAddYear, lastBrowseProportion);
-            }
-            else
-            {
-                LastBrowseProportion[site].Add(cohort.Species.Index, newEntry);
-            }
-        }
+        //    // If the dictionary does not exist for the cohort, create it:
+        //    Dictionary<int, double> newEntry = new Dictionary<int, double>();
+        //    newEntry.Add(cohortAddYear, forageInReach);
 
-        public static double GetForage(ICohort cohort, ActiveSite site)
-        {
-            Dictionary<int, double> cohortDict;
-            int cohortAddYear = GetAddYear(cohort);
-            double forage = 0.0;
+        //    if (ForageInReach[site].ContainsKey(cohort.Species.Index))
+        //    {
+        //        ForageInReach[site][cohort.Species.Index].Add(cohortAddYear, forageInReach);
+        //        //PlugIn.ModelCore.UI.WriteLine("Adding new cohort"); //debug
+        //    }
+        //    else
+        //    {
+        //        //PlugIn.ModelCore.UI.WriteLine("Adding new cohort"); //debug
+        //        ForageInReach[site].Add(cohort.Species.Index, newEntry);
+        //    }
+        //}
 
-            if (Forage[site].TryGetValue(cohort.Species.Index, out cohortDict))
-                cohortDict.TryGetValue(cohortAddYear, out forage); 
+        //public static void SetLastBrowseProportion(ICohort cohort, ActiveSite site, double lastBrowseProportion)
+        //{
+        //    int cohortAddYear = GetAddYear(cohort);
+        //    Dictionary<int, double> cohortDict;
+        //    double oldValue;
+
+        //    // If the dictionary entry exists for the cohort, overwrite it:
+        //    if (LastBrowseProportion[site].TryGetValue(cohort.Species.Index, out cohortDict))
+        //        if (cohortDict.TryGetValue(cohortAddYear, out oldValue))
+        //        {
+        //            LastBrowseProportion[site][cohort.Species.Index][cohortAddYear] = lastBrowseProportion;
+        //            return;
+        //        }
+
+        //    // If the dictionary does not exist for the cohort, create it:
+        //    Dictionary<int, double> newEntry = new Dictionary<int, double>();
+        //    newEntry.Add(cohortAddYear, lastBrowseProportion);
+
+        //    if (LastBrowseProportion[site].ContainsKey(cohort.Species.Index))
+        //    {
+        //        LastBrowseProportion[site][cohort.Species.Index].Add(cohortAddYear, lastBrowseProportion);
+        //    }
+        //    else
+        //    {
+        //        LastBrowseProportion[site].Add(cohort.Species.Index, newEntry);
+        //    }
+        //}
+
+        //public static double GetForage(ICohort cohort, ActiveSite site)
+        //{
+        //    Dictionary<int, double> cohortDict;
+        //    int cohortAddYear = GetAddYear(cohort);
+        //    double forage = 0.0;
+
+        //    if (Forage[site].TryGetValue(cohort.Species.Index, out cohortDict))
+        //        cohortDict.TryGetValue(cohortAddYear, out forage); 
             
-            return forage;
-        }
+        //    return forage;
+        //}
 
-        public static double GetForageInReach(ICohort cohort, ActiveSite site)
-        {
-            Dictionary<int, double> cohortDict;
-            int cohortAddYear = GetAddYear(cohort);
-            double forageInReach = 0.0;
+        //public static double GetForageInReach(ICohort cohort, ActiveSite site)
+        //{
+        //    Dictionary<int, double> cohortDict;
+        //    int cohortAddYear = GetAddYear(cohort);
+        //    double forageInReach = 0.0;
 
-            if (ForageInReach[site].TryGetValue(cohort.Species.Index, out cohortDict))
-                cohortDict.TryGetValue(cohortAddYear, out forageInReach);
+        //    if (ForageInReach[site].TryGetValue(cohort.Species.Index, out cohortDict))
+        //        cohortDict.TryGetValue(cohortAddYear, out forageInReach);
 
-            return forageInReach;
-        }
+        //    return forageInReach;
+        //}
 
-        public static double GetLastBrowseProportion(ICohort cohort, ActiveSite site)
-        {
-            Dictionary<int, double> cohortDict;
-            int cohortAddYear = GetAddYear(cohort);
-            double lastBrowseProportion = 0.0;
+        //public static double GetLastBrowseProportion(ICohort cohort, ActiveSite site)
+        //{
+        //    Dictionary<int, double> cohortDict;
+        //    int cohortAddYear = GetAddYear(cohort);
+        //    double lastBrowseProportion = 0.0;
 
-            if (LastBrowseProportion[site].TryGetValue(cohort.Species.Index, out cohortDict))
-                cohortDict.TryGetValue(cohortAddYear, out lastBrowseProportion);
+        //    if (LastBrowseProportion[site].TryGetValue(cohort.Species.Index, out cohortDict))
+        //        cohortDict.TryGetValue(cohortAddYear, out lastBrowseProportion);
 
-            return lastBrowseProportion;
-        }
+        //    return lastBrowseProportion;
+        //}
 
 
         //---------------------------------------------------------------------

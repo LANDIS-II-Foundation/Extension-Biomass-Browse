@@ -3,7 +3,6 @@
 using Landis.SpatialModeling;
 using Landis.Core;
 using System.Collections.Generic;
-using System.IO;
 using Landis.Library.UniversalCohorts;
 using Landis.Library.Metadata;
 using System;
@@ -64,7 +63,12 @@ namespace Landis.Extension.Browse
         public static ICore ModelCore { get; private set; }
         public override void AddCohortData()
         {
-            return;
+            dynamic tempObject = additionalCohortParameters;
+            tempObject.ForageInReach = 0.0f;
+            tempObject.ProportionBrowse = 0.0f;
+            tempObject.Forage = 0.0f;
+            tempObject.LastBrowseProportion = 0.0f;
+            tempObject.BrowseRemoval = 0.0f;
         }
 
         //---------------------------------------------------------------------
