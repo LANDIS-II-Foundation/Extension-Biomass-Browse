@@ -4,7 +4,7 @@ Timestep  1
 
 SeedingAlgorithm  WardSeedDispersal
 
-InitialCommunities      	"initial_communities_update.csv"
+InitialCommunitiesCSV      	"initial_communities_update.csv"
 InitialCommunitiesMap   	"initial_communities_subset.tif"
 ClimateConfigFile		"climate-generator-test-climate.txt"
 
@@ -29,7 +29,6 @@ InitialDeadCoarseRootsMapName			"coarse_roots_subset.tif"
 
 CalibrateMode no
 SmokeModelOutputs no
-Version_Henne_SoilWater yes
 WaterDecayFunction Ratio <<Linear or Ratio
 
 ProbabilityEstablishAdjust 	1.0
