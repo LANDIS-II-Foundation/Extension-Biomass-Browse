@@ -96,12 +96,12 @@ namespace Landis.Extension.Browse
             // Get population for static population mode          
             if (!PlugIn.DynamicPopulation)
             {
-                PlugIn.ModelCore.UI.WriteLine("    Using static population");
+                //PlugIn.ModelCore.UI.WriteLine("    Using static population");
 
                 //if there is defined population data for the timestep
                 if (DynamicInputs.TemporalData.ContainsKey(PlugIn.ModelCore.CurrentTime))
                 {
-                    PlugIn.ModelCore.UI.WriteLine("    Defined population being loaded for current timestep");
+                    //PlugIn.ModelCore.UI.WriteLine("    Defined population being loaded for current timestep");
                     foreach (IPopulationZone popZone in Dataset)
                     {
                         if (DynamicInputs.TemporalData[PlugIn.ModelCore.CurrentTime][popZone.Index] != null)
@@ -277,13 +277,13 @@ namespace Landis.Extension.Browse
 
             if (newPop < 0)
             {
-                newPop = 0;
                 //SF TODO throw exception here?
-                PlugIn.ModelCore.UI.WriteLine("New population was negative, probably because oldPop was much greater than zoneK. Check initial population.");
+                PlugIn.ModelCore.UI.WriteLine("    New population = {0}, probably because oldPop was much greater than zoneK. Check initial population.", newPop);
+                newPop = 0;
             } else if (zoneK < 0.0001)
             {
                 newPop = 0;
-                PlugIn.ModelCore.UI.WriteLine("Carrying capacity = 0; check parameters.");
+                PlugIn.ModelCore.UI.WriteLine("    Zone carrying capacity = {0}; check parameters.", zoneK);
             }
 
             //PlugIn.ModelCore.UI.WriteLine("oldPop = {0}.  popR = {1}. popMortality = {2}. popPredation = {3}. popHarvest = {4}. popGrowth = {5}. newPop = {6}.",
@@ -302,7 +302,7 @@ namespace Landis.Extension.Browse
         /// <returns></returns>
         public static double CalculateK(int popZoneIndex, IInputParameters parameters)
         {
-            PlugIn.ModelCore.UI.WriteLine("     Calculating carrying capacity");
+            PlugIn.ModelCore.UI.WriteLine("   Calculating carrying capacity");
             double totalForage = 0;
             foreach (Location siteLocation in Dataset[popZoneIndex].PopulationZoneSites)
             {

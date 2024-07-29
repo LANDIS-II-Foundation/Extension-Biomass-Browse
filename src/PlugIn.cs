@@ -67,7 +67,7 @@ namespace Landis.Extension.Browse
             tempObject.ForageInReach = 0.0f;
             tempObject.ProportionBrowse = 0.0f;
             tempObject.Forage = 0.0f;
-            tempObject.LastBrowseProportion = 0.0f;
+            //tempObject.LastBrowseProportion = 0.0f;
             tempObject.BrowseRemoval = 0.0f;
         }
 

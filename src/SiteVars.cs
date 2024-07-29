@@ -214,7 +214,7 @@ namespace Landis.Extension.Browse
         {
             get
             {
-                return Cohorts;
+                return cohorts;
             }
         }
         //---------------------------------------------------------------------

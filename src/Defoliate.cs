@@ -27,7 +27,7 @@ namespace Landis.Extension.Browse
 
             double forage = cohort.Data.AdditionalParameters.Forage; // SiteVars.GetForage(cohort, site);
 
-            double propBrowse = cohort.Data.AdditionalParameters.LastBrowseProportion; // SiteVars.GetLastBrowseProportion(cohort, site);
+            double propBrowse = cohort.Data.AdditionalParameters.ProportionBrowse; // SiteVars.GetLastBrowseProportion(cohort, site);
 
             double amountForaged = forage * propBrowse;
 
