@@ -50,7 +50,7 @@ namespace Landis.Extension.Browse
                             clog.ForageInReach = (int)cohort.Data.AdditionalParameters.ForageInReach;
                             //clog.FirstPassRemoval = (int)cohortData[2]; 
                             //clog.SecondPassRemoval = (int)cohortData[3]; 
-                            clog.BrowseRemoval = (int)cohort.Data.AdditionalParameters.BrowseRemoval;
+                            clog.BrowseRemoval = (int)cohort.Data.AdditionalParameters.BiomassRemoval;
                             clog.Forage = (int)cohort.Data.AdditionalParameters.ProportionBrowse;
                             //clog.LastBrowseProportion = (int)cohortData[6]; 
                             //clog.ForageInReach = (int)cohortData[7];

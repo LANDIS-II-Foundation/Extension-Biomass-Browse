@@ -326,7 +326,7 @@ namespace Landis.Extension.Browse
                                     //    "firstPass increment = {4}, firstPassRemoval = {5}",
                                     //    cohort.Species.Name, cohort.Age, availForage, browsePref, availForage * browsePref, firstPassRemoval);//debug
                                     //assign first pass removal to each cohort
-                                    cohort.Data.AdditionalParameters.BrowseRemoval = availForage * browsePref;
+                                    cohort.Data.AdditionalParameters.BiomassRemoval = availForage * browsePref;
 
                                     int prefIndex = 0;
                                     foreach (double prefValue in parameters.PreferenceList)
@@ -359,8 +359,8 @@ namespace Landis.Extension.Browse
                                 {
                                     foreach (ICohort cohort in cohortList)
                                     {
-                                        cohort.Data.AdditionalParameters.BrowseRemoval *= siteTotalToBrowse / firstPassRemoval;
-                                        adjFirstPassRemoval += cohort.Data.AdditionalParameters.BrowseRemoval;
+                                        cohort.Data.AdditionalParameters.BiomassRemoval *= siteTotalToBrowse / firstPassRemoval;
+                                        adjFirstPassRemoval += cohort.Data.AdditionalParameters.BiomassRemoval;
                                     }
                                 }
 
@@ -556,13 +556,11 @@ namespace Landis.Extension.Browse
                         //total forage will later be reduced to represent forage in reach of browsers
                         {
                             double newForage = 0;
-                            PlugIn.ModelCore.UI.WriteLine("     browsePref = {0}", browsePref); //debug
+                            //PlugIn.ModelCore.UI.WriteLine("     browsePref = {0}", browsePref); //debug
                             if ((browsePref > 0) || (parameters.CountNonForage))
                             {
 
                                 double growthReduction  = GrowthReduction.ReduceCohortGrowth(cohort, site);
-                                //if(PlugIn.Calibrate)
-                                //    CalibrateLog.SetCalibrateData(cohort, 0, growthReduction);
 
                                 newForage = (cohort.Data.ANPP) * parameters.ANPPForageProp * (1-growthReduction);
                                 //newForage = cohort.Data.Biomass * 0.04;

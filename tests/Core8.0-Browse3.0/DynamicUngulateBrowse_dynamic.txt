@@ -59,11 +59,11 @@ SitePreference		500
 
 
 << Output Maps >>
-SitePrefMapNames  		browse/SitePref_{timestep}.gis
-SiteForageMapNames  		browse/SiteForage_{timestep}.gis
-SiteHSIMapNames			browse/HSI_{timestep}.gis
-SitePopulationMapNames		browse/Pop_{timestep}.gis
-BiomassRemovedMapNames  	browse/BioRemoved_{timestep}.gis
+SitePrefMapNames  		browse/SitePref_{timestep}.tif
+SiteForageMapNames  		browse/SiteForage_{timestep}.tif
+SiteHSIMapNames			browse/HSI_{timestep}.tif
+SitePopulationMapNames		browse/Pop_{timestep}.tif
+BiomassRemovedMapNames  	browse/BioRemoved_{timestep}.tif
 
 << Output Logs >>
 LogFile  browse/browse_log.csv

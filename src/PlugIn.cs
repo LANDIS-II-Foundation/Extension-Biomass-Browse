@@ -68,7 +68,9 @@ namespace Landis.Extension.Browse
             tempObject.ProportionBrowse = 0.0f;
             tempObject.Forage = 0.0f;
             //tempObject.LastBrowseProportion = 0.0f;
-            tempObject.BrowseRemoval = 0.0f;
+            tempObject.BiomassRemoval = 0.0f;
+            //tempObject.BrowseRemoval = 0.0f;
+
         }
 
         //---------------------------------------------------------------------
