@@ -115,7 +115,7 @@ namespace Landis.Extension.Browse
 
             parameters.PreferenceList =  PreferenceList.Initialize(parameters.SppParameters);
 
-            BrowseDisturbance.Initialize();
+            //BrowseDisturbance.Initialize();
             GrowthReduction.Initialize(parameters);
             //Defoliate.Initialize(parameters); //SF be careful if using defoliate -- forage could be greater than available leaf biomass, and browsing
                                                 // could be double-counted if using both defoliate and BiomassCohorts.ReduceOrKillMarkedCohorts

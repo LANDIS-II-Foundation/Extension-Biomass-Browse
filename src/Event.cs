@@ -387,7 +387,7 @@ namespace Landis.Extension.Browse
 
                                         if (browsePref == prefValue)
                                         {//only do this if the cohort has matching preference value
-                                            double finalRemoval = cohort.Data.AdditionalParameters.BiomassRemoval;
+                                            //double finalRemoval = cohort.Data.AdditionalParameters.BiomassRemoval;
                                             if (forageRemoved < siteTotalToBrowse)
                                             {
                                                 double availForage = cohort.Data.AdditionalParameters.ForageInReach; // SiteVars.GetForageInReach(cohort, site);
@@ -401,15 +401,16 @@ namespace Landis.Extension.Browse
                                                     secondPassRemoval = Math.Min(secondPassRemoval, (availForage - cohort.Data.AdditionalParameters.BiomassRemoval)); // adjFirstPassRemovalList[cohortLoop]));
                                                 }
 
-                                                cohort.Data.AdditionalParameters.BiomassRemoval = secondPassRemoval;
+                                                //cohort.Data.AdditionalParameters.BiomassRemoval = secondPassRemoval;
 
                                                 //if (PlugIn.Calibrate)
                                                 //    CalibrateLog.SetCalibrateData(cohort, 3, secondPassRemoval);
 
-                                                finalRemoval += secondPassRemoval; //cohort-level, add first and second pass removal. 
-                                                forageRemoved -= cohort.Data.AdditionalParameters.BiomassRemoval;
-                                                forageRemoved += finalRemoval;
-                                                prefClassRemoved += (finalRemoval - cohort.Data.AdditionalParameters.BiomassRemoval);
+                                                cohort.Data.AdditionalParameters.BiomassRemoval += secondPassRemoval; //cohort-level, add first and second pass removal. 
+                                                prefClassRemoved += (cohort.Data.AdditionalParameters.BiomassRemoval);
+                                                //forageRemoved -= cohort.Data.AdditionalParameters.BiomassRemoval;
+                                                //forageRemoved += finalRemoval;
+                                                //prefClassRemoved += (finalRemoval - cohort.Data.AdditionalParameters.BiomassRemoval);
                                                 //PlugIn.ModelCore.UI.WriteLine("{0:0.0}/{1:0.0}. adjusted firstPassRemoval = {2}, " +
                                                 //    "secondPassRemoval = {3}, finalRemoval = {4}", cohort.Species.Name, cohort.Age,
                                                 //    adjFirstPassRemovalList[cohortLoop], secondPassRemoval, finalRemoval); //debug
@@ -418,20 +419,20 @@ namespace Landis.Extension.Browse
                                             //if (PlugIn.Calibrate)
                                             //    CalibrateLog.SetCalibrateData(cohort, 4, finalRemoval);
 
-                                            this.biomassRemoved += (double)finalRemoval;
-                                            this.zoneBiomassRemoved[popZone.Index] += (double)finalRemoval;
-                                            this.zoneBiomassBrowsedSpp[popZone.Index][cohort.Species.Index] += (double)finalRemoval;
-                                            siteTotalRemoval += finalRemoval;
+                                            this.biomassRemoved += cohort.Data.AdditionalParameters.BiomassRemoval; // (double)finalRemoval;
+                                            this.zoneBiomassRemoved[popZone.Index] += cohort.Data.AdditionalParameters.BiomassRemoval; // (double)finalRemoval;
+                                            this.zoneBiomassBrowsedSpp[popZone.Index][cohort.Species.Index] += cohort.Data.AdditionalParameters.BiomassRemoval; // (double)finalRemoval;
+                                            siteTotalRemoval += cohort.Data.AdditionalParameters.BiomassRemoval; // finalRemoval;
 
                                             double propBrowse = 0.0;
                                             if (cohort.Data.AdditionalParameters.Forage > 0)
-                                                propBrowse = finalRemoval / cohort.Data.AdditionalParameters.Forage;
+                                                propBrowse = cohort.Data.AdditionalParameters.BiomassRemoval / cohort.Data.AdditionalParameters.Forage;
                                             cohort.Data.AdditionalParameters.ProportionBrowse = propBrowse;
 
                                             if (propBrowse < -0.0001 || propBrowse > 1.0001)
                                                 PlugIn.ModelCore.UI.WriteLine("   Browse Proportion not between 0 and 1: {0}. finalRemoval = {1}," +
                                                     "total forage = {2}. \r\n    Error encountered for site {3} (row {4}, column {5}), cohort {6:0.0}/{7:0.0}.",
-                                                    propBrowse, finalRemoval, cohort.Data.AdditionalParameters.Forage, site.DataIndex, site.Location.Row, site.Location.Column,
+                                                    propBrowse, cohort.Data.AdditionalParameters.BiomassRemoval, cohort.Data.AdditionalParameters.Forage, site.DataIndex, site.Location.Row, site.Location.Column,
                                                     cohort.Species.Name, cohort.Data.Age);
 
                                             if (propBrowse > 1.0001)
@@ -456,8 +457,8 @@ namespace Landis.Extension.Browse
                                                 if (myRand < mortProb)
                                                 {
                                                     //int biomassKilled = cohort.Biomass - (int)finalRemoval;
-                                                    double biomassKilled = (double)cohort.Data.Biomass - (double)finalRemoval;
-                                                    finalRemoval = (double)cohort.Data.Biomass;
+                                                    double biomassKilled = cohort.Data.AdditionalParameters.BiomassRemoval; // (double)cohort.Data.Biomass - (double)finalRemoval;
+                                                    //finalRemoval = (double)cohort.Data.Biomass;
                                                     this.biomassKilled += biomassKilled;
                                                     this.cohortsKilled += 1;
                                                     this.cohortsKilledSpp[cohort.Species.Index] += 1;
@@ -465,14 +466,14 @@ namespace Landis.Extension.Browse
                                                     this.zoneCohortsKilledSpp[popZone.Index][cohort.Species.Index] += 1;
                                                 }
                                             }
-                                            if (finalRemoval > 0)
+                                            if (cohort.Data.AdditionalParameters.BiomassRemoval > 0)
                                             {
                                                 //PlugIn.ModelCore.UI.WriteLine("Recording cohort biomass removal :  {0:0.0}/{1:0.0}/{2}.",
                                                 //    cohort.Species.Name, cohort.Age, finalRemoval); //debug
-                                                BrowseDisturbance.RecordBiomassReduction(cohort, finalRemoval);
-                                                this.biomassRemovedSpp[cohort.Species.Index] += finalRemoval;
-                                                this.zoneBiomassKilled[popZone.Index] += finalRemoval;
-                                                this.zoneBiomassRemovedSpp[popZone.Index][cohort.Species.Index] += finalRemoval;
+                                                //BrowseDisturbance.RecordBiomassReduction(cohort, finalRemoval);
+                                                this.biomassRemovedSpp[cohort.Species.Index] += cohort.Data.AdditionalParameters.BiomassRemoval;
+                                                this.zoneBiomassKilled[popZone.Index] += cohort.Data.AdditionalParameters.BiomassRemoval;
+                                                this.zoneBiomassRemovedSpp[popZone.Index][cohort.Species.Index] += cohort.Data.AdditionalParameters.BiomassRemoval;
                                             }
                                         }
                                     }

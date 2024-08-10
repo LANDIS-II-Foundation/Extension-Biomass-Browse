@@ -16,7 +16,7 @@ namespace Landis.Extension.Browse
     {
         private static BrowseDisturbance singleton;
         //private static IDictionary<ushort, int>[] reductions;
-        private static IDictionary<ushort, double>[] reductions;
+        //private static IDictionary<ushort, double>[] reductions;
         //private static IDictionary<ushort, int>[] forageDictionary;
         //private static IDictionary<ushort, int>[] forageInReachDictionary;
         //private static IDictionary<ushort, double>[] lastBrowsePropDictionary;
@@ -54,27 +54,28 @@ namespace Landis.Extension.Browse
         //---------------------------------------------------------------------
         int IDisturbance.ReduceOrKillMarkedCohort(ICohort cohort)
         {
-            double reduction;
+            //double reduction;
             
-            if (reductions[cohort.Species.Index].TryGetValue(cohort.Data.Age, out reduction))
+            if(cohort.Data.AdditionalParameters.BiomassRemoval > 0)
+            //if (reductions[cohort.Species.Index].TryGetValue(cohort.Data.Age, out reduction))
             {
                 //PlugIn.ModelCore.UI.WriteLine("Reduction = {0}", reduction); //debug
-                SiteVars.BiomassRemoved[currentSite] += reduction;
+                SiteVars.BiomassRemoved[currentSite] += cohort.Data.AdditionalParameters.BiomassRemoval;
                 SiteVars.CohortsPartiallyDamaged[currentSite]++;
 
                 //TODO SF does using an int here cause problems?
-                return (int) reduction;
+                return (int) cohort.Data.AdditionalParameters.BiomassRemoval;
             }
             else
                 return 0;
         }
 
-        public static void Initialize()
-        {
-            reductions = new IDictionary<ushort, double>[PlugIn.ModelCore.Species.Count];
-            for (int i = 0; i < reductions.Length; i++)
-                reductions[i] = new Dictionary<ushort, double>();
-        }
+        //public static void Initialize()
+        //{
+        //    reductions = new IDictionary<ushort, double>[PlugIn.ModelCore.Species.Count];
+        //    for (int i = 0; i < reductions.Length; i++)
+        //        reductions[i] = new Dictionary<ushort, double>();
+        //}
 
         //---------------------------------------------------------------------
         /// <summary>
@@ -96,12 +97,12 @@ namespace Landis.Extension.Browse
         /// Reductions are stored here, and then later called by ReduceCohortBiomass to translate to the 
         /// succession extension. 
         /// </summary>
-        public static void RecordBiomassReduction(ICohort cohort,
-                                                  double reduction)
-        {
-            //PlugIn.ModelCore.UI.WriteLine("Recording reduction:  {0:0.0}/{1:0.0}/{2}.", cohort.Species.Name, cohort.Age, reduction);//debug
-            reductions[cohort.Species.Index][cohort.Data.Age] = reduction;
-        }
+        //public static void RecordBiomassReduction(ICohort cohort,
+        //                                          double reduction)
+        //{
+        //    //PlugIn.ModelCore.UI.WriteLine("Recording reduction:  {0:0.0}/{1:0.0}/{2}.", cohort.Species.Name, cohort.Age, reduction);//debug
+        //    reductions[cohort.Species.Index][cohort.Data.Age] = reduction;
+        //}
     }
 }
 
