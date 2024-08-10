@@ -6,7 +6,7 @@ SeedingAlgorithm  WardSeedDispersal
 
 InitialCommunitiesCSV      	"initial_communities_update.csv"
 InitialCommunitiesMap   	"initial_communities_subset.tif"
-ClimateConfigFile		"climate-generator-test-climate.txt"
+ClimateConfigFile		"climate-generator-climate.txt"
 
 SoilDepthMapName				"soil_depth_subset.tif" 
 SoilDrainMapName				"soil_drain_subset.tif"

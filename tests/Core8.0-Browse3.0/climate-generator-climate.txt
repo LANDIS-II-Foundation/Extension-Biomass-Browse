@@ -1,13 +1,12 @@
 LandisData "Climate Config"				
 		
 ClimateTimeSeries			Daily_RandomYears
-ClimateFile				"test_climate.csv"
-ClimateFileFormat			Daily_Temp-C_Precip-mmDay
+ClimateFile				PRISM_data_AFRI_4.18.13_v2.csv
 
 SpinUpClimateTimeSeries			Daily_RandomYears
-SpinUpClimateFile			"test_climate.csv"
-SpinUpClimateFileFormat			Daily_Temp-C_Precip-mmDay
+SpinUpClimateFile			PRISM_data_AFRI_4.18.13_v2.csv
 
+GenerateClimateOutputFiles		no
 UsingFireClimate			yes
 FineFuelMoistureCode			100
 DuffMoistureCode			100
