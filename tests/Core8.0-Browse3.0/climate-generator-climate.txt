@@ -8,8 +8,8 @@ SpinUpClimateFile			PRISM_data_AFRI_4.18.13_v2.csv
 
 GenerateClimateOutputFiles		no
 UsingFireClimate			no
->>FineFuelMoistureCode			100
->>DuffMoistureCode			100
->>DroughtCode				100
->>FirstDayFire				30
->>LastDayFire				320
+FineFuelMoistureCode			100
+DuffMoistureCode			100
+DroughtCode				100
+FirstDayFire				30
+LastDayFire				320
