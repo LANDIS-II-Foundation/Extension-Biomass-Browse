@@ -2,7 +2,6 @@
 
 using Landis.SpatialModeling;
 using Landis.Core;
-using System.Collections.Generic;
 using Landis.Library.UniversalCohorts;
 
 
@@ -56,7 +55,7 @@ namespace Landis.Extension.Browse
         {
             //double reduction;
             
-            if(cohort.Data.AdditionalParameters.BiomassRemoval > 0)
+            if((int) cohort.Data.AdditionalParameters.BiomassRemoval > 0)
             //if (reductions[cohort.Species.Index].TryGetValue(cohort.Data.Age, out reduction))
             {
                 //PlugIn.ModelCore.UI.WriteLine("Reduction = {0}", reduction); //debug

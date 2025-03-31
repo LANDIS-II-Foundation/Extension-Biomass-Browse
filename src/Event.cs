@@ -556,6 +556,10 @@ namespace Landis.Extension.Browse
                         //for each cohort, get the new forage (Biomass*0.04*proportion of ANPP that is forage)
                         //total forage will later be reduced to represent forage in reach of browsers
                         {
+                            if ((int)cohort.Data.AdditionalParameters.ForageInReach > 0)
+                                PlugIn.ModelCore.UI.WriteLine("How about now? ...");
+
+
                             double newForage = 0;
                             //PlugIn.ModelCore.UI.WriteLine("     browsePref = {0}", browsePref); //debug
                             if ((browsePref > 0) || (parameters.CountNonForage))

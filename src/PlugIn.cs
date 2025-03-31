@@ -32,7 +32,7 @@ namespace Landis.Extension.Browse
         private string sitePopMapNamesTemplate;
         private string biomassRemovedMapNameTemplate;
         private IInputParameters parameters;
-        private bool running;
+        //private bool running;
 
         //Which version of the population model to use? Static population, dynamic population, or BDI
         public static bool DynamicPopulation = false; //SF changed this so that static population can happen -- otherwise
@@ -67,9 +67,9 @@ namespace Landis.Extension.Browse
             tempObject.ForageInReach = 0.0f;
             tempObject.ProportionBrowse = 0.0f;
             tempObject.Forage = 0.0f;
-            //tempObject.LastBrowseProportion = 0.0f;
             tempObject.BiomassRemoval = 0.0f;
             //tempObject.BrowseRemoval = 0.0f;
+            //tempObject.LastBrowseProportion = 0.0f;
 
         }
 
@@ -83,7 +83,7 @@ namespace Landis.Extension.Browse
 
             // Add local event handler for cohorts death due to age-only
             // disturbances.
-            Cohort.AgeOnlyDeathEvent += CohortKilledByAgeOnlyDisturbance;
+            //Cohort.AgeOnlyDeathEvent += CohortKilledByAgeOnlyDisturbance;
         }
         //---------------------------------------------------------------------
 
@@ -136,7 +136,7 @@ namespace Landis.Extension.Browse
         ///</summary>
         public override void Run()
         {
-            running = true;
+            //running = true;
             ModelCore.UI.WriteLine("Processing landscape for ungulate browse events ...");
 
             //This does everything -- calculates forage and disturbs sites
@@ -435,15 +435,15 @@ namespace Landis.Extension.Browse
         }
         //---------------------------------------------------------------------
         // Event handler when a cohort is killed by an age-only disturbance.
-        public void CohortKilledByAgeOnlyDisturbance(object sender,
-                                                     DeathEventArgs eventArgs)
-        {
-            // If this plug-in is not running, then some base disturbance
-            // plug-in killed the cohort.
-            if (!running)
-                return;
+        //public void CohortKilledByAgeOnlyDisturbance(object sender,
+        //                                             DeathEventArgs eventArgs)
+        //{
+        //    // If this plug-in is not running, then some base disturbance
+        //    // plug-in killed the cohort.
+        //    if (!running)
+        //        return;
 
-        }
+        //}
         //---------------------------------------------------------------------
     }
 
