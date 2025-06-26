@@ -3,9 +3,9 @@
 using Landis.SpatialModeling;
 using Landis.Core;
 using System.Collections.Generic;
-using Landis.Library.UniversalCohorts;
 using Landis.Library.Metadata;
 using System;
+using System.IO;
 
 
 namespace Landis.Extension.Browse
@@ -68,6 +68,8 @@ namespace Landis.Extension.Browse
             tempObject.ProportionBrowse = 0.0f;
             tempObject.Forage = 0.0f;
             tempObject.BiomassRemoval = 0.0f;
+
+            Console.Write("   Registering Additional Cohort Data for Biomass Browse"); 
             //tempObject.BrowseRemoval = 0.0f;
             //tempObject.LastBrowseProportion = 0.0f;
 
@@ -81,9 +83,6 @@ namespace Landis.Extension.Browse
             InputParameterParser parser = new InputParameterParser();
             parameters = Landis.Data.Load<IInputParameters>(dataFile, parser);
 
-            // Add local event handler for cohorts death due to age-only
-            // disturbances.
-            //Cohort.AgeOnlyDeathEvent += CohortKilledByAgeOnlyDisturbance;
         }
         //---------------------------------------------------------------------
 
