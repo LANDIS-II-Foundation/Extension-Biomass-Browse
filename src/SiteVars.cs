@@ -3,6 +3,8 @@
 using Landis.SpatialModeling;
 using Landis.Library.UniversalCohorts;
 using System.Collections.Generic;
+using System.Dynamic;
+using System.Threading;
 
 namespace Landis.Extension.Browse
 {
@@ -24,6 +26,8 @@ namespace Landis.Extension.Browse
         private static ISiteVar<double> totalBrowse;
         private static ISiteVar<double> biomassRemoved;
         private static ISiteVar<int> cohortsDamaged;
+        private static ISiteVar<ExpandoObject> additionalFields;
+        private static ExpandoObject fieldsToAdd;
         //private static ISiteVar<int> ecoMaxBiomass;
         //private static ISiteVar<List<Landis.Library.BiomassCohorts.ICohort>> siteCohortList;
 
@@ -53,6 +57,7 @@ namespace Landis.Extension.Browse
             totalBrowse = PlugIn.ModelCore.Landscape.NewSiteVar<double>();
             biomassRemoved = PlugIn.ModelCore.Landscape.NewSiteVar<double>();
             cohortsDamaged = PlugIn.ModelCore.Landscape.NewSiteVar<int>();
+            additionalFields = PlugIn.ModelCore.Landscape.NewSiteVar<ExpandoObject>();
 
             //foreach(ActiveSite site in PlugIn.ModelCore.Landscape.ActiveSites)
             //{
@@ -63,7 +68,21 @@ namespace Landis.Extension.Browse
 
             cohorts = PlugIn.ModelCore.GetSiteVar<Landis.Library.UniversalCohorts.SiteCohorts>("Succession.UniversalCohorts");
 
+            RegisterAdditionalFields();
+        }
 
+        public static void RegisterAdditionalFields()
+        {
+            foreach (ActiveSite site in PlugIn.ModelCore.Landscape)
+            {
+                SiteVars.AdditionalFields[site] = fieldsToAdd;
+            }
+            PlugIn.ModelCore.RegisterSiteVar(additionalFields, "Other.AdditionalFields");
+        }
+
+        public static void SetAdditionalFields(ExpandoObject addFields)
+        {
+            fieldsToAdd = addFields;
         }
 
 
@@ -73,6 +92,18 @@ namespace Landis.Extension.Browse
             get
             {
                 return cohorts;
+            }
+        }
+        //---------------------------------------------------------------------
+        public static ISiteVar<ExpandoObject> AdditionalFields
+        {
+            get
+            {
+                return additionalFields;
+            }
+            set
+            { 
+                additionalFields = value; 
             }
         }
         //---------------------------------------------------------------------
