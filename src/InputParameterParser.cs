@@ -32,7 +32,6 @@ namespace Landis.Extension.Browse
 
         protected override IInputParameters Parse()
         {
-            //const string MapNames = "SitePrefMapNames";
             
             InputVar<string> landisData = new InputVar<string>("LandisData");
             ReadVar(landisData);
@@ -176,58 +175,35 @@ namespace Landis.Extension.Browse
             ReadVar(escapeBrowsePropLong);
             parameters.EscapeBrowsePropLong= escapeBrowsePropLong.Value;
 
-            InputVar<string> calibrateMode = new InputVar<string>("CalibrateMode");
+            InputVar<bool> calibrateMode = new InputVar<bool>("CalibrateMode");
             if (ReadOptionalVar(calibrateMode))
-                if (calibrateMode.Value.ToString().ToUpper() == "ON")
-                {
-                    parameters.CalibrateMode = true;
-                    PlugIn.Calibrate = true;
-                    PlugIn.ModelCore.UI.WriteLine("Running in Calibration Mode!");
-                }
+                parameters.CalibrateMode = calibrateMode.Value;
+            else
+                parameters.CalibrateMode = false;
 
-            InputVar<string> growthReduction = new InputVar<string>("GrowthReduction");
+            InputVar<bool> growthReduction = new InputVar<bool>("GrowthReduction");
             if (ReadOptionalVar(growthReduction))
-                if (growthReduction.Value.ToString().ToUpper() == "OFF")
-                {
-                    parameters.GrowthReduction = false;
-                }
-                else
-                    parameters.GrowthReduction = true;
+                parameters.GrowthReduction = growthReduction.Value;
             else
-                parameters.GrowthReduction = true;
+                parameters.GrowthReduction = false;
 
-            InputVar<string> mortality = new InputVar<string>("Mortality");
+            InputVar<bool> mortality = new InputVar<bool>("Mortality");
             if (ReadOptionalVar(mortality))
-                if (mortality.Value.ToString().ToUpper() == "OFF")
-                {
-                    parameters.Mortality = false;
-                }
-                else
-                    parameters.Mortality = true;
+                parameters.Mortality = mortality.Value;
             else
-                parameters.Mortality = true;
+                parameters.Mortality = false;
 
-            InputVar<string> countNonForage = new InputVar<string>("CountNonForageinSitePref");
+            InputVar<bool> countNonForage = new InputVar<bool>("CountNonForageinSitePref");
             if (ReadOptionalVar(countNonForage))
-                if (countNonForage.Value.ToString().ToUpper() == "TRUE")
-                {
-                    parameters.CountNonForage = true;
-                }
-                else
-                    parameters.CountNonForage = false;
+                parameters.CountNonForage = countNonForage.Value;
             else
                 parameters.CountNonForage = false;
 
-            InputVar<string> useInitBiomass = new InputVar<string>("UseInitBiomassAsForage");
+            InputVar<bool> useInitBiomass = new InputVar<bool>("UseInitBiomassAsForage");
             if (ReadOptionalVar(useInitBiomass))
-                if (useInitBiomass.Value.ToString().ToUpper() == "TRUE")
-                {
-                    parameters.UseInitBiomass = true;
-                }
+                    parameters.UseInitBiomass = useInitBiomass.Value;
                 else
                     parameters.UseInitBiomass = false;
-            else
-                parameters.UseInitBiomass = false;
 
             InputVar<string> forageInReachMethod = new InputVar<string>("ForageInReachMethod");
             if (ReadOptionalVar(forageInReachMethod))
@@ -253,18 +229,18 @@ namespace Landis.Extension.Browse
             else
             {
                 PlugIn.PropInReachMethod = "Ordered";
-                PlugIn.ModelCore.UI.WriteLine("Using ordered method by default");
+                PlugIn.ModelCore.UI.WriteLine("   Using ordered method by default");
             }
 
             InputVar<double> forageQuantityNbrRad = new InputVar<double>("ForageQuantity");
             if (ReadOptionalVar(forageQuantityNbrRad))
-                parameters.ForageQuantityNbrRad = forageQuantityNbrRad.Value;
+                parameters.ForageQuantityNbrRad = (double) forageQuantityNbrRad.Value;
             else
                 parameters.ForageQuantityNbrRad = -999;
 
             InputVar<double> sitePrefNbrRad = new InputVar<double>("SitePreference");
             if (ReadOptionalVar(sitePrefNbrRad))
-                parameters.SitePrefNbrRad = sitePrefNbrRad.Value;
+                parameters.SitePrefNbrRad = (double) sitePrefNbrRad.Value;
             else
                 parameters.SitePrefNbrRad = -999;
 
