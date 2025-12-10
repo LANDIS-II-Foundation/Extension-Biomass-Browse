@@ -10,8 +10,6 @@ namespace Landis.Extension.Browse
     public class CalibrateLog
     {
 
-        //public static Dictionary<int, Dictionary<int, double[]>> CohortCalibrationData = new Dictionary<int, Dictionary<int, double[]>>();
-
         public static void WriteLogFile(int year)
         {
             foreach (ActiveSite site in PlugIn.ModelCore.Landscape)
@@ -25,35 +23,15 @@ namespace Landis.Extension.Browse
                         foreach (ICohort cohort in cohortList)
                         {
 
-
-                            //            foreach (int sppkey in CohortCalibrationData.Keys)
-                            //{
-                            //    //PlugIn.ModelCore.UI.WriteLine("sppkey = {0}", sppkey);
-                            //    Dictionary<int, double[]> cohortDict;
-                            //    CohortCalibrationData.TryGetValue(sppkey, out cohortDict);
-
-                            //    //cohortDict.ToList().ForEach(x => PlugIn.ModelCore.UI.WriteLine("age keys in cohortDict = {0}", x.Key));
-
-                            //    foreach (int agekey in cohortDict.Keys)
-                            //    {
-
                             PlugIn.calibrateLog.Clear();
                             CalibrateLog clog = new CalibrateLog();
-
-                            //double[] cohortData;
-                            //cohortDict.TryGetValue(agekey, out cohortData);
 
                             clog.Year = year;
                             clog.CohortAge = cohort.Data.Age;
                             clog.CohortName = cohort.Species.Name;
-                            //clog.GrowthReduction = (short) cohortData[0];
                             clog.ForageInReach = (int)cohort.Data.AdditionalParameters.ForageInReach;
-                            //clog.FirstPassRemoval = (int)cohortData[2]; 
-                            //clog.SecondPassRemoval = (int)cohortData[3]; 
                             clog.BrowseRemoval = (int)cohort.Data.AdditionalParameters.BiomassRemoval;
                             clog.Forage = (int)cohort.Data.AdditionalParameters.ProportionBrowse;
-                            //clog.LastBrowseProportion = (int)cohortData[6]; 
-                            //clog.ForageInReach = (int)cohortData[7];
                             clog.ProportionBrowse = (int)cohort.Data.AdditionalParameters.ProportionBrowse;
 
                             PlugIn.calibrateLog.AddObject(clog);
@@ -79,28 +57,16 @@ namespace Landis.Extension.Browse
         public string CohortName { get; set; }
 
         [DataFieldAttribute(Unit = "Proportion", Desc = "Growth Reduction B")]
-        public short GrowthReduction { get; set; } // index 0
+        public short GrowthReduction { get; set; } 
 
         [DataFieldAttribute(Unit = FieldUnits.g_C_m2)]
-        public int ForageInReach { get; set; } // index 1
+        public int ForageInReach { get; set; } 
 
-        //[DataFieldAttribute(Unit = FieldUnits.g_C_m2)]
-        //public int FirstPassRemoval { get; set; } // index 2
-
-        //[DataFieldAttribute(Unit = FieldUnits.g_C_m2)]
-        //public int SecondPassRemoval { get; set; } // index 3
-        
         [DataFieldAttribute(Unit = FieldUnits.g_C_m2)]
         public int BrowseRemoval { get; set; } // index 4
 
         [DataFieldAttribute(Unit = FieldUnits.g_C_m2)]
         public int Forage { get; set; } // index 5
-
-        //[DataFieldAttribute(Unit = FieldUnits.g_C_m2)]
-        //public int LastBrowseProportion { get; set; } // index 6
-
-        //[DataFieldAttribute(Unit = FieldUnits.g_C_m2)]
-        //public int ForageInReach { get; set; } // index 7
 
         [DataFieldAttribute(Unit = "Proportion")]
         public int ProportionBrowse { get; set; } 

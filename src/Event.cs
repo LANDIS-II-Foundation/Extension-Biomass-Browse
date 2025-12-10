@@ -319,12 +319,13 @@ namespace Landis.Extension.Browse
 
                                     double availForage = cohort.Data.AdditionalParameters.ForageInReach; // SiteVars.GetForageInReach(cohort, site);
                                     firstPassRemoval += availForage * browsePref;
-                                    //if (PlugIn.Calibrate)
                                     //    CalibrateLog.SetCalibrateData(cohort, 2, firstPassRemoval);
 
-                                    //PlugIn.ModelCore.UI.WriteLine("{0:0.0}/{1:0.0}. availForage = {2}, browsePref = {3}, " +
-                                    //    "firstPass increment = {4}, firstPassRemoval = {5}",
-                                    //    cohort.Species.Name, cohort.Age, availForage, browsePref, availForage * browsePref, firstPassRemoval);//debug
+                                    if (PlugIn.Calibrate)
+                                        PlugIn.ModelCore.UI.WriteLine("{0:0.0}/{1:0.0}. availForage = {2}, browsePref = {3}, " +
+                                            "firstPass increment = {4}, firstPassRemoval = {5}",
+                                            cohort.Species.Name, cohort.Data.Age, availForage, browsePref, availForage * browsePref, firstPassRemoval);
+                                    
                                     //assign first pass removal to each cohort
                                     cohort.Data.AdditionalParameters.BiomassRemoval = availForage * browsePref;
 
@@ -556,12 +557,7 @@ namespace Landis.Extension.Browse
                         //for each cohort, get the new forage (Biomass*0.04*proportion of ANPP that is forage)
                         //total forage will later be reduced to represent forage in reach of browsers
                         {
-                            if ((int)cohort.Data.AdditionalParameters.ForageInReach > 0)
-                                PlugIn.ModelCore.UI.WriteLine("How about now? ...");
-
-
                             double newForage = 0;
-                            //PlugIn.ModelCore.UI.WriteLine("     browsePref = {0}", browsePref); //debug
                             if ((browsePref > 0) || (parameters.CountNonForage))
                             {
 

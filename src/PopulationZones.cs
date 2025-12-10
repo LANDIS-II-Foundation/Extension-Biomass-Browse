@@ -96,7 +96,7 @@ namespace Landis.Extension.Browse
             // Get population for static population mode          
             if (!PlugIn.DynamicPopulation)
             {
-                //PlugIn.ModelCore.UI.WriteLine("    Using static population");
+                PlugIn.ModelCore.UI.WriteLine("    Using static population");
 
                 //if there is defined population data for the timestep
                 if (DynamicInputs.TemporalData.ContainsKey(PlugIn.ModelCore.CurrentTime))
@@ -137,8 +137,6 @@ namespace Landis.Extension.Browse
             else
             {
                 PlugIn.ModelCore.UI.WriteLine("Using dynamic population");
-
-                
 
                 //if there is defined population data for the timestep
                 if (DynamicInputs.TemporalData.ContainsKey(PlugIn.ModelCore.CurrentTime))
