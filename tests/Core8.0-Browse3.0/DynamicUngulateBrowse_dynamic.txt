@@ -48,16 +48,16 @@ EscapeBrowsePropLong	0.57	<<Prop of longevity when browse is escaped
 >>CalibrateLog false << default is off
 
 << Options >>
->> GrowthReduction	false << Default is false
->> Mortality	false << Default is false
->> CountNonForageinSitePref false << Default is false
->> UseInitBiomassAsForage false	<< Default is FALSE
+ GrowthReduction	no << Default is false
+ Mortality	no << Default is false
+ CountNonForageinSitePref no << Default is false
+ UseInitBiomassAsForage no	<< Default is FALSE
 
 << HSI Inputs >>
 << Component		Neighborhood >>
 << ---------		------------
-ForageQuantity		50.0		<< ForageQuantity and/or SitePreference
-SitePreference		75.0
+ForageQuantity		500.0		<< ForageQuantity and/or SitePreference
+SitePreference		500.0
 
 
 << Output Maps >>
