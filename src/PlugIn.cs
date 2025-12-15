@@ -178,7 +178,7 @@ namespace Landis.Extension.Browse
 
             //calibrate log write
             if(PlugIn.Calibrate)
-                CalibrateLog.WriteLogFile(PlugIn.ModelCore.CurrentTime);
+                CalibrateLog.WriteCalibrateFile(PlugIn.ModelCore.CurrentTime);
             
             //  Write site preference map 
             string path = MapNames.ReplaceTemplateVars(sitePrefMapNameTemplate, PlugIn.ModelCore.CurrentTime);
@@ -371,23 +371,23 @@ namespace Landis.Extension.Browse
                 foreach (ISpecies species in PlugIn.ModelCore.Species)
                 {
                     PlugIn.eventSpeciesLog.Clear();
-                    EventsSpeciesLog el = new EventsSpeciesLog();
-                    el.Time = ModelCore.CurrentTime;
-                    el.PopulationZone = PopulationZones.Dataset[popZone.Index].MapCode;
-                    el.TotalSites = PopulationZones.Dataset[popZone.Index].PopulationZoneSites.Count;
-                    el.SpeciesName = species.Name;
-                    el.SpeciesIndex = species.Index;
-                    el.AverageForage = browseEvent.ZoneForageSpp[popZone.Index][species.Index] /
+                    EventsSpeciesLog esl = new EventsSpeciesLog();
+                    esl.Time = ModelCore.CurrentTime;
+                    esl.PopulationZone = PopulationZones.Dataset[popZone.Index].MapCode;
+                    esl.TotalSites = PopulationZones.Dataset[popZone.Index].PopulationZoneSites.Count;
+                    esl.SpeciesName = species.Name;
+                    esl.SpeciesIndex = species.Index;
+                    esl.AverageForage = browseEvent.ZoneForageSpp[popZone.Index][species.Index] /
                         (double)PopulationZones.Dataset[popZone.Index].PopulationZoneSites.Count;
-                    el.AverageForageInReach = browseEvent.ZoneForageInReachSpp[popZone.Index][species.Index] /
+                    esl.AverageForageInReach = browseEvent.ZoneForageInReachSpp[popZone.Index][species.Index] /
                         (double)PopulationZones.Dataset[popZone.Index].PopulationZoneSites.Count;
-                    el.AverageBiomassBrowsed = (double)(browseEvent.ZoneBiomassBrowsedSpp[popZone.Index][species.Index] /
+                    esl.AverageBiomassBrowsed = (double)(browseEvent.ZoneBiomassBrowsedSpp[popZone.Index][species.Index] /
                        (double)PopulationZones.Dataset[popZone.Index].PopulationZoneSites.Count); //site mean biomass in g/m2
-                    el.AverageBiomassRemoved = (double)(browseEvent.ZoneBiomassRemovedSpp[popZone.Index][species.Index] /
+                    esl.AverageBiomassRemoved = (double)(browseEvent.ZoneBiomassRemovedSpp[popZone.Index][species.Index] /
                         (double)PopulationZones.Dataset[popZone.Index].PopulationZoneSites.Count); //site mean biomass in g/m2
-                    el.TotalCohortsKilled = browseEvent.ZoneCohortsKilledSpp[popZone.Index][species.Index];
+                    esl.TotalCohortsKilled = browseEvent.ZoneCohortsKilledSpp[popZone.Index][species.Index];
 
-                    eventSpeciesLog.AddObject(el);
+                    eventSpeciesLog.AddObject(esl);
                     eventSpeciesLog.WriteToFile();
 
                 }
@@ -408,9 +408,9 @@ namespace Landis.Extension.Browse
         private static IEnumerable<RelativeLocationWeighted> GetResourceNeighborhood(double neighborRadius)
         {
             float CellLength = PlugIn.ModelCore.CellLength;
-            PlugIn.ModelCore.UI.WriteLine("Creating Neighborhood List.");
+            PlugIn.ModelCore.UI.WriteLine("   Creating Neighborhood List.");
             int numCellRadius = (int)(neighborRadius / CellLength);
-            PlugIn.ModelCore.UI.WriteLine("NeighborRadius={0}, CellLength={1}, numCellRadius={2}", neighborRadius, CellLength, numCellRadius);
+            PlugIn.ModelCore.UI.WriteLine("   NeighborRadius={0}, CellLength={1}, numCellRadius={2}", neighborRadius, CellLength, numCellRadius);
 
             double centroidDistance = 0;
             double cellLength = CellLength;

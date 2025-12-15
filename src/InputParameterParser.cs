@@ -28,11 +28,11 @@ namespace Landis.Extension.Browse
             RegisterForInputValues();
         }
 
-       //---------------------------------------------------------------------
+        //---------------------------------------------------------------------
 
         protected override IInputParameters Parse()
         {
-            
+
             InputVar<string> landisData = new InputVar<string>("LandisData");
             ReadVar(landisData);
             if (landisData.Value.Actual != PlugIn.ExtensionName)
@@ -43,8 +43,8 @@ namespace Landis.Extension.Browse
             InputVar<int> timestep = new InputVar<int>("Timestep");
             ReadVar(timestep);
             parameters.Timestep = timestep.Value;
-            
-            
+
+
             //--------- Read In Species Table ---------------------------------------
             Dictionary<string, int> lineNumbers = new Dictionary<string, int>();
             PlugIn.ModelCore.UI.WriteLine("   Begin parsing SPECIES table.");
@@ -107,48 +107,48 @@ namespace Landis.Extension.Browse
             InputVar<string> browseMethod = new InputVar<string>("BrowseMethod");
             ReadVar(browseMethod);
             parameters.BrowseMethod = browseMethod.Value;
-            if(parameters.BrowseMethod == "BDI") PlugIn.UseBDI = true; //UseBDI is false by default
+            if (parameters.BrowseMethod == "BDI") PlugIn.UseBDI = true; //UseBDI is false by default
 
             InputVar<string> populationFile = new InputVar<string>("DefinedPopulationFile");
             ReadVar(populationFile);
             parameters.PopulationFileName = populationFile.Value;
-            
+
             if (ReadOptionalName("DynamicPopulation"))
             {
-                if(!PlugIn.UseBDI) PlugIn.DynamicPopulation = true; //only change to true if we're in "population mode"
+                if (!PlugIn.UseBDI) PlugIn.DynamicPopulation = true; //only change to true if we're in "population mode"
 
                 //ReadName("DynamicPopulation");
                 InputVar<double> rmin = new InputVar<double>("RMin");
-                    ReadVar(rmin);
-                    PlugIn.PopRMin = (double) rmin.Value;
+                ReadVar(rmin);
+                PlugIn.PopRMin = (double)rmin.Value;
 
-                    InputVar<double> rmax = new InputVar<double>("RMax");
-                    ReadVar(rmax);
-                    PlugIn.PopRMax = rmax.Value;
+                InputVar<double> rmax = new InputVar<double>("RMax");
+                ReadVar(rmax);
+                PlugIn.PopRMax = rmax.Value;
 
-                    InputVar<double> mmin = new InputVar<double>("MortalityMin");
-                    ReadVar(mmin);
-                    PlugIn.PopMortalityMin = mmin.Value;
+                InputVar<double> mmin = new InputVar<double>("MortalityMin");
+                ReadVar(mmin);
+                PlugIn.PopMortalityMin = mmin.Value;
 
-                    InputVar<double> mmax = new InputVar<double>("MortalityMax");
-                    ReadVar(mmax);
-                    PlugIn.PopMortalityMax = mmax.Value;
+                InputVar<double> mmax = new InputVar<double>("MortalityMax");
+                ReadVar(mmax);
+                PlugIn.PopMortalityMax = mmax.Value;
 
-                    InputVar<double> pmin = new InputVar<double>("PredationMin");
-                    ReadVar(pmin);
-                    PlugIn.PopPredationMin = pmin.Value;
+                InputVar<double> pmin = new InputVar<double>("PredationMin");
+                ReadVar(pmin);
+                PlugIn.PopPredationMin = pmin.Value;
 
-                    InputVar<double> pmax = new InputVar<double>("PredationMax");
-                    ReadVar(pmax);
-                    PlugIn.PopPredationMax = pmax.Value;
+                InputVar<double> pmax = new InputVar<double>("PredationMax");
+                ReadVar(pmax);
+                PlugIn.PopPredationMax = pmax.Value;
 
-                    InputVar<double> hmin = new InputVar<double>("HarvestMin");
-                    ReadVar(hmin);
-                    PlugIn.PopHarvestMin = hmin.Value;
+                InputVar<double> hmin = new InputVar<double>("HarvestMin");
+                ReadVar(hmin);
+                PlugIn.PopHarvestMin = hmin.Value;
 
-                    InputVar<double> hmax = new InputVar<double>("HarvestMax");
-                    ReadVar(hmax);
-                    PlugIn.PopHarvestMax = hmax.Value;
+                InputVar<double> hmax = new InputVar<double>("HarvestMax");
+                ReadVar(hmax);
+                PlugIn.PopHarvestMax = hmax.Value;
             }
 
             InputVar<double> consumptionRate = new InputVar<double>("ConsumptionRate");
@@ -173,37 +173,43 @@ namespace Landis.Extension.Browse
 
             InputVar<double> escapeBrowsePropLong = new InputVar<double>("EscapeBrowsePropLong");
             ReadVar(escapeBrowsePropLong);
-            parameters.EscapeBrowsePropLong= escapeBrowsePropLong.Value;
+            parameters.EscapeBrowsePropLong = escapeBrowsePropLong.Value;
 
             InputVar<bool> calibrateMode = new InputVar<bool>("CalibrateMode");
             if (ReadOptionalVar(calibrateMode))
+            {
                 parameters.CalibrateMode = calibrateMode.Value;
+            }
             else
+            {
                 parameters.CalibrateMode = false;
+            }
 
             InputVar<bool> growthReduction = new InputVar<bool>("GrowthReduction");
             if (ReadOptionalVar(growthReduction))
+            {
                 parameters.GrowthReduction = growthReduction.Value;
+            }
             else
-                parameters.GrowthReduction = false;
+            {  parameters.GrowthReduction = false; }
 
             InputVar<bool> mortality = new InputVar<bool>("Mortality");
             if (ReadOptionalVar(mortality))
-                parameters.Mortality = mortality.Value;
+            { parameters.Mortality = mortality.Value; }
             else
-                parameters.Mortality = false;
+            { parameters.Mortality = false; }
 
             InputVar<bool> countNonForage = new InputVar<bool>("CountNonForageinSitePref");
             if (ReadOptionalVar(countNonForage))
-                parameters.CountNonForage = countNonForage.Value;
+            { parameters.CountNonForage = countNonForage.Value; }
             else
-                parameters.CountNonForage = false;
+            { parameters.CountNonForage = false; }
 
             InputVar<bool> useInitBiomass = new InputVar<bool>("UseInitBiomassAsForage");
             if (ReadOptionalVar(useInitBiomass))
-                    parameters.UseInitBiomass = useInitBiomass.Value;
-                else
-                    parameters.UseInitBiomass = false;
+            { parameters.UseInitBiomass = useInitBiomass.Value; }
+            else
+            { parameters.UseInitBiomass = false; }
 
             InputVar<string> forageInReachMethod = new InputVar<string>("ForageInReachMethod");
             if (ReadOptionalVar(forageInReachMethod))
@@ -218,7 +224,7 @@ namespace Landis.Extension.Browse
                 {
                     PlugIn.PropInReachMethod = "Ordered";
                     PlugIn.ModelCore.UI.WriteLine("Using ordered cohorts method");
-                } 
+                }
                 else
                 {
                     PlugIn.PropInReachMethod = "Ordered";
@@ -234,18 +240,28 @@ namespace Landis.Extension.Browse
 
             InputVar<double> forageQuantityNbrRad = new InputVar<double>("ForageQuantity");
             if (ReadOptionalVar(forageQuantityNbrRad))
-                parameters.ForageQuantityNbrRad = (double) forageQuantityNbrRad.Value;
+            { 
+                parameters.ForageQuantityNbrRad = (double)forageQuantityNbrRad.Value;
+                //PlugIn.ModelCore.UI.WriteLine("   {0}", parameters.ForageQuantityNbrRad);
+            }
             else
+            { 
                 parameters.ForageQuantityNbrRad = -999;
+                //PlugIn.ModelCore.UI.WriteLine("   {0}", parameters.ForageQuantityNbrRad);
+            }
 
             InputVar<double> sitePrefNbrRad = new InputVar<double>("SitePreference");
             if (ReadOptionalVar(sitePrefNbrRad))
-                parameters.SitePrefNbrRad = (double) sitePrefNbrRad.Value;
+            {
+                parameters.SitePrefNbrRad = (double)sitePrefNbrRad.Value;
+            }
             else
+            {
                 parameters.SitePrefNbrRad = -999;
+            }
 
             if (parameters.SitePrefNbrRad == -999 && parameters.ForageQuantityNbrRad == -999)
-                throw new InputValueException("HSI Inputs", "Either ForageQuantity or SitePreference (or both) must be listed for HSI Inputs.  Neighborhood can be 0 for either or both components");
+                throw new InputValueException("HSI Inputs", "ForageQuantity or SitePreference (or both) must be listed for HSI Inputs.  Neighborhood can be 0 for either or both components");
 
             InputVar<string> sitePrefMapNames = new InputVar<string>("SitePrefMapNames");
             if (ReadOptionalVar(sitePrefMapNames))

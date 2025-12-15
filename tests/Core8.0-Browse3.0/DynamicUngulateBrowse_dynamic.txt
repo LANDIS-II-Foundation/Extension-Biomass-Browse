@@ -45,19 +45,19 @@ BrowseBiomassThresholdMin	0.05	<<Proportion of ecoregion max biomass when cohort
 BrowseBiomassThresholdMax	0.1	<<Proportion of ecoregion max biomass above which cohorts completely escape browse; also controls maximum forage possible per cell
 EscapeBrowsePropLong	0.57	<<Prop of longevity when browse is escaped
 
-CalibrateLog true << default is off
+>>CalibrateLog false << default is off
 
 << Options >>
-<<GrowthReduction	<< Default is false
-<<Mortality	<< Default is false
-<<CountNonForageinSitePref	<< Default is false
-<<UseInitBiomassAsForage	<< Default is FALSE
+>> GrowthReduction	false << Default is false
+>> Mortality	false << Default is false
+>> CountNonForageinSitePref false << Default is false
+>> UseInitBiomassAsForage false	<< Default is FALSE
 
 << HSI Inputs >>
 << Component		Neighborhood >>
 << ---------		------------
->>ForageQuantity		0.0		<< ForageQuantity and/or SitePreference
->>SitePreference		0.0
+ForageQuantity		50.0		<< ForageQuantity and/or SitePreference
+SitePreference		75.0
 
 
 << Output Maps >>

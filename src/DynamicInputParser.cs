@@ -57,7 +57,7 @@ namespace Landis.Extension.Browse
                 {
                     IDynamicInputRecord[] inputTable = new IDynamicInputRecord[PopulationZones.Dataset.Count];
                     DynamicInputs.TemporalData.Add(yr, inputTable);
-                    PlugIn.ModelCore.UI.WriteLine("  Dynamic Input Parser:  Add new year = {0}.", yr);
+                    PlugIn.ModelCore.UI.WriteLine("   Dynamic Input Parser:  Add new year = {0}.", yr);
                 }
 
                 ReadValue(zoneCode, currentLine);

@@ -10,7 +10,7 @@ namespace Landis.Extension.Browse
     public class CalibrateLog
     {
 
-        public static void WriteLogFile(int year)
+        public static void WriteCalibrateFile(int year)
         {
             foreach (ActiveSite site in PlugIn.ModelCore.Landscape)
             {

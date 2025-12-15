@@ -47,7 +47,7 @@ namespace Landis.Extension.Browse
             tblOut_events.RetriveFields(typeof(EventsLog));
             Extension.OutputMetadatas.Add(tblOut_events);
 
-            PlugIn.ModelCore.UI.WriteLine("   Generating summary table...");
+            PlugIn.ModelCore.UI.WriteLine("   Generating browse summary table...");
             OutputMetadata tblOut_summary = new OutputMetadata()
             {
                 Type = OutputType.Table,
@@ -58,7 +58,7 @@ namespace Landis.Extension.Browse
             tblOut_summary.RetriveFields(typeof(SummaryLog));
             Extension.OutputMetadatas.Add(tblOut_summary);
 
-            PlugIn.ModelCore.UI.WriteLine("   Generating summary table...");
+            PlugIn.ModelCore.UI.WriteLine("   Generating browse species log...");
             OutputMetadata tblOut_species = new OutputMetadata()
             {
                 Type = OutputType.Table,
